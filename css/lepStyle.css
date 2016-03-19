@@ -7,10 +7,34 @@ body {
     color: white;
 }
 
+.background-lightgrey{
+	background: #a6a6a6;
+}
+
+.background-darkgrey{
+	background: #666666;
+}
+
+.white{
+	color: white;
+}
+.lightgrey{
+	color:  #a6a6a6;
+}
+
+.blue{
+	color: #0000ff;
+}
+
+.red{
+	color: #ff0008;
+}
+
 .title{
   text-align: center;
 }
 
+<<<<<<< HEAD
 .no-marin-p{
     margin: 0 0;
     padding:  0 0;
@@ -41,3 +65,18 @@ color: white;
     background: gray;
     color: #ffffff;
 }
+
+.row-bottom-margin5 { margin-bottom:5px; }
+.row-bottom-margin { margin-bottom:0px; }
+.row-top-margin { margin-top:0px; }
+.row-top-margin15 { margin-top:15px;}
+
+hr { 
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+} 
