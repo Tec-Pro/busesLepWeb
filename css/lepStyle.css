@@ -7,6 +7,28 @@ body {
     color: white;
 }
 
+.background-lightgrey{
+	background: #a6a6a6;
+}
+
+.background-darkgrey{
+	background: #666666;
+}
+
+.white{
+	color: white;
+}
+.lightgrey{
+	color:  #a6a6a6;
+}
+
+.blue{
+	color: #0000ff;
+}
+
 .title{
   text-align: center;
 }
+
+.row-bottom-margin { margin-bottom:5px; }
+.row-top-margin { margin-top:0px; }
