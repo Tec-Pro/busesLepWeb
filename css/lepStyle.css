@@ -34,7 +34,6 @@ body {
   text-align: center;
 }
 
-<<<<<<< HEAD
 .no-marin-p{
     margin: 0 0;
     padding:  0 0;
@@ -80,3 +79,8 @@ hr {
     border-style: inset;
     border-width: 1px;
 } 
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}

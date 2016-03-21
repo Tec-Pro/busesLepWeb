@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="seatPicker">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Search page for buses Lep web">
+    <meta name="author" content="Tec-Pro Software">
+
+    <title>Buses Lep - Buscar horarios</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="../css/lepStyle.css" rel="stylesheet">
+    <script type="text/javascript" src="../js/angular.min.js"></script>
+    <script type="text/javascript" src="../js/controllers/seatPickerController.js"></script>
+     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<title>Document</title>
+</head>
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top lepStyle">
+      <!-- Content of the navbar -->
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <p class="navbar-brand">buses Lep</p>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="">Inicio</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    <div class = "container" ng-controller="SeatsController as seatsCtrl">
+	    <div class="row white background-lightgrey ">
+	        <h4 class="col-xs-12 title row-bottom-margin">seleccione bustacas</h4>
+	    </div>
+		<div class = "col-xs-8 row-top-margin15 col-centered" >
+			<div class = "col-xs-2 row-top-margin15" align="middle" ng-repeat="seat in seatsCtrl.products">
+				<a ng-click="seatsCtrl.toggleImage(seat)">
+					<img  width="50" height="50" ng-src="{{seat.img}}" alt="">
+				</a>
+			</div>
+		</div>
+    </div>
+    
+</body>
+</html>
