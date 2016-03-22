@@ -33,12 +33,12 @@
       </div>
       <div class="row-bottom-margin white">
         <div class="row background-darkgrey background-lightgrey ">
-            <h4 class="col-xs-6 title row-bottom-margin5">Alcira Gigena - Berrotaran</h4>
-            <h4 class="col-xs-6 title row-bottom-margin5">Ida</h4>
+            <h4 class="col-xs-6 title row-bottom-margin5 h4-responsive">Alcira Gigena - Berrotaran</h4>
+            <h4 class="col-xs-6 title row-bottom-margin5 h4-responsive">Ida</h4>
           </div>
           <div class="row background-lightgrey">
-            <h4 class="col-xs-6 title row-top-margin row-bottom-margin5">Ida $99.00</h4>
-            <h4 class="col-xs-6 title row-top-margin row-bottom-margin5">Ida y vuelta $188</h4>
+            <h4 class="col-xs-6 title row-top-margin row-bottom-margin5 h4-responsive">Ida $99.00</h4>
+            <h4 class="col-xs-6 title row-top-margin row-bottom-margin5 h4-responsive">Ida y vuelta $188</h4>
           </div>
       </div>
     </nav>
@@ -49,26 +49,26 @@
       <br>
       <div ng-repeat="schedule in schedule.products">
         <div class = "row" >
-          <div class="col-xs-11">
+          <div class="col-xs-10">
             <div class="col-xs-4">
-              <h4>Salida</h4>
-              <p>{{schedule.departureDate}}</p>
+              <h4 class = "h4-responsive" >Salida</h4>
+              <h5 class = "h5-responsive">{{schedule.departureDate}}</h5>
               <h4 class = "blue">{{schedule.departureTime}}</h4>
             </div>
             <div class="col-xs-4">
-                <h4>Llegada</h4>
-                <p>{{schedule.arrivalDate}}</p>
-                <h4>{{schedule.arrivalTime}}</h4>
+                <h4 class = "h4-responsive" >Llegada</h4>
+                <h5 class = "h5-responsive">{{schedule.arrivalDate}}</h5>
+                <h4 class = "h4-responsive">{{schedule.arrivalTime}}</h4>
             </div>
-            <div class="col-xs-3">
-                <h4>Estado</h4>
-                <p><br></p>
-                <h4 class = "blue" ng-show = "schedule.status">Disponible</h4>
-                <h4 class = "red" ng-hide = "schedule.status">En Viaje</h4>
+            <div class="col-xs-2">
+                <h4 class = "h4-responsive">Estado</h4>
+                <h5 class = "h4-responsive"><br></h5>
+                <h4 class = "blue h4-responsive" ng-show = "schedule.status">Disponible</h4>
+                <h4 class = "red h4-responsive" ng-hide = "schedule.status">En Viaje</h4>
             </div>
           </div>
-          <div class="col-xs-1">
-            <h1 class = "lightgrey"> > </h1>
+          <div class="col-xs-2 clearfix">
+            <h1 class = "lightgrey h1-responsive"> > </h1>
           </div>
         </div>
         <hr>
