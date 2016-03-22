@@ -1,8 +1,9 @@
+
+
 angular.module("app", ["ngRoute"])
     .config(function($routeProvider){
         $routeProvider
             .when("/", {
-                controller: "js/controlers/mainController.js",
                 templateUrl: "views/main.html"
             })
             .when("/editProfile", {
@@ -24,6 +25,7 @@ angular.module("app", ["ngRoute"])
                 templateUrl: "views/recoverPass.html"
             })
             .when("/login", {
+                controler: "LoginCtrl",
                 templateUrl: "views/login.html"
             });
            
