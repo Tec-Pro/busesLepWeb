@@ -80,6 +80,26 @@ hr {
     border-width: 1px;
 } 
 
+.h1-responsive {
+  font-size: 4.5vh;
+}
+.h2-responsive {
+  font-size: 3.0vh;
+}
+.h3-responsive {
+  font-size: 3.0vh;
+}
+.h4-responsive {
+  font-size: 2.5vh;
+}
+.h5-responsive{
+  font-size: 2.0vh;
+}
+
+.no-padding{
+  padding-left: 0;
+  padding-right: 0;
+}
 .col-centered{
     float: none;
     margin: 0 auto;
