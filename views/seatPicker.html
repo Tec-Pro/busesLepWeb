@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="seatPicker">
+<html lang="en" ng-app="seatPicker" class = "height-seats">
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,38 +23,29 @@
     <![endif]-->
 	<title>Document</title>
 </head>
-<body>
+<body style="height: 100%;">
 	<nav class="navbar navbar-default navbar-fixed-top lepStyle">
       <!-- Content of the navbar -->
       <div class="container-fluid">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
           <p class="navbar-brand">buses Lep</p>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="">Inicio</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
+      </div>
+      <div class="row white background-lightgrey ">
+          <h4 class="col-xs-12 title row-bottom-margin h4-responsive">seleccione butacas</h4>
       </div>
     </nav>
-    <div class = "container" ng-controller="SeatsController as seatsCtrl">
-	    <div class="row white background-lightgrey ">
-	        <h4 class="col-xs-12 title row-bottom-margin ">seleccione bustacas</h4>
-	    </div>
-    
-  		<div class = "col-md-8 col-lg-8 col-xs-12 row-top-margin15 col-centered no-padding">
+    <div class = "container page" ng-controller="SeatsController as seatsCtrl">   
+  		<div class = "col-md-6 col-lg-6 col-xs-12 row-top-margin15 col-centered no-padding content-seats" >
   			<div class = "col-xs-2 row-top-margin15 no-padding"  ng-repeat="seat in seatsCtrl.products">
   				<a ng-click="seatsCtrl.toggleImage(seat)">
   					<img width="50" height="50" ng-src="{{seat.img}}" alt="">
   				</a>
   			</div>
   		</div>
+      </div>    
+          <button type="submit" class="btn btn-default col-xs-12 row-top-margin15 bottom">Siguiente</button>
+      </div>
     </div>
     
 </body>

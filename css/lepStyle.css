@@ -2,6 +2,7 @@ body {
     padding-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 
+
 .lepStyle{
     background: #ff0008;
     color: white;
@@ -96,6 +97,29 @@ hr {
   font-size: 2.0vh;
 }
 
+.bottom{
+  position: absolute;
+  right:    0;
+  bottom:   10px;
+}
+
+.height-seats{
+   height:100%;
+}
+
+.page{
+    margin-top: 45px;
+    padding: 0;
+    height: 80%;
+    width: 95%;
+    display: block; border:solid #000 1px
+}
+.content-seats{
+    padding:0;
+    overflow: scroll; overflow-x:hidden;
+    height:100%
+   
+}
 .no-padding{
   padding-left: 0;
   padding-right: 0;
@@ -104,3 +128,5 @@ hr {
     float: none;
     margin: 0 auto;
 }
+
+/*style="height: 200px; position:relative; overflow:auto;"*/

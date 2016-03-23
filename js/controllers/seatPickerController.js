@@ -3,6 +3,10 @@
 	var seatPicker = angular.module('seatPicker', []);
 
 	seatPicker.controller('SeatsController', function(){
+		var seats = [];
+		for (var i = 0; i < 80; i++) {
+			seats.push({ img: '../img/free_seat.png',status: 1, id: i});
+		}
   		this.products = seats;
 
 	    this.toggleImage = function(seat) {
@@ -23,9 +27,9 @@
 	});
 
 	//status: 1=libre 2=ocupado 3=seleccionado
-	var seats = [
-	    { img: '../img/free_seat.png',status: 1, id: 0},
-	    { img: '../img/free_seat.png',status: 1, id: 1},
+	//var seats = [
+	    
+	  /*  { img: '../img/free_seat.png',status: 1, id: 1},
 	    { img: '../img/free_seat.png',status: 1, id: 2},
 	    { img: '../img/free_seat.png',status: 1, id: 3},
 	    { img: '../img/free_seat.png',status: 1, id: 4},
@@ -45,7 +49,7 @@
 	    { img: '../img/free_seat.png',status: 1, id: 18},
 	    { img: '../img/occupied_seat.png',status: 2, id: 19},	    
 	    { img: '../img/free_seat.png',status: 1, id: 20},
-	    { img: '../img/free_seat.png',status: 1, id: 21}
-  	];
+	    { img: '../img/free_seat.png',status: 1, id: 21}*/
+  //	];
 
 })();
