@@ -25,6 +25,7 @@
    
     <script type="text/javascript" src="js/angular.min.js"></script>
     <script type="text/javascript" src="js/angular-route.min.js"></script>
+    <script type="text/javascript" src="js/angular-local-storage.js"></script>
      <script type="text/javascript" src="app.js"></script>
      <script type="text/javascript" src="js/controllers/loginController.js"></script>
 
@@ -45,22 +46,22 @@
           </button>
           
         </div>
-        <div id="navbar" class="navbar-collapse collapse navbar-left">
+        <div id="navbar" class="navbar-collapse collapse navbar-left" ng-controller="LoginCtrl">
           <ul class="nav navbar-nav ">
-            <li><a  href="">Recargar ciudades</a></li>
-            <li><a  href="">Últimas Búsquedas</a></li>
-            <li><a  href="#/editProfile">Editar Perfil</a></li>
-            <li><a  href="#/editPass">Cambiar Contraseña</a></li>
-            <li><a  href="">Mis Reservas</a></li>
-            <li><a  href="">Mis Compras</a></li>
-            <li><a  href="">Cerrar Sesion</a></li>
+            <li><a  ng-show="user.dni == '' "href="">Inicio</a></li>
+            <li><a  ng-show="user.dni != '' " href="">Recargar ciudades</a></li>
+            <li><a  ng-show="user.dni != '' " href="">Últimas Búsquedas</a></li>
+            <li><a  ng-show="user.dni != '' " href="#/editProfile">Editar Perfil</a></li>
+            <li><a  ng-show="user.dni != '' " href="#/editPass">Cambiar Contraseña</a></li>
+            <li><a  ng-show="user.dni != '' " href="">Mis Reservas</a></li>
+            <li><a  ng-show="user.dni != '' " href="">Mis Compras</a></li>
+            <li><a  ng-show="user.dni != '' " href="" ng-click="logout()">{{console.log(localStorageService.get("user-lep"))}}Cerrar Sesion</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
     
      <div ng-view></div>
-
 
 </body>
 </html>
