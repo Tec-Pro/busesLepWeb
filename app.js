@@ -32,6 +32,10 @@ angular.module("app", ["ngRoute","LocalStorageModule"])
                 controler: "ScheduleController",
                 templateUrl: "views/schedulesList.html"
             })
+            .when("/seatPicker", {
+                controler: "SeatsController",
+                templateUrl: "views/seatPicker.html"
+            })
             .when("/details", {
                 templateUrl: "views/details.html"
             });             
