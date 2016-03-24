@@ -86,19 +86,46 @@ hr {
 }
 
 .h1-responsive {
-  font-size: 4.5vh;
+  font-size: 2em;
 }
 .h2-responsive {
-  font-size: 3.0vh;
+  font-size: 1.5em;
 }
 .h3-responsive {
-  font-size: 3.0vh;
+  font-size: 1.17em;
 }
 .h4-responsive {
-  font-size: 2.5vh;
+  font-size: 1.12em;
 }
 .h5-responsive{
-  font-size: 2.0vh;
+  font-size: .83em;
+}
+
+.normal-font{
+  font-weight: normal;
+}
+
+/************************************************************************************
+smaller than 650
+*************************************************************************************/
+@media screen and (max-width: 650px) {
+  .h1-responsive {
+    font-size: 1.8em;
+  }
+
+  .h2-responsive {
+    font-size: 1.3em;
+  }
+  .h3-responsive {
+    font-size: 0.9em;
+  }
+  .h4-responsive{
+    font-size: 0.8em;
+  }
+  .h5-responsive{
+    font-size: 0.7em;
+  }
+  
 }
 
 .bottom{
