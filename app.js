@@ -1,6 +1,6 @@
 
 
-angular.module("app", ["ngRoute"])
+angular.module("app", ["ngRoute","LocalStorageModule"])
     .config(function($routeProvider){
         $routeProvider
             .when("/", {
@@ -27,7 +27,10 @@ angular.module("app", ["ngRoute"])
             .when("/login", {
                 controler: "LoginCtrl",
                 templateUrl: "views/login.html"
-            });
-           
+            })
+            .when("/schedules", {
+                controler: "ScheduleController",
+                templateUrl: "views/schedulesList.html"
+            });             
     });
    

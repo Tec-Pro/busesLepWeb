@@ -1,37 +1,6 @@
-<!DOCTYPE html>
-<html lang="en" ng-app="schedulesList">
-<head>
-	 <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Search page for buses Lep web">
-    <meta name="author" content="Tec-Pro Software">
-
-    <title>Buses Lep - Buscar horarios</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-
-    <link href="../css/lepStyle.css" rel="stylesheet">
-    <script type="text/javascript" src="../js/angular.min.js"></script>
-    <script type="text/javascript" src="../js/controllers/schedulesListController.js"></script>
-     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-	<title>Document</title>
-</head>
-<body>
- 	  <nav class="navbar navbar-default navbar-fixed-top lepStyle">
+  <nav class="navbar navbar-fixed-top">
       <!-- Content of the navbar -->
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <h2 class="white title">Buses Lep</h2>
-        </div>
-      </div>
-      <div class="row-bottom-margin white">
+      <div class="row-bottom-margin white padding-top50">
         <div class="row background-darkgrey background-lightgrey ">
             <h4 class="col-xs-6 title row-bottom-margin5 h4-responsive">Alcira Gigena - Berrotaran</h4>
             <h4 class="col-xs-6 title row-bottom-margin5 h4-responsive">Ida</h4>
@@ -42,29 +11,29 @@
           </div>
       </div>
     </nav>
-    <div class = "container" ng-controller="ScheduleController as schedule">
+     <div class = "container" ng-controller="ScheduleController">
     	<br>
       <br>
       <br>
       <br>
-      <div ng-repeat="schedule in schedule.products">
+      <div ng-repeat="sched in schedules">
         <div class = "row" >
           <div class="col-xs-10">
             <div class="col-xs-4">
               <h4 class = "h4-responsive" >Salida</h4>
-              <h5 class = "h5-responsive">{{schedule.departureDate}}</h5>
-              <h4 class = "blue">{{schedule.departureTime}}</h4>
+              <h5 class = "h5-responsive">{{sched.departureDate}}</h5>
+              <h4 class = "blue h4-responsive">{{sched.departureTime}}</h4>
             </div>
             <div class="col-xs-4">
                 <h4 class = "h4-responsive" >Llegada</h4>
-                <h5 class = "h5-responsive">{{schedule.arrivalDate}}</h5>
-                <h4 class = "h4-responsive">{{schedule.arrivalTime}}</h4>
+                <h5 class = "h5-responsive">{{sched.arrivalDate}}</h5>
+                <h4 class = "h4-responsive">{{sched.arrivalTime}}</h4>
             </div>
             <div class="col-xs-2">
                 <h4 class = "h4-responsive">Estado</h4>
                 <h5 class = "h4-responsive"><br></h5>
-                <h4 class = "blue h4-responsive" ng-show = "schedule.status">Disponible</h4>
-                <h4 class = "red h4-responsive" ng-hide = "schedule.status">En Viaje</h4>
+                <h4 class = "blue h4-responsive" ng-show = "sched.status">Disponible</h4>
+                <h4 class = "red h4-responsive" ng-hide = "sched.status">En Viaje</h4>
             </div>
           </div>
           <div class="col-xs-2 clearfix">
@@ -73,6 +42,4 @@
         </div>
         <hr>
       </div>
-    </div>
-</body>
-</html>
+    </div> 
