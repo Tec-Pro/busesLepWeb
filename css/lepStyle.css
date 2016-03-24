@@ -81,6 +81,10 @@ hr {
     border-width: 1px;
 } 
 
+.padding-top50{
+   padding-top: 50px;
+}
+
 .h1-responsive {
   font-size: 4.5vh;
 }

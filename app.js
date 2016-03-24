@@ -27,7 +27,10 @@ angular.module("app", ["ngRoute","LocalStorageModule"])
             .when("/login", {
                 controler: "LoginCtrl",
                 templateUrl: "views/login.html"
-            });
-           
+            })
+            .when("/schedules", {
+                controler: "ScheduleController",
+                templateUrl: "views/schedulesList.html"
+            });             
     });
    
