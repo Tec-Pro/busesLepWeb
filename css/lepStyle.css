@@ -2,7 +2,6 @@ body {
     padding-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 
-
 .lepStyle{
     background: #ff0008;
     color: white;
@@ -86,19 +85,45 @@ hr {
 }
 
 .h1-responsive {
-  font-size: 4.5vh;
+  font-size: 2em;
 }
 .h2-responsive {
-  font-size: 3.0vh;
+  font-size: 1.5em;
 }
 .h3-responsive {
-  font-size: 3.0vh;
+  font-size: 1.17em;
 }
 .h4-responsive {
-  font-size: 2.5vh;
+  font-size: 1.12em;
 }
 .h5-responsive{
-  font-size: 2.0vh;
+  font-size: .83em;
+}
+
+.normal-font{
+  font-weight: normal;
+}
+
+/************************************************************************************
+smaller than 650
+*************************************************************************************/
+@media screen and (max-width: 650px) {
+  .h1-responsive {
+    font-size: 1.8em;
+  }
+
+  .h2-responsive {
+    font-size: 1.3em;
+  }
+  .h3-responsive {
+    font-size: 0.9em;
+  }
+  .h4-responsive{
+    font-size: 0.8em;
+  }
+  .h5-responsive{
+    font-size: 0.7em;
+  }
 }
 
 .bottom{
@@ -107,23 +132,25 @@ hr {
   bottom:   10px;
 }
 
-.height-seats{
-   height:100%;
+.size-seats{
+   height:50px;
+   width:50px;
 }
 
 .page{
     margin-top: 45px;
     padding: 0;
-    height: 80%;
+    height: 70vh;
     width: 95%;
     display: block; border:solid #000 1px
 }
+
 .content-seats{
     padding:0;
     overflow: scroll; overflow-x:hidden;
-    height:100%
-   
+    height:100%;  
 }
+
 .no-padding{
   padding-left: 0;
   padding-right: 0;
