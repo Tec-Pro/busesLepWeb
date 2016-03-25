@@ -160,4 +160,11 @@ smaller than 650
     margin: 0 auto;
 }
 
+.redlink a{
+color:#ff0008;
+}
+.redlink a:hover{
+color:#ff0008;
+} 
+
 /*style="height: 200px; position:relative; overflow:auto;"*/

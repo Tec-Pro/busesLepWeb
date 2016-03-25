@@ -2,19 +2,18 @@
 
     <div ng-controller="LoginCtrl" class="container" >
         <h2 class="text-center">Ingreso de usuario</h2>
-        <form ng-submit="submitForm()">
+        <form ng-submit="login()">
           <div class="form-group">
             <label class="sr-only" for="dni">DNI</label>
-            <input type="text" class="form-control" id="DNI" placeholder="DNI" ng-model="user.dni"/>
+            <input type="text" class="form-control" id="DNI" placeholder="DNI" required ng-model="user.dni"/>
           </div>
           <div class="form-group">
             <label class="sr-only"  for="Password">Contraseña</label>
-            <input type="password" class="form-control" id="Password" placeholder="Contraseña" ng-model="user.pass"/>
+            <input type="password" class="form-control" id="Password" placeholder="Contraseña" required ng-model="user.pass"/>
           </div>
           <button type="submit" class="btn btn-default col-xs-12 text-center">Ingresar</button>
         </form>      
         <br></br>
-        <p class="text-center" >¿Olvidaste tu contraseña? hace <a href="#/recoverPass">click aqui</a></p>
+        <p class="text-center redlink" >¿Olvidaste tu contraseña? hacé <a href="#/recoverPass">click aquí</a></p>
         <button type="button" class="btn btn-default col-xs-12 text-center" ng-click="go('/signin')">¿Aún no tienes cuenta?</button>
     </div>
-

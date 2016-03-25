@@ -1,31 +1,31 @@
 
 
-    <div class="container" >
-        <h2 class="text-center">Reguistro de usuario</h2>
-        <form>
+    <div ng-controller="LoginCtrl" class="container" >
+        <h2 class="text-center">Registro de usuario</h2>
+        <form ng-submit="signin()">
            <div class="form-group">
             <label class="sr-only"  for="nombre">Nombre</label>
-            <input type="text" class="form-control" id="Nombre" placeholder="Nombre">
+            <input type="text" required class="form-control" id="Nombre" placeholder="Nombre" ng-model="user.name">
           </div>
            <div class="form-group">
             <label class="sr-only"  for="dni">Apellido</label>
-            <input type="text" class="form-control" id="Apellido" placeholder="Apellido">
+            <input type="text" required class="form-control" id="Apellido" placeholder="Apellido" ng-model="user.lastname">
           </div>
           <div class="form-group">
             <label class="sr-only"  for="dni">DNI</label>
-            <input type="text" class="form-control" id="DNI" placeholder="DNI">
+            <input type="text" required class="form-control" id="DNI" placeholder="DNI" ng-model="user.dni">
           </div>
           <div class="form-group">
-            <label class="sr-only" for="email">Direccion de corre electronico</label>
-            <input type="email" class="form-control" id="email" placeholder="Direccion de corre electronico">
+            <label class="sr-only" for="email">Dirección de correo electrónico</label>
+            <input type="email" required class="form-control" id="email" placeholder="Dirección de corre electronico" ng-model="user.email">
           </div>
           <div class="form-group">
             <label class="sr-only"  for="Password">Contraseña</label>
-            <input type="password" class="form-control" id="Password" placeholder="Contraseña">
+            <input type="password" required class="form-control" id="Password" placeholder="Contraseña" ng-model="user.pass">
           </div>
           <div class="form-group">
-            <label class="sr-only"  for="Password2">Confirmacion Contrasña</label>
-            <input type="password" class="form-control" id="Password2" placeholder="Confirmacion Contrasña">
+            <label class="sr-only"  for="Password2">Confirmación Contraseña</label>
+            <input type="password" required class="form-control" id="Password2" placeholder="Confirmación Contraseña" ng-model="user.pass2">
           </div>
           <button type="submit" class="btn btn-default col-xs-12 text-center">Registrarme</button>
         </form>        
