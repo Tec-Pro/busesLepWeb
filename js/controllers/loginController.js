@@ -12,6 +12,7 @@ angular.module('app')
     };
 
     $scope.login = function ( ) {
+       $scope.user.email = "PPPPPP@gmail.com";
       localStorageService.set("user-lep", $scope.user);
       $location.path("/");
     };

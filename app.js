@@ -12,8 +12,8 @@ angular.module("app", ["ngRoute","LocalStorageModule"])
             .when("/editPass", {
                 templateUrl: "views/editPass.html"
             })
-            .when("/endPurhcase", {
-                templateUrl: "views/endPurhcase.html"
+            .when("/endPurchase", {
+                templateUrl: "views/endPurchase.html"
             })
             .when("/endReserve", {
                 templateUrl: "views/endReserve.html"
