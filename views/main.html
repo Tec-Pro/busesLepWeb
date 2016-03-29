@@ -2,82 +2,88 @@
 <div class="container" data-ng-controller="MainCtrl">
   <!-- Title row -->
   <div class="row">
-    <h1 class="col-xs-12 title">Búsqueda de horarios</h1>
+    <h1 class="col-xs-12 text-center">Búsqueda de horarios</h1>
   </div>
   <!-- Search form -->
-  <form name="searchForm" role="form">
-    <!-- Checkbox row -->
-    <div class="row">
-      <div class="col-xs-12">
-        <label>
-          <input type="checkbox" id="checked" data-ng-model="checked">Ida y Vuelta</input>
-        </label>
-      </div>
-    </div>
-    {{dt}}
-    <!-- Origin and destination selector row -->
-    <div class="row">
-      <div class="col-xs-12 col-md-6">
-        <div class="form-group">
-          <label class="sr-only" for="origin">Origen:</label>
-          <select class="form-control" name="origin" id="origin" data-ng-model="search.origin">
-            <option value="" selected>Origen</option>
-            <option value="A">A</option>
-            <option value="B">B</option>
-            <option value="C">C</option>
-          </select>
-          {{search.origin}}
+  <div class="row">
+    <form name="searchForm" role="form" data-ng-submit="search()">
+      <!-- Checkbox row -->
+      <div class="row">
+        <div class="col-xs-12">
+          <label>
+            <input type="checkbox" id="checked" data-ng-model="checked">Ida y Vuelta</input>
+          </label>
         </div>
       </div>
-      <div class="col-xs-12 col-md-6">
-        <div class="form-group">
-          <label class="sr-only" for="destination">Destino:</label>
-          <select class="form-control" name="destination" id="destination" data-ng-model="search.destination">
-            <option value="" selected>Destino</option>
-            <option value="A">A</option>
-            <option value="B">B</option>
-            <option value="C">C</option>
-          </select>
-          {{search.destination}}
+      {{dt}}
+      <!-- Origin and destination selector row -->
+      <div class="row">
+        <div class="col-xs-12 col-md-6">
+          <div class="form-group">
+            <label class="sr-only" for="origin">Origen:</label>
+            <select class="form-control" name="origin" id="origin" data-ng-model="params.origin">
+              <option value="" selected>Origen</option>
+              <option value="A">A</option>
+              <option value="B">B</option>
+              <option value="C">C</option>
+            </select>
+            {{params.origin}}
+          </div>
         </div>
-      </div>
-    </div>
-    <!-- Date selector row -->
-    <div class="row">
-      <div class="col-xs-12 col-md-6">
-        <div class="form-group">
-          <input type="date" data-ng-model="search.departure" placeholder="dd/MM/yyyy" formatted-date required>
-        </div>
-      </div>
-      <div class="col-xs-12 col-md-6" data-ng-show="checked">
-        <div class="form-group">
-          <div class='input-group date' id='datepickerArrival'>
-            <input type='text' class="form-control" />
-              <span class="input-group-addon">
-                  <span class="glyphicon glyphicon-calendar"></span>
-              </span>
+        <div class="col-xs-12 col-md-6">
+          <div class="form-group">
+            <label class="sr-only" for="destination">Destino:</label>
+            <select class="form-control" name="destination" id="destination" data-ng-model="params.destination">
+              <option value="" selected>Destino</option>
+              <option value="A">A</option>
+              <option value="B">B</option>
+              <option value="C">C</option>
+            </select>
+            {{params.destination}}
           </div>
         </div>
       </div>
-    </div>
-    <!-- Amount of tickets selector row -->
-    <div class="row">
-      <div class="col-xs-12">
-        <fieldset class="form-group">
-          <select class="form-control" name="cantPasajes" required>
-            <option value="" selected>Cantidad de pasajes</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-          </select>
-        </fieldset>
+      <!-- Date selector row -->
+      <div class="row">
+        <div class="col-xs-12 col-md-6">
+          <div class="form-group">
+            <input type="date" data-ng-model="params.departure" placeholder="dd/MM/yyyy" formatted-date required class="form-control">
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-6" data-ng-show="checked">
+          <div class="form-group">
+                <div class='input-group date' id='datetimepicker1'>
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
       </div>
-    </div>
-    <!-- Submit button -->
-    <div>
-      <button type="submit" class="btn btn-default col-xs-12">Buscar</button>
-    </div>
-  </form>
+      <!-- Amount of tickets selector row -->
+      <div class="row">
+        <div class="col-xs-12">
+          <fieldset class="form-group">
+            <select class="form-control" name="cantPasajes" required data-ng-model="params.amount">
+              <option value="" selected>Cantidad de pasajes</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+          </fieldset>
+        </div>
+      </div>
+      <!-- Submit button -->
+      <div>
+        <button type="submit" class="btn btn-default col-xs-12">Buscar</button>
+      </div>
+    </form>
+  </div>
   <!-- Search form end -->
+  <!-- Login href -->
+  <div class="row">
+    <a href="#/login" class="btn btn-primary col-xs-12">Ingresar</a>
+  </div>
 </div>
 <!-- Main container end -->
