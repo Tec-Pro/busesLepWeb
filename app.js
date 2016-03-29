@@ -26,19 +26,19 @@ angular.module("app", ["ngRoute","LocalStorageModule"])
                 templateUrl: "views/recoverPass.html"
             })
             .when("/login", {
-                controler: "LoginCtrl",
+                controller: "LoginCtrl",
                 templateUrl: "views/login.html"
             })
             .when("/schedules", {
-                controler: "ScheduleController",
+                controller: "ScheduleController",
                 templateUrl: "views/schedulesList.html"
             })
             .when("/seatPicker", {
-                controler: "SeatsController",
+                controller: "SeatsController",
                 templateUrl: "views/seatPicker.html"
             })
             .when("/lastSearches", {
-                controler: "LastSearchesController",
+                controller: "LastSearchesController",
                 templateUrl: "views/lastSearches.html"
             })
             .when("/details", {
