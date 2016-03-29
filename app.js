@@ -43,6 +43,9 @@ angular.module("app", ["ngRoute","LocalStorageModule"])
             })
             .when("/details", {
                 templateUrl: "views/details.html"
+            })
+            .when("/summary", {
+                templateUrl: "views/summary.html"
             });             
     });
    
