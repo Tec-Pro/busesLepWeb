@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('MainCtrl', function($scope){
+.controller('MainCtrl', function($scope, $location){
     $scope.params = {
         origin: '',
         destination: '',
@@ -10,16 +10,11 @@ angular.module('app')
 
     $scope.checked = false;
 
-    $scope.search = function(){
-        $scope.checked = !$scope.checked;
+    $scope.goSearch = function(){
+        $location.path('/schedules');
     };
 
-
+    var $j = jQuery.noConflict()
 });
-
-
-    $(function () {
-        $('#datetimepicker1').datepicker();
-    });
 
 
