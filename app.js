@@ -4,6 +4,7 @@ angular.module("app", ["ngRoute","LocalStorageModule"])
     .config(function($routeProvider){
         $routeProvider
             .when("/", {
+                controller: "MainCtrl",
                 templateUrl: "views/main.html"
             })
             .when("/editProfile", {
