@@ -13,8 +13,6 @@ angular.module('app')
     $scope.goSearch = function(){
         $location.path('/schedules');
     };
-
-    var $j = jQuery.noConflict()
 });
 
 
