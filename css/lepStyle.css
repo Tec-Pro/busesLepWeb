@@ -72,8 +72,8 @@ color: white;
 
 hr { 
     display: block;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
+    margin-top: 0.0em;
+    margin-bottom: 0.0em;
     margin-left: auto;
     margin-right: auto;
     border-style: inset;
@@ -149,6 +149,15 @@ smaller than 650
     padding:0;
     overflow: scroll; overflow-x:hidden;
     height:100%;  
+}
+
+.schedules-row:hover{
+    background: #F0F0F0;
+    cursor: pointer;
+}
+
+.schedules-row{
+    background: #ffffff;
 }
 
 .no-padding{
