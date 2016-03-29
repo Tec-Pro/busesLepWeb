@@ -9,8 +9,8 @@
 <br>
 <br>
 <div ng-controller = "LastSearchesController">
-	<div class = "container" ng-repeat = "search in searches">
-		<div class = "row">
+	<div class = "container schedules-row" ng-repeat = "search in searches">
+		<div class = "row" ng-click="goSchedules()">
 			<div class = "col-xs-12 col-md-6">
 				<h4 class = "h4-responsive"> {{search.goingCity}} - {{search.backCity}}</h4>
 				<h4 class = "h4-responsive"> {{search.goingDate}} <span class="red"> | </span> {{search.backDate}}</h4>
