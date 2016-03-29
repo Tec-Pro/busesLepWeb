@@ -1,15 +1,11 @@
 
-    <div class="container text-center" >
+    <div ng-controller="LoginCtrl" class="container text-center" >
       <br>
-        <h4>¡Su reserva ha sido exitosa!</h4>
+        <h4 class="col-xs-12 ">¡Su reserva ha sido exitosa!</h4>
         
-        <p class="no-marin-p">Le enviamos un email a</p>
-        <p class="no-marin-p">pepe@gmail.com</p>
-        <p class="no-marin-p">con detalles de la reserva.</p>
-        <br>
-        <p class="no-marin-p">Puede comprar el pasaje en el menú "mis reservas" o ir boletería para abonar y obtener su boleto</p>
-        <br>
-        <p class="no-marin-p">Prodrá consultar la operación realizada dentro del menú Mis reservas una vez que haya salido de esta pantalla.</p>
-        <br>
-          <button class="btn btn-default col-xs-12 ">Finalizar</button>    
+        <p  class="col-xs-12 ">Le enviamos un email a  <span data-ng-bind="user.email"></span> con detalles de la reserva.</p>
+        <p class="col-xs-12 ">Puede comprar el pasaje en el menú "mis reservas" o ir boletería para abonar y obtener su boleto</p>
+        <p class="col-xs-12 "> Prodrá consultar la operación realizada dentro del menú Mis reservas una vez que haya salido de esta pantalla.</p>
+          <button class="btn btn-default col-xs-12"  ng-click="go('/')">Finalizar</button>    
+        </br>
     </div>

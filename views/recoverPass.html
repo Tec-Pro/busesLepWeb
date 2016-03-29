@@ -1,15 +1,15 @@
 
     
-    <div class="container" >
+    <div ng-controller="LoginCtrl" class="container" >
         <h2 class="text-center">Recuperar Contraseña</h2>
-        <form>
+        <form ng-submit="recoverPass()">
            <div class="form-group">
             <label class="sr-only"  for="DNI">DNI</label>
-            <input type="text" class="form-control" id="DNI" placeholder="DNI">
+            <input type="text" required class="form-control" id="DNI" placeholder="DNI" ng-model="user.dni">
           </div>
           <div class="form-group">
-            <label class="sr-only" for="email">Direccion de corre electronico</label>
-            <input type="email" class="form-control" id="email" placeholder="Direccion de corre electronico">
+            <label class="sr-only" for="email">Dirección de correo electrónico</label>
+            <input type="email" required class="form-control" id="email" placeholder="Dirección de correo electrónico"  ng-model="user.email">
           </div>
           <button type="submit" class="btn btn-default col-xs-12 text-center">Recuperar</button>
         </form>        

@@ -1,14 +1,14 @@
 
-    <div class="container" >
+    <div ng-controller="LoginCtrl" class="container" >
         <h2 class="text-center">Cambiar Contraseña</h2>
-        <form>
+        <form ng-submit="editPass()">
           <div class="form-group">
             <label class="sr-only"  for="Password">Nueva Contraseña</label>
-            <input type="password" class="form-control" id="Password" placeholder="Nueva Contraseña">
+            <input type="password" required class="form-control" id="Password" placeholder="Nueva Contraseña" ng-model="user.pass">
           </div>
           <div class="form-group">
-            <label class="sr-only"  for="Password2">Confirmacion Contrasña</label>
-            <input type="password" class="form-control" id="Password2" placeholder="Confirmacion Contrasña">
+            <label class="sr-only"  for="Password2">Confirmación Contrasña</label>
+            <input type="password" required class="form-control" id="Password2" placeholder="Confirmación Contrasña" ng-model="user.pass2">
           </div>
           <button type="submit" class="btn btn-default col-xs-12 text-center">Guardar</button>
         </form>        
