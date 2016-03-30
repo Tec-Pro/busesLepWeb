@@ -137,6 +137,11 @@ smaller than 650
    width:50px;
 }
 
+.stick {
+    position: fixed;
+    top: 50px;
+    z-index:5;
+}
 .page{
     margin-top: 45px;
     padding: 0;
