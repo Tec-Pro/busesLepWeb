@@ -45,10 +45,14 @@ angular.module("app", ["ngRoute","LocalStorageModule"])
                 templateUrl: "views/details.html"
             })
             .when("/summary", {
+                controller: "SummaryController",
                 templateUrl: "views/summary.html"
             })
             .when("/userReserves", {
                 templateUrl: "views/userReserves.html"
+            })
+            .when("/userTickets", {
+                templateUrl: "views/userTickets.html"
             });             
     });
    
