@@ -15,7 +15,7 @@
           </label>
         </div>
       </div>
-      {{dt}}
+      <!-- End of checkbox row -->
       <!-- Origin and destination selector row -->
       <div class="row">
         <div class="col-xs-12 col-md-6">
@@ -27,7 +27,6 @@
               <option value="B">B</option>
               <option value="C">C</option>
             </select>
-            {{params.origin}}
           </div>
         </div>
         <div class="col-xs-12 col-md-6">
@@ -39,14 +38,15 @@
               <option value="B">B</option>
               <option value="C">C</option>
             </select>
-            {{params.destination}}
           </div>
         </div>
       </div>
+      <!-- End of origin and destination row -->
       <!-- Date selector row -->
       <div class="row">
         <div class="col-xs-12 col-md-6">
           <div class="form-group">
+          <!-- Departure date input -->
             <div class='input-group date'>
                 <input type="date" class="form-control" required min="{{params.current | date:'yyyy-MM-dd'}}" data-ng-model="params.departure"/>
                 <span class="input-group-addon">
@@ -56,8 +56,10 @@
             </div>
           </div>
         </div>
+        <!-- Show only if is a round trip -->
         <div class="col-xs-12 col-md-6" data-ng-show="checked">
           <div class="form-group">
+          <!-- Arrival date input -->
             <div class='input-group date'>
                 <input type="date" class="form-control" min="{{params.current | date:'yyyy-MM-dd'}}" data-ng-model="params.arrival"/>
                 <span class="input-group-addon">
@@ -68,6 +70,7 @@
           </div>
         </div>
       </div>
+      <!-- End of date picker row -->
       <!-- Amount of tickets selector row -->
       <div class="row">
         <div class="col-xs-12">
@@ -81,6 +84,7 @@
           </fieldset>
         </div>
       </div>
+      <!-- End of ticket selector row -->
       <!-- Submit button -->
       <div>
         <button type="submit" class="btn btn-default col-xs-12">Buscar</button>
@@ -91,6 +95,7 @@
   <!-- Login href -->
   <div class="row" data-ng-controller="LoginCtrl">
     <br>
+    <!-- Only show it if the user is not logged in -->
     <div data-ng-show="user.dni === ''">
       <a href="#/login" class="btn btn-danger col-xs-12">Ingresar</a>
     </div>
