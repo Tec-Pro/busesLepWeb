@@ -137,6 +137,11 @@ smaller than 650
    width:50px;
 }
 
+.stick {
+    position: fixed;
+    top: 50px;
+    z-index:5;
+}
 .page{
     margin-top: 45px;
     padding: 0;
@@ -177,3 +182,11 @@ color:#ff0008;
 } 
 
 /*style="height: 200px; position:relative; overflow:auto;"*/
+
+
+@media (min-width: 995px) {
+  .navbar-collapse {
+    width: auto;
+    border-top: 0;
+    box-shadow: none;
+  }
