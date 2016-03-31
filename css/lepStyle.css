@@ -75,6 +75,7 @@ color: white;
 .row-bottom-margin { margin-bottom:0px; }
 .row-top-margin { margin-top:0px; }
 .row-top-margin15 { margin-top:15px;}
+.margin-top-45 {margin-top:45px;}
 
 hr { 
     display: block;
@@ -122,7 +123,7 @@ smaller than 650
     font-size: 1.3em;
   }
   .h3-responsive {
-    font-size: 0.9em;
+    font-size: 1.0em;
   }
   .h4-responsive{
     font-size: 0.8em;
