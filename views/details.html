@@ -2,10 +2,11 @@
       <!-- Content of the navbar -->
       <div class="row-bottom-margin white col-xs-12 stick">
           <div class="row background-lightgrey">
-            <h4 class="col-xs-12 title row-top-margin row-bottom-margin5 h4-responsive">Detalle de informacion seleccionada</h4>
+            <h2 class="col-xs-12 title row-top-margin row-bottom-margin5 h3-responsive">Detalle de informacion seleccionada</h2>
           </div>
       </div>
-	<div class = "container page">
+<div ng-controller="DetailsController">
+	<div class = "container summary-row margin-top-45">
 		<div class = "row">
 				<div class = "col-xs-6">
 					<h2 class = "h3-responsive">Destino Ida</h2>
@@ -27,23 +28,42 @@
 				<h5 class = "background-darkgrey h5-responsive">.</h5>
 			</div>
 		</div>
-		<div class = "row">
+		<div ng-show="roundTrip == 1">
+			<div class = "row">
+					<div class = "col-xs-6">
+						<h2 class = "h3-responsive">Destino Ida</h2>
+						<h2 class = "h3-responsive">Salida</h2>
+						<h2 class = "h3-responsive">Cant. Pasajes</h2>
+						<h2 class = "h3-responsive">Lugar de abordo</h2>
+						<h2 class = "h3-responsive">Plataforma</h2>
+					</div>
+					<div class = "col-xs-6 ">
+						<h2 class = "normal-font h3-responsive">Destino Ida</h2>
+						<h2 class = "normal-font h3-responsive">Salida</h2>
+						<h2 class = "normal-font h3-responsive">Cant. Pasajes</h2>
+						<h2 class = "normal-font h3-responsive">Lugar de abordo</h2>
+						<h2 class = "normal-font h3-responsive">Plataforma</h2>
+					</div>
+			</div>
+			<div  class = "row">
+				<div class = "col-xs-12"> 
+					<h5 class = "background-darkgrey h5-responsive">.</h5>
+				</div>
+			</div>
+		</div>
+		<div class = "row" ng-show="buy == 1">
 				<div class = "col-xs-6">
-					<h2 class = "h3-responsive">Destino Ida</h2>
-					<h2 class = "h3-responsive">Salida</h2>
-					<h2 class = "h3-responsive">Cant. Pasajes</h2>
-					<h2 class = "h3-responsive">Lugar de abordo</h2>
-					<h2 class = "h3-responsive">Plataforma</h2>
+					<h2 class = "h2-responsive red">Total a pagar</h2>
 				</div>
 				<div class = "col-xs-6 ">
-					<h2 class = "normal-font h3-responsive">Destino Ida</h2>
-					<h2 class = "normal-font h3-responsive">Salida</h2>
-					<h2 class = "normal-font h3-responsive">Cant. Pasajes</h2>
-					<h2 class = "normal-font h3-responsive">Lugar de abordo</h2>
-					<h2 class = "normal-font h3-responsive">Plataforma</h2>
+					<h2 class = "normal-font h2-responsive">$285.00</h2>
 				</div>
 		</div>
 	</div>
-	 </div>    
-          <button type="submit" class="btn btn-default col-xs-12 row-top-margin15">Reservar</button>
+	 <div ng-show = "buy == 1">    
+          <button type="submit" class="btn btn-default col-xs-12 row-top-margin15" ng-click="goEnd()">Confirmar</button>
       </div>
+      <div ng-show = "buy != 1">    
+          <button type="submit" class="btn btn-default col-xs-12 row-top-margin15" ng-click="goReserve()">Reservar</button>
+      </div>
+</div>

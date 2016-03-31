@@ -1,4 +1,4 @@
-angular.module('app').controller('SeatsController', function ($scope){
+angular.module('app').controller('SeatsController', function ($scope, $location){
 
 	
 		$scope.seats = [];
@@ -21,4 +21,8 @@ angular.module('app').controller('SeatsController', function ($scope){
 			}
 	        //seat.img = '../img/occupied_seat.png'
 	    };
+
+	    $scope.goDetails= function() {
+	    	$location.path('/details/1/1');	 
+		};
 });
