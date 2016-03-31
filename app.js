@@ -13,8 +13,9 @@ angular.module("app", ["ngRoute","LocalStorageModule"])
             .when("/editPass", {
                 templateUrl: "views/editPass.html"
             })
-            .when("/endPurchase", {
-                templateUrl: "views/endPurchase.html"
+            .when("/endPurchase/:code", {
+                templateUrl: "views/endPurchase.html",
+                controller: 'EndController'
             })
             .when("/endReserve", {
                 templateUrl: "views/endReserve.html"
@@ -25,7 +26,7 @@ angular.module("app", ["ngRoute","LocalStorageModule"])
             .when("/recoverPass", {
                 templateUrl: "views/recoverPass.html"
             })
-            .when("/login", {
+            .when("/login/:nxt?", {
                 controller: "LoginCtrl",
                 templateUrl: "views/login.html"
             })
