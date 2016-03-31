@@ -5,31 +5,78 @@
 	</div>
 	<!-- Reserve row ng-repeat for each ticket -->
 	<div class="row user-reserve">
+		<button type="button" class="btn btn-default col-xs-12" data-toggle="modal" data-target=".summary-modal">
 	<!-- Ticket destination detail -->
-		<span class="col-xs-12">
-			IDA Almafuerte a Córdoba
-		</span>
-		<div class="col-xs-12">
-			<!-- Ticket times detail -->
-			<div class="row text-center">
-				<!-- Date -->
-				<div class="col-xs-6 bg-warning">
-					SALIDA: <span class="green-text">13/08/16</span>
+			<span class="col-xs-12 h4-responsive">
+				IDA Almafuerte a Córdoba
+			</span>
+			<div class="col-xs-12">
+				<!-- Ticket times detail -->
+				<div class="row text-center h4-responsive">
+					<!-- Date -->
+					<div class="col-xs-6">
+						SALIDA: <span class="green-text">13/08/16</span>
+					</div>
+					<!-- Time -->
+					<div class="col-xs-6">
+						HORA: <span class="green-text">20:50</span>
+					</div>
 				</div>
-				<!-- Time -->
-				<div class="col-xs-6 bg-danger">
-					HORA: <span class="green-text">20:50</span>
+				<!-- End of times detail -->
+				<!-- Ticket passengers detail -->
+				<div class="row text-center h4-responsive">
+					<div class="col-xs-12">
+						Cantidad de pasajeros 2
+					</div>
 				</div>
+				<!-- End of ticket passengers detail -->
 			</div>
-			<!-- End of times detail -->
-			<!-- Ticket passengers detail -->
-			<div class="row text-center">
-				<div class="col-xs-12">
-					Cantidad de pasajeros 2
+		</button>
+	</div>
+	<div class="row user-reserve">
+		<button type="button" class="btn btn-default col-xs-12" data-toggle="modal" data-target=".summary-modal">
+	<!-- Ticket destination detail -->
+			<span class="col-xs-12">
+				IDA Almafuerte a Córdoba
+			</span>
+			<div class="col-xs-12">
+				<!-- Ticket times detail -->
+				<div class="row text-center">
+					<!-- Date -->
+					<div class="col-xs-6">
+						SALIDA: <span class="green-text">13/08/16</span>
+					</div>
+					<!-- Time -->
+					<div class="col-xs-6">
+						HORA: <span class="green-text">20:50</span>
+					</div>
 				</div>
+				<!-- End of times detail -->
+				<!-- Ticket passengers detail -->
+				<div class="row text-center">
+					<div class="col-xs-12">
+						Cantidad de pasajeros 2
+					</div>
+				</div>
+				<!-- End of ticket passengers detail -->
 			</div>
-			<!-- End of ticket passengers detail -->
-		</div>
+		</button>
 	</div>
 	<!-- End of reserve row -->
+	<div class="modal fade summary-modal" tabindex="-1" role="dialog">
+	  <div class="modal-dialog modal-lg">
+	    <div class="modal-content col-xs-12">
+	    	<br>
+	    	<div class="row">
+	      		<button class="btn btn-success col-xs-12">COMPRAR</button>
+	      	</div>
+	      	<br>
+	      	<div class="row">
+	      		<button class="btn btn-danger col-xs-12">CANCELAR RESERVA</button>
+	      	</div>
+	      	<br>
+	    </div>
+	  </div>
+	</div>
+
 </div>
