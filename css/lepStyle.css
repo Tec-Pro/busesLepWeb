@@ -49,10 +49,13 @@ body {
     color: white;
 }
 
-.summary-details-row {
+.summary-row {
   border: 1px solid;
 }
 
+.summary-row + .summary-row {
+  border-top: 0px;
+}
 .navbar-brand-2{color:white;position: absolute;width: 100%;left: 0;top: 0;text-align: center;margin: auto;height:50px;padding:15px 15px;font-size:18px;line-height:20px}.navbar-brand-2:focus,.navbar-brand-2:hover{text-decoration:none}.navbar-brand-2>img{display:block}@media (min-width:768px){.navbar>.container .navbar-brand-2,.navbar>.container-fluid .navbar-brand-2{margin-left:-15px}}
 
 .navbar-default .navbar-toggle .icon-bar {
