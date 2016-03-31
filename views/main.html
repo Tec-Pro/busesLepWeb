@@ -48,7 +48,7 @@
         <div class="col-xs-12 col-md-6">
           <div class="form-group">
             <div class='input-group date'>
-                <input type="date" class="form-control" required min="params.departure" data-ng-model="params.departure"/>
+                <input type="date" class="form-control" required min="{{params.current | date:'yyyy-MM-dd'}}" data-ng-model="params.departure"/>
                 <span class="input-group-addon">
                   <span class="glyphicon glyphicon-calendar">
                   </span>
@@ -59,7 +59,7 @@
         <div class="col-xs-12 col-md-6" data-ng-show="checked">
           <div class="form-group">
             <div class='input-group date'>
-                <input type="date" class="form-control" min="params.departure" data-ng-model="params.arrival"/>
+                <input type="date" class="form-control" min="{{params.current | date:'yyyy-MM-dd'}}" data-ng-model="params.arrival"/>
                 <span class="input-group-addon">
                   <span class="glyphicon glyphicon-calendar">
                   </span>
