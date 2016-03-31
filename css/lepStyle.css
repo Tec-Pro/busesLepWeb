@@ -66,6 +66,10 @@ body {
 color: white;
 }
 
+.user-reserve{
+  border-bottom: 1px solid;
+}
+
 .box{
     background: gray;
     color: #ffffff;
