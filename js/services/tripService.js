@@ -10,6 +10,12 @@ angular.module('app')
 		},
 		getBuy: function(){
 			return buy;
+		},
+		setRoundTrip: function(valA){
+			roundTrip = valA;
+		},
+		setBuy: function(valB){
+			buy = valB;
 		}
 	};
 

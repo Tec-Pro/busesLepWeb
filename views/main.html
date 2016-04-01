@@ -11,7 +11,7 @@
       <div class="row">
         <div class="col-xs-12">
           <label>
-            <input type="checkbox" id="checked" data-ng-model="checked">  Ida y Vuelta</input>
+            <input type="checkbox" id="checked" data-ng-model="roundTrip">  Ida y Vuelta</input>
           </label>
         </div>
       </div>
@@ -57,7 +57,7 @@
           </div>
         </div>
         <!-- Show only if is a round trip -->
-        <div class="col-xs-12 col-md-6" data-ng-show="checked">
+        <div class="col-xs-12 col-md-6" data-ng-show="roundTrip">
           <div class="form-group">
           <!-- Arrival date input -->
             <div class='input-group date'>
