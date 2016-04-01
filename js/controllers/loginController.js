@@ -7,14 +7,25 @@ angular.module('app')
         $scope.user = {dni: "", pass: "", name: "", lastname: "", email: ""};
     };
 
+
+     
+   if(localStorageService.get("rld")){
+      var y = localStorageService.get("rld");
+      if (y == "yes"){
+        localStorageService.set("rld", "");
+        $location.path("/");
+      }
+   }
+
     $scope.go = function ( path ) {
       $location.path( path );
     };
 
     $scope.login = function ( ) {
        $scope.user.email = "PPPPPP@gmail.com";
-      localStorageService.set("user-lep", $scope.user);
-      $location.path("/");
+        localStorageService.set("user-lep", $scope.user);
+        localStorageService.set("rld", "yes");
+        location.reload();
     };
 
     $scope.logout = function ( ) {
