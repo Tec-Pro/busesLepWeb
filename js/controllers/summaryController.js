@@ -3,10 +3,13 @@
 *
 * Description
 */
-angular.module('app').controller('SummaryController', function($scope, $location){
+angular.module('app').controller('SummaryController', function($scope, $location, tripService){
 	
+	$scope.isBuy = tripService.getBuy();
+	$scope.isRoundTrip = tripService.getRoundTrip();
+
 	$scope.goReserve = function(){
-		$location.path('/reserve');
+		$location.path('/details/{{}}');
 	}
 
 	$scope.goSeatPicker = function () {
