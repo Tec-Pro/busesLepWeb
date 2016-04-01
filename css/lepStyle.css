@@ -139,28 +139,44 @@ smaller than 650
   }
 }
 
+@media (max-width: 600px) {
+ .size-seats{
+   height:35px;
+   width:35px;
+  }
+  .page{
+    margin-top: 45px;
+    padding: 0;
+    height: 70vh;
+    width: 95%; 
+}
+}
+
+ @media (min-width: 601px) {
+ .size-seats{
+   height:50px;
+   width:50px;
+  }
+  .page{
+    margin-top: 45px;
+    padding: 0;
+    height: 70vh;
+    width: 60%; 
+}
+}
+
 .bottom{
   position: absolute;
   right:    0;
   bottom:   10px;
 }
 
-.size-seats{
-   height:50px;
-   width:50px;
-}
+
 
 .stick {
     position: fixed;
     top: 50px;
     z-index:5;
-}
-.page{
-    margin-top: 45px;
-    padding: 0;
-    height: 70vh;
-    width: 95%;
-    display: block; border:solid #000 1px
 }
 
 .content-seats{
@@ -184,7 +200,7 @@ smaller than 650
 }
 .col-centered{
     float: none;
-    margin: 0 auto;
+    margin: auto;
 }
 
 .redlink a{
