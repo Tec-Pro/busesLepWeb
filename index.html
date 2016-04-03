@@ -74,7 +74,7 @@
             <li><a  ng-show="user.dni != '' " href="#/editPass">Cambiar Contraseña</a></li>
             <li><a  ng-show="user.dni != '' " href="#/userReserves">Mis Reservas</a></li>
             <li><a  ng-show="user.dni != '' " href="#/userTickets">Mis Compras</a></li>
-            <li><a  ng-show="user.dni != '' " href="" ng-click="logout()">{{console.log(localStorageService.get("user-lep"))}}Cerrar Sesion</a></li>
+            <li><a  ng-show="user.dni != '' " href="#/" ng-click="logout()">{{console.log(localStorageService.get("user-lep"))}}Cerrar Sesion</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
