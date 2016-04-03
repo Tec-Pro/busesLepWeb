@@ -23,7 +23,7 @@ angular.module('app').controller('SeatsController', function ($scope, $location)
 	    };
 
 	    $scope.goDetails= function() {
-	    	$location.path('/details/1/1');	 
+	    	$location.path('/details');	 
 		};
 
 		$scope.range = function(min, max, step){

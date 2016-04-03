@@ -42,7 +42,7 @@ angular.module("app", ["ngRoute","LocalStorageModule"])
                 controller: "LastSearchesController",
                 templateUrl: "views/lastSearches.html"
             })
-            .when("/details/:isRoundTrip/:isBuy", {
+            .when("/details", {
                 controller: "DetailsController",
                 templateUrl: "views/details.html"
             })

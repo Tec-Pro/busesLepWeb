@@ -12,4 +12,9 @@ angular.module('app').controller('SummaryController', function($scope, $location
 		$location.path('/seatPicker');
 		tripService.setBuy(1);
 	}
+
+	$scope.goReserve = function(){
+		$location.path('/details');
+		tripService.setBuy(0);	
+	}
 });

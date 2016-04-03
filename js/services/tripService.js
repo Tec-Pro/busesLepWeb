@@ -1,8 +1,8 @@
 angular.module('app')
 .factory('tripService', function(){
 
-	var roundTrip = false;
-	var buy = 1;
+	var roundTrip = 0;
+	var buy = 0;
 
 	return {
 		getRoundTrip: function() {

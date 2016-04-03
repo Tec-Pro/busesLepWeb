@@ -1,5 +1,7 @@
 angular.module('app')
 .controller('MainCtrl', function($scope, $location,tripService){
+    console.log(tripService.getRoundTrip());
+    console.log(tripService.getBuy());
     $scope.params = {
         current: new Date(),
         origin: '',
@@ -17,9 +19,8 @@ angular.module('app')
         if ($scope.roundTrip === true){
             tripService.setRoundTrip(1);
         } else {
-            tripService.setRoundTrip(0);    
+            tripService.setRoundTrip(0);
         }
-        tripService.setBuy(0);
         console.log(tripService.getRoundTrip());
     };
 });
