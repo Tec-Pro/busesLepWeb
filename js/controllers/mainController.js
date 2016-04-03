@@ -19,6 +19,7 @@ angular.module('app')
         } else {
             tripService.setRoundTrip(0);    
         }
+        tripService.setBuy(0);
         console.log(tripService.getRoundTrip());
     };
 });

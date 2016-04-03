@@ -1,7 +1,7 @@
-angular.module('app').controller('DetailsController', function ($scope, $routeParams, $location){
+angular.module('app').controller('DetailsController', function ($scope, $location, tripService){
 
-	$scope.buy = $routeParams.isBuy;
-	$scope.roundTrip = $routeParams.isRoundTrip;
+	$scope.buy = tripService.getBuy();
+	$scope.roundTrip = tripService.getRoundTrip();
 	$scope.code = 2456;
 	$scope.goEnd = function() {
 	    $location.path('/endPurchase/' + $scope.code);	 
