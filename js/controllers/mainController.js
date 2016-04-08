@@ -1,7 +1,20 @@
 angular.module('app')
 .controller('MainCtrl', function($scope, $location,tripService){
-    console.log(tripService.getRoundTrip());
-    console.log(tripService.getBuy());
+
+    $scope.today = moment();
+    $scope.departureDate = moment();
+    $scope.arrivalDate = moment();
+
+    $scope.opts = {
+        locale: {
+            format: "DD/MM/YYYY",
+            daysOfWeek: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie','Sab'],
+            monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+
+        },
+        singleDatePicker: true
+    };
+
     $scope.params = {
         current: new Date(),
         origin: '',
@@ -10,6 +23,11 @@ angular.module('app')
         arrival: '',
         amount: ''
     };
+
+
+    tripService.getOrigins();
+
+    //console.log($scope.response);
 
     $scope.roundTrip = false;
 
