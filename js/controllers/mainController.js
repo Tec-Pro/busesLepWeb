@@ -4,9 +4,17 @@ angular.module('app')
 
 
     $.soap({
-        url: 'https://webservices.buseslep.com.ar/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService',
+        url: 'https://webservices.buseslep.com.ar/WebServices/WebServiceLepCEnc.dll',
         namespaceURL: 'urn:LepWebServiceIntf-ILepWebService',
-        method: 'LocalidadesDesde',
+         SOAPAction: 'POST',   
+        error: function (soapResponse) {
+            alert('that other server might be down...')
+        }
+    });
+
+    $.soap({
+        method: '#LocalidadesDesde',
+        SOAPAction: 'POST',   
         data: {
             userWS:"UsuarioLep", 
             passWS:"Lep1234",
@@ -14,11 +22,9 @@ angular.module('app')
         },
         success: function (soapResponse) {
             alert('GOOOOOOD')
-        },
-        error: function (soapResponse) {
-            alert('that other server might be down...')
-        },
+        }
     });
+
 
     $scope.today = moment();
     $scope.departureDate = moment();
