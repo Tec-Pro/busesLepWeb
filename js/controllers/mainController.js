@@ -1,31 +1,6 @@
 angular.module('app')
 .controller('MainCtrl', function($scope, $location,tripService){
 
-
-
-    $.soap({
-        url: 'https://webservices.buseslep.com.ar/WebServices/WebServiceLepCEnc.dll',
-        namespaceURL: 'urn:LepWebServiceIntf-ILepWebService',
-         SOAPAction: 'POST',   
-        error: function (soapResponse) {
-            alert('that other server might be down...')
-        }
-    });
-
-    $.soap({
-        method: '#LocalidadesDesde',
-        SOAPAction: 'POST',   
-        data: {
-            userWS:"UsuarioLep", 
-            passWS:"Lep1234",
-            id_plataforma: 1
-        },
-        success: function (soapResponse) {
-            alert('GOOOOOOD')
-        }
-    });
-
-
     $scope.today = moment();
     $scope.departureDate = moment();
     $scope.arrivalDate = moment();
@@ -50,10 +25,7 @@ angular.module('app')
     };
 
 
-
-
-
-//    tripService.getOrigins();
+    tripService.getOrigins();
 
     //console.log($scope.response);
 
