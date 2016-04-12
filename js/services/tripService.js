@@ -6,7 +6,7 @@ angular.module('app')
 
 	var base_urlWSDL = "https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/wsdl/ILepWebService";
     var base_urlSOAP = "https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService";
-¿	return {
+	return {
 		getRoundTrip: function() {
 			return roundTrip;
 		},
