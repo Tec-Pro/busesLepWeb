@@ -31,7 +31,7 @@ angular.module('app')
                     'xmlns:xs="http://www.w3.org/2001/XMLSchema" ' +
                     'xmlns:tns="http://tempuri.org/" ' +
                     'xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" ' +
-                    'xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"' +
+                    'xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" ' +
                     'xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" ' +
                     'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ' +
                     'xmlns:xsd="http://www.w3.org/2001/XMLSchema" >'+
@@ -69,7 +69,7 @@ angular.module('app')
                     'xmlns:xs="http://www.w3.org/2001/XMLSchema" ' +
                     'xmlns:tns="http://tempuri.org/" ' +
                     'xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" ' +
-                    'xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"' +
+                    'xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" ' +
                     'xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" ' +
                     'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ' +
                     'xmlns:xsd="http://www.w3.org/2001/XMLSchema" >'+

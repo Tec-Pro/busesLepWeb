@@ -29,18 +29,18 @@ angular.module('app')
         console.log($scope.params.origin);
     };
 
-    tripService.getOriginsAngularWSDL().then(function(response){
-        console.log("Angular WSDL");
-        console.log(response);
-    });
+    // tripService.getOriginsAngularWSDL().then(function(response){
+    //     console.log("Angular WSDL");
+    //     console.log(response);
+    // });
 
-    tripService.getOriginsAngularSOAP().then(function(response){
-        console.log("Angular SOAP");
-        console.log(response);
-    })
+    // tripService.getOriginsAngularSOAP().then(function(response){
+    //     console.log("Angular SOAP");
+    //     console.log(response);
+    // })
 
-    console.log("Get Origins WSDL");
-    tripService.getOriginsWSDL();
+    // console.log("Get Origins WSDL");
+    // tripService.getOriginsWSDL();
 
     console.log("Get Origins SOAP");
     tripService.getOriginsSOAP();
