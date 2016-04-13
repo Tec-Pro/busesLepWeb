@@ -5,7 +5,7 @@ angular.module('app')
 	var buy = 0;
 
 	var base_urlWSDL = "https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/wsdl/ILepWebService";
-    var base_urlSOAP = "https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService";
+    var base_urlSOAP = "https://webservices.buseslep.com.ar/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService";
 	return {
 		getRoundTrip: function() {
 			return roundTrip;
@@ -57,7 +57,7 @@ angular.module('app')
             // send request
             // ...
 		},
-        getOriginsSOAP: function(){
+        getOriginsSOAP: function(callback){
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.open('POST', 'https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService', true);
 
@@ -85,7 +85,11 @@ angular.module('app')
             xmlhttp.onreadystatechange = function () {
                 if (xmlhttp.readyState == 4) {
                     if (xmlhttp.status == 200) {
-                        alert('done. use firebug/console to see network response');
+                        var x2js = new X2JS();
+                        var j = x2js.xml_str2json(xmlhttp.response);
+                        var obj = eval("("+j.Envelope.Body.LocalidadesDesdeResponse.return.__text+")");
+                        //console.log(obj.Data);
+                        callback(obj.Data);
                     }
                 }
             }
@@ -94,6 +98,9 @@ angular.module('app')
             xmlhttp.send(sr);
             // send request
             // ...
+        },
+        prueba: function(){
+            return $soap.post("http://www.webservicex.com/globalweather.asmx?wsdl","GetCitiesByCountrySoapIn",{CountryName: "Argentina"});
         },
 		getOriginsAngularWSDL: function(){
 			return $soap.post(base_urlWSDL, "LocalidadesDesde",{userWS: "UsuarioLep", passWS: "Lep1234", id_plataforma: 3});

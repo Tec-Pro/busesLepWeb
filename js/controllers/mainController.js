@@ -34,22 +34,23 @@ angular.module('app')
     //     console.log(response);
     // });
 
-    // tripService.getOriginsAngularSOAP().then(function(response){
-    //     console.log("Angular SOAP");
-    //     console.log(response);
-    // })
+    // console.log("Angular SOAP");
+    // tripService.prueba().then(function(response){
+    //     $scope.response = response;
+    //     console.log($scope.response);
+    // });
 
     // console.log("Get Origins WSDL");
     // tripService.getOriginsWSDL();
 
     console.log("Get Origins SOAP");
-    tripService.getOriginsSOAP();
+    tripService.getOriginsSOAP(function(responseText){
+        console.log(responseText);
+        $scope.origins = responseText;
+        console.log($scope.origins);
+    });
 
-    $scope.origins = 
-        [{"SoloEncomiendas":0,"Localidad":"Adelia Maria","ID_Localidad":33},
-         {"SoloEncomiendas":0,"Localidad":"Alcira Gigena","ID_Localidad":9},
-         {"SoloEncomiendas":0,"Localidad":"Almafuerte","ID_Localidad":4}
-        ];
+    $scope.origins = [];
     $scope.destinationEnabled = false;
     // $scope.origins = 
     //     [{"SoloEncomiendas":0,"Localidad":"Adelia Maria","ID_Localidad":33},
