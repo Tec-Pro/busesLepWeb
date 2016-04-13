@@ -43,14 +43,18 @@ angular.module('app')
     // console.log("Get Origins WSDL");
     // tripService.getOriginsWSDL();
 
-    console.log("Get Origins SOAP");
-    tripService.getOriginsSOAP(function(responseText){
-        console.log(responseText);
-        $scope.origins = responseText;
-        console.log($scope.origins);
+
+    //$scope.origins = [];
+    //console.log("Get Origins SOAP");
+
+    tripService.getOrigins().then(function(origins){
+        $scope.origins = origins;
     });
 
-    $scope.origins = [];
+    console.log($scope.origins);
+
+    console.log(tripService.getOrigins());
+
     $scope.destinationEnabled = false;
     // $scope.origins = 
     //     [{"SoloEncomiendas":0,"Localidad":"Adelia Maria","ID_Localidad":33},
