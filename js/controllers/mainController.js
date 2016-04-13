@@ -23,6 +23,13 @@ angular.module('app')
 
     $scope.checkDestinations = function(){
         $scope.destinationDisabled = !($scope.params.origin === '')
+        console.log($scope.params.origin);
+        if ($scope.params.origin != ''){
+            tripService.getDestinations($scope.params.origin).then(function(destinations){
+                console.log(destinations);
+                $scope.destinations = destinations;
+            });
+        }   
     };
 
     $scope.print = function(){
@@ -50,10 +57,6 @@ angular.module('app')
     tripService.getOrigins().then(function(origins){
         $scope.origins = origins;
     });
-
-    console.log($scope.origins);
-
-    console.log(tripService.getOrigins());
 
     $scope.destinationEnabled = false;
     // $scope.origins = 
