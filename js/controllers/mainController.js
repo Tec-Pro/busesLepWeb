@@ -29,7 +29,9 @@ angular.module('app')
                 console.log(destinations);
                 $scope.destinations = destinations;
             });
-        }   
+        } else {
+            $scope.params.destination = 'Destino';
+        }  
     };
 
     $scope.print = function(){
