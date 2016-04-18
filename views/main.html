@@ -21,7 +21,7 @@
         <div class="col-xs-12 col-md-6">
           <div class="form-group">
             <label class="sr-only" for="origin">Origen:</label>
-            <select class="form-control" name="origin" id="origin" data-ng-model="params.origin" data-ng-change="checkDestinations()" data-ng-options="origin.ID_Localidad as origin.Localidad for origin in origins">
+            <select class="form-control" name="origin" id="origin" data-ng-model="params.origin" data-ng-change="checkDestinations()" data-ng-options="origin as origin.Localidad for origin in origins" required>
               <option value="" selected>Origen</option>
             </select>
           </div>
@@ -29,7 +29,7 @@
         <div class="col-xs-12 col-md-6">
           <div class="form-group">
             <label class="sr-only" for="destination">Destino:</label>
-            <select class="form-control" name="destination" id="destination" data-ng-model="params.destination" data-ng-disabled="!destinationDisabled" data-ng-options="destination.id_localidad_destino as destination.hasta for destination in destinations">
+            <select class="form-control" name="destination" id="destination" data-ng-model="params.destination" data-ng-disabled="destinationDisabled" data-ng-options="destination as destination.hasta for destination in destinations" data-ng-change="setDestinationData()" required>
               <option value="" selected>Destino</option>
             </select>
           </div>
@@ -42,7 +42,7 @@
           <div class="form-group">
           <!-- Departure date input -->
             <div class="input-group date">
-              <input date-range-picker name="departureDate" id="departureDate" class="form-control date-picker" type="text" min="params.today" ng-model="params.departureDate" options="dpOpts" required/>
+              <input date-range-picker name="departureDate" id="departureDate" class="form-control date-picker" type="text" min="params.today" ng-model="params.departureDate" options="dpOpts" required readonly/>
               <span class="input-group-addon">
                 <span class="glyphicon glyphicon-calendar">
                 </span>
@@ -54,7 +54,7 @@
         <!-- Arrival date input -->
         <div class="col-xs-12 col-md-6" data-ng-show="roundTrip">
           <div class="input-group date">
-            <input date-range-picker name="returnDate" id="returnDate" class="form-control date-picker" type="text" min="params.departureDate" ng-model="params.returnDate" options="dpOpts"/>
+            <input date-range-picker name="returnDate" id="returnDate" class="form-control date-picker" type="text" min="params.departureDate" ng-model="params.returnDate" options="dpOpts" readonly/>
             <span class="input-group-addon">
               <span class="glyphicon glyphicon-calendar">
               </span>

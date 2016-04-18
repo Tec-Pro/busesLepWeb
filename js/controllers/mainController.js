@@ -15,7 +15,7 @@ angular.module('app')
     };
 
     //By default, the destinationpicker is disabled.
-    $scope.destinationEnabled = false;
+    $scope.destinationDisabled = true;
 
     //By default, is a one way trip.
     $scope.roundTrip = false;
@@ -30,21 +30,36 @@ angular.module('app')
       amount: ''
     };
 
+	//Call the web service and update the origins from the scope.
+	tripService.getOrigins().then(function(origins){
+	  $scope.origins = origins;
+	});
+  
     //Function that check the availables destinations whenever the trip origin changes.
     $scope.checkDestinations = function(){
-      //Enable the destination picker if the origin has been set.
-      $scope.destinationDisabled = !($scope.params.origin === '')
-      //Once the origin has been set, reload the possible destinations.
-      if ($scope.params.origin != ''){
-        //Call asynchronously the web service, through tripService, when it's ready, update the destinations in the scope.
-        tripService.getDestinations($scope.params.origin).then(function(destinations){
-            $scope.destinations = destinations;
-        });
-      } else {
-        //If the origin is empty, set default value.
-        $scope.params.destination = '';
-      }
+      	//Enable the destination picker if the origin has been set.
+      	$scope.destinationDisabled = ($scope.params.origin === undefined);
+      	//Once the origin has been set, reload the possible destinations.
+      	if ($scope.params.origin != undefined){
+        	//Call asynchronously the web service, through tripService, when it's ready, update the destinations in the scope.
+        	tripService.getDestinations($scope.params.origin.ID_Localidad).then(function(destinations){
+            	$scope.destinations = destinations;
+        	});
+		  	tripService.setTripOriginId($scope.params.origin.ID_Localidad);
+		  	tripService.setTripOriginName($scope.params.origin.Localidad);
+      	} else {
+        	//If the origin is empty, set default value.
+		  	console.log("Aca entramos");
+        	$scope.params.destination = '';
+      	}
     };
+	
+  	$scope.setDestinationData = function(){
+	  	if ($scope.params.destination != undefined){
+		  tripService.setTripDestinationId($scope.params.destination.id_localidad_destino);
+		  tripService.setTripDestinationName($scope.params.destination.hasta);
+		}
+	};
 
     $scope.print = function(){
         console.log($scope.params.origin);
@@ -68,11 +83,6 @@ angular.module('app')
     //$scope.origins = [];
     //console.log("Get Origins SOAP");
 
-    //Call the web service and update the origins from the scope.
-    tripService.getOrigins().then(function(origins){
-        $scope.origins = origins;
-    });
-
     //Call the search web service and
     $scope.goSearch = function(){
       //Get the dates from the datepicker.
@@ -81,15 +91,24 @@ angular.module('app')
       //a must be != null, b can be null.
       //if is a round trip, and b (The return date) is after the a (The departure date) alert the user.
       if ($scope.roundTrip && !(a.isSame(b) || a.isBefore(b))) {
-          window.alert("La fecha de llegada no puede ser anterior a la de salida");
+          	window.alert("La fecha de llegada no puede ser anterior a la de salida");
       } else {
-          $location.path('/schedules');
-          //console.log($scope.roundTrip);
-          if ($scope.roundTrip === true){
-              tripService.setRoundTrip(1);
-          } else {
-              tripService.setRoundTrip(0);
-          }
+			$location.path('/schedules');
+			//console.log($scope.roundTrip);
+			if ($scope.roundTrip === true){
+				tripService.setRoundTrip(1);
+				tripService.setTripReturn($scope.params.returnDate.format("YYYY-MM-DD"));
+			} else {
+				tripService.setRoundTrip(0);
+							  tripService.setTripReturn('');
+			}
+			tripService.setTripOriginId($scope.params.origin.ID_Localidad);
+			tripService.setTripOriginName($scope.params.origin.Localidad);
+			tripService.setTripDestinationId($scope.params.destination.id_localidad_destino);
+			tripService.setTripDestinationName($scope.params.destination.hasta);
+			tripService.setTripDeparture($scope.params.departureDate.format("YYYY-MM-DD"));
+			tripService.setTripTicketAmount($scope.params.amount);
+			console.log(tripService.getTrip());
       }
         // $location.path('/schedules');
         // console.log($scope.roundTrip);
