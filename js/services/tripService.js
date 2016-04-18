@@ -5,13 +5,21 @@ angular.module('app')
 	trip.roundTrip = 0;
 	trip.buy = 0;
 	trip.destination_id = '';
-	trip.destination_name = '';
+	trip.destination_name = 'Alcira Gigena';
 	trip.origin_id = '';
-	trip.origin_name = '';
+	trip.origin_name = 'Berrotarán';
 	trip.departure = '';
-	trip.return = '';
+		trip.departureTime ='';
+		trip.return = '';
+		trip.returnTime = '';
+	trip.firstArrival = '';
+	trip.firstArrivalTime = '';
+	trip.secondArrival= '';	
+	trip.secondArrivalTime = '';
 	trip.ticketAmount = 0;
 
+	var schedules = [];
+		
 	var base_urlWSDL = "https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/wsdl/ILepWebService";
 	var base_urlSOAP = "https://webservices.buseslep.com.ar/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService";
 	
@@ -87,11 +95,35 @@ angular.module('app')
 		getTripDeparture: function(){
 			return trip.departure;
 		},
+		getTripDepartureTime: function(){
+				return trip.departureTime;
+		},
 		getTripReturn: function(){
 			return trip.return;
 		},
+		getTripReturnTime: function(){
+				return trip.returnTime;
+		},
 		getTripTicketAmount: function(){
 			return trip.ticketAmount;
+		},
+		getTripFirstArrival: function(){
+			return trip.firstArrival;
+		},
+		getTripSecondArrival: function(){
+				return trip.secondArrival;
+		},
+		getTripFirstArrivalTime: function(){
+				return trip.firstArrivalTime;
+		},
+		getTripSecondArrivalTime: function(){
+				return trip.secondArrivalTime;
+		},
+		getSchedules: function(){
+				return schedules;
+		},
+		setSchedules: function(val){
+				schedules = val;
 		},
 		setRoundTrip: function(val) {
 			trip.roundTrip = val;
@@ -119,9 +151,6 @@ angular.module('app')
 		},
 		setTripTicketAmount: function(val){
 			trip.ticketAmount = val;
-		},
-		prueba: function(){
-				return $soap.post("http://www.webservicex.com/globalweather.asmx?wsdl","GetCitiesByCountrySoapIn",{CountryName: "Argentina"});
 		},
 		getOriginsAngularWSDL: function(){
 			return $soap.post(base_urlWSDL, "LocalidadesDesde",{userWS: "UsuarioLep", passWS: "Lep1234", id_plataforma: 3});
@@ -177,7 +206,53 @@ angular.module('app')
 
         getOrigins : getOriginsSOAP,
 	
+		searchTrips : function(origin_id, destination_id, date){
+			var deferred = $q.defer();
 
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.open('POST', base_urlSOAP, true);
+			// build SOAP request
+			var sr =
+				'<?xml version="1.0" encoding="UTF-8" standalone="no"?>' +
+				'<SOAP-ENV:Envelope ' + 
+				'xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" ' +
+				'xmlns:xs="http://www.w3.org/2001/XMLSchema" ' +
+				'xmlns:tns="http://tempuri.org/" ' +
+				'xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" ' +
+				'xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" ' +
+				'xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" ' +
+				'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ' +
+				'xmlns:xsd="http://www.w3.org/2001/XMLSchema" >'+
+				'<SOAP-ENV:Body>' +
+				'<mns:ListarHorarios xmlns:mns="urn:LepWebServiceIntf-ILepWebService" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">' +
+				'<userWS xsi:type="xs:string">UsuarioLep</userWS>' +
+				'<passWS xsi:type="xs:string">Lep1234</passWS>' +
+				'<IdLocalidadOrigen xsi:type="xs:int">'+origin_id+'</IdLocalidadOrigen>' +
+				'<IdLocalidadDestino xsi:type="xs:int">'+destination_id+'</IdLocalidadDestino>' +
+				'<id_plataforma xsi:type="xs:int">3</id_plataforma>' +
+				'<Fecha xsi:type="xs:string">'+date+'</Fecha>' +
+				'<DNI xsi:type="xs:int">1234567</DNI>' +
+				'</mns:ListarHorarios>' +
+				'</SOAP-ENV:Body>' +
+				'</SOAP-ENV:Envelope>';
+
+			xmlhttp.onreadystatechange = function () {
+				if (xmlhttp.readyState == 4) {
+					if (xmlhttp.status == 200) {
+						var x2js = new X2JS();
+						var json_response = x2js.xml_str2json(xmlhttp.response);
+						var valid_json = eval("("+json_response.Envelope.Body.ListarHorariosResponse.return.__text+")");
+						deferred.resolve(valid_json.Data);
+					}
+				}
+			}
+			// Send the POST request
+			xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+			xmlhttp.send(sr);
+			// send request
+			// ...
+			return deferred.promise;
+		},
         login:function(dni,pass){
             var deferred = $q.defer();
 
@@ -213,7 +288,6 @@ angular.module('app')
                         var x2js = new X2JS();
                         var json_response = x2js.xml_str2json(xmlhttp.response);
                         var valid_json = eval("("+json_response.Envelope.Body.loginResponse.return.__text+")");
-                        console.log(valid_json.Data);
                         deferred.resolve(valid_json.Data);
                     }
                 }
@@ -264,7 +338,6 @@ angular.module('app')
                         var x2js = new X2JS();
                         var json_response = x2js.xml_str2json(xmlhttp.response);
                         var valid_json = eval("("+json_response.Envelope.Body.EditarPerfilClienteResponse.return.__text+")");
-                        console.log(valid_json.Data);
                         deferred.resolve(valid_json.Data);
                     }
                 }
@@ -412,7 +485,6 @@ angular.module('app')
                         var x2js = new X2JS();
                         var json_response = x2js.xml_str2json(xmlhttp.response);
                         var valid_json = eval("("+json_response.Envelope.Body.RegistrarUsuarioResponse.return.__text+")");
-                        console.log(valid_json.Data);
                         deferred.resolve(valid_json.Data);
                     }
                 }

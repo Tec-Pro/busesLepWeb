@@ -49,7 +49,6 @@ angular.module('app')
 		  	tripService.setTripOriginName($scope.params.origin.Localidad);
       	} else {
         	//If the origin is empty, set default value.
-		  	console.log("Aca entramos");
         	$scope.params.destination = '';
       	}
     };
@@ -93,30 +92,29 @@ angular.module('app')
       if ($scope.roundTrip && !(a.isSame(b) || a.isBefore(b))) {
           	window.alert("La fecha de llegada no puede ser anterior a la de salida");
       } else {
-			$location.path('/schedules');
-			//console.log($scope.roundTrip);
-			if ($scope.roundTrip === true){
-				tripService.setRoundTrip(1);
-				tripService.setTripReturn($scope.params.returnDate.format("YYYY-MM-DD"));
-			} else {
-				tripService.setRoundTrip(0);
-							  tripService.setTripReturn('');
-			}
-			tripService.setTripOriginId($scope.params.origin.ID_Localidad);
-			tripService.setTripOriginName($scope.params.origin.Localidad);
-			tripService.setTripDestinationId($scope.params.destination.id_localidad_destino);
-			tripService.setTripDestinationName($scope.params.destination.hasta);
-			tripService.setTripDeparture($scope.params.departureDate.format("YYYY-MM-DD"));
-			tripService.setTripTicketAmount($scope.params.amount);
-			console.log(tripService.getTrip());
+		  //Else redirect to schedules and set the data in the service.
+				if ($scope.roundTrip === true){
+					tripService.setRoundTrip(1);
+					tripService.setTripReturn($scope.params.returnDate);
+				} else {
+					tripService.setRoundTrip(0);
+									tripService.setTripReturn('');
+				}
+				tripService.setTripOriginId($scope.params.origin.ID_Localidad);
+				tripService.setTripOriginName($scope.params.origin.Localidad);
+				tripService.setTripDestinationId($scope.params.destination.id_localidad_destino);
+				tripService.setTripDestinationName($scope.params.destination.hasta);
+				tripService.setTripDeparture($scope.params.departureDate);
+				tripService.setTripTicketAmount($scope.params.amount);
+				tripService.searchTrips($scope.params.origin.ID_Localidad, $scope.params.destination.id_localidad_destino, $scope.params.departureDate.format("YYYYMMDD")).then(function(schedules){
+						if (schedules.length > 0){
+							tripService.setSchedules(schedules);
+							$location.path('/schedules');
+						} else {
+							window.alert("No existen viajes para esa fecha");
+						}
+				});
+			
       }
-        // $location.path('/schedules');
-        // console.log($scope.roundTrip);
-        // if ($scope.roundTrip === true){
-        //     tripService.setRoundTrip(1);
-        // } else {
-        //     tripService.setRoundTrip(0);
-        // }
-        // console.log(tripService.getRoundTrip());
     };
 });
