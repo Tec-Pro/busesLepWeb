@@ -18,8 +18,8 @@
             <div class="col-xs-10">
               <div class="col-xs-4">
                 <h4 class = "h4-responsive" >Salida</h4>
-                <h5 class = "h5-responsive">{{sched.departureDate}}</h5>
-                <h4 class = "blue h4-responsive">{{sched.departureTime}}</h4>
+                <h5 class = "h5-responsive">{{sched.fechahora | lep-date }}</h5>
+                <h4 class = "blue h4-responsive">{{sched.fechahora | date: 'HH:mm:ss'}}</h4>
               </div>
               <div class="col-xs-4">
                   <h4 class = "h4-responsive">Llegada</h4>
