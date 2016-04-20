@@ -23,14 +23,15 @@
               </div>
               <div class="col-xs-4">
                   <h4 class = "h4-responsive">Llegada</h4>
-                  <h5 class = "h5-responsive">{{sched.arrivalDate}}</h5>
-                  <h4 class = "h4-responsive">{{sched.arrivalTime}}</h4>
+                  <h5 class = "h5-responsive">{{sched.FechaHoraLlegada | lepDate}}</h5>
+                  <h4 class = "h4-responsive">{{sched.FechaHoraLlegada | lepHour}}</h4>
               </div>
               <div class="col-xs-2">
                   <h4 class = "h4-responsive">Estado</h4>
                   <h5 class = "h4-responsive"><br></h5>
-                  <h4 class = "blue h4-responsive" ng-show = "sched.status">Disponible</h4>
-                  <h4 class = "red h4-responsive" ng-hide = "sched.status">En Viaje</h4>
+                  <h4 class = "blue h4-responsive" ng-show = "sched.ServicioPrestado === 'disponible' ">Disponible</h4>
+                  <h4 class = "red h4-responsive" ng-show = "sched.ServicioPrestado === 'en viaje'">En Viaje</h4>
+									<h4 class = "red h4-responsive" ng-show = "sched.ServicioPrestado === 'en destino'">En Destino</h4>
               </div>
             </div>
             <div class="col-xs-2 clearfix">

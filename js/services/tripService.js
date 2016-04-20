@@ -2,21 +2,21 @@ angular.module('app')
 .factory('tripService', ["$soap","$q", function($soap, $q){
 
 	var trip = {};
-	trip.roundTrip = 0;
+	trip.round_trip = 0;
 	trip.buy = 0;
 	trip.destination_id = '';
 	trip.destination_name = 'Alcira Gigena';
 	trip.origin_id = '';
 	trip.origin_name = 'Berrotarán';
 	trip.departure = '';
-		trip.departureTime ='';
+		trip.departure_time ='';
 		trip.return = '';
-		trip.returnTime = '';
-	trip.firstArrival = '';
-	trip.firstArrivalTime = '';
+		trip.return_time = '';
+	trip.first_arrival = '';
+	trip.first_arrival_time = '';
 	trip.secondArrival= '';	
-	trip.secondArrivalTime = '';
-	trip.ticketAmount = 0;
+	trip.second_arrival_time = '';
+	trip.ticket_amount = 0;
 
 	var schedules = [];
 		
@@ -75,7 +75,7 @@ angular.module('app')
 			return trip;
 		},
 		getRoundTrip: function() {
-			return trip.roundTrip;
+			return trip.round_trip;
 		},
 		getBuy: function(){
 			return trip.buy;
@@ -96,28 +96,28 @@ angular.module('app')
 			return trip.departure;
 		},
 		getTripDepartureTime: function(){
-				return trip.departureTime;
+				return trip.departure_time;
 		},
 		getTripReturn: function(){
 			return trip.return;
 		},
 		getTripReturnTime: function(){
-				return trip.returnTime;
+				return trip.return_time;
 		},
 		getTripTicketAmount: function(){
-			return trip.ticketAmount;
+			return trip.ticket_amount;
 		},
 		getTripFirstArrival: function(){
-			return trip.firstArrival;
+			return trip.first_arrival;
 		},
 		getTripSecondArrival: function(){
 				return trip.secondArrival;
 		},
 		getTripFirstArrivalTime: function(){
-				return trip.firstArrivalTime;
+				return trip.first_arrival_time;
 		},
 		getTripSecondArrivalTime: function(){
-				return trip.secondArrivalTime;
+				return trip.second_arrival_time;
 		},
 		getSchedules: function(){
 				return schedules;
@@ -126,7 +126,7 @@ angular.module('app')
 				schedules = val;
 		},
 		setRoundTrip: function(val) {
-			trip.roundTrip = val;
+			trip.round_trip = val;
 		},
 		setBuy: function(val){
 			trip.buy = val;
@@ -150,7 +150,7 @@ angular.module('app')
 			trip.return = val;
 		},
 		setTripTicketAmount: function(val){
-			trip.ticketAmount = val;
+			trip.ticket_amount = val;
 		},
 		getOriginsAngularWSDL: function(){
 			return $soap.post(base_urlWSDL, "LocalidadesDesde",{userWS: "UsuarioLep", passWS: "Lep1234", id_plataforma: 3});
