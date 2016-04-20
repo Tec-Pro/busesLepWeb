@@ -497,6 +497,104 @@ angular.module('app')
             return deferred.promise;
         },
 
+		getSeats:function(idEmpresa,idDestino,codHorario,idLocalidadDesde,idLocalidadHasta){
+            var deferred = $q.defer();
+
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open('POST', base_urlSOAP, true);
+
+            // build SOAP request
+            var sr =
+                '<?xml version="1.0" encoding="UTF-8" standalone="no"?>' +
+                '<SOAP-ENV:Envelope ' + 
+                    'xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" ' +
+                    'xmlns:xs="http://www.w3.org/2001/XMLSchema" ' +
+                    'xmlns:tns="http://tempuri.org/" ' +
+                    'xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" ' +
+                    'xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" ' +
+                    'xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" ' +
+                    'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ' +
+                    'xmlns:xsd="http://www.w3.org/2001/XMLSchema" >'+
+                    '<SOAP-ENV:Body>' +
+                        '<mns:EstadoButacasPlantaHorario xmlns:mns="urn:LepWebServiceIntf-ILepWebService" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">' +
+                            '<userWS xsi:type="xs:string">UsuarioLep</userWS>' +
+                            '<passWS xsi:type="xs:string">Lep1234</passWS>' +
+                            '<IdEmpresa xsi:type="xs:int">'+idEmpresa+'</IdEmpresa>' +
+                            '<IdDestino xsi:type="xs:int">'+idDestino+'</IdDestino>' +
+                            '<CodHorario xsi:type="xs:int">'+codHorario+'</CodHorario>' +
+                            '<IdLocalidadDesde xsi:type="xs:int">'+idLocalidadDesde+'</IdLocalidadDesde>' +
+                            '<IdLocalidadHasta xsi:type="xs:int">'+idLocalidadHasta+'</IdLocalidadHasta>' +
+                            '<id_plataforma xsi:type="xs:int">3</id_plataforma>' +
+                        '</mns:EstadoButacasPlantaHorario>' +
+                    '</SOAP-ENV:Body>' +
+                '</SOAP-ENV:Envelope>';
+
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4) {
+                    if (xmlhttp.status == 200) {
+                        var x2js = new X2JS();
+                        var json_response = x2js.xml_str2json(xmlhttp.response);
+                        var valid_json = eval("("+json_response.Envelope.Body.RegistrarUsuarioResponse.return.__text+")");
+                        deferred.resolve(valid_json.Data);
+                    }
+                }
+            }
+            // Send the POST request
+            xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+            xmlhttp.send(sr);
+            // send request
+            // ...
+            return deferred.promise;
+        },
+
+        pickSeat:function(nroButaca,idVenta,esIda,esSeleccion){
+            var deferred = $q.defer();
+
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open('POST', base_urlSOAP, true);
+
+            // build SOAP request
+            var sr =
+                '<?xml version="1.0" encoding="UTF-8" standalone="no"?>' +
+                '<SOAP-ENV:Envelope ' + 
+                    'xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" ' +
+                    'xmlns:xs="http://www.w3.org/2001/XMLSchema" ' +
+                    'xmlns:tns="http://tempuri.org/" ' +
+                    'xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" ' +
+                    'xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" ' +
+                    'xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" ' +
+                    'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ' +
+                    'xmlns:xsd="http://www.w3.org/2001/XMLSchema" >'+
+                    '<SOAP-ENV:Body>' +
+                        '<mns:SeleccionarButaca xmlns:mns="urn:LepWebServiceIntf-ILepWebService" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">' +
+                            '<userWS xsi:type="xs:string">UsuarioLep</userWS>' +
+                            '<passWS xsi:type="xs:string">Lep1234</passWS>' +
+                            '<NroButaca xsi:type="xs:int">'+nroButaca+'</NroButaca>' +
+                            '<IDVenta xsi:type="xs:int">'+idVenta+'</IDVenta>' +
+                            '<EsIda xsi:type="xs:int">'+esIda+'</EsIda>' +
+                            '<EsSeleccion xsi:type="xs:int">'+esSeleccion+'</EsSeleccion>' +
+                            '<id_plataforma xsi:type="xs:int">3</id_plataforma>' +
+                        '</mns:SeleccionarButaca>' +
+                    '</SOAP-ENV:Body>' +
+                '</SOAP-ENV:Envelope>';
+
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4) {
+                    if (xmlhttp.status == 200) {
+                        var x2js = new X2JS();
+                        var json_response = x2js.xml_str2json(xmlhttp.response);
+                        var valid_json = eval("("+json_response.Envelope.Body.RegistrarUsuarioResponse.return.__text+")");
+                        deferred.resolve(valid_json.Data);
+                    }
+                }
+            }
+            // Send the POST request
+            xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+            xmlhttp.send(sr);
+            // send request
+            // ...
+            return deferred.promise;
+        },
 
      };
 
