@@ -6,7 +6,14 @@ angular.module('app').controller('ScheduleController', function ($scope, $locati
 	
 		$scope.destination = tripService.getTripDestinationName();
 	
-  	$scope.goSummary = function() {
+  	$scope.goSummary = function(index) {
+			var selectedSchedule = $scope.schedules[index];
+			console.log(selectedSchedule);
+			scheduleService.setScheduleFirstDepartureDatetime(selectedSchedule.fechahora);
+			scheduleService.setScheduleFirstArrivalDatetime(selectedSchedule.FechaHoraLlegada);
+			
+			console.log(scheduleService.getSchedule());
+			
 	    $location.path('/summary');
 			
 	    //seat.img = '../img/occupied_seat.png'

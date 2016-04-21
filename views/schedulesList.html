@@ -14,7 +14,7 @@
      <div class = "container padding-top50" ng-controller="ScheduleController" >
       <br>
       <div class = "schedules-row" ng-repeat="sched in schedules">
-          <div class = "row" ng-click="goSummary()">
+          <div class = "row" ng-click="goSummary($index)">
             <div class="col-xs-10">
               <div class="col-xs-4">
                 <h4 class = "h4-responsive" >Salida</h4>
@@ -28,7 +28,7 @@
               </div>
               <div class="col-xs-2">
                   <h4 class = "h4-responsive">Estado</h4>
-                  <h5 class = "h4-responsive"><br></h5>
+                  <h5 class = "h4-responsive"><br>{{$index}}</h5>
                   <h4 class = "blue h4-responsive" ng-show = "sched.ServicioPrestado === 'disponible' ">Disponible</h4>
                   <h4 class = "red h4-responsive" ng-show = "sched.ServicioPrestado === 'en viaje'">En Viaje</h4>
 									<h4 class = "red h4-responsive" ng-show = "sched.ServicioPrestado === 'en destino'">En Destino</h4>

@@ -2,36 +2,43 @@
 	<!-- Tickets row -->
 	<div class="row text-center background-darkgrey white">
 		<!-- First ticket -->
-		<div class="col-xs-6">
-		Berrotaran - Cordoba plaza
+		<div class="col-xs-12" ng-hide="isRoundTrip">
+			{{trip.origin}} - {{trip.destination}}
+		</div>
+		<div class="col-xs-6" ng-show="isRoundTrip">
+			{{trip.origin}} - {{trip.destination}}
 		</div>
 		<!-- Second ticket empty if it is a one way trip -->
-		<div class="col-xs-6 ">
-		Cordoba Plaza - Berrotaran
+		<div class="col-xs-6" ng-show="isRoundTrip">
+			{{trip.destination}} - {{trip.origin}}
 		</div>
 	</div>
 	<!-- End of tickets row -->
 	<br>
 	<!-- Label row -->
 	<div class="row text-center">
-		<div class="col-xs-6">
+		<div class="col-xs-6 col-sm-5" ng-hide="isRoundTrip">
+			Sale:
+		</div>
+		<div class="col-xs-6 col-sm-5 col-sm-offset-2" ng-hide="isRoundTrip">
+			Llega:
+		</div>
+		<div class="col-xs-6" ng-show="isRoundTrip">
 			<div class="row">
 				<div class="col-xs-6 col-sm-5">
 					Sale:
 				</div>
-				<div class="col-sm-2 hidden-xs"></div>
-				<div class="col-xs-6 col-sm-5">
+				<div class="col-xs-6 col-sm-5 col-sm-offset-2">
 					Llega:
 				</div>
 			</div>
 		</div>
-		<div class="col-xs-6">
+		<div class="col-xs-6" ng-show="isRoundTrip">
 			<div class="row">
 				<div class="col-xs-6 col-sm-5">
 					Sale:
 				</div>
-				<div class="col-sm-2 hidden-xs"></div>
-				<div class="col-xs-6 col-sm-5">
+				<div class="col-xs-6 col-sm-5 col-sm-offset-2">
 					Llega:
 				</div>
 			</div>
@@ -40,19 +47,18 @@
 	<!-- End of label row -->
 	<!-- Row for tickets details -->
 	<div class="row">
-		<!-- First trip details -->
-		<div class="col-xs-6">
+		<div class="col-xs-12" ng-hide="isRoundTrip">
 			<div class="row">
 				<div class="col-xs-12">
 					<div class="summary-row text-center h4-responsive">
 						<div class="row">
 							<!-- Departure date -->
 							<div class="col-sm-5 col-xs-6">
-								31/03/16
+								{{trip.departure1 | lepDate}}
 							</div>
 							<!-- Arrival date -->
 							<div class="col-sm-offset-2 col-sm-5 col-xs-6">
-								01/04/16
+								{{trip.arrival1 | lepDate}}
 							</div>
 						</div>
 					</div>
@@ -64,14 +70,53 @@
 						<div class="row">
 							<!--Departure time -->
 							<div class="col-xs-6 col-sm-5">
-								00:05
+								{{trip.departure1 | lepHour }}
 							</div>
 							<div class="hidden-xs col-sm-2">
 								<span class="glyphicon glyphicon-chevron-right"></span>
 							</div>
 							<!-- Arrival time -->
 							<div class="col-xs-6 col-sm-5">
-								02:30
+								{{trip.arrival1 | lepHour}}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- First trip details -->
+		
+		<div class="col-xs-6" ng-show="isRoundTrip">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="summary-row text-center h4-responsive">
+						<div class="row">
+							<!-- Departure date -->
+							<div class="col-sm-5 col-xs-6">
+								{{trip.departure1 | lepDate}}
+							</div>
+							<!-- Arrival date -->
+							<div class="col-sm-offset-2 col-sm-5 col-xs-6">
+								{{trip.arrival1 | lepDate}}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="summary-row text-center h2-responsive">
+						<div class="row">
+							<!--Departure time -->
+							<div class="col-xs-6 col-sm-5">
+								{{trip.departure1 | lepHour }}
+							</div>
+							<div class="hidden-xs col-sm-2">
+								<span class="glyphicon glyphicon-chevron-right"></span>
+							</div>
+							<!-- Arrival time -->
+							<div class="col-xs-6 col-sm-5">
+								{{trip.arrival1 | lepHour}}
 							</div>
 						</div>
 					</div>
@@ -80,7 +125,7 @@
 		</div>
 		<!-- First trip details end -->
 		<!-- Second trip details -->
-		<div class="col-xs-6">
+		<div class="col-xs-6" ng-show="isRoundTrip">
 			<!-- Date details -->
 			<div class="row">
 				<div class="col-xs-12">
@@ -128,15 +173,13 @@
 	<!-- Ticket amount row -->
 	<div class="row text-center">
 		<div class="col-xs-12">
-			<div class="row">
-				<div class="col-xs-6">
-					<div class="summary-row">
-						Cantidad de pasajes
+			<div class="summary-row">
+				<div class="row">
+					<div class="col-xs-6 col-sm-5">
+						Cantidad de pasajes:
 					</div>
-				</div>
-				<div class="col-xs-6">
-					<div class="summary-row">
-						5 
+					<div class="col-xs-6 col-sm-5 col-sm-offset-2">
+						{{trip.amount}}
 					</div>
 				</div>
 			</div>
@@ -146,10 +189,10 @@
 	<br>
 	<!-- Total row -->
 	<div class="row text-center background-darkgrey white">
-		<div class="col-xs-6">
+		<div class="col-xs-6 col-sm-5">
 			Importe Total
 		</div>
-		<div class="col-xs-6">
+		<div class="col-xs-6 col-sm-5 col-sm-offset-2">
 			$1390.00
 		</div>
 	</div>
