@@ -7,6 +7,10 @@ body {
     color: white;
 }
 
+.background-lightgrey2{
+  background: #E0E0E0;
+}
+
 .background-lightgrey{
   background: #a6a6a6;
 }
@@ -25,8 +29,10 @@ body {
 }
 .lightgrey{
   color:  #a6a6a6;
-}
 
+}.lightgrey2{
+  color: #E0E0E0;
+}
 .blue{
   color: #0000ff;
 }
@@ -39,6 +45,13 @@ body {
   text-align: center;
 }
 
+.text-left{
+  text-align: left;
+}
+
+.text-right{
+  text-align: right;
+}
 .no-marin-p{
     margin: 0 0;
     padding:  0 0;
@@ -62,6 +75,22 @@ body {
   border: 1px solid;
   margin-top: 3px;
 }
+
+div.card{
+  border-bottom: 2px solid;
+  border-right: 1px solid;
+  border-bottom-color: #a6a6a6 ;
+  border-right-color: #a6a6a6 ;
+}
+
+div.card2{
+  border-top: 1px solid;
+  border-left: 1px solid;
+  border-bottom: 2px solid;
+  border-right: 1px solid;
+  border-color: #a6a6a6 ;
+}
+
 
 
 .navbar-brand-2{color:white;position: absolute;width: 100%;left: 0;top: 0;text-align: center;margin: auto;height:50px;padding:15px 15px;font-size:18px;line-height:20px}.navbar-brand-2:focus,.navbar-brand-2:hover{text-decoration:none}.navbar-brand-2>img{display:block}@media (min-width:768px){.navbar>.container .navbar-brand-2,.navbar>.container-fluid .navbar-brand-2{margin-left:-15px}}

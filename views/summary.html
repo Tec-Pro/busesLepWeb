@@ -1,211 +1,136 @@
-<div class="container">
-	<!-- Tickets row -->
-	<div class="row text-center background-darkgrey white">
-		<!-- First ticket -->
-		<div class="col-xs-12" ng-hide="isRoundTrip">
-			{{trip.origin}} - {{trip.destination}}
-		</div>
-		<div class="col-xs-6" ng-show="isRoundTrip">
-			{{trip.origin}} - {{trip.destination}}
-		</div>
-		<!-- Second ticket empty if it is a one way trip -->
-		<div class="col-xs-6" ng-show="isRoundTrip">
-			{{trip.destination}} - {{trip.origin}}
-		</div>
-	</div>
-	<!-- End of tickets row -->
+ <div class = "row container center-block">
 	<br>
-	<!-- Label row -->
-	<div class="row text-center">
-		<div class="col-xs-6 col-sm-5" ng-hide="isRoundTrip">
-			Sale:
+	<hr>
+	<div class= "col-md-4 col-sm-12 col-xs-12">
+		<h3 class="title lepStyle no-mar-pad-bor">Busqueda de horarios</h3>
+	</div>
+	<div class="col-md-8 col-sm-12 col-xs-12">
+		<br>
+		<h2 class="title no-mar-pad-bor">Horarios Seleccionados</h2>
+	</div>
+
+	<div class= "col-xs-12">
+		<br>
+		<br>
+		<div class= "background-lightgrey2 title col-xs-3">
+			<h5>Tramo</h5>
 		</div>
-		<div class="col-xs-6 col-sm-5 col-sm-offset-2" ng-hide="isRoundTrip">
-			Llega:
+		<div class= "background-lightgrey title col-xs-2">
+			<h5>Salida</h5>
 		</div>
-		<div class="col-xs-6" ng-show="isRoundTrip">
-			<div class="row">
-				<div class="col-xs-6 col-sm-5">
-					Sale:
-				</div>
-				<div class="col-xs-6 col-sm-5 col-sm-offset-2">
-					Llega:
-				</div>
+		<div class= "background-lightgrey title col-xs-2">
+			<h5>Llegada</h5>
+		</div>	
+		<div class= "background-lightgrey title col-xs-1">
+			<h5>Duracion</h5>
+		</div>
+		<div class= "background-lightgrey title col-xs-1">
+			<h5>Estado</h5>
+		</div>
+		<div class= "background-lightgrey title col-xs-1">
+			<h5>Servicio</h5>
+		</div>
+		<div class= "background-lightgrey title col-xs-1">
+			<h5>Precio</h5>
+		</div>
+		<div class= "background-lightgrey title col-xs-1">
+			<h5>Mapa</h5>
+		</div>
+		<hr>
+		<div class= "col-xs-12 background-lightgrey2 lightgrey2">. </div>
+	
+		<div class= "no-mar-pad-bor col-xs-12 card">
+			<div class= "title col-xs-3">
+				<h5>Cordoba > Sta. Rosa de Calamuchita</h5>
+			</div>
+			<div class= "title col-xs-2">
+				<h6>Lun. 21/Abr</h6>
+				<h5>08:00 Hs</h5>
+			</div>
+			<div class= "title col-xs-2">
+				<h6>Lun. 21/Abr</h6>
+				<h5>08:00 Hs</h5>
+			</div>	
+			<div class= "title col-xs-1">
+				<h5>2:30 hs</h5>
+				<h5>Recorrido</h5>
+			</div>
+			<div class= "title col-xs-1">
+				<br>
+				<h5>En viaje</h5>
+			</div>
+			<div class= "title col-xs-1">
+				<br>
+				<h5>Diferencial</h5>
+			</div>
+			<div class= "title col-xs-1">
+				<br>
+				<h5>$110</h5>
 			</div>
 		</div>
-		<div class="col-xs-6" ng-show="isRoundTrip">
-			<div class="row">
-				<div class="col-xs-6 col-sm-5">
-					Sale:
-				</div>
-				<div class="col-xs-6 col-sm-5 col-sm-offset-2">
-					Llega:
-				</div>
+		<div class= "col-xs-12 background-lightgrey2 lightgrey2">. </div>
+		<div class= "no-mar-pad-bor col-xs-12 card">
+			<div class= "title col-xs-3">
+				<h5>Cordoba > Sta. Rosa de Calamuchita</h5>
+			</div>
+			<div class= "title col-xs-2">
+				<h6>Lun. 21/Abr</h6>
+				<h5>08:00 Hs</h5>
+			</div>
+			<div class= "title col-xs-2">
+				<h6>Lun. 21/Abr</h6>
+				<h5>08:00 Hs</h5>
+			</div>	
+			<div class= "title col-xs-1">
+				<h5>2:30 hs</h5>
+				<h5>Recorrido</h5>
+			</div>
+			<div class= "title col-xs-1">
+				
+				<h5>En viaje</h5>
+			</div>
+			<div class= "title col-xs-1">
+				
+				<h5>Diferencial</h5>
+			</div>
+			<div class= "title col-xs-1">
+				<br>
+				<h5>$110</h5>
+			</div>
+			<div class= "title col-xs-1">
+				<br>
+				<h5>!</h5>
+			</div>
+		</div>
+		<div class= "col-xs-12 background-lightgrey2 lightgrey2">. </div>
+	</div>
+	<div class = "col-xs-8">
+		<br>
+		<br>
+		<div class = "col-xs-7">
+			
+		</div>
+		<div class = "col-xs-5">
+			<div class = "col-xs-12 card2 text-right">
+				
+				<h4>Precio por persona: $207</h4>
+			</div>
+			<div class = "col-xs-12">
+				<br>
+			</div>
+			<div class = "col-xs-12 card2 text-right">
+				<h4>Total: $207</h4>
 			</div>
 		</div>
 	</div>
-	<!-- End of label row -->
-	<!-- Row for tickets details -->
-	<div class="row">
-		<div class="col-xs-12" ng-hide="isRoundTrip">
-			<div class="row">
-				<div class="col-xs-12">
-					<div class="summary-row text-center h4-responsive">
-						<div class="row">
-							<!-- Departure date -->
-							<div class="col-sm-5 col-xs-6">
-								{{trip.departure1 | lepDate}}
-							</div>
-							<!-- Arrival date -->
-							<div class="col-sm-offset-2 col-sm-5 col-xs-6">
-								{{trip.arrival1 | lepDate}}
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xs-12">
-					<div class="summary-row text-center h2-responsive">
-						<div class="row">
-							<!--Departure time -->
-							<div class="col-xs-6 col-sm-5">
-								{{trip.departure1 | lepHour }}
-							</div>
-							<div class="hidden-xs col-sm-2">
-								<span class="glyphicon glyphicon-chevron-right"></span>
-							</div>
-							<!-- Arrival time -->
-							<div class="col-xs-6 col-sm-5">
-								{{trip.arrival1 | lepHour}}
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+	<div class = "col-xs-4">
+		<br>
+		<br>
+		<div class = "col-xs-6">
+			<button type="submit" class="center-block btn btn-default lepStyle" ng-click="goDetails()">Comprar</button>
 		</div>
-		<!-- First trip details -->
-		
-		<div class="col-xs-6" ng-show="isRoundTrip">
-			<div class="row">
-				<div class="col-xs-12">
-					<div class="summary-row text-center h4-responsive">
-						<div class="row">
-							<!-- Departure date -->
-							<div class="col-sm-5 col-xs-6">
-								{{trip.departure1 | lepDate}}
-							</div>
-							<!-- Arrival date -->
-							<div class="col-sm-offset-2 col-sm-5 col-xs-6">
-								{{trip.arrival1 | lepDate}}
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xs-12">
-					<div class="summary-row text-center h2-responsive">
-						<div class="row">
-							<!--Departure time -->
-							<div class="col-xs-6 col-sm-5">
-								{{trip.departure1 | lepHour }}
-							</div>
-							<div class="hidden-xs col-sm-2">
-								<span class="glyphicon glyphicon-chevron-right"></span>
-							</div>
-							<!-- Arrival time -->
-							<div class="col-xs-6 col-sm-5">
-								{{trip.arrival1 | lepHour}}
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- First trip details end -->
-		<!-- Second trip details -->
-		<div class="col-xs-6" ng-show="isRoundTrip">
-			<!-- Date details -->
-			<div class="row">
-				<div class="col-xs-12">
-					<div class="summary-row text-center h4-responsive">
-						<div class="row">
-							<!-- Departure date -->
-							<div class="col-sm-5 col-xs-6">
-								01/04/16
-							</div>
-							<!-- Arrival date -->
-							<div class="col-sm-5 col-sm-offset-2 col-xs-6">
-								02/04/16
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- Date details end -->
-			<!-- Time details row -->
-			<div class="row">
-				<div class="col-xs-12">
-					<div class="summary-row text-center h2-responsive">
-						<div class="row">
-							<!--Departure time -->
-							<div class="col-xs-6 col-sm-5">
-								00:05
-							</div>
-							<div class="hidden-xs col-sm-2">
-								<span class="glyphicon glyphicon-chevron-right"></span>
-							</div>
-							<!-- Arrival time -->
-							<div class="col-xs-6 col-sm-5">
-								02:30
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- Time details end -->
-		</div>
-		<!-- End of second trip details -->
-	</div>
-	<!-- End of ticket details -->
-	<br>
-	<!-- Ticket amount row -->
-	<div class="row text-center">
-		<div class="col-xs-12">
-			<div class="summary-row">
-				<div class="row">
-					<div class="col-xs-6 col-sm-5">
-						Cantidad de pasajes:
-					</div>
-					<div class="col-xs-6 col-sm-5 col-sm-offset-2">
-						{{trip.amount}}
-					</div>
-				</div>
-			</div>
+		<div class = "col-xs-6">
+			<button type="submit" class="center-block btn btn-default background-lightgrey" ng-click="goDetails()">Reservar</button>
 		</div>
 	</div>
-	<!-- End of ticket amount row -->
-	<br>
-	<!-- Total row -->
-	<div class="row text-center background-darkgrey white">
-		<div class="col-xs-6 col-sm-5">
-			Importe Total
-		</div>
-		<div class="col-xs-6 col-sm-5 col-sm-offset-2">
-			$1390.00
-		</div>
-	</div>
-	<!-- End of total row -->
-	<br>
-	<!-- Button row -->
-	<div class="row">
-		<div class="col-xs-12 col-md-6">
-			<button class="btn btn-default col-xs-12" data-ng-click="goSeatPicker()">Comprar</button>
-		</div>
-		<div class="col-xs-12 col-md-6">
-			<button class="btn btn-default col-xs-12" data-ng-click="goReserve()">Reservar</button> 
-		</div>
-	</div>
-	<!-- End of button row -->
 </div>
