@@ -137,10 +137,10 @@ angular.module('app')
 		setTripDestinationId: function(val){
 			trip.destination_id = val;
 		},
-		setTripOriginName(val){
+		setTripOriginName: function(val){
 			trip.origin_name = val;
 		},
-		setTripDestinationName(val){
+		setTripDestinationName: function(val){
 			trip.destination_name = val;
 		},
 		setTripDeparture: function(val){
