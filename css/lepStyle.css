@@ -157,6 +157,16 @@ hr {
   font-weight: normal;
 }
 
+.map-img{
+    height:25px;
+    width:25px;
+    margin:0 auto;
+    vertical-align: middle;
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: 5px;
+  }
+
 /************************************************************************************
 smaller than 650
 *************************************************************************************/
