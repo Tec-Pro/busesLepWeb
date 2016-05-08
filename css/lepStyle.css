@@ -7,6 +7,15 @@ body {
     color: white;
 }
 
+.button2{
+    background: #666666;
+    color: white;
+}
+
+.background-lightgrey3{
+  background: #F0F0F0 ;
+}
+
 .background-lightgrey2{
   background: #E0E0E0;
 }
@@ -19,6 +28,9 @@ body {
   background: white;
 }
 
+.font-normal{
+  font-size: 0.8em;
+}
 
 .background-darkgrey{
   background: #666666;
@@ -153,8 +165,18 @@ hr {
   font-size: .83em;
 }
 
-.normal-font{
+p.normal{
   font-weight: normal;
+  font-size: 1.15em;
+}
+
+.no-bold{
+  font-weight: normal;
+}
+
+.bold-blue{
+  color:#0033CC;
+  font-weight:bold;
 }
 
 .map-img{
