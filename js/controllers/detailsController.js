@@ -10,4 +10,7 @@ angular.module('app').controller('DetailsController', function ($scope, $locatio
 	$scope.goReserve= function() {
 	    $location.path('/endReserve');	 
 	};
+	$scope.goBack = function () {
+		window.history.back();
+	}
 });

@@ -23,6 +23,10 @@ angular.module('app').controller('SummaryController', function($scope, $location
 		$location.path('/seatPicker');
 		tripService.setBuy(1);
 	}
+	
+	$scope.goBack = function () {
+		window.history.back();
+	}
 
 	$scope.goReserve = function(){
 		$location.path('/details');
