@@ -1,0 +1,133 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-8">
+			<img src="./img/home/row1col1.png" class="img-responsive">
+		</div>
+		<div class="col-xs-4">
+			<form name="searchForm" role="form">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="form-group">
+							<label class="sr-only" for="origin">Origen:</label>
+							<select class="form-control" name="origin" id="origin" ng-model="params.origin" ng-change="checkDestinations()" ng-options="origin as origin.Localidad for origin in origins" required>
+								<option value="" selected>Origen</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="form-group">
+							<label class="sr-only" for="destination">Destino:</label>
+							<select class="form-control" name="destination" id="destination" data-ng-model="params.destination" data-ng-disabled="destinationDisabled" data-ng-options="destination as destination.hasta for destination in destinations" data-ng-change="setDestinationData()" required>
+								<option value="" selected>Destino</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="form-group">
+							<!-- Departure date input -->
+							<div class="input-group date">
+								<input date-range-picker name="departureDate" id="departureDate" class="form-control date-picker" type="text" min="params.today" ng-model="params.departureDate" options="dpOpts" required readonly/>
+								<span class="input-group-addon">
+									<span class="glyphicon glyphicon-calendar">
+									</span>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="input-group date">
+							<input date-range-picker name="returnDate" id="returnDate" class="form-control date-picker" type="text" min="params.departureDate" ng-model="params.returnDate" options="dpOpts" readonly/>
+							<span class="input-group-addon">
+								<span class="glyphicon glyphicon-calendar">
+								</span>
+							</span>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-5">
+			<img src="./img/home/row2col1.png" class="img-responsive">
+		</div>
+		<div class="col-xs-7">
+			<div id="Carousel" class="carousel slide">
+				<ol class="carousel-indicators">
+					<li data-target="Carousel" data-slide-to="0" class="active"></li>
+					<li data-target="Carousel" data-slide-to="1"></li>
+				</ol>
+				<div class="carousel-inner">
+					<div class="item active">
+						<img src="./img/home/row2col2a.png" class="img-responsive">
+					</div>
+					<div class="item">
+						<img src="./img/home/row2col2b.png" class="img-responsive">
+					</div>
+				</div>
+				<span class="left carousel-control" data-target="#Carousel" data-slide="prev">
+					<span class="glyphicon glyphicon-chevron-left"></span>
+				</span>
+				<span class="right carousel-control" data-target="#Carousel" data-slide="next">
+					<span class="glyphicon glyphicon-chevron-right"></span>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-4">
+			<img src="./img/home/row3col1.png" class="img-responsive">
+		</div>
+		<div class="col-xs-4">
+			<img src="./img/home/row3col2.png" class="img-responsive">
+		</div>
+		<div class="col-xs-4">
+			<img src="./img/home/row3col3.png" class="img-responsive">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-5">
+			<img src="./img/home/row4col1.png" class="img-responsive">
+		</div>
+		<div class="col-xs-7">
+			<img src="./img/home/row4col2.png" class="img-responsive">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<img src="./img/home/row5col1.png" class="img-responsive">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-6">
+			<h3>Noticias</h3>
+			<div class="row">
+				<div class="col-xs-6">
+					<img src="./img/home/row6col1.png" class="img-responsive">
+				</div>
+				<div class="col-xs-6">
+					<h4>OktoberFest 2016</h4>
+					<p>Lorem Ipsum Dolo Amet</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-6">
+			<h3>Noticias</h3>
+			<div class="row">
+				<div class="col-xs-6">
+					<img src="./img/home/row6col2.png" class="img-responsive">
+				</div>
+				<div class="col-xs-6">
+					<h4>Fiesta de la Primavera en Embalse</h4>
+					<p>Lorem Ipsum Dolo Amet</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

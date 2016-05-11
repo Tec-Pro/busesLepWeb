@@ -5,7 +5,7 @@ angular.module("app", ["ngRoute","LocalStorageModule","angularSoap","daterangepi
         $routeProvider
             .when("/", {
                 controller: "MainCtrl",
-                templateUrl: "views/main.html"
+                templateUrl: "views/home.html"
             })
             .when("/editProfile", {
                 templateUrl: "views/editProfile.html"
