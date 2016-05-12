@@ -2,7 +2,7 @@ body {
     padding-top: 0px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 @media screen and (max-width: 768px) {
-    body { padding-top: 70px; }
+    body { padding-top: 0px; }
 }
 
 .lepStyle{
@@ -255,7 +255,7 @@ p.small{
 .lep-form {
   margin-top: 0.5em;
   display: block;
-  width: 100%;
+  width: 180px;
   height: 100%;
   padding: 6px 10px;
   font-size: 10px;
@@ -291,6 +291,10 @@ smaller than 650
   .h5-responsive{
     font-size: 0.7em;
   }
+
+  .lep-form {
+  width: 130px;
+}
 }
 
 @media (max-width: 600px) {
