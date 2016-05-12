@@ -1,12 +1,30 @@
 body {
-    padding-top: 240px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    padding-top: 0px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 @media screen and (max-width: 768px) {
-    body { padding-top: 50px; }
+    body { padding-top: 0px; }
 }
+
 .lepStyle{
     background: #e6e6e6;
     color: #666666;
+}
+
+.on-top{
+  z-index: 4;
+}
+.affix {
+      top: 0;
+      width: 100%;
+  }
+
+ .affix + .container-fluid {
+      padding-top: 70px;
+  }
+
+.lepStyleRed{
+  background: #ff0008;
+  color: white;
 }
 
 .lepStyle2{
