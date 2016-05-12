@@ -3,10 +3,28 @@
 	text-align: center;
 	background: red;
 	padding-bottom: 5.3%;
+	margin-right: -1%;
 }
 
-.img-la {
-	max-height: 340px;
+.carousel-text {
+	border-top: solid gray;
+	border-bottom: solid gray;
+}
+
+.carousel-control.left, .carousel-control.right {
+	background-image: none
+}
+
+.carousel-indicators {
+	left: 90%;
+	bottom: 1%;
+}
+
+.carousel-indicators li {
+	background-color: darkgray;
+}
+.carousel-indicators .active {
+	background-color: red;
 }
 
 .img-lg {
@@ -26,8 +44,8 @@
 }
 
 .home-row {
-	padding-bottom: 1%;
-	padding-top: 1.5%;
+	padding-bottom: 5%;
+	padding-top: 2%;
 	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+1,000000+99&0+97,0.65+100 */
 	background: -moz-linear-gradient(top, rgba(0,0,0,0) 1%, rgba(0,0,0,0) 98%, rgba(0,0,0,0.43) 100%, rgba(0,0,0,0.65) 100%); /* FF3.6-15 */
 	background: -webkit-linear-gradient(top, rgba(0,0,0,0) 1%,rgba(0,0,0,0) 98%,rgba(0,0,0,0.43) 100%,rgba(0,0,0,0.65) 100%); /* Chrome10-25,Safari5.1-6 */
