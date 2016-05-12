@@ -2,15 +2,37 @@
 	color: white;
 	text-align: center;
 	background: red;
-	padding-bottom: 5%;
+	padding-bottom: 5.3%;
+}
+
+.img-la {
+	max-height: 340px;
 }
 
 .img-lg {
 	max-height: 340px;
 }
 
+.img-md {
+	max-height: 310px;
+}
+
 .img-sm {
 	max-height: 300px;
+}
+
+.first-home-row {
+	margin-top: -1.5%;
+}
+
+.home-row {
+	padding-bottom: 1%;
+	padding-top: 1.5%;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+1,000000+99&0+97,0.65+100 */
+	background: -moz-linear-gradient(top, rgba(0,0,0,0) 1%, rgba(0,0,0,0) 98%, rgba(0,0,0,0.43) 100%, rgba(0,0,0,0.65) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, rgba(0,0,0,0) 1%,rgba(0,0,0,0) 98%,rgba(0,0,0,0.43) 100%,rgba(0,0,0,0.65) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, rgba(0,0,0,0) 1%,rgba(0,0,0,0) 98%,rgba(0,0,0,0.43) 100%,rgba(0,0,0,0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
 }
 
 #origin {
