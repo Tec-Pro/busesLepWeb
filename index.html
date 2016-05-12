@@ -77,11 +77,12 @@
     <div class="container-fluid lepStyle hidden-xs">
         <div id="infobar" ng-controller="LoginCtrl">
           <ul class="nav navbar-nav">
-
-            <li class="small-margin hidden-xs"><img src="img/Iconos comunes/icono whatsapp.png" class="img-responsive" style="float:left;width:20px;height:20px;margin-right:6px">351-2466600</li>
-            <li class="small-margin hidden-xs"><img src="img/Iconos comunes/Icono Celular.png" class="img-responsive"style="float:left;width:12px;height:19px;margin-right:6px">0351-5696600, 0358-4219090</li>
-            <li class="small-margin hidden-xs"><img src="img/Iconos comunes/Icono Facebook.png" class="img-responsive"style="float:left;width:20px;height:20px;margin-right:6px"></li>
-            <li class="small-margin hidden-xs"><img src="img/Iconos comunes/Icono sobre.png" class="img-responsive"style="float:left;width:18px;height:12px;margin-top:6px;margin-right:6px;">expreso@buseslep.com.ar</li>
+            <li class="small-margin"><img src="img/Iconos comunes/icono whatsapp.png" class="img-responsive" style="float:left;width:20px;height:20px;margin-right:6px">351-2466600</li>
+            <li class="small-margin"><img src="img/Iconos comunes/Icono Celular.png" class="img-responsive"style="float:left;width:12px;height:19px;margin-right:6px">0351-5696600, 0358-4219090</li>
+            <li class="small-margin">
+                <button type="button" class="nav-style" style="background:#e6e6e6"><img src="img/Iconos comunes/Icono Facebook.png" class="img-responsive"style="float:left;width:20px;height:20px;margin-right:6px"></button>
+            </li>
+            <li class="small-margin"><img src="img/Iconos comunes/Icono sobre.png" class="img-responsive"style="float:left;width:18px;height:12px;margin-top:6px;margin-right:6px;">expreso@buseslep.com.ar</li>
             <li>
                 <input type="text" required class="lep-form" id="DNI" placeholder="DNI" ng-model="user.dni">                        
             </li>
@@ -94,7 +95,11 @@
           </ul>
         </div><!--/.nav-collapse -->
     </div>
-
+    <div class="row visible-xs" style="background:lightgrey;">
+        <div class="col-xs-3 text-center" style="padding:10px"><strong>Ingresar</strong></div>
+        <div class="col-xs-4"> <input type="text" required class="lep-form" id="DNI" placeholder="DNI" ng-model="user.dni"> </div>
+        <div class="col-xs-5"> <input type="password" required class="lep-form" id="Password" placeholder="Contraseña" ng-model="user.pass"></div>
+    </div>
     <!-- Cover Image-->
     <div class="container-fluid lepStyle background-white hidden-xs">
       <div class="row">
@@ -142,17 +147,17 @@
     </br></br></br>
       <!-- footer-->
       <div id="footer" class="container-fluid lepStyle2">
-          <div class="row h4-responsive">
-            <div class="col-lg-3">Noticias</div>
-            <div class="col-lg-3">Novedades</div>
-            <div class="col-lg-3">Actualidad</div>
-            <div class="col-lg-3">Tu opinión nos interesa...</div>
+          <div class="row">
+            <div class="col-lg-3 text-center"><strong>Noticias</strong></div>
+            <div class="col-lg-3 text-center"><strong>Novedades</strong></div>
+            <div class="col-lg-3 text-center"><strong>Actualidad</strong></div>
+            <div class="col-lg-3 text-center"><strong>Tu opinión nos interesa...</strong></div>
           </div>
           <div class="row h4-responsive">
             <div class="col-lg-3"><iframe></iframe></div>
             <div class="col-lg-3"><iframe></iframe></div>
             <div class="col-lg-3"><iframe></iframe></div>
-            <div class="col-lg-3"><iframe></iframe></div>
+            <div class="col-lg-3 text-center"><textarea class="lep-form"style="background:grey"name="Text1" cols="20" rows="5" ></textarea></div>
           </div>
       </div>
 </body>
