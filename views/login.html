@@ -1,19 +1,36 @@
 
 
     <div ng-controller="LoginCtrl" class="container" >
-        <h2 class="text-center">Ingreso de usuario</h2>
-        <form ng-submit="login()">
-          <div class="form-group">
-            <label class="sr-only" for="dni">DNI</label>
-            <input type="text" class="form-control" id="DNI" placeholder="DNI" required ng-model="user.dni"/>
-          </div>
-          <div class="form-group">
-            <label class="sr-only"  for="Password">Contraseña</label>
-            <input type="password" class="form-control" id="Password" placeholder="Contraseña" required ng-model="user.pass"/>
-          </div>
-          <button type="submit" class="btn btn-default col-xs-12 text-center">Ingresar</button>
-        </form>      
-        <br></br>
-        <p class="text-center redlink" >¿Olvidaste tu contraseña? hacé <a href="#/recoverPass">click aquí</a></p>
-        <button type="button" class="btn btn-default col-xs-12 text-center" ng-click="go('/signin')">¿Aún no tienes cuenta?</button>
+      <div class="row"  style="padding:10px">
+        <div class="col-lg-6">
+          <h2 class="text-center h3-responsive" style="padding:20px"><strong><span style="color:#222282">Acceder</span> a Mi Cuenta</strong></h2>
+          <form ng-submit="login()">
+            <div class="form-group">
+              <label class="sr-only" for="dni">DNI</label>
+              <input type="text" class="form-control" id="DNI" placeholder="DNI" required ng-model="user.dni"/>
+            </div>
+            <div class="form-group">
+              <label class="sr-only"  for="Password">Contraseña</label>
+              <input type="password" class="form-control" id="Password" placeholder="Contraseña" required ng-model="user.pass"/>
+            </div>
+            <button type="submit" class="btn btn-default col-xs-12 text-center">Ingresar</button>
+          </form>      
+          <br></br>
+          <p class="text-center redlink" >¿Olvidaste tu contraseña? hacé <a href="#/recoverPass">click aquí</a></p>
+          <a  class="col-xs-12 text-center" href="#/signin">Crear una cuenta</a>
+        </div>
+        <div class="col-lg-6">
+          <h2 class="text-center h3-responsive" style="padding:20px"><strong>¿Qué podés hacer en <span style="color:#222282">Mi Cuenta?</span></strong></h2>
+          <ul class="lepStyle" style="list-style-image:url(img/checkmark.png)">
+            <li style="padding:5px">Reservar</li>
+            <li style="padding:5px">Modificar reservas</li>
+            <li style="padding:5px">Comprar</li>
+            <li style="padding:5px">Ver últimas búsquedas</li>
+            <li style="padding:5px">Chequear saldo tarjeta</li>
+            <li style="padding:5px">Recargar saldo tarjeta</li>
+            <li style="padding:5px">Informar tarjeta perdida</li>
+            <li style="padding:5px">Modificar cuenta</li>
+          </ul>
+        </div>
+      </div>
     </div>
