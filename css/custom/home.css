@@ -1,0 +1,18 @@
+.search-container {
+	color: white;
+	text-align: center;
+	background: red;
+	padding-bottom: 5%;
+}
+
+.img-lg {
+	max-height: 340px;
+}
+
+.img-sm {
+	max-height: 300px;
+}
+
+#origin {
+	
+}
