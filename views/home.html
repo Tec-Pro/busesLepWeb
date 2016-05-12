@@ -11,7 +11,7 @@
 						<div class="form-group">
 							<label class="sr-only" for="origin">Origen:</label>
 							<select class="form-control" name="origin" id="origin" ng-model="params.origin" ng-change="checkDestinations()" ng-options="origin as origin.Localidad for origin in origins" required>
-								<option value="" selected>Origen</option>
+								<option class="default-option" value="" selected>Origen</option>
 							</select>
 						</div>
 					</div>
@@ -95,21 +95,26 @@
 	</div>
 	<div class="home-row row">
 		<div class="col-xs-5">
+			<h3 class><span style="color: red">Red</span> Pack <small>Encomiendas</small></h3>
 			<img src="./img/home/row4col1.png" class="img-md img-responsive">
 		</div>
 		<div class="col-xs-7">
+			<h3 class="text-center">Viajes Especiales <small>Internacionales/Nacionales/Provinciales</small></h3>
 			<img src="./img/home/row4col2.png" class="pull-right img-md img-responsive">
 		</div>
 	</div>
 	<div class="home-row row">
 		<div class="col-xs-4">
 			<img src="./img/home/row3col1.png" class="img-sm img-responsive">
+			<button class="btn btn-home col-xs-12"><strong class="pull-left">Confort</strong><span class="glyphicon glyphicon-plus white-glyphicon-home pull-right"></span></button>
 		</div>
 		<div class="col-xs-4">
 			<img src="./img/home/row3col2.png" class="img-sm img-responsive">
+			<button class="btn btn-home col-xs-12"><strong class="pull-left">Tecnología</strong><span class="glyphicon glyphicon-plus white-glyphicon-home pull-right"></span></button>
 		</div>
 		<div class="col-xs-4">
 			<img src="./img/home/row3col3.png" class="img-sm img-responsive">
+			<button class="btn btn-home col-xs-12"><strong class="pull-left">Seguridad</strong><span class="glyphicon glyphicon-plus white-glyphicon-home pull-right"></span></button>
 		</div>
 	</div>
 	<div class="row">
