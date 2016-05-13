@@ -341,7 +341,8 @@ smaller than 650
   }
 
   .lep-form {
-  width: 100px;
+  width: 80px;
+  margin-left: 5px;
 }
 }
 
