@@ -1,17 +1,7 @@
-  
-      <!-- Content of the navbar -->
-      <div class="row-bottom-margin white col-xs-12 stick">
-        <div class="row background-darkgrey background-lightgrey ">
-          <h4 class="col-xs-6 title row-bottom-margin5 h3-responsive">{{origin}} - {{destination}} </h4>
-          <h4 class="col-xs-6 title row-bottom-margin5 h3-responsive">Ida</h4>
-        </div>
-        <div class="row background-lightgrey">
-          <h4 class="col-xs-6 title row-top-margin row-bottom-margin5 h3-responsive">Ida $99.00</h4>
-          <h4 class="col-xs-6 title row-top-margin row-bottom-margin5 h3-responsive">Ida y vuelta $188</h4>
-        </div>
-      </div>
 
-     <div class = "container padding-top50" ng-controller="ScheduleController" >
+ <!--
+
+     <div class = "container" ng-controller="ScheduleController" >
       <br>
       <div class = "schedules-row" ng-repeat="sched in schedules">
           <div class = "row" ng-click="goSummary($index)">
@@ -31,7 +21,7 @@
                   <h5 class = "h4-responsive"><br>{{$index}}</h5>
                   <h4 class = "blue h4-responsive" ng-show = "sched.ServicioPrestado === 'disponible' ">Disponible</h4>
                   <h4 class = "red h4-responsive" ng-show = "sched.ServicioPrestado === 'en viaje'">En Viaje</h4>
-									<h4 class = "red h4-responsive" ng-show = "sched.ServicioPrestado === 'en destino'">En Destino</h4>
+                  <h4 class = "red h4-responsive" ng-show = "sched.ServicioPrestado === 'en destino'">En Destino</h4>
               </div>
             </div>
             <div class="col-xs-2 clearfix">
@@ -40,4 +30,131 @@
           </div>
         <hr>
       </div>
-    </div> 
+    </div> -->
+
+    <div class = "container" ng-controller="ScheduleController">
+      <br>
+      <hr>
+      <div class= "col-md-4 col-sm-12 col-xs-12">
+        <h3 class="title lepStyleRed no-mar-pad-bor">Busqueda de horarios</h3>
+      </div>
+      <div class="col-md-8 col-sm-12 col-xs-12">
+        <br>
+        <h2 class="title no-mar-pad-bor">Horarios de Ida</h2>
+        <br>
+        <br>
+      </div>
+      <div class="col-xs-2"></div>
+      <div class="col-xs-10">
+          <div class="col-xs-4 card2">
+            <h4 class="title no-mar-pad-bor">Cordoba</h4>
+          </div>
+          <div class="col-xs-1">
+          </div>
+          <div class="col-xs-4 card2">
+            <h4 class="title no-mar-pad-bor">Santa Rosa de Calamuchita</h4>
+          </div>
+           <div class="col-xs-1">
+            
+          </div>
+          <div class="col-xs-2 card2">
+            <h4 class="title no-mar-pad-bor">21/Abr</h4>
+          </div>
+      </div>
+      <!-- precio ida  -->
+      <div class= "hidden-xs col-xs-12">
+        <br>
+        <br>
+        <div class= "col-xs-2 no-mar-pad-bor">
+          <h4 class = "no-mar-pad-bor">Precio Ida: $110</h4>
+        </div>
+      </div>
+
+      <!-- precio idavueta y header de la lista de horarios-->
+      <div class= "hidden-xs col-xs-12">
+        <div class= "col-xs-2 no-mar-pad-bor">
+          <h5 class = "">Ida y vuelta: $110</h5>
+        </div>
+        <div class= "col-xs-10 no-mar-pad-bor">
+          <div class= "col-xs-6 no-mar-pad-bor">
+            <div class= "background-lightgrey title col-xs-3">
+            <h5>Salida</h5>
+            </div>
+            <div class= "background-lightgrey title col-xs-3">
+              <h5>Llegada</h5>
+            </div>  
+            <div class= "background-lightgrey title col-xs-3">
+              <h5 class= "visible-lg">Duracion</h5>
+              <h5 class= "hidden-lg">Durac.</h5>
+            </div>
+            <div class= "background-lightgrey title col-xs-3">
+            <h5>Estado</h5>
+            </div>
+          </div>
+          <div class= "col-xs-6 no-mar-pad-bor">
+            <div class= "background-lightgrey title col-xs-3">
+              <h5 class= "visible-lg">Servicio</h5>
+              <h5 class= "hidden-lg">Serv.</h5>
+            </div>
+            <div class= "background-lightgrey title col-xs-3">
+              <h5>Precio</h5>
+            </div>
+            <div class= "background-lightgrey title col-xs-3">
+              <h5>Mapa</h5>
+            </div>
+            <div class= "background-lightgrey2 title col-xs-3">
+              <h5 class = "lightgrey2">.</h5>
+            </div>
+          </div>
+        </div>
+        <hr>
+
+        <div ng-repeat="i in range(0,20,1)">
+          <!-- separador entre header y lista-->
+          <div class= "col-xs-2">  
+          </div>
+          <div class= "col-xs-10 background-lightgrey2 lightgrey2"><h6 class = "lightgrey2 no-mar-pad-bor">.</h6> </div>
+
+          <!-- un horario -->
+          <div class= "no-mar-pad-bor col-xs-12 ">
+            <div class= "title col-xs-2 no-mar-pad-bor">
+              
+            </div>
+            <div class= "col-xs-10 no-mar-pad-bor card">
+              <div class= "col-xs-6 no-mar-pad-bor">
+                <div class= "title col-xs-3">
+                  <h5 class="no-bold">21/Abr</h5>
+                  <h5 class = "no-mar-pad-bor"><strong><span class = "bold-blue">08:00 </span>Hs</strong></h5>
+                </div>
+                <div class= "title col-xs-3">
+                  <h5 class="no-bold">21/Abr</h5>
+                  <h5 class = "no-mar-pad-bor"><strong>08:00 Hs</strong></h5>
+                </div>  
+                <div class= "title col-xs-3">
+                  <h5 class = "no-bold ">2:30 hs</h5>
+                  <h5 class="no-bold blue hidden-sm">Recorrido</h5>
+                </div>
+                <div class= "title col-xs-3">
+                  <h5 class = "no-bold red">En viaje</h5>
+                </div>
+              </div>
+              <div class= "col-xs-6 no-mar-pad-bor">
+                <div class= "title col-xs-3">
+                  <h5 class= "visible-md visible-lg no-bold">Diferencial</h5>
+                  <h5 class= "hidden-md hidden-lg no-bold">Dif.</h5>
+                </div>
+                <div class= "title col-xs-3">
+                  <h5>$110</h5>
+                </div>
+                <div class= "title col-xs-3">
+                   <img class = "map-img center-block" ng-src="img/Posicionamiento.png" alt="">
+                </div>
+                <div class= "title col-xs-3">
+                  <button type="submit" class="center-block btn btn-danger col-xs-12 lepStyleRed btn-sm" style="margin-top:10px;"ng-click="goSummary(1)">Seleccionar</button>
+                </div>
+              </div>
+            </div>   
+          </div>
+        </div>
+      </div>
+    </div>

@@ -7,7 +7,7 @@ angular.module('app').controller('SummaryController', function($scope, $location
 	
 	$scope.isBuy = tripService.getBuy() === 1;
 	$scope.isRoundTrip = tripService.getRoundTrip() === 1;
-	
+	window.scrollTo(0,140);
 	console.log($scope.isRoundTrip);
 	
 	$scope.trip = {
