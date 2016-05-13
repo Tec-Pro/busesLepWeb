@@ -83,21 +83,49 @@
                 <button onclick="location.href = 'www.facebook.com/expresobuseslep';"type="button" class="nav-style" style="background:#e6e6e6"><img src="img/Iconos comunes/Icono Facebook.png" class="img-responsive"style="float:left;width:20px;height:20px;margin-right:6px"></button>
             </li>
             <li class="small-margin"><img src="img/Iconos comunes/Icono sobre.png" class="img-responsive"style="float:left;width:18px;height:12px;margin-top:6px;margin-right:6px;">expreso@buseslep.com.ar</li>
-            <li class="row" style="margin-left:10px" href="">
-                <input type="text" required class="lep-form col-xs-4" id="DNI" placeholder="DNI" ng-model="user.dni"> 
-                <input type="password" required class="lep-form col-xs-4" id="Password" placeholder="Contraseña" ng-model="user.pass">       
-                <button class="lepStyle"type="submit" style="margin-left:3px;margin-top:8px;font-size:0.9em">Ingresar</button>
-                <button onclick="location.href = '#/signin';" class="lepStyle"type="button" style="font-size:0.9em">Registrarse</button>          
+            <li ng-show="user.dni == '' ">
+                <div ng-controller="LoginCtrl" class="row" style="margin-left:10px" href="">
+                    <form ng-submit="login()">
+                        <input type="text" class="lep-form col-xs-4" id="DNI" placeholder="DNI" required ng-model="user.dni"/>
+                        <input type="password" class="lep-form col-xs-4" id="Password" placeholder="Contraseña" required ng-model="user.pass"/>                        
+                        <button ng-click="go('/')" class="lepStyle"type="submit" style="margin-left:3px;margin-top:8px;font-size:0.9em">Ingresar</button>
+                        <button ng-click="go('/signin')" class="lepStyle"type="button" style="font-size:0.9em">Registrarse</button>
+                    </form>
+                </div>        
+            </li>
+            <li class="text-center" ng-controller="LoginCtrl" ng-show="user.dni != '' " style="margin-top:10px;margin-left:100px">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <p>Bienvenido, <span class="lepRed-color"><strong>{{user.name}}</strong></span></p>
+                    </div>
+                    <div class="col-xs-6">
+                        <button ng-click="logout()" class="lepStyle"type="button" style="margin-left:3px;margin-top:3px;font-size:0.8em">Cerrar sesión</button>
+                    </div>
+                </div>
             </li>
           </ul>
         </div><!--/.nav-collapse -->
     </div>
     <div class="row visible-xs lepGrey-bg">
-        <div class="col-xs-3"> <input type="text" required class="lep-form" id="DNI" placeholder="DNI" ng-model="user.dni"> </div>
-        <div class="col-xs-3"> <input type="password" required class="lep-form" id="Password" placeholder="Contraseña" ng-model="user.pass"></div>
-        <div class="col-xs-6 text-center">
-            <button class="lepStyle"type="submit" style="margin-left:3px;margin-top:8px;font-size:0.8em">Ingresar</button>
-            <button onclick="location.href = '#/signin';" class="lepStyle"type="button" style="font-size:0.8em">Registrarse</button>
+        <div class="col-xs-12" ng-show="user.dni == '' ">
+            <div ng-controller="LoginCtrl" class="row" style="margin-left:10px" href="">
+                <form ng-submit="login()">
+                    <input type="text" class="lep-form col-xs-4" id="DNI" placeholder="DNI" required ng-model="user.dni"/>
+                    <input type="password" class="lep-form col-xs-4" id="Password" placeholder="Contraseña" required ng-model="user.pass"/>                        
+                    <button ng-click="go('/')" class="lepStyle"type="submit" style="margin-left:3px;margin-top:8px;font-size:0.8em">Ingresar</button>
+                    <button ng-click="go('/signin')" class="lepStyle"type="button" style="font-size:0.8em">Registrarse</button>
+                </form>
+            </div>        
+        </div>
+        <div class="text-center" ng-controller="LoginCtrl" ng-show="user.dni != '' " style="margin-top:10px">
+            <div class="row">
+                    <div class="col-xs-6">
+                        <p>Bienvenido, <span class="lepRed-color"><strong>{{user.name}}</strong></span></p>
+                    </div>
+                    <div class="col-xs-6">
+                        <button ng-click="logout()" class="lepStyle"type="button" style="margin-left:3px;margin-top:3px;font-size:0.8em">Cerrar sesión</button>
+                    </div>
+                </div>
         </div>
     </div>
     <!-- Cover Image-->
