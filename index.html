@@ -80,22 +80,25 @@
             <li class="small-margin visible-lg"><img src="img/Iconos comunes/icono whatsapp.png" class="img-responsive" style="float:left;width:20px;height:20px;margin-right:6px">351-2466600</li>
             <li class="small-margin hidden-sm"><img src="img/Iconos comunes/Icono Celular.png" class="img-responsive"style="float:left;width:12px;height:19px;margin-right:6px">0351-5696600, 0358-4219090</li>
             <li class="small-margin">
-                <button type="button" class="nav-style" style="background:#e6e6e6"><img src="img/Iconos comunes/Icono Facebook.png" class="img-responsive"style="float:left;width:20px;height:20px;margin-right:6px"></button>
+                <button onclick="location.href = 'www.facebook.com/expresobuseslep';"type="button" class="nav-style" style="background:#e6e6e6"><img src="img/Iconos comunes/Icono Facebook.png" class="img-responsive"style="float:left;width:20px;height:20px;margin-right:6px"></button>
             </li>
             <li class="small-margin"><img src="img/Iconos comunes/Icono sobre.png" class="img-responsive"style="float:left;width:18px;height:12px;margin-top:6px;margin-right:6px;">expreso@buseslep.com.ar</li>
             <li class="row" style="margin-left:10px" ng-show="user.dni == '' " href="">
                 <input type="text" required class="lep-form col-xs-4" id="DNI" placeholder="DNI" ng-model="user.dni"> 
                 <input type="password" required class="lep-form col-xs-4" id="Password" placeholder="Contraseña" ng-model="user.pass">       
                 <button class="lepStyle"type="submit" style="margin-left:10px;margin-top:5px">Ingresar</button>
-                <button class="lepStyle"type="button" style="margin-left:10px;margin-top:5px">Registrarse</button>            
+                <button onclick="location.href = '#/signin';" class="lepStyle"type="button" style="margin-left:10px;margin-top:5px">Registrarse</button>          
             </li>
           </ul>
         </div><!--/.nav-collapse -->
     </div>
-    <div class="row visible-xs" style="background:lightgrey;">
-        <div class="col-xs-3 text-center" style="padding:10px"><strong>Ingresar</strong></div>
-        <div class="col-xs-4"> <input type="text" required class="lep-form" id="DNI" placeholder="DNI" ng-model="user.dni"> </div>
-        <div class="col-xs-5"> <input type="password" required class="lep-form" id="Password" placeholder="Contraseña" ng-model="user.pass"></div>
+    <div class="row visible-xs lepGrey-bg">
+        <div class="col-xs-3"> <input type="text" required class="lep-form" id="DNI" placeholder="DNI" ng-model="user.dni"> </div>
+        <div class="col-xs-3"> <input type="password" required class="lep-form" id="Password" placeholder="Contraseña" ng-model="user.pass"></div>
+        <div class="col-xs-6 text-center">
+            <button class="lepStyle"type="submit" style="margin-left:10px;margin-top:5px">Ingresar</button>
+            <button onclick="location.href = '#/signin';" class="lepStyle"type="button" style="margin-left:10px;margin-top:5px">Registrarse</button>
+        </div>
     </div>
     <!-- Cover Image-->
     <div class="container-fluid lepStyle background-white hidden-xs">
@@ -152,39 +155,37 @@
       </div>
       <div class="row h4-responsive">
         <div class="col-xs-3">
-            <div class="row text-center">
+            <div class="row text-center border-bottom">
                 <p>October Fest 2015  </br> <span class="lepGrey-color"> 21/09/2015 </span></p>
             </div>
-            <div class="row text-center">
+            <div class="row text-center border-bottom">
                 <p>Fiesta de la Primavera </br> <span class="lepGrey-color"> 21/09/2015 </span></p>
             </div>
-            <div class="row text-center">
+            <div class="row text-center border-bottom">
                 <p>Prómima nota  </br> <span class="lepGrey-color"> 21/09/2015 </span></p>
             </div>
         </div>
         <div class="col-xs-3">
-            <div class="row text-center">
-                <p>October Fest 2015  </br> <span class="lepGrey-color"> 21/09/2015 </span></p>
+            <div class="row text-center border-bottom">
+                <p>A partir del 1 de Septiembre se podrán gestionar las renovaciones de los Boletos Educativos Gratuitos</p>
             </div>
-            <div class="row text-center">
-                <p>Fiesta de la Primavera </br> <span class="lepGrey-color"> 21/09/2015 </span></p>
-            </div>
-            <div class="row text-center">
-                <p>Prómima nota  </br> <span class="lepGrey-color"> 21/09/2015 </span></p>
+            <div class="row text-center border-bottom">
+                <p>Ya podes conseguir tu tarjeta electronica para viajar a cualquiera de nuestros destinos</p>
             </div>
         </div>
         <div class="col-xs-3">
-            <div class="row text-center">
-                <p>October Fest 2015  </br> <span class="lepGrey-color"> 21/09/2015 </span></p>
+            <div class="row text-center border-bottom">
+                <p>Temperatura en Cordoba Capital </br> Min 10 / Max 27 </br> 
+                    <span class="h1-responsive">20</span></p>
             </div>
-            <div class="row text-center">
-                <p>Fiesta de la Primavera </br> <span class="lepGrey-color"> 21/09/2015 </span></p>
-            </div>
-            <div class="row text-center">
-                <p>Prómima nota  </br> <span class="lepGrey-color"> 21/09/2015 </span></p>
+            <div class="row text-center border-bottom">
+                <p>Cuidemos el medio ambiente</p>
             </div>
         </div>
-        <div class="col-xs-3"><textarea class="lep-form"style="background:#565656;width:260px;height:145px"name="Opinion"></textarea></div>
+        <div class="col-xs-3">
+            <textarea class="lep-form"style="background:#565656;width:280px;height:145px"name="Opinion"></textarea>
+           <button class="lepStyle"type="submit" style="margin:10px">Enviar</button> 
+        </div>
       </div>
       <div class="row lepDarkGrey-bg lepWhite-color">
         <p class="text-center"> Copyright <strong>buses Lep 2016</strong> - Todos los derechos reservados</p>
