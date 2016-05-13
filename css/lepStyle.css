@@ -5,6 +5,47 @@ body {
     body { padding-top: 0px; }
 }
 
+textarea {
+    resize: none;
+}
+
+.lepWhite-bg{
+  background: #ffffff;
+}
+.lepWhite-color{
+  color: #ffffff;
+}
+.lepRed-bg{
+  background: #ff0008;
+}
+.lepRed-color{
+  color: #ff0008;
+}
+.lepBlue-bg{
+  background: #444484;
+}
+.lepBlue-color{
+  color: #444484;
+}
+.lepLightGrey-bg{
+  background: #e6e6e6;
+}
+.lepLightGrey-color{
+  color: #e6e6e6;
+}
+.lepGrey-bg{
+  background: #c1c1c1;
+}
+.lepGrey-color{
+  color: #c1c1c1;
+}
+.lepDarkGrey-bg{
+  background: #777777;
+}
+.lepDarkGrey-color{
+  color: #777777;
+}
+
 .lepStyle{
     background: #e6e6e6;
     color: #666666;
@@ -27,8 +68,9 @@ body {
   color: white;
 }
 
+
 .lepStyle2{
-    background: #666666;
+    background: #444444;
     color: white;
 }
 
@@ -255,7 +297,7 @@ p.small{
 .lep-form {
   margin-top: 0.5em;
   display: block;
-  width: 180px;
+  width: 140px;
   height: 100%;
   padding: 6px 10px;
   font-size: 10px;
@@ -293,7 +335,7 @@ smaller than 650
   }
 
   .lep-form {
-  width: 130px;
+  width: 120px;
 }
 }
 

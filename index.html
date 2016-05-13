@@ -77,20 +77,17 @@
     <div class="container-fluid lepStyle hidden-xs">
         <div id="infobar" ng-controller="LoginCtrl">
           <ul class="nav navbar-nav">
-            <li class="small-margin"><img src="img/Iconos comunes/icono whatsapp.png" class="img-responsive" style="float:left;width:20px;height:20px;margin-right:6px">351-2466600</li>
-            <li class="small-margin"><img src="img/Iconos comunes/Icono Celular.png" class="img-responsive"style="float:left;width:12px;height:19px;margin-right:6px">0351-5696600, 0358-4219090</li>
+            <li class="small-margin visible-lg"><img src="img/Iconos comunes/icono whatsapp.png" class="img-responsive" style="float:left;width:20px;height:20px;margin-right:6px">351-2466600</li>
+            <li class="small-margin hidden-sm"><img src="img/Iconos comunes/Icono Celular.png" class="img-responsive"style="float:left;width:12px;height:19px;margin-right:6px">0351-5696600, 0358-4219090</li>
             <li class="small-margin">
                 <button type="button" class="nav-style" style="background:#e6e6e6"><img src="img/Iconos comunes/Icono Facebook.png" class="img-responsive"style="float:left;width:20px;height:20px;margin-right:6px"></button>
             </li>
             <li class="small-margin"><img src="img/Iconos comunes/Icono sobre.png" class="img-responsive"style="float:left;width:18px;height:12px;margin-top:6px;margin-right:6px;">expreso@buseslep.com.ar</li>
-            <li>
-                <input type="text" required class="lep-form" id="DNI" placeholder="DNI" ng-model="user.dni">                        
-            </li>
-            <li>
-                <input type="password" required class="lep-form" id="Password" placeholder="Contraseña" ng-model="user.pass">
-            </li>
-            <li style = "margin-top:0.5em;padding:3px">
-                Ingresar / Registrarse
+            <li class="row" style="margin-left:10px" ng-show="user.dni == '' " href="">
+                <input type="text" required class="lep-form col-xs-4" id="DNI" placeholder="DNI" ng-model="user.dni"> 
+                <input type="password" required class="lep-form col-xs-4" id="Password" placeholder="Contraseña" ng-model="user.pass">       
+                <button class="lepStyle"type="submit" style="margin-left:10px;margin-top:5px">Ingresar</button>
+                <button class="lepStyle"type="button" style="margin-left:10px;margin-top:5px">Registrarse</button>            
             </li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -103,7 +100,7 @@
     <!-- Cover Image-->
     <div class="container-fluid lepStyle background-white hidden-xs">
       <div class="row">
-        <img class="col-xs-6 size-logo img-responsive left" ng-src="img/Iconos comunes/Isologo.png" alt="Buses Lep" >
+        <a href="#/"><img class="col-xs-6 size-logo img-responsive left" ng-src="img/Iconos comunes/Isologo.png" alt="Buses Lep" ></a>
         <p class="col-xs-6" style="padding-top:5%;text-align:center;font-size:160%;font-family:verdana;"> 
             Preocupate por otras cosas, <b> buses Lep </b> te lleva.
         </p>
@@ -146,19 +143,52 @@
      <div class= "container-fluid"ng-view></div>
     </br></br></br>
       <!-- footer-->
-      <div id="footer" class="container-fluid lepStyle2">
-          <div class="row">
-            <div class="col-lg-3 text-center"><strong>Noticias</strong></div>
-            <div class="col-lg-3 text-center"><strong>Novedades</strong></div>
-            <div class="col-lg-3 text-center"><strong>Actualidad</strong></div>
-            <div class="col-lg-3 text-center"><strong>Tu opinión nos interesa...</strong></div>
-          </div>
-          <div class="row h4-responsive">
-            <div class="col-lg-3"><iframe></iframe></div>
-            <div class="col-lg-3"><iframe></iframe></div>
-            <div class="col-lg-3"><iframe></iframe></div>
-            <div class="col-lg-3 text-center"><textarea class="lep-form"style="background:grey"name="Text1" cols="20" rows="5" ></textarea></div>
-          </div>
+  <div id="footer" class="container-fluid lepStyle2">
+      <div class="row">
+        <div class="col-lg-3 text-center h4-responsive" style="padding:10px"><strong>Noticias</strong></div>
+        <div class="col-lg-3 text-center h4-responsive" style="padding:10px"><strong>Novedades</strong></div>
+        <div class="col-lg-3 text-center h4-responsive" style="padding:10px"><strong>Actualidad</strong></div>
+        <div class="col-lg-3 text-center h4-responsive" style="padding:10px"><strong>Tu opinión nos interesa...</strong></div>
       </div>
+      <div class="row h4-responsive">
+        <div class="col-xs-3">
+            <div class="row text-center">
+                <p>October Fest 2015  </br> <span class="lepGrey-color"> 21/09/2015 </span></p>
+            </div>
+            <div class="row text-center">
+                <p>Fiesta de la Primavera </br> <span class="lepGrey-color"> 21/09/2015 </span></p>
+            </div>
+            <div class="row text-center">
+                <p>Prómima nota  </br> <span class="lepGrey-color"> 21/09/2015 </span></p>
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div class="row text-center">
+                <p>October Fest 2015  </br> <span class="lepGrey-color"> 21/09/2015 </span></p>
+            </div>
+            <div class="row text-center">
+                <p>Fiesta de la Primavera </br> <span class="lepGrey-color"> 21/09/2015 </span></p>
+            </div>
+            <div class="row text-center">
+                <p>Prómima nota  </br> <span class="lepGrey-color"> 21/09/2015 </span></p>
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div class="row text-center">
+                <p>October Fest 2015  </br> <span class="lepGrey-color"> 21/09/2015 </span></p>
+            </div>
+            <div class="row text-center">
+                <p>Fiesta de la Primavera </br> <span class="lepGrey-color"> 21/09/2015 </span></p>
+            </div>
+            <div class="row text-center">
+                <p>Prómima nota  </br> <span class="lepGrey-color"> 21/09/2015 </span></p>
+            </div>
+        </div>
+        <div class="col-xs-3"><textarea class="lep-form"style="background:#565656;width:260px;height:145px"name="Opinion"></textarea></div>
+      </div>
+      <div class="row lepDarkGrey-bg lepWhite-color">
+        <p class="text-center"> Copyright <strong>buses Lep 2016</strong> - Todos los derechos reservados</p>
+      </div>
+  </div> <!--end footer-->
 </body>
 </html>
