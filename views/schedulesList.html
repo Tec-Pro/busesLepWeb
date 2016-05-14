@@ -44,38 +44,58 @@
         <br>
         <br>
       </div>
-      <div class="col-xs-2"></div>
-      <div class="col-xs-10">
-          <div class="col-xs-4 card2">
+
+      <!-- origen, destino y fecha-->
+      <div class="col-lg-2 hidden-xs"></div>
+      <div class="col-lg-10 col-md-12 hidden-xs">
+          <div class="col-lg-4 col-md-4 col-sm-6 card2">
             <h4 class="title no-mar-pad-bor">Cordoba</h4>
           </div>
-          <div class="col-xs-1">
+          <div class="col-lg-1 col-md-1 hidden-sm">
           </div>
-          <div class="col-xs-4 card2">
+          <div class="col-lg-4 col-md-4 col-sm-6 card2">
             <h4 class="title no-mar-pad-bor">Santa Rosa de Calamuchita</h4>
           </div>
-           <div class="col-xs-1">
+           <div class="col-lg-1 col-md-1 hidden-sm">
             
           </div>
-          <div class="col-xs-2 card2">
-            <h4 class="title no-mar-pad-bor">21/Abr</h4>
+          <div class="visible-sm col-sm-12"> <br> </div>
+          <div class="col-lg-2 col-md-2 col-sm-6 col-sm-offset-3 col-md-offset-0 col-lg-offset-0">
+            <div class="form-group">
+            <!-- Departure date input -->
+              <div class="input-group date">
+                <input date-range-picker name="departureDate" id="departureDate" class="form-control date-picker" type="text" min="params.today" ng-model="params.departureDate" options="dpOpts" required readonly/>
+                <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar">
+                  </span>
+                </span>
+              </div>
+            </div>
           </div>
       </div>
+
       <!-- precio ida  -->
-      <div class= "hidden-xs col-xs-12">
+      <div class= "hidden-xs col-xs-12 no-mar-pad-bor">
+        <div class = "col-sm-12 hidden-sm"> <br></div>
         <br>
-        <br>
-        <div class= "col-xs-2 no-mar-pad-bor">
+        <div class= "col-xs-2 no-mar-pad-bor hidden-sm">
           <h4 class = "no-mar-pad-bor">Precio Ida: $110</h4>
         </div>
+        <div class= "col-xs-2 col-sm-6 visible-sm no-mar-pad-bor">
+          <h4 class = "no-mar-pad-bor title">Precio Ida: $110</h4>
+        </div>
+        <div class= "col-sm-6 no-mar-pad-bor visible-sm">
+          <h4 class = "no-mar-pad-bor title">Precio Ida y vuelta: $110</h4>
+        </div>
+        <div class = "col-sm-12 visible-sm"> <br></div>
       </div>
 
       <!-- precio idavueta y header de la lista de horarios-->
-      <div class= "hidden-xs col-xs-12">
-        <div class= "col-xs-2 no-mar-pad-bor">
+      <div class= "hidden-xs col-xs-12 no-mar-pad-bor">
+        <div class= "col-xs-2 no-mar-pad-bor hidden-sm">
           <h5 class = "">Ida y vuelta: $110</h5>
         </div>
-        <div class= "col-xs-10 no-mar-pad-bor">
+        <div class= "col-md-10 col-lg-10 col-sm-12 no-mar-pad-bor">
           <div class= "col-xs-6 no-mar-pad-bor">
             <div class= "background-lightgrey title col-xs-3">
             <h5>Salida</h5>
@@ -108,53 +128,130 @@
           </div>
         </div>
         <hr>
+      </div>
+      
+      <!-- lista horarios mayor que 750px -->
+      <div class="hidden-xs" ng-repeat="i in range(0,20,1)">
+        <!-- separador entre header y lista-->
+        <div class= "col-xs-2 hidden-sm">  
+        </div>
+        <div class= "col-md-10 col-lg-10 col-sm-12 background-lightgrey2 lightgrey2"><h6 class = "lightgrey2 no-mar-pad-bor">.</h6> </div>
 
-        <div ng-repeat="i in range(0,20,1)">
-          <!-- separador entre header y lista-->
-          <div class= "col-xs-2">  
+        <!-- un horario -->
+        <div class= "no-mar-pad-bor col-xs-12 ">
+          <div class= "title col-xs-2 hidden-sm no-mar-pad-bor">
+            
           </div>
-          <div class= "col-xs-10 background-lightgrey2 lightgrey2"><h6 class = "lightgrey2 no-mar-pad-bor">.</h6> </div>
-
-          <!-- un horario -->
-          <div class= "no-mar-pad-bor col-xs-12 ">
-            <div class= "title col-xs-2 no-mar-pad-bor">
-              
+          <div class= "col-md-10 col-lg-10 col-sm-12 no-mar-pad-bor card">
+            <div class= "col-xs-6 no-mar-pad-bor">
+              <div class= "title col-xs-3">
+                <h5 class="no-bold">21/Abr</h5>
+                <h5 class = "no-mar-pad-bor"><strong><span class = "bold-blue">08:00 </span>Hs</strong></h5>
+              </div>
+              <div class= "title col-xs-3">
+                <h5 class="no-bold">21/Abr</h5>
+                <h5 class = "no-mar-pad-bor"><strong>08:00 Hs</strong></h5>
+              </div>  
+              <div class= "title col-xs-3">
+                <h5 class = "no-bold ">2:30 hs</h5>
+                <h5 class="no-bold blue hidden-sm">Recorrido</h5>
+              </div>
+              <div class= "title col-xs-3">
+                <h5 class = "no-bold red">En viaje</h5>
+              </div>
             </div>
-            <div class= "col-xs-10 no-mar-pad-bor card">
-              <div class= "col-xs-6 no-mar-pad-bor">
-                <div class= "title col-xs-3">
-                  <h5 class="no-bold">21/Abr</h5>
-                  <h5 class = "no-mar-pad-bor"><strong><span class = "bold-blue">08:00 </span>Hs</strong></h5>
-                </div>
-                <div class= "title col-xs-3">
-                  <h5 class="no-bold">21/Abr</h5>
-                  <h5 class = "no-mar-pad-bor"><strong>08:00 Hs</strong></h5>
-                </div>  
-                <div class= "title col-xs-3">
-                  <h5 class = "no-bold ">2:30 hs</h5>
-                  <h5 class="no-bold blue hidden-sm">Recorrido</h5>
-                </div>
-                <div class= "title col-xs-3">
-                  <h5 class = "no-bold red">En viaje</h5>
-                </div>
+            <div class= "col-xs-6 no-mar-pad-bor">
+              <div class= "title col-xs-3">
+                <h5 class= "visible-md visible-lg no-bold">Diferencial</h5>
+                <h5 class= "hidden-md hidden-lg no-bold">Dif.</h5>
               </div>
-              <div class= "col-xs-6 no-mar-pad-bor">
-                <div class= "title col-xs-3">
-                  <h5 class= "visible-md visible-lg no-bold">Diferencial</h5>
-                  <h5 class= "hidden-md hidden-lg no-bold">Dif.</h5>
-                </div>
-                <div class= "title col-xs-3">
-                  <h5>$110</h5>
-                </div>
-                <div class= "title col-xs-3">
-                   <img class = "map-img center-block" ng-src="img/Posicionamiento.png" alt="">
-                </div>
-                <div class= "title col-xs-3">
-                  <button type="submit" class="center-block btn btn-danger col-xs-12 lepStyleRed btn-sm" style="margin-top:10px;"ng-click="goSummary(1)">Seleccionar</button>
-                </div>
+              <div class= "title col-xs-3">
+                <h5>$110</h5>
               </div>
-            </div>   
-          </div>
+              <div class= "title col-xs-3">
+                 <img class = "map-img center-block" ng-src="img/Posicionamiento.png" alt="">
+              </div>
+              <div class= "title col-xs-3">
+                <button type="submit" class="center-block btn btn-danger col-xs-12 lepStyleRed btn-sm visible-lg" style="margin-top:10px;"ng-click="goSummary(1)">Seleccionar</button>
+                <button type="submit" class="center-block btn btn-danger col-xs-12 lepStyleRed btn-sm hidden-lg" style="margin-top:10px;"ng-click="goSummary(1)">Elegir</button>
+              </div>
+            </div>
+          </div>   
         </div>
       </div>
+      <!-- fin lista horarios mayor que 750px-->
+
+      <!-- menor que 750px -->
+
+      <div class="col-xs-12 visible-xs">
+         <div class="col-xs-12 card2">
+            <h5 class = "title">Cordoba <span class = "bold-blue"> > </span> Sta. Rosa de calamuchita</h5>
+          </div>
+          <div class = "col-xs-12"> <br></div>
+          <div class="col-xs-6 col-xs-offset-3">
+            <div class="form-group">
+            <!-- Departure date input -->
+              <div class="input-group date">
+                <input date-range-picker name="departureDate" id="departureDate" class="form-control date-picker" type="text" min="params.today" ng-model="params.departureDate" options="dpOpts" required readonly/>
+                <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar">
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+         
+          <div class = "col-xs-12"> <br></div>
+      </div>
+
+      <!-- lista de horarios -->
+      <div class="visible-xs" ng-repeat="i in range(0,20,1)">
+        <!-- separador entre header y lista-->
+        <div class= "col-xs-12 background-lightgrey2 lightgrey2"><h6 class = "lightgrey2 no-mar-pad-bor">.</h6> </div>
+
+        <!-- un horario -->
+        <div class= "no-mar-pad-bor col-xs-12 card2">
+            <div class= "col-xs-12 no-mar-pad-bor">
+              <div class= "title col-xs-4">
+                <h5>Salida:</h5>
+                <h5 class="no-bold">21/Abr</h5>
+                <h5 class = "no-mar-pad-bor"><strong><span class = "bold-blue">08:00 </span>Hs</strong></h5>
+              </div>
+              <div class= "title col-xs-4">
+                <h5>Llegada:</h5>
+                <h5 class="no-bold">21/Abr</h5>
+                <h5 class = "no-mar-pad-bor"><strong>08:00 Hs</strong></h5>
+              </div>  
+              <div class= "title col-xs-4">
+                <h5>Duracion:</h5>
+                <h5 class = "no-bold ">2:30 hs</h5>
+                <h5 class="no-bold blue hidden-sm">Recorrido</h5>
+              </div>        
+            </div>
+            <hr>
+            <div class= "col-xs-12 no-mar-pad-bor">
+              <div class= "title col-xs-4">
+                <h5 class = "no-bold red">En viaje</h5>
+              </div>
+              <div class= "title col-xs-4">
+                <h5 class= "no-bold">Diferencial</h5>
+              </div>
+              <div class= "title col-xs-4">
+                 <img class = "map-img center-block" ng-src="img/Posicionamiento.png" alt="">
+              </div>
+            </div> 
+            <hr>
+            <div class= "col-xs-12 no-mar-pad-bor">
+              <div class= "title col-xs-6">
+                <h4>Precio: $110</h4>
+              </div>
+              <div class= "title col-xs-6 center-block">
+                <button type="submit" class="center-block btn btn-danger col-xs-12 lepStyleRed btn-sm" style="margin-top:5px;"ng-click="goSummary(1)">Seleccionar</button>
+              </div>
+            </div>
+        </div>
+      </div>
+      <!-- fin lista horarios menor que 750px-->
+
+
     </div>
