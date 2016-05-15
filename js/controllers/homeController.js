@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('MainCtrl', function($scope, $location,tripService){
+.controller('HomeCtrl', function($scope, $location,tripService){
 
     //Date picker options
     $scope.dpOpts = {
@@ -26,8 +26,7 @@ angular.module('app')
       origin: '',
       destination: '',
       departureDate: moment(),
-      returnDate: moment(),
-      amount: ''
+      returnDate: ''
     };
 
 	//Call the web service and update the origins from the scope.
@@ -89,13 +88,13 @@ angular.module('app')
       var b = $scope.params.returnDate;
       //a must be != null, b can be null.
       //if is a round trip, and b (The return date) is after the a (The departure date) alert the user.
-      if ($scope.roundTrip && !(a.isSame(b) || a.isBefore(b))) {
+      if ((b != '') && (a.isAfter(b, 'day'))) {
           	window.alert("La fecha de llegada no puede ser anterior a la de salida");
       } else {
 		  //Else redirect to schedules and set the data in the service.
-				if ($scope.roundTrip === true){
+				if (b != ''){
 					tripService.setRoundTrip(1);
-					tripService.setTripReturn($scope.params.returnDate);
+					tripService.setTripReturn(b);
 				} else {
 					tripService.setRoundTrip(0);
 									tripService.setTripReturn('');
@@ -105,10 +104,10 @@ angular.module('app')
 				tripService.setTripDestinationId($scope.params.destination.id_localidad_destino);
 				tripService.setTripDestinationName($scope.params.destination.hasta);
 				tripService.setTripDeparture($scope.params.departureDate);
-				tripService.setTripTicketAmount($scope.params.amount);
 				tripService.searchTrips($scope.params.origin.ID_Localidad, $scope.params.destination.id_localidad_destino, $scope.params.departureDate.format("YYYYMMDD")).then(function(schedules){
 						if (schedules.length > 0){
 							tripService.setSchedules(schedules);
+              console.log(tripService.getTrip());
 							$location.path('/schedules');
 						} else {
 							window.alert("No existen viajes para esa fecha");

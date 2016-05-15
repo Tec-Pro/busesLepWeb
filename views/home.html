@@ -5,7 +5,7 @@
 		</div>
 		<div class="col-xs-12 col-sm-4 search-container">
 			<h3 class="h3-responsive">Búsqueda / Reserva / Compra</h3>
-			<form name="searchForm" role="form">
+			<form name="searchForm" role="form" data-ng-submit="goSearch()">
 				<div class="row">
 					<div class="col-xs-12">
 						<div class="form-group">
@@ -73,7 +73,7 @@
 					<div class="item active">
 						<img src="./img/home/row2col2a.png" class="center-block img-sm img-responsive">
 						<div class="carousel-text">
-							<p class="text-center">Lorem ipsum dolor amet<p>
+							<p class="text-center">Gozá de cualquiera de estos beneficios de manera rápida y segura.<p>
 						</div>
 					</div>
 					<div class="item">
@@ -99,11 +99,27 @@
 			<img src="./img/home/row4col1.png" class="img-md img-responsive">
 		</div>
 		<div class="col-xs-12 col-sm-7">
-			<h3 class="text-center">Viajes Especiales <small>Internacionales/Nacionales/Provinciales</small></h3>
-			<img src="./img/home/row4col2.png" class="pull-right img-md img-responsive">
+			<h3>Viajes Especiales <small>Internacionales/Nacionales/Provinciales</small></h3>
+			<img src="./img/home/row4col2.png" class="img-md img-responsive">
 		</div>
 	</div>
-	<div class="home-row row">
+	<div class="visible-xs row">
+		<div class="col-xs-12 col-sm-4">
+			<img src="./img/home/row3col1.png" class="img-sm img-responsive">
+			<button class="btn btn-home col-xs-12"><strong class="pull-left">Confort</strong><span class="glyphicon glyphicon-plus white-glyphicon-home pull-right"></span></button>
+		</div>
+		<br class="visible-xs">
+		<div class="col-xs-12 col-sm-4">
+			<img src="./img/home/row3col2.png" class="img-sm img-responsive">
+			<button class="btn btn-home col-xs-12"><strong class="pull-left">Tecnología</strong><span class="glyphicon glyphicon-plus white-glyphicon-home pull-right"></span></button>
+		</div>
+		<br class="visible-xs">
+		<div class="col-xs-12 col-sm-4">
+			<img src="./img/home/row3col3.png" class="img-sm img-responsive">
+			<button class="btn btn-home col-xs-12"><strong class="pull-left">Seguridad</strong><span class="glyphicon glyphicon-plus white-glyphicon-home pull-right"></span></button>
+		</div>
+	</div>
+	<div class="hidden-xs home-row row">
 		<div class="col-xs-12 col-sm-4">
 			<img src="./img/home/row3col1.png" class="img-sm img-responsive">
 			<button class="btn btn-home col-xs-12"><strong class="pull-left">Confort</strong><span class="glyphicon glyphicon-plus white-glyphicon-home pull-right"></span></button>
@@ -120,7 +136,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-xs-12 col-sm-6">
+		<div class="hidden-xs col-xs-12 col-sm-6">
 			<h3>Noticias</h3>
 			<div class="row">
 				<div class="col-xs-6">
@@ -128,11 +144,11 @@
 				</div>
 				<div class="col-xs-6">
 					<h4>OktoberFest 2016</h4>
-					<p>Lorem Ipsum Dolo Amet</p>
+					<p>Villa General Belgrano se prepara para la próxima fiesta anual de la cerveza <strong>buses Lep</strong> pone a tu disposición coches que constan de todo el confort y la tecnología para que disfrutes del Valle de Calamuchita, además de horarios con la frecuencia de veinte minutos. Sumate vos también a esta experiencia única y dejanos tu comentario en nuestro muro: <a href="www.facebook.com/expresobuseslep">facebook/expresobuseslep</a></p>
 				</div>
 			</div>
 		</div>
-		<div class="col-xs-12 col-sm-6">
+		<div class="hidden-xs col-xs-12 col-sm-6">
 			<h3>Noticias</h3>
 			<div class="row">
 				<div class="col-xs-6">
@@ -140,7 +156,7 @@
 				</div>
 				<div class="col-xs-6">
 					<h4>Fiesta de la Primavera en Embalse</h4>
-					<p>Lorem Ipsum Dolo Amet</p>
+					<p>Este año la Municipalidad apuesta fuerte y tiral a casa por la ventana recibiendo a la juventud en dos días que prometen musicalidad y un festejo único. Ponemos a tu alcance todos nuestros recursos para que no te pierdas este evento: Por cada horario regular agregamos tres refuerzos y, si sacás tu tarjeta de abonos, te regalamos hasta un 40% de descuento! Consultá nuestras promos, reservá y comprá desde la App exclusiva de <strong>buses Lep</strong></p>
 				</div>
 			</div>
 		</div>
