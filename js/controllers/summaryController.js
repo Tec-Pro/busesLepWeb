@@ -29,7 +29,7 @@ angular.module('app').controller('SummaryController', function($scope, $location
 	}
 
 	$scope.goReserve = function(){
-		$location.path('/details');
+		$location.path('/reserveDetails');
 		tripService.setBuy(0);	
 	}
 });
