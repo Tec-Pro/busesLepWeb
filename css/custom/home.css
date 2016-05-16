@@ -66,6 +66,10 @@
 	color: red;
 }
 
+.btn-home > span:hover {
+	color: red;
+}
+
 .default-option:hover {
 	color:red;
 	text-decoration: underline;

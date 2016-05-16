@@ -4,7 +4,7 @@ angular.module("app", ["ngRoute","LocalStorageModule","angularSoap","daterangepi
     .config(function($routeProvider){
         $routeProvider
             .when("/", {
-                controller: "MainCtrl",
+                controller: "HomeCtrl",
                 templateUrl: "views/home.html"
             })
             .when("/editProfile", {
@@ -45,6 +45,13 @@ angular.module("app", ["ngRoute","LocalStorageModule","angularSoap","daterangepi
             .when("/details", {
                 controller: "DetailsController",
                 templateUrl: "views/details.html"
+            })
+            .when("/special", {
+                templateUrl: "views/special.html"
+            })
+            .when("/reserveDetails", {
+                controller: "DetailsController",
+                templateUrl: "views/reserveDetails.html"
             })
             .when("/summary", {
                 controller: "SummaryController",

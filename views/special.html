@@ -1,0 +1,166 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12 col-sm-3">
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam purus nulla, maximus a fermentum auctor, molestie sit amet lectus. Nullam consectetur ac ante non varius. Etiam vestibulum pulvinar elit, vitae condimentum ex ullamcorper vel. Integer malesuada placerat nulla, eu tempus mauris finibus eu. 
+		</div>
+		<div class="hidden-xs col-sm-9">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<h3>Formulario de Cotización</h3>
+			<form name="specialTravelForm" role="form" class="form-horizontal">
+				<div class="row">
+					<div class="col-xs-4">
+						<div class="form-group">
+							<div class="row">
+								<label class="control-label col-xs-4">Apellido/s</label>
+								<div class="col-xs-6">
+									<input class="form-control" type="text"></input>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="row">
+								<label class="control-label col-xs-4">Nombre/s</label>
+								<div class="col-xs-6">
+									<input class="form-control" type="text"></input>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="row">
+								<label class="control-label col-xs-4">Email</label>
+								<div class="col-xs-6">
+									<input class="form-control" type="email"></input>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="row">
+								<label class="control-label col-xs-4">Teléfono</label>
+								<div class="col-xs-6">
+									<input class="form-control" type="tel"></input>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-4">
+						<div class="form-group">
+							<div class="row">
+								<label class="control-label col-xs-4">Tipo de Viaje</label>
+								<div class="col-xs-6">
+									<select class="form-control">
+										<option>
+											Internacional
+										</option>
+										<option>
+											Nacional
+										</option>
+										<option>
+											Provincial
+										</option>
+									</select> 
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="row">
+								<label class="control-label col-xs-4">Origen</label>
+								<div class="col-xs-6">
+									<select class="form-control">
+										<option>A</option>
+										<option>B</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="row">
+								<label class="control-label col-xs-4">Destino</label>
+								<div class="col-xs-6">
+									<select class="form-control">
+										<option>A</option>
+										<option>B</option>
+									</select>
+								</div>
+
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="row">
+								<label class="control-label col-xs-4">Fecha Ida</label>
+								<!-- Departure date input -->
+								<div class="col-xs-6">
+									<div class="input-group date">
+										<input date-range-picker name="departureDate" id="departureDate" class="form-control date-picker" type="text" min="params.today" ng-model="params.departureDate" options="dpOpts" required readonly/>
+										<span class="input-group-addon">
+											<span class="glyphicon glyphicon-calendar">
+											</span>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-4">
+						<div class="form-group">
+							<div class="row">
+								<label class="control-label col-xs-4">Pasajeros</label>
+								<div class="col-xs-6">
+									<input class="form-control" type="number"></input>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="row">
+								<label class="control-label col-xs-4">Ciudad</label>
+								<div class="col-xs-6">
+									<select class="form-control">
+										<option>A</option>
+										<option>B</option>
+									</select>
+								</div>
+
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="row">
+								<label class="control-label col-xs-4">Ciudad</label>
+								<div class="col-xs-6">
+									<select class="form-control">
+										<option>A</option>
+										<option>B</option>
+									</select>
+								</div>
+
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="row">
+								<label class="control-label col-xs-4">Fecha Vuelta</label>
+								<!-- Return date input -->
+								<div class="col-xs-6">
+									<div class="input-group date">
+										<input date-range-picker name="departureDate" id="departureDate" class="form-control date-picker" type="text" min="params.today" ng-model="params.departureDate" options="dpOpts" required readonly/>
+										<span class="input-group-addon">
+											<span class="glyphicon glyphicon-calendar">
+											</span>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+				</div>			
+				<div class="row">
+				</div>
+			</form>
+		</div>
+		<div class="col-xs-12">
+		</div>
+
+	</div>
+</div>
