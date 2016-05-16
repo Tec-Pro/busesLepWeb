@@ -46,14 +46,12 @@ angular.module("app", ["ngRoute","LocalStorageModule","angularSoap","daterangepi
                 controller: "DetailsController",
                 templateUrl: "views/details.html"
             })
-<<<<<<< HEAD
             .when("/special", {
                 templateUrl: "views/special.html"
-=======
+            })
             .when("/reserveDetails", {
                 controller: "DetailsController",
                 templateUrl: "views/reserveDetails.html"
->>>>>>> 277ffa535f21c1ab24d77ce1409650bbece77e9c
             })
             .when("/summary", {
                 controller: "SummaryController",
