@@ -51,6 +51,16 @@ textarea {
     color: #666666;
 }
 
+.lepStyleRed{
+  background: #ff0008;
+  color: white;
+}
+
+.lepStyle2{
+    background: #444444;
+    color: white;
+}
+
 .on-top{
   z-index: 4;
 }
@@ -63,16 +73,7 @@ textarea {
       padding-top: 70px;
   }
 
-.lepStyleRed{
-  background: #ff0008;
-  color: white;
-}
 
-
-.lepStyle2{
-    background: #444444;
-    color: white;
-}
 
 .lepStyle-round{
     border-radius: 15px 15px 15px 15px;
@@ -110,7 +111,7 @@ textarea {
 }
 
 .background-lightgrey3{
-  background: #F0F0F0 ;
+  background: #F8F8F8;
 }
 
 .background-lightgrey2{
@@ -283,11 +284,16 @@ p.small{
 }
 
 .bold-blue{
-  color:#0033CC;
+  color:#444484;
   font-weight:bold;
 }
+
+.bold{
+  font-weight:bold;
+}
+
 .blue{
-  color:#0033CC;
+  color:#444484;
 }
 
 .map-img{
