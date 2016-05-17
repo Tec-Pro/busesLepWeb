@@ -79,7 +79,7 @@ body {
 }
 
 .small-margin{
-  margin: 10px;
+  margin-top: 10px;
   padding-right: 10px;
   border-right: 2px;
   border-right-style: solid;
@@ -200,7 +200,27 @@ div.card2{
 
 
 
-.navbar-brand-2{color:white;position: absolute;width: 100%;left: 0;top: 0;text-align: center;margin: auto;height:50px;padding:15px 15px;font-size:18px;line-height:20px}.navbar-brand-2:focus,.navbar-brand-2:hover{text-decoration:none}.navbar-brand-2>img{display:block}@media (min-width:768px){.navbar>.container .navbar-brand-2,.navbar>.container-fluid .navbar-brand-2{margin-left:-15px}}
+.navbar-brand-2{
+  color:white;
+  position: absolute;
+  width: 100%;left: 0;
+  top: 0;
+  text-align: center;
+  margin: auto;
+  height:50px;
+  padding:15px 15px;
+  font-size:18px;
+  line-height:20px
+  }
+
+.navbar-brand-2:focus,.navbar-brand-2:hover{
+  text-decoration:none
+  }
+
+.navbar-brand-2>img{
+  display:block
+  }
+ @media (min-width:768px){.navbar>.container .navbar-brand-2,.navbar>.container-fluid .navbar-brand-2{margin-left:-15px}}
 
 .navbar-default .navbar-toggle .icon-bar {
     background-color:#666666;
@@ -214,6 +234,11 @@ div.card2{
 .navbar.navbar-default .navbar-nav li a:hover {
     background: #666666;
     color: #e6e6e6;
+}
+
+.navbar.navbar-default .navbar-nav li a.active {
+    background: red;
+    color: white;
 }
 
 
@@ -496,3 +521,4 @@ color:#ff0008;
     height:120px;
   }
 }
+
