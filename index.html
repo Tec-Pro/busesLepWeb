@@ -74,7 +74,7 @@
     <!-- Info bar-->
     <div class="container-fluid lepStyle hidden-xs">
         <div class="row" ng-controller="LoginCtrl" style="padding-bottom:5px">
-            <div class="col-sm-7 col-sm-8 visible-lg">
+            <div class="col-sm-7 col-md-7 visible-lg">
                 <div class="row">
                     <div class=" small-margin col-sm-3 col-md-3 text-center visible-lg">
                         <img src="img/Iconos comunes/icono whatsapp.png" class="img-responsive" style="float:left;width:20px;height:20px;margin-right:6px">351-2466600
@@ -100,13 +100,13 @@
                     </form>
                 </div>        
             </div>
-            <div class="text-center col-md-4" ng-controller="LoginCtrl" ng-show="user.dni != '' " style="margin-top:10px;margin-left:100px">
-                <div class="row">
-                    <div class="col-md-6">
+            <div class="text-center col-sm-12 col-md-12 col-lg-5"  >
+                <div class="row" ng-controller="LoginCtrl" ng-show="user.dni != '' " style="margin-top:10px;margin-left:100px">
+                    <div class="col-sm-6 col-md-6">
                         <p>Bienvenido, <span class="lepRed-color"><strong>{{user.name}}</strong></span></p>
                     </div>
-                    <div class="col-md-6">
-                        <button ng-click="logout()" class="lepStyle"type="button" style="margin-left:3px;margin-top:3px;font-size:0.8em">Cerrar sesión</button>
+                    <div class="col-sm-6 col-md-6">
+                        <button ng-click="logout();go('/')" class="lepStyle"type="button" style="margin-left:3px;margin-top:3px;font-size:0.8em">Cerrar sesión</button>
                     </div>
                 </div>
             </div>
