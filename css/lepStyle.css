@@ -4,8 +4,6 @@ body {
 @media screen and (max-width: 768px) {
     body { padding-top: 0px; }
 }
-
-
 .lepWhite-bg{
   background: #ffffff;
 }
@@ -86,7 +84,22 @@ body {
   border-right-color: #a6a6a6; 
 }
 
+.border-right{
+  border-right: 2px;
+  border-right-style: solid;
+  border-right-color: #e6e6e6; 
+}
+.border-top{
+  border-top: 2px;
+  border-top-style: solid;
+  border-top-color: #e6e6e6;
+}
 .border-bottom{
+  border-bottom: 2px;
+  border-bottom-style: solid;
+  border-bottom-color: #e6e6e6;
+}
+.border-bottom-r{
   border-bottom: 2px;
   border-radius: 100px;
   border-bottom-style: solid;
@@ -101,6 +114,14 @@ body {
   padding-right: 0;
 }
 
+.lep-href a:link {color:#555555;text-decoration:none;}
+.lep-href a:visited {color:#555555;text-decoration:none;}
+.lep-href a:hover {text-decoration:none;}
+
+.lep-margin{
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
 
 .button2{
     background: #666666;
@@ -500,13 +521,6 @@ color:#ff0008;
 /*style="height: 200px; position:relative; overflow:auto;"*/
 
 
-@media (min-width: 995px) {
-  .navbar-collapse {
-    width: auto;
-    border-top: 0;
-    box-shadow: none;
-  }
-}
 
 @media screen and (min-width: 650px) and (max-width: 895px) {
     .textarea{

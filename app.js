@@ -62,6 +62,9 @@ angular.module("app", ["ngRoute","LocalStorageModule","angularSoap","daterangepi
             })
             .when("/userTickets", {
                 templateUrl: "views/userTickets.html"
+            })
+            .when("/account", {
+                templateUrl: "views/account.html"
             });             
     });
    
