@@ -116,7 +116,7 @@ body {
 
 .lep-href a:link {color:#555555;text-decoration:none;}
 .lep-href a:visited {color:#555555;text-decoration:none;}
-.lep-href a:hover {text-decoration:none;}
+.lep-href a:hover {text-decoration:none;font-size:110%;}
 
 .lep-margin{
   margin-bottom: 5px;
@@ -204,14 +204,14 @@ body {
   margin-top: 3px;
 }
 
-div.card{
+.card{
   border-bottom: 2px solid;
   border-right: 1px solid;
   border-bottom-color: #a6a6a6 ;
   border-right-color: #a6a6a6 ;
 }
 
-div.card2{
+.card2{
   border-top: 1px solid;
   border-left: 1px solid;
   border-bottom: 2px solid;
