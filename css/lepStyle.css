@@ -204,18 +204,23 @@ body {
   margin-top: 3px;
 }
 
-.card{
+div.card{
   border-bottom: 2px solid;
   border-right: 1px solid;
   border-bottom-color: #a6a6a6 ;
   border-right-color: #a6a6a6 ;
 }
 
-.card2{
+div.card2{
   border-top: 1px solid;
   border-left: 1px solid;
   border-bottom: 2px solid;
   border-right: 1px solid;
+  border-color: #a6a6a6 ;
+}
+
+div.card3{
+  border-bottom: 2px solid;
   border-color: #a6a6a6 ;
 }
 
