@@ -224,7 +224,10 @@ div.card3{
   border-color: #a6a6a6 ;
 }
 
-
+div.card4{
+  border: 3px solid;
+  border-color: #E0E0E0 ;
+}
 
 .navbar-brand-2{
   color:white;
@@ -540,4 +543,3 @@ color:#ff0008;
     height:120px;
   }
 }
-

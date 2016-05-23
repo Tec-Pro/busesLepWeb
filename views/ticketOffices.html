@@ -1,4 +1,4 @@
-<div class = "container">
+<div class = "container" ng-controller="TicketOfficesController">
     <div class="col-xs-8 border-bottom border-top">
         <div class="col-xs-2 border-right text-center lep-href lep-margin">
         	<a href="#/tours"><span class="lepBlue-color"><strong>Informacion</strong><span></a>
@@ -27,68 +27,24 @@
             </div>
         </div>
         <div class = "col-xs-12"> <br></div>
-        <div class = "col-xs-12 no-mar-pad-bor">
-            <div class = "col-xs-11 background-lightgrey3 card3">
-                <div class = "col-xs-4">
-                  <h5 class = "title">Adelia Maria</h5>
+        <div ng-repeat="office in ticketOffices">
+            <div class = "col-xs-12 no-mar-pad-bor">
+                <div class = "col-xs-11 card3 no-mar-pad-bor" ng-class-odd="'background-lightgrey3'" ng-class-even="" >
+                    <div class = "col-xs-12 no-mar-pad-bor" style="cursor:pointer" ng-class="{'card4':$index == selectedRow}" ng-click="setClickedRow($index)">
+                        <div class = "col-xs-4">
+                          <h5 class = "title">{{office.location}}</h5>
+                        </div>
+                        <div class = "col-xs-4">
+                          <h5 class = "title" ng-class="{'lepBlue-color':$index == selectedRow}">{{office.address}}</h5>
+                        </div>
+                        <div class = "col-xs-4">
+                          <h5 class = "title">{{office.phone}}</h5>
+                        </div>
+                    </div>
                 </div>
-                <div class = "col-xs-4">
-                  <h5 class = "title">Terminal de Omnibus</h5>
+                <div class = "col-xs-1">
+                    <img class = "map-img center-block" style = "height:22px; width:15px;" ng-src="img/Posicionamiento.png" alt="">
                 </div>
-                <div class = "col-xs-4">
-                  <h5 class = "title">03585 421541 / 422300</h5>
-                </div>
-            </div>
-            <div class = "col-xs-1">
-                <img class = "map-img center-block" style = "height:22px; width:15px;" ng-src="img/Posicionamiento.png" alt="">
-            </div>
-        </div>
-        <div class = "col-xs-12 no-mar-pad-bor">
-            <div class = "col-xs-11 card3">
-                <div class = "col-xs-4">
-                  <h5 class = "title">Adelia Maria</h5>
-                </div>
-                <div class = "col-xs-4">
-                  <h5 class = "title">Terminal de Omnibus</h5>
-                </div>
-                <div class = "col-xs-4">
-                  <h5 class = "title">03585 421541 / 422300</h5>
-                </div>
-            </div>
-            <div class = "col-xs-1">
-                <img class = "map-img center-block" style = "height:22px; width:15px;" ng-src="img/Posicionamiento.png" alt="">
-            </div>
-        </div>
-        <div class = "col-xs-12 no-mar-pad-bor">
-            <div class = "col-xs-11 background-lightgrey3 card3">
-                <div class = "col-xs-4">
-                  <h5 class = "title">Adelia Maria</h5>
-                </div>
-                <div class = "col-xs-4">
-                  <h5 class = "title">Terminal de Omnibus</h5>
-                </div>
-                <div class = "col-xs-4">
-                  <h5 class = "title">03585 421541 / 422300</h5>
-                </div>
-            </div>
-            <div class = "col-xs-1">
-                <img class = "map-img center-block" style = "height:22px; width:15px;" ng-src="img/Posicionamiento.png" alt="">
-            </div>
-        </div>
-        <div class = "col-xs-12 no-mar-pad-bor">
-            <div class = "col-xs-11 card3">
-                <div class = "col-xs-4">
-                  <h5 class = "title">Adelia Maria</h5>
-                </div>
-                <div class = "col-xs-4">
-                  <h5 class = "title">Terminal de Omnibus</h5>
-                </div>
-                <div class = "col-xs-4">
-                  <h5 class = "title">03585 421541 / 422300</h5>
-                </div>
-            </div>
-            <div class = "col-xs-1">
-                <img class = "map-img center-block" style = "height:22px; width:15px;" ng-src="img/Posicionamiento.png" alt="">
             </div>
         </div>
         <div class = "col-xs-12"> <br></div>
@@ -98,7 +54,7 @@
     <!-- ticket office image -->
     <div class="col-xs-3 lepLightGrey-bg" style = "margin-left:15px;">
         <div class = "col-xs-12"> <br></div>
-        <img class = "center-block img-responsive" style = "height:70%; width:70%;" ng-src="img/Boleterias/EjemploFotoBoleteria.png" alt="">
+        <img class = "center-block img-responsive" style = "height:70%; width:70%;" ng-src="{{selectedImg}}" alt="">
         <div class = "col-xs-12"> <br></div>
     </div>
 </div>
