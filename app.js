@@ -67,6 +67,9 @@ angular.module("app", ["ngRoute","LocalStorageModule","angularSoap","daterangepi
                 controller: "TicketOfficesController",
                 templateUrl: "views/ticketOffices.html"
             })
+            .when("/tours", {
+                templateUrl: "views/tours.html"
+            })
             .when("/account/reserves", {
                 templateUrl: "views/accountReserves.html"
             })
