@@ -56,6 +56,14 @@ body {
     color: white;
 }
 
+.gradient-line {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+1,000000+99&0+97,0.65+100 */
+  background: -moz-linear-gradient(top, rgba(0,0,0,0) 1%, rgba(0,0,0,0) 98%, rgba(0,0,0,0.43) 100%, rgba(0,0,0,0.65) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(0,0,0,0) 1%,rgba(0,0,0,0) 98%,rgba(0,0,0,0.43) 100%,rgba(0,0,0,0.65) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 1%,rgba(0,0,0,0) 98%,rgba(0,0,0,0.43) 100%,rgba(0,0,0,0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
+}
+
 .on-top{
   z-index: 4;
 }
@@ -105,6 +113,13 @@ body {
   border-bottom-style: solid;
   border-bottom-color: #555555;
 }
+
+.search-item-box{
+  border: 2px solid;
+  border-color:  #e6e6e6 ;
+  margin: 5px;
+}
+
 .size-logo{
   height:25%;
   width:25%;
