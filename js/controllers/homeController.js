@@ -116,4 +116,14 @@ angular.module('app')
 			
       }
     };
+
+    $scope.$watch('params.departureDate', function(date){
+      if ($scope.params.returnDate !== ''){ 
+        var a = $scope.params.returnDate;
+        var b = date;
+        if (a.isBefore(b, 'day')){
+          $scope.params.returnDate = date;
+        }
+      }
+    });
 });

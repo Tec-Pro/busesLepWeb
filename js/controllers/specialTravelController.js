@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('HomeCtrl', function($scope, $location,tripService){
+.controller('SpecialTravelCtrl', function($scope, $location){
 
 	//Date picker options
     $scope.dpOpts = {
@@ -14,4 +14,20 @@ angular.module('app')
         showDropdowns: true
     };
 
+
+    $scope.params = {
+      today: moment(),
+      departureDate: moment(),
+      returnDate: ''
+    }
+
+    $scope.$watch('params.departureDate', function(date){
+      if ($scope.params.returnDate !== ''){ 
+        var a = $scope.params.returnDate;
+        var b = date;
+        if (a.isBefore(b, 'day')){
+          $scope.params.returnDate = date;
+        }
+      }
+    });
 });

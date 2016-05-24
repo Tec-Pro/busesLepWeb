@@ -11,7 +11,7 @@
 			<h3>Formulario de Cotización</h3>
 			<form name="specialTravelForm" role="form" class="form-horizontal">
 				<div class="row">
-					<div class="col-xs-4">
+					<div class="col-xs-12 col-sm-4">
 						<div class="form-group">
 							<div class="row">
 								<label class="control-label col-xs-4">Apellido/s</label>
@@ -45,7 +45,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-xs-4">
+					<div class="col-xs-12 col-sm-4">
 						<div class="form-group">
 							<div class="row">
 								<label class="control-label col-xs-4">Tipo de Viaje</label>
@@ -75,9 +75,33 @@
 								</div>
 							</div>
 						</div>
+						<div class="form-group visible-xs">
+							<div class="row">
+								<label class="control-label col-xs-4">Ciudad Origen</label>
+								<div class="col-xs-6">
+									<select class="form-control">
+										<option>A</option>
+										<option>B</option>
+									</select>
+								</div>
+
+							</div>
+						</div>
 						<div class="form-group">
 							<div class="row">
 								<label class="control-label col-xs-4">Destino</label>
+								<div class="col-xs-6">
+									<select class="form-control">
+										<option>A</option>
+										<option>B</option>
+									</select>
+								</div>
+
+							</div>
+						</div>
+						<div class="form-group visible-xs">
+							<div class="row">
+								<label class="control-label col-xs-4">Ciudad Destino</label>
 								<div class="col-xs-6">
 									<select class="form-control">
 										<option>A</option>
@@ -103,7 +127,22 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-xs-4">
+					<div class="col-xs-12 col-sm-4">
+						<div class="form-group visible-xs">
+							<div class="row">
+								<label class="control-label col-xs-4">Fecha Vuelta</label>
+								<!-- Return date input -->
+								<div class="col-xs-6">
+									<div class="input-group date">
+										<input date-range-picker name="returnDate" id="returnDate" class="form-control date-picker" type="text" min="params.departureDate" ng-model="params.returnDate" options="dpOpts" required readonly/>
+										<span class="input-group-addon">
+											<span class="glyphicon glyphicon-calendar">
+											</span>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
 						<div class="form-group">
 							<div class="row">
 								<label class="control-label col-xs-4">Pasajeros</label>
@@ -112,9 +151,9 @@
 								</div>
 							</div>
 						</div>
-						<div class="form-group">
+						<div class="form-group hidden-xs">
 							<div class="row">
-								<label class="control-label col-xs-4">Ciudad</label>
+								<label class="control-label col-xs-4">Ciudad Origen</label>
 								<div class="col-xs-6">
 									<select class="form-control">
 										<option>A</option>
@@ -124,9 +163,9 @@
 
 							</div>
 						</div>
-						<div class="form-group">
+						<div class="form-group hidden-xs">
 							<div class="row">
-								<label class="control-label col-xs-4">Ciudad</label>
+								<label class="control-label col-xs-4">Ciudad Destino</label>
 								<div class="col-xs-6">
 									<select class="form-control">
 										<option>A</option>
@@ -136,13 +175,13 @@
 
 							</div>
 						</div>
-						<div class="form-group">
+						<div class="form-group hidden-xs">
 							<div class="row">
 								<label class="control-label col-xs-4">Fecha Vuelta</label>
 								<!-- Return date input -->
 								<div class="col-xs-6">
 									<div class="input-group date">
-										<input date-range-picker name="departureDate" id="departureDate" class="form-control date-picker" type="text" min="params.today" ng-model="params.departureDate" options="dpOpts" required readonly/>
+										<input date-range-picker name="returnDate" id="returnDate" class="form-control date-picker" type="text" min="params.departureDate" ng-model="params.returnDate" options="dpOpts" required readonly/>
 										<span class="input-group-addon">
 											<span class="glyphicon glyphicon-calendar">
 											</span>

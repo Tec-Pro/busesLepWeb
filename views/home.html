@@ -31,7 +31,7 @@
 						<div class="form-group">
 							<!-- Departure date input -->
 							<div class="input-group date">
-								<input date-range-picker name="departureDate" id="departureDate" class="form-control date-picker" type="text" min="params.today" ng-model="params.departureDate" options="dpOpts" required readonly/>
+								<input date-range-picker name="departureDate" id="departureDate" class="form-control date-picker" type="text" min="params.today" ng-model="params.departureDate" options="dpOpts" data-ng-change="params.returnDate = params.departureDate" required readonly/>
 								<span class="input-group-addon">
 									<span class="glyphicon glyphicon-calendar">
 									</span>
