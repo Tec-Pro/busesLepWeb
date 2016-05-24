@@ -1,4 +1,6 @@
 <div ng-init = "tab = 1" class = "container" ng-controller="TicketOfficesController" style="height:500px">
+    
+    <!-- options tabs -->
     <div class="col-xs-6 border-bottom border-top">
         <div class="col-xs-3 border-right text-center lep-href lep-margin">
         	<a href ng-click="tab = 1" ng-hide = "tab === 1"> <strong><span class="lepRed-color">Red </span>Pack</strong></a>
@@ -14,47 +16,79 @@
         </div>
     </div>
     <div class="col-xs-6"></div>
-
     <div  class = "col-xs-12"> <br></div>
+    <!-- end options tabs -->
 
+    <!-- RedPack tab -->
     <div class = "col-xs-6 card2" ng-show = "tab === 1">
     	<p> <strong><span class = "lepRed-color">Red</span> Pack</strong> es nuestra línea de traslado de encomiendas que logra que tus envíos lleguen a destino en cortos períodos de tiempo. Esto es posible a partir de nuestra amplia frecuencia de horarios generando mayor comodidad y opciones para nuestros usuarios.</p>
     	<br>
     	<p>Proximamente servicio de encomiendas <strong>Cordoba - Buenos Aires</strong></p>
-    </div>
+    </div> <!--end RedPack tab -->
+    
+
+    <!-- Servicios tab -->
     <div class = "col-xs-6 card2" ng-show = "tab === 2">
-    	<h4>SERVICIO DE ENCOMIENDA </h4>
-    	<p>Para el envío de bultos de parte de un Remitente a un Destinatario.
-Es importante resaltar que en algunos de nuestros destinos ofrecemos servicio a domicilio y que, al momento de despachar tu encomienda, te informaremos el horario de llegada aproximado.</p>
-    	<hr>
-    	<br>
-    	<h4>SERVICIO DE CONTRAREMBOLSO</h4>
-    	<p>Se trata el envío de un bulto por un Remitente, que se entrega a un Destinatario, contra el pago del importe del valor estipulado por el Remitente, este servicio genera un bulto/sobre retorno, con el importe en su interior que se entrega al Remitente.</p>
-    	<hr>
-    	<br>
-    	<h4>SERVICIO CONTROLAR</h4>
-    	<p>Este servicio se utiliza para el envío de dinero en efectivo por parte de un Remitente a un Destinatario, en cualquiera de nuestros destinos.</p>
-    	<hr>
-    	<br>
-    	<h4>SERVICIO DE TRAMITES</h4>
-    	<p>En este caso se envía un sobre con las instrucciones necesarias para realizar un trámite, en un formulario modelo impreso por nuestro sistema de encomiendas, en la sucursal de destino gestionan el pedido, realizan los trámites indicados por el cliente/usuario y envían el resultado del mismo nuevamente al Remitente. Por ejemplo: retiro de resultado de estudios médicos.</p>
-    	<hr>
-    	<br>
-    	<br>
-    	<br>
-    </div>
-    <div class = "col-xs-6 card2" ng-show = "tab === 3">
+        <div class = "encomiendas-row">
+            <h4>SERVICIO DE ENCOMIENDA </h4>
+        <p>Para el envío de bultos de parte de un Remitente a un Destinatario.
+            Es importante resaltar que en algunos de nuestros destinos ofrecemos servicio a domicilio y que, al momento de despachar tu encomienda, te informaremos el horario de llegada aproximado.</p>
+        </div>
     	
-    </div>
+    	<br>
+        <div class = "encomiendas-row">
+        	<h4>SERVICIO DE CONTRAREMBOLSO</h4>
+        	<p>Se trata el envío de un bulto por un Remitente, que se entrega a un Destinatario, contra el pago del importe del valor estipulado por el Remitente, este servicio genera un bulto/sobre retorno, con el importe en su interior que se entrega al Remitente.</p>
+    	</div>
+    	<br>
+        <div class = "encomiendas-row">
+        	<h4>SERVICIO CONTROLAR</h4>
+        	<p>Este servicio se utiliza para el envío de dinero en efectivo por parte de un Remitente a un Destinatario, en cualquiera de nuestros destinos.</p>
+        </div>
+    	<br>
+        <div class = "encomiendas-row">
+        	<h4>SERVICIO DE TRAMITES</h4>
+        	<p>En este caso se envía un sobre con las instrucciones necesarias para realizar un trámite, en un formulario modelo impreso por nuestro sistema de encomiendas, en la sucursal de destino gestionan el pedido, realizan los trámites indicados por el cliente/usuario y envían el resultado del mismo nuevamente al Remitente. Por ejemplo: retiro de resultado de estudios médicos.</p>
+        </div>
+    	<br>
+    	<br>
+    	<br>
+    </div><!--end Servicios tab -->
+    
+
+    <!-- Seguimientos tab -->
+    <div class = "col-xs-6 " ng-show = "tab === 3">
+        <div class = "card2 center-block" style = "width:80%;">
+        	<h4 class="title">Seguimiento de <span class="lepBlue-color">Encomiendas</span></h4>
+            <br>
+            <hr style = "width:80%;">
+            <br>
+            <div class="form-group">
+                <label class="sr-only"  for="Password">Ej: 2016-000222</label>
+                <input type="text" class="form-control text-center center-block" style = "width:80%;" id="Password" placeholder="Ej: 2016-000222"/>
+            </div>
+            <p class = "text-center">Introduzca el numero de guia</p>
+            <button type="submit" class="btn btn-danger lepRed-bg center-block">Consultar</button>
+            <br>
+            <br>
+            <h4 class = "text-center">Sumulador de Costos Encomiendas</h4>
+            <hr style = "width:80%;">
+            <br>
+            <button type="submit" class="btn btn-default background-lightgrey center-block">Ingresar</button>
+            <br><br>
+        </div>
+    </div><!--end Seguimientos tab -->
+     
+    
     <div class="col-xs-6">
     	<div class = "col-xs-5">
     		<img class = "center-block img-responsive" style = "height:90%; width:90%;" ng-src="img/Encomiendas/CajasRedPack.png" alt="">
     	</div>
-    	<div class = "col-xs-7 card2">
+    	<div class = "col-xs-7 card5">
     		<h2><span class="lepRed-color">Red</span> Pack.com</h2>
     		<p> Ingresa en nuestra pagina exlusiva para hacer seguimientos y consultas especificas.</p>
     	</div>
     	<div class = "col-xs-12"> <br> <hr></div>
-    	
     </div>
+
 </div>
