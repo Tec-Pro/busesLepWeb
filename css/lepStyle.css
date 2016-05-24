@@ -4,8 +4,6 @@ body {
 @media screen and (max-width: 768px) {
     body { padding-top: 0px; }
 }
-
-
 .lepWhite-bg{
   background: #ffffff;
 }
@@ -58,6 +56,14 @@ body {
     color: white;
 }
 
+.gradient-line {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+1,000000+99&0+97,0.65+100 */
+  background: -moz-linear-gradient(top, rgba(0,0,0,0) 1%, rgba(0,0,0,0) 98%, rgba(0,0,0,0.43) 100%, rgba(0,0,0,0.65) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(0,0,0,0) 1%,rgba(0,0,0,0) 98%,rgba(0,0,0,0.43) 100%,rgba(0,0,0,0.65) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 1%,rgba(0,0,0,0) 98%,rgba(0,0,0,0.43) 100%,rgba(0,0,0,0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
+}
+
 .on-top{
   z-index: 4;
 }
@@ -86,12 +92,34 @@ body {
   border-right-color: #a6a6a6; 
 }
 
+.border-right{
+  border-right: 2px;
+  border-right-style: solid;
+  border-right-color: #e6e6e6; 
+}
+.border-top{
+  border-top: 2px;
+  border-top-style: solid;
+  border-top-color: #e6e6e6;
+}
 .border-bottom{
+  border-bottom: 2px;
+  border-bottom-style: solid;
+  border-bottom-color: #e6e6e6;
+}
+.border-bottom-r{
   border-bottom: 2px;
   border-radius: 100px;
   border-bottom-style: solid;
   border-bottom-color: #555555;
 }
+
+.search-item-box{
+  border: 2px solid;
+  border-color:  #e6e6e6 ;
+  margin: 5px;
+}
+
 .size-logo{
   height:25%;
   width:25%;
@@ -101,6 +129,14 @@ body {
   padding-right: 0;
 }
 
+.lep-href a:link {color:#555555;text-decoration:none;}
+.lep-href a:visited {color:#555555;text-decoration:none;}
+.lep-href a:hover {text-decoration:none;font-size:110%;}
+
+.lep-margin{
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
 
 .button2{
     background: #666666;
@@ -198,7 +234,15 @@ div.card2{
   border-color: #a6a6a6 ;
 }
 
+div.card3{
+  border-bottom: 2px solid;
+  border-color: #a6a6a6 ;
+}
 
+div.card4{
+  border: 3px solid;
+  border-color: #E0E0E0 ;
+}
 
 .navbar-brand-2{
   color:white;
@@ -500,13 +544,6 @@ color:#ff0008;
 /*style="height: 200px; position:relative; overflow:auto;"*/
 
 
-@media (min-width: 995px) {
-  .navbar-collapse {
-    width: auto;
-    border-top: 0;
-    box-shadow: none;
-  }
-}
 
 @media screen and (min-width: 650px) and (max-width: 895px) {
     .textarea{
@@ -521,4 +558,3 @@ color:#ff0008;
     height:120px;
   }
 }
-

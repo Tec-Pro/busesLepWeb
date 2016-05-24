@@ -63,6 +63,37 @@ angular.module("app", ["ngRoute","LocalStorageModule","angularSoap","daterangepi
             })
             .when("/userTickets", {
                 templateUrl: "views/userTickets.html"
+            })
+            .when("/ticketOffices", {
+                controller: "TicketOfficesController",
+                templateUrl: "views/ticketOffices.html"
+            })
+            .when("/tours", {
+                templateUrl: "views/tours.html"
+            })
+            .when("/encomiendas", {
+                templateUrl: "views/encomiendas.html"
+            })
+            .when("/account/reserves", {
+                templateUrl: "views/accountReserves.html"
+            })
+            .when("/account/purchases", {
+                templateUrl: "views/accountPurchases.html"
+            })
+            .when("/account/lastsearch", {
+                templateUrl: "views/accountSearches.html"
+            })
+            .when("/account/checkbalance", {
+                templateUrl: "views/accountCheckBalance.html"
+            })
+            .when("/account/buycredits", {
+                templateUrl: "views/accountBuyCredits.html"
+            })
+            .when("/account/reserves", {
+                templateUrl: "views/accountReserves.html"
+            })
+            .when("/account/update", {
+                templateUrl: "views/accountUpdate.html"
             });             
     });
    
