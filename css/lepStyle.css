@@ -323,8 +323,10 @@ div.card5{
 .row-bottom-margin { margin-bottom:0px; }
 .row-bottom-margin15 { margin-bottom:15px;}
 .row-top-margin { margin-top:0px; }
+.row-top-margin5 { margin-top:5px; }
 .row-top-margin15 { margin-top:15px;}
 .margin-top-45 {margin-top:45px;}
+.margin-top-80 {margin-top:80px;}
 
 hr { 
     display: block;

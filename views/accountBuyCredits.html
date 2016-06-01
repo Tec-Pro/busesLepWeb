@@ -14,3 +14,36 @@
         	<a href="#/account/update">Modificar <span><strong>Cuenta</strong><span></a></div>
       </div>
 </div>
+
+</br>
+<div class="row">
+    <div class="col-xs-4"></div>
+    <div class = "col-xs-4 container-fluid">
+        <ul class="nav lepDarkGrey-color lep-margin">
+            <li class="padding-top10 padding-bottom10">
+                <div class="row search-item-box">
+                    <div class = "col-xs-4 text-center">
+                        <strong>Tarjeta Nro</strong>
+                    </div>
+                    <div class = "col-xs-5 text-center">
+                      <input type="text" class="lep-form" id="nroTarjeta" placeholder="Ingresar Nro" required ng-model="user.nroTarjeta"/>
+                    </div>
+                    <div class = "col-xs-3">
+                      <img class="img-responsive" ng-src="img/Mi cuenta/Abono Gral.png" style="float:right">
+                    </div>
+                </div>
+                <div class="row search-item-box">
+                    <div class = "col-xs-4 text-center">
+                        <strong>Monto a Recargar</strong>
+                    </div>
+                    <div class = "col-xs-5 text-center">
+                        <input type="text" class="lep-form" id="montoRecarga" placeholder="Ingresar Monto" required ng-model="user.montoRecarga"/>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="col-xs-4">
+        <button class="btn btn-default lepRed-bg lepWhite-color margin-top-80"type="submit">Recargar</button>
+    </div>
+</div>
