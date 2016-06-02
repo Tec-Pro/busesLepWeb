@@ -159,14 +159,28 @@
           <img class="size-logo img-responsive visible-xs" ng-src="img/Iconos comunes/Isologo.png" alt="Buses Lep" style="float:right">
         </div>
         <div id="navbar" class="navbar-collapse collapse navbar-left" data-toggle="collapse" ng-controller="LoginCtrl">
-          <ul class="selected nav navbar-nav">
-            <li><a data-toggle="collapse" data-target=".navbar-collapse" href="#/">Empresa</a></li>
-            <li><a data-toggle="collapse" data-target=".navbar-collapse" href="#/tours">Recorridos</a></li>
-            <li><a data-toggle="collapse" data-target=".navbar-collapse" href="#/ticketOffices">Boleterías</a></li>
-            <li><a data-toggle="collapse" data-target=".navbar-collapse" href="#/encomiendas">Encomiendas</a></li>
-            <li><a data-toggle="collapse" data-target=".navbar-collapse" href="#/special">Viajes Especiales</a></li>
-            <li><a data-toggle="collapse" data-target=".navbar-collapse" href="#/account/reserves">Mi Cuenta</a></li>
-            <li><a data-toggle="collapse" data-target=".navbar-collapse" href="#/">Horarios</a></li>
+            <!-- xs,sm -->
+            <ul class="selected nav navbar-nav visible-xs visible-sm">
+                <li><a data-toggle="collapse" data-target=".navbar-collapse" href="#/">Empresa</a></li>
+                <li><a data-toggle="collapse" data-target=".navbar-collapse" href="#/tours">Recorridos</a></li>
+                <li><a data-toggle="collapse" data-target=".navbar-collapse" href="#/ticketOffices">Boleterías</a></li>
+                <li><a data-toggle="collapse" data-target=".navbar-collapse" href="#/encomiendas">Encomiendas</a></li>
+                <li><a data-toggle="collapse" data-target=".navbar-collapse" href="#/special">Viajes Especiales</a></li>
+                <li><a data-toggle="collapse" data-target=".navbar-collapse" href="#/account/reserves">Mi Cuenta</a></li>
+                <li><a data-toggle="collapse" data-target=".navbar-collapse" href="#/">Horarios</a></li>
+       
+            </ul>
+
+            <!-- md,lg -->
+           <ul class="selected nav navbar-nav hidden-xs hidden-sm" > 
+                <li><a  href="#/">Empresa</a></li>
+                <li><a  href="#/tours">Recorridos</a></li>
+                <li><a  href="#/ticketOffices">Boleterías</a></li>
+                <li><a href="#/encomiendas">Encomiendas</a></li>
+                <li><a  href="#/special">Viajes Especiales</a></li>
+                <li><a  href="#/account/reserves">Mi Cuenta</a></li>
+                <li><a href="#/">Horarios</a></li>
+            </ul>
             <!--<li><a  ng-show="user.dni != '' " href="">Recargar ciudades</a></li>
             <li><a  ng-show="user.dni != '' " href="#/lastSearches">Últimas Búsquedas</a></li>
             <li><a  ng-show="user.dni != '' " href="#/editProfile">Editar Perfil</a></li>
@@ -174,7 +188,7 @@
             <li><a  ng-show="user.dni != '' " href="#/userReserves">Mis Reservas</a></li>
             <li><a  ng-show="user.dni != '' " href="#/userTickets">Mis Compras</a></li>
             <li><a  ng-show="user.dni != '' " href="#/" ng-click="logout()">{{console.log(localStorageService.get("user-lep"))}}Cerrar Sesion</a></li>-->
-          </ul>
+          
         </div><!--/.nav-collapse -->
       </div>
     </nav>
