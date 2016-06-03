@@ -7,66 +7,95 @@
     <div class="col-xs-4"></div>
     <div class = "col-xs-12"> <br></div>
 
-    <!-- information card -->
-    <div class = "col-xs-7">
-        <div class = "col-xs-12"> <br></div>
-        <div class = "col-xs-12 no-mar-pad-bor lepLightGrey-bg">
-            <div class = "col-xs-11 ">
-                <div class = "col-xs-5 ">
-                  <h5 class = "no-mar-pad-bor no-bold title">Origen</h5>
-                </div>
-                <div class = "col-xs-1">
-                  <h5 class = "no-mar-pad-bor no-bold title lepBlue-color">  </h5>
-                </div>
-                <div class = "col-xs-5">
-                  <h5 class = "no-mar-pad-bor no-bold title">Destino</h5>
-                </div>
-            </div>
-            <div class = "col-xs-1">
-                
-            </div>
-        </div>
-        <div class = "col-xs-12"> <br></div>
-        <div > <!-- ng-repeat="office in ticketOffices" -->
-            <div class = "col-xs-12 no-mar-pad-bor background-lightgrey3 card3">
-                <div class = "col-xs-11  no-mar-pad-bor">
-                    <div class = "col-xs-12 no-mar-pad-bor">
-                        <div class = "col-xs-5">
-                          <h5 class = "title">Cordoba</h5>
-                        </div>
-                        <div class = "col-xs-1">
-                          <h5 class = "title lepBlue-color"> > </h5>
-                        </div>
-                        <div class = "col-xs-5">
-                          <h5 class = "title">Santa Rosa de calamuchita</h5>
-                        </div>
+    <!-- md,lg screen sizes -->
+    <div  >
+        <!-- information card -->
+        <div class = "col-xs-12 col-sm-7 col-md-7 col-lg-7">
+            <div class = "col-xs-12"> <br></div>
+            <div class = "col-xs-12 no-mar-pad-bor lepLightGrey-bg hidden-xs">
+                <div class = "col-xs-11 ">
+                    <div class = "col-xs-5 ">
+                      <h5 class = "no-mar-pad-bor no-bold title">Origen</h5>
+                    </div>
+                    <div class = "col-xs-1">
+                      <h5 class = "no-mar-pad-bor no-bold title lepBlue-color">  </h5>
+                    </div>
+                    <div class = "col-xs-5">
+                      <h5 class = "no-mar-pad-bor no-bold title">Destino</h5>
                     </div>
                 </div>
                 <div class = "col-xs-1">
-                    <img class = "map-img center-block" style = "height:22px; width:15px;" ng-src="img/Posicionamiento.png" alt="">
+                    
                 </div>
             </div>
-        </div>
-        <div class = "col-xs-12"> <br></div>
-    </div>
-    <!-- End information card -->
+            <div class = "col-xs-12 hidden-xs"> <br></div>
+            <div > <!-- ng-repeat="office in ticketOffices" -->
+                <div class = "col-xs-12 no-mar-pad-bor background-lightgrey3 card3">
+                    <div class = "col-xs-12 col-md-11 col-lg-11 no-mar-pad-bor">
+                        <!-- md,lg -->
+                        <div class = "col-xs-12 no-mar-pad-bor hidden-xs">
+                            <div class = "col-sm-5 col-md-5 col-lg-5">
+                              <h5 class = "title">Cordoba</h5>
+                            </div>
+                            <div class = "col-sm-1 col-md-1 col-lg-1">
+                              <h5 class = "title lepBlue-color"> > </h5>
+                            </div>
+                            <div class = "col-sm-5 col-md-5 col-lg-5">
+                              <h5 class = "title">Santa Rosa de calamuchita</h5>
+                            </div>
+                        </div>
 
-    <div class = "col-xs-5">
-        <div class = "col-xs-12"> <br></div>
-        <div class = "col-xs-12 no-mar-pad-bor">
-            <div class = "col-xs-11 ">
-                  <h5 class = "no-mar-pad-bor no-bold title lepWhite-color">.</h5>
+                        <!-- xs -->
+                        <div class = "col-xs-12 no-mar-pad-bor visible-xs">
+                            <div class = "col-xs-12">
+                                <h5 class = "title">Cordoba <span class = "lepBlue-color"> > </span> Santa Rosa de calamuchita</h5>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class = "col-xs-12 col-sm-1 col-md-1 col-lg-1">
+                        <div class = "visible-xs">
+                            <div class = "col-xs-6">
+                                <img class = "map-img center-block" style = "height:20px; width:20px;" ng-src="img/Iconos comunes/BotonDesplazamientoDerecha.png" alt="">
+                            </div>
+                            <div class = "col-xs-6">
+                                <img class = "map-img center-block" style = "height:22px; width:15px;" ng-src="img/Posicionamiento.png" alt="">
+                            </div>
+                        </div>
+                        <div class = "hidden-xs">
+                            <img class = "map-img center-block" style = "height:22px; width:15px;" ng-src="img/Posicionamiento.png" alt="">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 visible-xs">
+                        <h5 class = "title">Cordoba <span class = "lepRed-color"> <strong> . </strong></span> Va. Gral Belgrano <span class = "lepRed-color"> <strong> . </strong></span> Sta Rosa de calamuchita</h5>
+                    </div>
+                </div>
             </div>
+            <div class = "col-xs-12 hidden-xs"> <br></div>
+           
+        </div> <!-- End information card -->
+    
+
+        <!-- detailed tour -->
+        <div class = "col-xs-12 col-sm-5 col-md-5 col-lg-5 hidden-xs">
+            <div class = "col-xs-12 hidden-xs"> <br></div>
+            <div class = "col-xs-12 no-mar-pad-bor">
+                <div class = "col-xs-11 ">
+                      <h5 class = "no-mar-pad-bor no-bold title lepWhite-color">.</h5>
+                </div>
+                <div class = "col-xs-1">
+                    
+                </div>
+            </div>
+            <div class = "col-xs-12"> <br></div>
             <div class = "col-xs-1">
-                
+                <img class = "map-img center-block" style = "height:20px; width:20px;" ng-src="img/Iconos comunes/BotonDesplazamientoDerecha.png" alt="">
             </div>
-        </div>
-        <div class = "col-xs-12"> <br></div>
-        <div class = "col-xs-1">
-            <img class = "map-img center-block" style = "height:20px; width:20px;" ng-src="img/Iconos comunes/BotonDesplazamientoDerecha.png" alt="">
-        </div>
-        <div class = "col-xs-11">
-            <h5>Cordoba <span class = "lepRed-color"> <strong> .</strong></span> Va. Gral Belgrano <span class = "lepRed-color"> <strong> .</strong></span> Sta Rosa de calamuchita</h5>
-        </div>
-    </div>
+            <div class = "col-xs-11">
+                <h5>Cordoba <span class = "lepRed-color"> <strong> .</strong></span> Va. Gral Belgrano <span class = "lepRed-color"> <strong> .</strong></span> Sta Rosa de calamuchita</h5>
+            </div>
+        </div><!-- end detailed tour -->
+    </div><!--end md,lg screen sizes -->
+
+
 </div>

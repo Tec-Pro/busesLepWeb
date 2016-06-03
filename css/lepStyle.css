@@ -67,6 +67,7 @@ body {
 .on-top{
   z-index: 4;
 }
+
 .affix {
       top: 0;
       width: 100%;
@@ -76,7 +77,12 @@ body {
       padding-top: 70px;
   }
 
-
+.center-vertically{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
 .lepStyle-round{
     border-radius: 15px 15px 15px 15px;
@@ -118,6 +124,12 @@ body {
   border: 2px solid;
   border-color:  #e6e6e6 ;
   margin: 5px;
+}
+
+.search-item-box2{
+  border: 2px solid;
+  border-color:  #e1e1e1 ;
+  margin: 8px;
 }
 
 .size-logo{
@@ -244,6 +256,13 @@ div.card4{
   border-color: #E0E0E0 ;
 }
 
+div.card5{
+  border-bottom: 2px solid;
+  border-left: 1px solid;
+  border-bottom-color: #a6a6a6 ;
+  border-left-color: #a6a6a6 ;
+}
+
 .navbar-brand-2{
   color:white;
   position: absolute;
@@ -303,9 +322,12 @@ div.card4{
 
 .row-bottom-margin5 { margin-bottom:5px; }
 .row-bottom-margin { margin-bottom:0px; }
+.row-bottom-margin15 { margin-bottom:15px;}
 .row-top-margin { margin-top:0px; }
+.row-top-margin5 { margin-top:5px; }
 .row-top-margin15 { margin-top:15px;}
 .margin-top-45 {margin-top:45px;}
+.margin-top-80 {margin-top:80px;}
 
 hr { 
     display: block;
@@ -319,6 +341,12 @@ hr {
 
 .padding-top50{
    padding-top: 50px;
+}
+.padding-top10{
+   padding-top: 10px;
+}
+.padding-bottom10{
+   padding-bottom: 10px;
 }
 
 .h1-responsive {
@@ -557,4 +585,95 @@ color:#ff0008;
     width:200px;
     height:120px;
   }
+}
+
+.encomiendas-row {
+  padding-bottom: 2%;
+  padding-top: 2%;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+1,000000+99&0+97,0.65+100 */
+  background: -moz-linear-gradient(top, rgba(0,0,0,0) 1%, rgba(0,0,0,0) 98%, rgba(0,0,0,0.43) 100%, rgba(0,0,0,0.65) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(0,0,0,0) 1%,rgba(0,0,0,0) 98%,rgba(0,0,0,0.43) 100%,rgba(0,0,0,0.65) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 1%,rgba(0,0,0,0) 98%,rgba(0,0,0,0.43) 100%,rgba(0,0,0,0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 10; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Modal Header */
+.modal-header {
+    padding: 2px 16px;
+    background-color: #e6e6e6;
+    color: #777777;
+}
+
+/* Modal Body */
+.modal-body {padding: 2px 16px;color:#777777;}
+
+/* Modal Footer */
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #e6e6e6;
+    color: #777777;
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top: -300px; opacity: 0} 
+    to {top: 0; opacity: 1}
+}
+
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
 }
