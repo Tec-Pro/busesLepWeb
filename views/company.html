@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-xs-12 col-sm-5">
 			<div class="company-menu-container">
-				<button data-ng-click="set_active(1)">Historia</button>
+				<button data-ng-click="set_active(1);">Historia</button>
 				<button data-ng-click="set_active(2)">Nosotros</button>
 				<button data-ng-click="set_active(3)">Contacto</button>
 				<button data-ng-click="set_active(4)">Unidades</button>
@@ -11,7 +11,7 @@
 	</div>
 	<div class="row">
 		<div class="col-xs-12">
-			<div data-ng-hide="hide-history" class="history-content">
+			<div data-ng-hide="active != 1" class="history-content">
 				<div class="row">
 					<div class="col-xs-12 col-sm-7">
 						<p>
@@ -23,13 +23,13 @@
 					</div>
 				</div>
 			</div>
-			<div data-ng-hide="hide-about-us" class="about-us-content">
+			<div data-ng-hide="active != 2" class="about-us-content">
 				
 			</div>
-			<div data-ng-hide="hide-contact-us" class="contact-us-content">
+			<div data-ng-hide="active != 3" class="contact-us-content">
 
 			</div>
-			<div data-ng-hide="hide-units" class="units-content">
+			<div data-ng-hide="active != 4" class="units-content">
 
 			</div>
 		</div>
