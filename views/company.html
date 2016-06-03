@@ -1,0 +1,37 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12 col-sm-5">
+			<div class="company-menu-container">
+				<button data-ng-click="set_active(1)">Historia</button>
+				<button data-ng-click="set_active(2)">Nosotros</button>
+				<button data-ng-click="set_active(3)">Contacto</button>
+				<button data-ng-click="set_active(4)">Unidades</button>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<div data-ng-hide="hide-history" class="history-content">
+				<div class="row">
+					<div class="col-xs-12 col-sm-7">
+						<p>
+							Somos una empresa dedicada al servicio de transporte de pasajeros que nació en el año 1993. Lorem ipsum dolo sit amet.
+						</p>
+					</div>
+					<div class="col-xs-12 col-sm-5">
+						<img class="img-responsive" src="./img/company/history.png">
+					</div>
+				</div>
+			</div>
+			<div data-ng-hide="hide-about-us" class="about-us-content">
+				
+			</div>
+			<div data-ng-hide="hide-contact-us" class="contact-us-content">
+
+			</div>
+			<div data-ng-hide="hide-units" class="units-content">
+
+			</div>
+		</div>
+	</div>
+</div>
