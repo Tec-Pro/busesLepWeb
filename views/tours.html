@@ -1,4 +1,4 @@
-<div class = "container" ng-controller="TicketOfficesController">
+<div class = "container" ng-controller="ToursController">
     <div class="col-xs-8 border-bottom border-top">
         <div class="col-xs-2 border-right text-center lep-href lep-margin">
         	<a href="#/tours"><span class="lepBlue-color"><strong>Informacion</strong><span></a>
@@ -29,48 +29,48 @@
                 </div>
             </div>
             <div class = "col-xs-12 hidden-xs"> <br></div>
-            <div > <!-- ng-repeat="office in ticketOffices" -->
-                <div class = "col-xs-12 no-mar-pad-bor background-lightgrey3 card3">
-                    <div class = "col-xs-12 col-md-11 col-lg-11 no-mar-pad-bor">
-                        <!-- md,lg -->
-                        <div class = "col-xs-12 no-mar-pad-bor hidden-xs">
-                            <div class = "col-sm-5 col-md-5 col-lg-5">
-                              <h5 class = "title">Cordoba</h5>
-                            </div>
-                            <div class = "col-sm-1 col-md-1 col-lg-1">
-                              <h5 class = "title lepBlue-color"> > </h5>
-                            </div>
-                            <div class = "col-sm-5 col-md-5 col-lg-5">
-                              <h5 class = "title">Santa Rosa de calamuchita</h5>
-                            </div>
+          
+            <div class = "col-xs-12 no-mar-pad-bor background-lightgrey3 card3" ng-repeat="tour in tours">
+                <div class = "col-xs-12 col-md-11 col-lg-11 no-mar-pad-bor">
+                    <!-- md,lg -->
+                    <div class = "col-xs-12 no-mar-pad-bor hidden-xs">
+                        <div class = "col-sm-5 col-md-5 col-lg-5">
+                          <h5 class = "title">{{tour.origin}}</h5>
                         </div>
-
-                        <!-- xs -->
-                        <div class = "col-xs-12 no-mar-pad-bor visible-xs">
-                            <div class = "col-xs-12">
-                                <h5 class = "title">Cordoba <span class = "lepBlue-color"> > </span> Santa Rosa de calamuchita</h5>
-                            </div>
+                        <div class = "col-sm-1 col-md-1 col-lg-1">
+                          <h5 class = "title lepBlue-color"> > </h5>
                         </div>
-
-                    </div>
-                    <div class = "col-xs-12 col-sm-1 col-md-1 col-lg-1">
-                        <div class = "visible-xs">
-                            <div class = "col-xs-6">
-                                <img class = "map-img center-block" style = "height:20px; width:20px;" ng-src="img/Iconos comunes/BotonDesplazamientoDerecha.png" alt="">
-                            </div>
-                            <div class = "col-xs-6">
-                                <img class = "map-img center-block" style = "height:22px; width:15px;" ng-src="img/Posicionamiento.png" alt="">
-                            </div>
-                        </div>
-                        <div class = "hidden-xs">
-                            <img class = "map-img center-block" style = "height:22px; width:15px;" ng-src="img/Posicionamiento.png" alt="">
+                        <div class = "col-sm-5 col-md-5 col-lg-5">
+                          <h5 class = "title">{{tour.destination}}</h5>
                         </div>
                     </div>
-                    <div class="col-xs-12 visible-xs">
-                        <h5 class = "title">Cordoba <span class = "lepRed-color"> <strong> . </strong></span> Va. Gral Belgrano <span class = "lepRed-color"> <strong> . </strong></span> Sta Rosa de calamuchita</h5>
+
+                    <!-- xs -->
+                    <div class = "col-xs-12 no-mar-pad-bor visible-xs">
+                        <div class = "col-xs-12">
+                            <h5 class = "title">{{tour.origin}} <span class = "lepBlue-color"> > </span> {{tour.destination}}</h5>
+                        </div>
+                    </div>
+
+                </div>
+                <div class = "col-xs-12 col-sm-1 col-md-1 col-lg-1">
+                    <div class = "hidden-xs">
+                        <img class = "map-img center-block" style = "height:22px; width:15px;" ng-src="img/Posicionamiento.png" alt="">
                     </div>
                 </div>
+                <div class="col-xs-10 visible-xs">
+                    <h5 class = "text-left">Cordoba  </h5>
+                    <div ng-repeat="city in tour.cities">
+                        <h5 class = "lepRed-color text-left"><strong> . </strong> <span class = "lepDarkerGrey-color"> {{city.name}}</span></h5>
+                    </div>
+                    <h5 class = "text-left">Sta Rosa de calamuchita</h5>
+                </div>
+                <div class = "col-xs-2 visible-xs">
+                    <br>
+                    <img class = "map-img center-block" style = "height:22px; width:15px;" ng-src="img/Posicionamiento.png" alt="">
+                </div>
             </div>
+
             <div class = "col-xs-12 hidden-xs"> <br></div>
            
         </div> <!-- End information card -->
@@ -88,11 +88,20 @@
                 </div>
             </div>
             <div class = "col-xs-12"> <br></div>
-            <div class = "col-xs-1">
-                <img class = "map-img center-block" style = "height:20px; width:20px;" ng-src="img/Iconos comunes/BotonDesplazamientoDerecha.png" alt="">
-            </div>
-            <div class = "col-xs-11">
-                <h5>Cordoba <span class = "lepRed-color"> <strong> .</strong></span> Va. Gral Belgrano <span class = "lepRed-color"> <strong> .</strong></span> Sta Rosa de calamuchita</h5>
+            <div  ng-repeat="tour in tours">
+                <div class = "col-xs-1">
+                    <img class = "map-img center-block" style = "height:20px; width:20px;" ng-src="img/Iconos comunes/BotonDesplazamientoDerecha.png" alt="">
+                </div>
+                <div class = "col-xs-11">
+                   <h5 class = "title">{{tour.origin}}
+                                <span ng-repeat="city in tour.cities">
+                                    <span class = "lepRed-color"> <strong> . </strong></span> 
+                                    <span class = "lepDarkerGrey-color no-bold" >{{city.name}}</span>
+                                </span>
+                                <span class = "lepRed-color"> <strong> . </strong></span> 
+                                {{tour.destination}}
+                    </h5>
+                </div>
             </div>
         </div><!-- end detailed tour -->
     </div><!--end md,lg screen sizes -->
