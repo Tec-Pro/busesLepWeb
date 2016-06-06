@@ -143,7 +143,17 @@
 						<strong>Confort, tecnología y seguridad</strong> son los pilares de nuestro crecimiento.
 					</div>
 					<div class="col-xs-8">
-						Galería.
+						<div class="row">
+							<div class="col-xs-1">
+								<input type="image" src="./img/company/left_button.png"></input>
+							</div>
+							<div data-ng-repeat="image in gallery_thumbnails" class="col-xs-2">
+								<img data-ng-src="{{image.source}}" class="img-responsive">
+							</div>
+							<div class="col-xs-1">
+								<input type="image" src="./img/company/right_button.png"></input>
+							</div>
+						</div>
 					</div>
 				</div>
 				<div class="row">
