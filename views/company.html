@@ -1,17 +1,19 @@
 <div class="container">
 	<div class="row">
 		<div class="col-xs-12 col-sm-8 col-md-6 col-lg-6 border-bottom border-top">
-	        <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3 border-right text-center lep-href lep-margin">
-	        	<a ng-click="set_active(1)">Historia</a>
-	        </div>
-	        <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3 border-right text-center lep-href lep-margin">
-	        	<a data-ng-click="set_active(2)">Nosotros</a>
-	        </div>
-	        <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3 border-right text-center lep-href lep-margin">
-	        	<a ng-click="set_active(3)">Contacto</a>
-	        </div>
-	        <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3  text-center lep-href lep-margin">
-	        	<a ng-click="set_active(4)">Unidades</a>
+			<div class="row">
+		        <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3 border-right text-center lep-href lep-margin">
+		        	<a ng-click="set_active(1)">Historia</a>
+		        </div>
+		        <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3 border-right text-center lep-href lep-margin">
+		        	<a data-ng-click="set_active(2)">Nosotros</a>
+		        </div>
+		        <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3 border-right text-center lep-href lep-margin">
+		        	<a ng-click="set_active(3)">Contacto</a>
+		        </div>
+		        <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3  text-center lep-href lep-margin">
+		        	<a ng-click="set_active(4)">Unidades</a>
+		        </div>
 	        </div>
     	</div>
 	</div>
@@ -148,19 +150,62 @@
 					<div class="col-xs-12">
 						<div class="row">
 							<div class="col-xs-4">
+								<div class="row">
+									<div class="col-xs-4 col-sm-3 col-md-3 col-lg-3 border-right text-center lep-href lep-margin">
+							        	<a ng-click="set_active_unit_tab(1)">Confort</a>
+							        </div>
+							        <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3 border-right text-center lep-href lep-margin">
+							        	<a data-ng-click="set_active_unit_tab(2)">Tecnología</a>
+							        </div>
+							        <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3 border-right text-center lep-href lep-margin">
+							        	<a ng-click="set_active_unit_tab(3)">Seguridad</a>
+							        </div>
+						        </div>
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-xs-12 col-xs-offset-1">
+							<div data-ng-hide="active_unit_tab != 1" class="col-xs-11 col-xs-offset-1">
 								<div class="row">
-									<div class="col-xs-6">
+									<div class="col-xs-3">
 										"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 									</div>
 									<div class="col-xs-3">
-										Imagen A
+										<img class="img-responsive" src="./img/company/confort1.png">
 									</div>
 									<div class="col-xs-3">
-										Imagen B
+										<img class="img-responsive" src="./img/company/confort2.png">	
+									</div>
+									<div class="col-xs-3">
+										<img class="img-responsive" src="./img/company/confort3.png">	
+									</div>
+								</div>
+							</div>
+							<div data-ng-hide="active_unit_tab != 2" class="col-xs-11 col-xs-offset-1">
+								<div class="row">
+									<div class="col-xs-4">
+										"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+									</div>
+									<div class="col-xs-4">
+										<img class="img-responsive" src="./img/company/technology1.png">
+									</div>
+									<div class="col-xs-4">
+										<img class="img-responsive" src="./img/company/technology2.png">	
+									</div>
+								</div>
+							</div>
+							<div data-ng-hide="active_unit_tab != 3" class="col-xs-11 col-xs-offset-1">
+								<div class="row">
+									<div class="col-xs-3">
+										"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+									</div>
+									<div class="col-xs-3">
+										<img class="img-responsive" src="./img/company/security1.png">
+									</div>
+									<div class="col-xs-3">
+										<img class="img-responsive" src="./img/company/security2.png">	
+									</div>
+									<div class="col-xs-3">
+										<img class="img-responsive" src="./img/company/security3.png">	
 									</div>
 								</div>
 							</div>
