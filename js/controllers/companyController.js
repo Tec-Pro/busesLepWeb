@@ -3,6 +3,7 @@ angular.module('app')
 
 	$scope.active = 1;
 	$scope.active_unit_tab = 1;
+	$scope.active_gall_img = 2;
 
 	$scope.set_active = function(tab){
 		$scope.active = tab;
@@ -34,4 +35,20 @@ angular.module('app')
 			full_size: ""
 		}
 	]
+
+	$scope.set_active_gall_img = function(pos){
+		if (pos>0){
+			if ($scope.active_gall_img === 4){
+				$scope.active_gall_img = 0;
+			} else {
+				$scope.active_gall_img++;
+			}
+		} else {
+			if ($scope.active_gall_img === 0){
+				$scope.active_gall_img = 4;
+			} else {
+				$scope.active_gall_img--;
+			}
+		}
+	}
 });

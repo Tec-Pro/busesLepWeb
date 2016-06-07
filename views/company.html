@@ -137,21 +137,21 @@
 			</div>
 			<div data-ng-hide="active != 4" class="units-content">
 				<div class="row">
-					<div class="col-xs-4">
+					<div class="col-xs-12 col-sm-4">
 						Contamos con una flota de última generación, totalmente equipada para que disfrutes del viaje que hagas.
 						<br>
 						<strong>Confort, tecnología y seguridad</strong> son los pilares de nuestro crecimiento.
 					</div>
-					<div class="col-xs-8">
+					<div class="col-xs-12 col-sm-8">
 						<div class="row">
 							<div class="col-xs-1">
-								<input type="image" src="./img/company/left_button.png"></input>
+								<input class="comp-gall-nav-btn" type="image" src="./img/company/left_button.png" data-ng-click="set_active_gall_img(-1)"></input>
 							</div>
-							<div data-ng-repeat="image in gallery_thumbnails" class="col-xs-2">
-								<img data-ng-src="{{image.source}}" class="img-responsive">
+							<div data-ng-repeat="image in gallery_thumbnails track by $index" class="col-xs-2">
+								<img data-ng-src="{{image.source}}" data-ng-class="{'comp-gall-wrap': active_gall_img != $index}" class="img-responsive">
 							</div>
 							<div class="col-xs-1">
-								<input type="image" src="./img/company/right_button.png"></input>
+								<input class="comp-gall-nav-btn" type="image" src="./img/company/right_button.png" data-ng-click="set_active_gall_img(1)"></input>
 							</div>
 						</div>
 					</div>

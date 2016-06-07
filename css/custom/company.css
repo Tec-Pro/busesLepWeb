@@ -1,0 +1,10 @@
+.comp-gall-nav-btn{
+		max-height: 25px;
+		margin-top: 35px;
+}
+
+.comp-gall-wrap {
+	opacity: 0.4;
+    filter: alpha(opacity=40); /* msie */
+    background-color: #000;
+}
