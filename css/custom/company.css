@@ -3,8 +3,18 @@
 		margin-top: 35px;
 }
 
+.comp-right-arrow {
+	max-height: 30px;
+	margin-top: 40px;
+}
+
 .comp-gall-wrap {
 	opacity: 0.4;
     filter: alpha(opacity=40); /* msie */
     background-color: #000;
+}
+
+.comp-textarea {
+	resize: none;
+	background-color: #dbdbdb;
 }
