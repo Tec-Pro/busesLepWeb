@@ -273,10 +273,8 @@ div.card5{
 }
 
 .navbar {
-  position: relative;
   min-height: 15px;
   margin-bottom: 15px;
-  border: 1px solid transparent;
 }
 .navbar-nav {
   margin: 7.5px -15px;
