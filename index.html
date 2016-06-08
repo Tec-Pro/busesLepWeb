@@ -100,13 +100,15 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-12 col-md-12 col-lg-5" ng-show="user.dni == '' ">
+            <div class="col-sm-12 col-lg-5" ng-show="user.dni == '' ">
                 <div ng-controller="LoginCtrl" class="row"  style="padding-left:5px"href="">
                     <form ng-submit="login()">
-                        <input type="text" class="lep-form col-sm-4 col-md-4" id="DNI" placeholder="DNI" required ng-model="user.dni"/>
-                        <input type="password" class="lep-form col-sm-4 col-md-4" id="Password" placeholder="Contraseña" required ng-model="user.pass"/>                      
-                            <button ng-click="go('/')" class="btn btn-default lepStyle3 col-sm-2 col-md-2"type="submit" style="margin-left:3px;margin-top:3px;font-size:0.9em"><strong>Ingresar</strong></button>
-                            <button ng-click="go('/signin')" class="btn btn-default lepStyle3 col-sm-2 col-md-2"type="button" style="margin-left:3px;margin-top:3px;font-size:0.9em"><strong>Registrarse</strong></button>
+                        <input type="text" class="lep-form col-sm-3" id="DNI" placeholder="DNI" required ng-model="user.dni"/>
+                        <input type="password" class="lep-form col-sm-3" id="Password" placeholder="Contraseña" required ng-model="user.pass"/>
+                        <div class="col-sm-4"style="margin-top:8px;">
+                             <a href="#/" type="submit" style="margin-left:3px;font-size:0.9em"><strong>Ingresar </strong></a> /
+                             <a href="#/signin" type="button" style="font-size:0.9em"><strong>Registrarse</strong></a>
+                        </div>                                    
                     </form>
                 </div>        
             </div>
@@ -116,7 +118,7 @@
                         <p>Bienvenido, <span class="lepRed-color"><strong>{{user.name}}</strong></span></p>
                     </div>
                     <div class="col-sm-6 col-md-6">
-                        <button ng-click="logout();go('/')" class="btn btn-default lepStyle3"type="button" style="margin-left:3px;font-size:0.8em">Cerrar sesión</button>
+                        <a href="#/" ng-click="logout()" style="font-size:0.9em"><strong>Cerrar sesión</strong></button>
                     </div>
                 </div>
             </div>
@@ -128,8 +130,10 @@
             <form class="row" ng-submit="login()">
                 <input type="text" class="lep-form col-xs-4" id="DNI" placeholder="DNI" required ng-model="user.dni"/>
                 <input type="password" class="lep-form col-xs-4" id="Password" placeholder="Contraseña" required ng-model="user.pass"/>                 
-                <button ng-click="go('/')" class="btn btn-default lepStyle col-xs-2" type="submit" style="margin-left:10px;margin-top:5px;font-size:0.7em">Ingresar</button>
-                <button ng-click="go('/signin')" class="btn btn-default lepStyle col-xs-3"type="button" style="margin-left:10px;margin-top:5px;font-size:0.7em;width:65px">Registrarse</button>
+                <div class="col-xs-5"style="margin-top:8px;">
+                     <a href="#/" type="submit" style="font-size:0.8em"><strong>Ingresar </strong></a> /
+                     <a href="#/signin" style="font-size:0.8em"><strong>Registrarse</strong></a>
+                </div> 
             </form>
         </div>        
         <div class="text-center" ng-controller="LoginCtrl" ng-show="user.dni != '' " style="margin-top:10px">
@@ -138,7 +142,7 @@
                         <p>Bienvenido, <span class="lepRed-color"><strong>{{user.name}}</strong></span></p>
                     </div>
                     <div class="col-xs-6">
-                        <button ng-click="logout()" class="btn btn-default lepStyle"type="button" style="margin-left:3px;font-size:0.7em">Cerrar sesión</button>
+                        <a href="#/" ng-click="logout()"  style="font-size:0.9em"><strong>Cerrar sesión</strong></button>
                     </div>
                 </div>
         </div>
