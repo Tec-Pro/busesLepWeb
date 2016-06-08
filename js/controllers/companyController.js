@@ -37,18 +37,25 @@ angular.module('app')
 	]
 
 	$scope.set_active_gall_img = function(pos){
-		if (pos>0){
-			if ($scope.active_gall_img === 4){
-				$scope.active_gall_img = 0;
-			} else {
-				$scope.active_gall_img++;
-			}
+		if (0 <= pos || pos <= 4){
+			$scope.active_gall_img = pos;
+		}
+	}
+
+	$scope.active_gall_img_right = function(){
+		if ($scope.active_gall_img == 4){
+			$scope.active_gall_img = 0;
 		} else {
-			if ($scope.active_gall_img === 0){
-				$scope.active_gall_img = 4;
-			} else {
-				$scope.active_gall_img--;
-			}
+			$scope.active_gall_img++;
+		}
+	}
+
+
+	$scope.active_gall_img_left = function(){
+		if ($scope.active_gall_img == 0){
+			$scope.active_gall_img = 4;
+		} else {
+			$scope.active_gall_img--;
 		}
 	}
 });
