@@ -1,22 +1,23 @@
-<div class="container-fluid">
+<div class="container">
 	<div class="row">
-		<div class="col-xs-12 comp-tab-navbar col-sm-5">
-			<div class="row">
-		        <div class="col-xs-3 text-center comp-tab-inner-elem">
+		<div class="col-xs-12 col-sm-5">
+			<div class="row border-bottom border-top comp-tab-navbar">
+		        <div class="col-xs-3 text-center lep-href lep-margin comp-tab-inner-elem">
 		        	<a ng-click="set_active(1)">Historia</a>
 		        </div>
-		        <div class="col-xs-3 text-center comp-tab-inner-elem">
+		        <div class="col-xs-3 text-center lep-href lep-margin comp-tab-inner-elem">
 		        	<a data-ng-click="set_active(2)">Nosotros</a>
 		        </div>
-		        <div class="col-xs-3 text-center comp-tab-inner-elem">
+		        <div class="col-xs-3 text-center lep-href lep-margin comp-tab-inner-elem">
 		        	<a ng-click="set_active(3)">Contacto</a>
 		        </div>
-		        <div class="col-xs-3 text-center">
+		        <div class="col-xs-3 text-center lep-href lep-margin">
 		        	<a ng-click="set_active(4)">Unidades</a>
 		        </div>
 	        </div>
     	</div>
 	</div>
+	<br>
 	<div class="row">
 		<div class="col-xs-12">
 			<div data-ng-hide="active != 1" class="history-content">
