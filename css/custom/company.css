@@ -41,6 +41,21 @@
 	border-right: 3px solid #dbdbdb;
 }
 
+.comp-contact-img-logo {
+	width: 25px;
+	height: 25px;
+}
+
+.comp-contact-img-logo-ph {
+	width: 25px;
+	height: 40px;	
+}
+
+.comp-contact-img-logo-ml {
+	width: 25px;
+	height: 20px;
+}
+
 .comp-units-navbar {
 	padding-top: 2%;
 }
