@@ -16,23 +16,23 @@ angular.module('app')
 	$scope.gallery_thumbnails = [
 		{
 			source: "./img/company/thumbnail1.png",
-			full_size: ""
+			full_size: "./img/company/fullsize1.png"
 		},
 		{
 			source: "./img/company/thumbnail2.png",
-			full_size: ""
+			full_size: "./img/company/fullsize2.png"
 		},
 		{
 			source: "./img/company/thumbnail3.png",
-			full_size: ""
+			full_size: "./img/company/fullsize3.png"
 		},
 		{
 			source: "./img/company/thumbnail4.png",
-			full_size: ""
+			full_size: "./img/company/fullsize4.png"
 		},
 		{
 			source: "./img/company/thumbnail5.png",
-			full_size: ""
+			full_size: "./img/company/fullsize5.png"
 		}
 	]
 
