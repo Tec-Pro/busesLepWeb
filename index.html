@@ -80,6 +80,27 @@
     <script type="text/javascript" src="js/controllers/companyController.js"></script>
 
     <script type="text/javascript" src="js/controllers/specialTravelController.js"></script>
+    
+    <script>
+        function sticky_relocate() {
+            var window_top = $(window).scrollTop();
+            var div_top = $('#sticky-anchor').offset().top;
+            if (window_top > div_top){
+                $('#sticky-element').addClass('sticky');
+                $('#movida').addClass('movidita');
+            }
+            else{
+                $('#sticky-element').removeClass('sticky');
+                $('#movida').removeClass('movidita');
+            }
+        }
+
+        $(function() {
+            $(window).scroll(sticky_relocate);
+            sticky_relocate();
+        });
+    </script>
+
 </head>
 <body ng-app="app">    
 
@@ -159,8 +180,8 @@
       </div>
     </div>
 
-
-    <nav ng-init = "tab = 1" class="navbar navbar-default on-top" data-spy="affix" data-offset-top="180">
+    <div id="sticky-anchor"> </div>
+    <nav id="sticky-element" ng-init = "tab = 1" class="navbar navbar-default on-top">
       <!-- Main bar-->
       <div class="container-fluid lepStyle">
         <div class="navbar-header">
@@ -232,6 +253,7 @@
       </div>
     </nav>
 
+    <div id="movida">
      <div class= "container-fluid"ng-view></div>
     </br></br></br>
       <!-- footer-->
@@ -280,5 +302,6 @@
         <p class="text-center"> Copyright <strong>buses Lep 2016</strong> - Todos los derechos reservados</p>
       </div>
   </div> <!--end footer-->
+</div> <!--end movida-->
 </body>
 </html>

@@ -5,6 +5,17 @@ body {
     body { padding-top: 0px; }
 }
 
+.sticky {
+    position: fixed;
+    right:0;
+    left:0;
+    top: 0;
+}
+
+.movidita {
+  padding-top: 53px;
+}
+
 .lepWhite-bg{
   background: #ffffff;
 }
