@@ -20,12 +20,12 @@
 }
 
 .comp-tab-navbar {
-	padding-top: 0.5%;
+	/*padding-top: 0.5%;
 	padding-bottom: 0.5%;
 	margin-bottom: 1%;
-	margin-top: 1%;
-	border-top: 3px solid #dbdbdb;
-	border-bottom: 3px solid #dbdbdb;
+	margin-top: 1%;*/
+	/*border-top: 3px solid #dbdbdb;
+	border-bottom: 3px solid #dbdbdb;*/
 }
 
 .comp-tab-navbar a {
@@ -37,19 +37,23 @@
 	font-weight: bold;
 }
 
-.comp-tab-navbar a:after{
-	display:block;
-    content:attr(title);
-    font-weight:bold;
-    height:1px;
-    color:transparent;
-    overflow:hidden;
-    visibility:hidden;
-    margin-bottom:-1px;
-}
-
 .comp-tab-inner-elem {
 	border-right: 3px solid #dbdbdb;
+}
+
+.comp-contact-img-logo {
+	width: 25px;
+	height: 25px;
+}
+
+.comp-contact-img-logo-ph {
+	width: 25px;
+	height: 40px;	
+}
+
+.comp-contact-img-logo-ml {
+	width: 25px;
+	height: 20px;
 }
 
 .comp-units-navbar {
