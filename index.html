@@ -88,17 +88,17 @@
         <div class="row" ng-controller="LoginCtrl" style="padding-bottom:5px">
             <div class="col-sm-7 col-md-7 visible-lg">
                 <div class="row">
-                    <div class=" small-margin col-sm-3 col-md-3 text-center visible-lg">
+                    <div class=" font-normal2 small-margin col-sm-3 col-md-3 text-center visible-lg">
                         <img src="img/Iconos comunes/icono whatsapp.png" class="img-responsive" style="float:left;width:20px;height:20px;margin-right:6px">351-2466600
                     </div>
-                    <div class=" small-margin col-sm-4 col-md-4 text-center hidden-sm">
+                    <div class=" font-normal2 small-margin col-sm-4 col-md-4 text-center hidden-sm">
                         <img src="img/Iconos comunes/Icono Celular.png" class="img-responsive"style="float:left;width:12px;height:19px;margin-right:6px">0351-5696600, 0358-4219090
                     </div>
                     <div class="small-margin col-sm-1 col-md-1">
                         <button onclick="location.href = 'www.facebook.com/expresobuseslep';"type="button" class="nav-style" style="background:#e6e6e6"><img src="img/Iconos comunes/Icono Facebook.png" class="img-responsive"style="float:left;width:20px;height:20px;margin-right:6px"></button>
                     </div>
-                    <div class="small-margin col-sm-4 col-md-4 text-center">
-                        <img src="img/Iconos comunes/Icono sobre.png" class="img-responsive"style="float:left;width:18px;height:12px;margin-top:6px;margin-right:6px;">expreso@buseslep.com.ar
+                    <div class="font-normal2 small-margin col-sm-4 col-md-4 text-center">
+                        <img src="img/Iconos comunes/Icono sobre.png" class="img-responsive"style="float:left;width:18px;height:12px;margin-top:6px;margin-left:10px;">expreso@buseslep.com.ar
                     </div>
                 </div>
             </div>
@@ -160,7 +160,7 @@
     </div>
 
 
-    <nav class="navbar navbar-default on-top" data-spy="affix" data-offset-top="180">
+    <nav ng-init = "tab = 1" class="navbar navbar-default on-top" data-spy="affix" data-offset-top="180">
       <!-- Main bar-->
       <div class="container-fluid lepStyle">
         <div class="navbar-header">
@@ -176,25 +176,49 @@
         <div id="navbar" class="navbar-collapse collapse navbar-left" data-toggle="collapse" ng-controller="LoginCtrl">
             <!-- xs,sm -->
             <ul class="selected nav navbar-nav visible-xs visible-sm">
-                <li><a data-toggle="collapse" data-target=".navbar-collapse" href="#/company">Empresa</a></li>
-                <li><a data-toggle="collapse" data-target=".navbar-collapse" href="#/tours">Recorridos</a></li>
-                <li><a data-toggle="collapse" data-target=".navbar-collapse" href="#/ticketOffices">Boleterías</a></li>
-                <li><a data-toggle="collapse" data-target=".navbar-collapse" href="#/encomiendas">Encomiendas</a></li>
-                <li><a data-toggle="collapse" data-target=".navbar-collapse" href="#/special">Viajes Especiales</a></li>
-                <li><a data-toggle="collapse" data-target=".navbar-collapse" href="#/account/reserves">Mi Cuenta</a></li>
-                <li><a data-toggle="collapse" data-target=".navbar-collapse" href="#/">Horarios</a></li>
+                <li ng-click="tab = 1">
+                    <a ng-hide="tab === 1" data-toggle="collapse" data-target=".navbar-collapse" href="#/company">Empresa</a>
+                    <a ng-show="tab === 1" data-toggle="collapse" data-target=".navbar-collapse" href="#/company"><strong>Empresa</strong></a>
+                </li>
+                <li><a ng-click="tab = 2" data-toggle="collapse" data-target=".navbar-collapse" href="#/tours">Recorridos</a></li>
+                <li><a ng-click="tab = 3" data-toggle="collapse" data-target=".navbar-collapse" href="#/ticketOffices">Boleterías</a></li>
+                <li><a ng-click="tab = 4" data-toggle="collapse" data-target=".navbar-collapse" href="#/encomiendas">Encomiendas</a></li>
+                <li><a ng-click="tab = 5" data-toggle="collapse" data-target=".navbar-collapse" href="#/special">Viajes Especiales</a></li>
+                <li><a ng-click="tab = 6" data-toggle="collapse" data-target=".navbar-collapse" href="#/account/reserves">Mi Cuenta</a></li>
+                <li><a ng-click="tab = 7" data-toggle="collapse" data-target=".navbar-collapse" href="#/">Horarios</a></li>
        
             </ul>
 
             <!-- md,lg -->
            <ul class="selected nav navbar-nav hidden-xs hidden-sm" > 
-                <li><a  href="#/company">Empresa</a></li>
-                <li><a  href="#/tours">Recorridos</a></li>
-                <li><a  href="#/ticketOffices">Boleterías</a></li>
-                <li><a href="#/encomiendas">Encomiendas</a></li>
-                <li><a  href="#/special">Viajes Especiales</a></li>
-                <li><a  href="#/account/reserves">Mi Cuenta</a></li>
-                <li><a href="#/">Horarios</a></li>
+                <li ng-click="tab = 1">
+                    <a  ng-hide="tab === 1" href="#/company">Empresa</a>
+                    <a  ng-show="tab === 1" href="#/company"><strong>Empresa</strong></a>
+                </li>
+                <li ng-click="tab = 2">
+                    <a  ng-hide="tab === 2" href="#/tours">Recorridos</a>
+                    <a  ng-show="tab === 2" href="#/tours"><strong>Recorridos</strong></a>
+                </li>
+                <li ng-click="tab = 3">
+                    <a  ng-hide="tab === 3" href="#/ticketOffices">Boleterías</a>
+                    <a  ng-show="tab === 3" href="#/ticketOffices"><strong>Boleterías</strong></a>
+                </li>
+                <li ng-click="tab = 4">
+                    <a  ng-hide="tab === 4" href="#/encomiendas">Encomiendas</a>
+                    <a  ng-show="tab === 4" href="#/encomiendas"><strong>Encomiendas</strong></a>
+                </li>
+                <li ng-click="tab = 5">
+                    <a  ng-hide="tab === 5" href="#/special">Viajes Especiales</a>
+                    <a  ng-show="tab === 5" href="#/special"><strong>Viajes Especiales</strong></a>
+                </li>
+                <li ng-click="tab = 6">
+                    <a  ng-hide="tab === 6" href="#/account/reserves">Mi Cuenta</a>
+                    <a  ng-show="tab === 6" href="#/account/reserves"><strong>Mi Cuenta</strong></a>
+                </li>
+                <li ng-click="tab = 7">
+                    <a  ng-hide="tab === 7" href="#/">Inicio</a>
+                    <a  ng-show="tab === 7" href="#/"><strong>Inicio</strong></a>
+                </li>
             </ul>
             <!--<li><a  ng-show="user.dni != '' " href="">Recargar ciudades</a></li>
             <li><a  ng-show="user.dni != '' " href="#/lastSearches">Últimas Búsquedas</a></li>
