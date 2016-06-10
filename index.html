@@ -102,7 +102,7 @@
     </script>
 
 </head>
-<body ng-app="app">    
+<body ng-app="app"  ng-init = "tab = 7">    
 
     <!-- Info bar-->
     <div class="container-fluid lepStyle hidden-xs">
@@ -174,14 +174,14 @@
     <div class="container-fluid lepStyle background-white hidden-xs">
       <div class="row">
         <a href="#/"><img class="col-xs-6 size-logo img-responsive left" ng-src="img/Iconos comunes/Isologo.png" alt="Buses Lep" ></a>
-        <p class="col-xs-6" style="padding-top:5%;text-align:center;font-size:160%;font-family:verdana;"> 
+        <p class="col-xs-6 font-arial" style="padding-top:5%;text-align:center;font-size:180%;"> 
             Preocupate por otras cosas, <b> buses Lep </b> te lleva.
         </p>
       </div>
     </div>
 
     <div id="sticky-anchor"> </div>
-    <nav id="sticky-element" ng-init = "tab = 1" class="navbar navbar-default on-top">
+    <nav id="sticky-element" class="navbar navbar-default on-top">
       <!-- Main bar-->
       <div class="container-fluid lepStyle">
         <div class="navbar-header">
@@ -201,18 +201,35 @@
                     <a ng-hide="tab === 1" data-toggle="collapse" data-target=".navbar-collapse" href="#/company">Empresa</a>
                     <a ng-show="tab === 1" data-toggle="collapse" data-target=".navbar-collapse" href="#/company"><strong>Empresa</strong></a>
                 </li>
-                <li><a ng-click="tab = 2" data-toggle="collapse" data-target=".navbar-collapse" href="#/tours">Recorridos</a></li>
-                <li><a ng-click="tab = 3" data-toggle="collapse" data-target=".navbar-collapse" href="#/ticketOffices">Boleterías</a></li>
-                <li><a ng-click="tab = 4" data-toggle="collapse" data-target=".navbar-collapse" href="#/encomiendas">Encomiendas</a></li>
-                <li><a ng-click="tab = 5" data-toggle="collapse" data-target=".navbar-collapse" href="#/special">Viajes Especiales</a></li>
-                <li><a ng-click="tab = 6" data-toggle="collapse" data-target=".navbar-collapse" href="#/account/reserves">Mi Cuenta</a></li>
-                <li><a ng-click="tab = 7" data-toggle="collapse" data-target=".navbar-collapse" href="#/">Horarios</a></li>
-       
+                <li ng-click="tab = 2">
+                    <a ng-hide="tab === 2" data-toggle="collapse" data-target=".navbar-collapse" href="#/tours">Recorridos</a>
+                    <a ng-show="tab === 2" data-toggle="collapse" data-target=".navbar-collapse" href="#/tours"><strong>Recorridos</strong></a>
+                </li>
+                <li ng-click="tab = 3">
+                    <a ng-hide="tab === 3" data-toggle="collapse" data-target=".navbar-collapse" href="#/ticketOffices">Boleterías</a>
+                    <a ng-show="tab === 3" data-toggle="collapse" data-target=".navbar-collapse" href="#/ticketOffices"><strong>Boleterías</strong></a>
+                </li>
+                <li ng-click="tab = 4">
+                    <a ng-hide="tab === 4" data-toggle="collapse" data-target=".navbar-collapse" href="#/encomiendas">Encomiendas</a>
+                    <a ng-show="tab === 4" data-toggle="collapse" data-target=".navbar-collapse" href="#/encomiendas"><strong>Encomiendas</strong></a>
+                </li>
+                <li ng-click="tab = 5">
+                    <a ng-hide="tab === 5" data-toggle="collapse" data-target=".navbar-collapse" href="#/special">Viajes Especiales</a>
+                    <a ng-show="tab === 5" data-toggle="collapse" data-target=".navbar-collapse" href="#/special"><strong>Viajes Especiales</strong></a>
+                </li>
+                <li ng-click="tab = 6">
+                    <a ng-hide="tab === 6" data-toggle="collapse" data-target=".navbar-collapse" href="#/account/reserves">Mi Cuenta</a>
+                    <a ng-show="tab === 6" data-toggle="collapse" data-target=".navbar-collapse" href="#/account/reserves"><strong>Mi Cuenta</strong></a>
+                </li>
+                <li ng-click="tab = 7">
+                    <a ng-hide="tab === 7" data-toggle="collapse" data-target=".navbar-collapse" href="#/">Inicio</a>
+                    <a ng-show="tab === 7" data-toggle="collapse" data-target=".navbar-collapse" href="#/"><strong>Inicio</strong></a>
+                </li>
             </ul>
 
             <!-- md,lg -->
            <ul class="selected nav navbar-nav hidden-xs hidden-sm" > 
-                <li ng-click="tab = 1">
+                <li ng-click="tab = 1" >
                     <a  ng-hide="tab === 1" href="#/company">Empresa</a>
                     <a  ng-show="tab === 1" href="#/company"><strong>Empresa</strong></a>
                 </li>
@@ -298,8 +315,19 @@
            <button class="btn btn-default lepStyle2"type="submit" style="margin:10px">Enviar</button> 
         </div>
       </div>
-      <div class="row lepDarkGrey-bg lepWhite-color">
-        <p class="text-center"> Copyright <strong>buses Lep 2016</strong> - Todos los derechos reservados</p>
+      <div class="row lepDarkestGrey-bg lepWhite-color border-bottom-red">
+        <div class="col-xs-2 padding-top10">
+            <p class="h2-responsive font-arial"><strong>buses Lep</strong></p>
+        </div>
+         <div class=" font-normal2 padding-top15 col-sm-3 col-md-3 col-xs-4">
+            <img src="img/Iconos comunes/Icono Celular.png" style="width:12px;height:19px;margin-right:10px">0351-5696600, 0358-4219090
+        </div>
+        <div class="font-normal2 padding-top15 col-sm-3 col-md-3 col-xs-4">
+            <img src="img/Iconos comunes/Icono sobre.png" style="width:18px;height:12px;margin-right:10px;">expreso@buseslep.com.ar
+        </div>
+      </div>
+      <div class="row lepDarkestGrey-bg lepWhite-color">
+        <p class="text-center padding-top5"> Copyright <strong>buses Lep 2016</strong> - Todos los derechos reservados</p>
       </div>
   </div> <!--end footer-->
 </div> <!--end movida-->
