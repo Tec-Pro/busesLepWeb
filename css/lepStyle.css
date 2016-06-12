@@ -127,6 +127,12 @@ body {
   border-right-color: #a6a6a6; 
 }
 
+.border-left{
+  border-left: 2px;
+  border-left-style: solid;
+  border-left-color: #e6e6e6; 
+}
+
 .border-right{
   border-right: 2px;
   border-right-style: solid;

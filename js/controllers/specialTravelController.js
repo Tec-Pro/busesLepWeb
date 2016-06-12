@@ -36,7 +36,7 @@ angular.module('app')
   $scope.gallery_thumbnails = [
     {
       source: "./img/special/thumbnail1.png",
-      full_size: ""
+      full_size: "./img/special/fullscreen1.png"
     },
     {
       source: "./img/special/thumbnail2.png",
