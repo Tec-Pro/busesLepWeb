@@ -56,16 +56,22 @@
 	color: white;
 }
 
+
 .btn-home {
+	position: absolute;
+	z-index: +1;
+	bottom:0.25%;
+    width:92.5%;
 	color: white;
-	background-color: darkgrey;
+	background-color: #191919;
+	border-radius: 0;
 }
 
 .btn-home:hover{
 	color: red;
 }
 
-.btn-home > span:hover {
+.btn-home:hover .glyphicon {
 	color: red;
 }
 
