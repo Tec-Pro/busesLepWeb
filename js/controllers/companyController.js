@@ -1,8 +1,8 @@
 angular.module('app')
-.controller('CompCtrl', function($scope, $location){
+.controller('CompCtrl', function($scope, $location, companyService, Lightbox){
 
-	$scope.active = 1;
-	$scope.active_unit_tab = 1;
+	$scope.active = companyService.getActiveTab();
+	$scope.active_unit_tab = companyService.getActiveUnitTab();
 	$scope.active_gall_img = 2;
 
 	$scope.set_active = function(tab){
@@ -13,26 +13,26 @@ angular.module('app')
 		$scope.active_unit_tab = tab;
 	}
 
-	$scope.gallery_thumbnails = [
+	$scope.images = [
 		{
-			source: "./img/company/thumbnail1.png",
-			full_size: "./img/company/fullsize1.png"
+			thumbnail: "./img/company/thumbnail1.png",
+			url: "./img/company/fullsize1.png"
 		},
 		{
-			source: "./img/company/thumbnail2.png",
-			full_size: "./img/company/fullsize2.png"
+			thumbnail: "./img/company/thumbnail2.png",
+			url: "./img/company/fullsize2.png"
 		},
 		{
-			source: "./img/company/thumbnail3.png",
-			full_size: "./img/company/fullsize3.png"
+			thumbnail: "./img/company/thumbnail3.png",
+			url: "./img/company/fullsize3.png"
 		},
 		{
-			source: "./img/company/thumbnail4.png",
-			full_size: "./img/company/fullsize4.png"
+			thumbnail: "./img/company/thumbnail4.png",
+			url: "./img/company/fullsize4.png"
 		},
 		{
-			source: "./img/company/thumbnail5.png",
-			full_size: "./img/company/fullsize5.png"
+			thumbnail: "./img/company/thumbnail5.png",
+			url: "./img/company/fullsize5.png"
 		}
 	]
 
@@ -58,4 +58,8 @@ angular.module('app')
 			$scope.active_gall_img--;
 		}
 	}
+
+	$scope.openImage = function (index) {
+    	Lightbox.openModal($scope.images, index);
+  	};
 });

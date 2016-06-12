@@ -2,7 +2,8 @@ angular.module('app')
 .controller('SpecialTravelCtrl', function($scope, $location){
 
   $scope.active_gall_img = 2;
-
+  $scope.is_fullscreen = false;
+  
 	//Date picker options
   $scope.dpOpts = {
       locale: {
@@ -40,19 +41,19 @@ angular.module('app')
     },
     {
       source: "./img/special/thumbnail2.png",
-      full_size: ""
+      full_size: "./img/special/fullscreen2.png"
     },
     {
       source: "./img/special/thumbnail3.png",
-      full_size: ""
+      full_size: "./img/special/fullscreen3.png"
     },
     {
       source: "./img/special/thumbnail4.png",
-      full_size: ""
+      full_size: "./img/special/fullscreen4.png"
     },
     {
       source: "./img/special/thumbnail5.png",
-      full_size: ""
+      full_size: "./img/special/fullscreen5.png"
     }
   ];
 

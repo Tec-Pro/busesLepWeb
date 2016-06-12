@@ -22,10 +22,10 @@
 							<input class="comp-gall-nav-btn" type="image" src="./img/special/left_button.png" data-ng-click="active_gall_img_left()"></input>
 						</div>
 						<div data-ng-repeat="image in gallery_thumbnails track by $index" class="col-xs-2">
-							<input type="image" data-ng-click="set_active_gall_img($index)" data-ng-src="{{image.source}}" data-ng-class="{'comp-gall-wrap': active_gall_img != $index}" class="img-responsive"></input>
+							<input type="image" data-ng-mouseover="set_active_gall_img($index)" data-ng-click="set_active_gall_img($index)" data-ng-src="{{image.source}}" data-ng-class="{'comp-gall-wrap': active_gall_img != $index}" class="img-responsive"></input>
 						</div>
 						<div class="col-xs-1">
-							<input class="comp-gall-nav-btn" data-ng-mouseover="set_active_gall_img($index)" type="image" src="./img/special/right_button.png" data-ng-click="active_gall_img_right()"></input>
+							<input class="comp-gall-nav-btn" type="image" src="./img/special/right_button.png" data-ng-click="active_gall_img_right()"></input>
 						</div>
 					</div>
 					<br>

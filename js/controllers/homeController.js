@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('HomeCtrl', function($scope, $location,tripService){
+.controller('HomeCtrl', function($scope, $location, $window, tripService, companyService){
 
     //Date picker options
     $scope.dpOpts = {
@@ -126,4 +126,11 @@ angular.module('app')
         }
       }
     });
+
+    $scope.goCompanyUnits = function(tab){
+      companyService.setActiveTab(4);
+      companyService.setActiveUnitTab(tab);
+      $window.scrollTo(0,0);
+      $location.path('/company');
+    }
 });
