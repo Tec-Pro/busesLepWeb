@@ -6,6 +6,28 @@
 	margin-right: -1%;
 }
 
+.search-header {
+	font-size: 150%;
+}
+
+.search-text {
+	text-align: center;
+}
+
+.search-date {
+	padding-left: 14%;
+	text-align: center;
+}
+
+.search-date::-webkit-input-placeholder       {color:  #000000;}
+.search-date::-moz-placeholder                {color:  #000000;}
+.search-date:-moz-placeholder                 {color:  #000000;}
+.search-date:-ms-input-placeholder            {color:  #000000;}
+.search-date:focus::-webkit-input-placeholder {color: #ff0008; text-decoration: underline;}
+.search-date:focus::-moz-placeholder          {color: #ff0008; text-decoration: underline;}
+.search-date:focus:-moz-placeholder           {color: #ff0008; text-decoration: underline;}
+.search-date:focus:-ms-input-placeholder      {color: #ff0008; text-decoration: underline;}
+
 .carousel-text {
 	border-top: solid gray;
 	border-bottom: solid gray;
@@ -56,7 +78,6 @@
 	color: white;
 }
 
-
 .btn-home {
 	position: absolute;
 	z-index: +1;
@@ -73,6 +94,58 @@
 
 .btn-home:hover .glyphicon {
 	color: red;
+}
+
+.search-menu-button {
+	width: 100%;
+}
+
+.search-menu-button:disabled {
+	background-color: #FFF;
+	opacity: 1;
+}
+
+.open > .dropdown-toggle.btn-default.search-menu-button:focus {
+	color: red;
+	text-decoration: underline;
+}
+
+.btn.search-menu-button:active {
+	color:red;
+	text-decoration: underline;
+}
+
+.btn.search-menu-button:hover {
+	color: red;
+	text-decoration: underline;
+}
+
+.search-menu-button:disabled:hover {
+	background-color: #E6E6E6;
+}
+
+.search-menu-items {
+	text-align: center;
+	width: 100%;
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+}
+
+.dropdown-menu > li > a.search-menu-item:hover {
+	color:red;
+}
+
+.search-date{	
+	background-color: #FFF;
+}
+
+.search-date:hover {
+	background-color: #E6E6E6;
+}
+
+.search-date:disabled:hover {
+	background-color: #E6E6E6;
 }
 
 .default-option:hover {

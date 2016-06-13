@@ -17,6 +17,9 @@ angular.module('app')
     //By default, the destinationpicker is disabled.
     $scope.destinationDisabled = true;
 
+    //Before the departure date is set, the return date selector is disabled.
+    $scope.returnDateDisabled = true;
+
     //By default, is a one way trip.
     $scope.roundTrip = false;
 
@@ -24,8 +27,10 @@ angular.module('app')
     $scope.params = {
       today: moment(),
       origin: '',
+      origin_name: 'Ciudad Origen',
       destination: '',
-      departureDate: moment(),
+      destination_name: 'Ciudad Destino',
+      departureDate: '',
       returnDate: ''
     };
 
@@ -34,33 +39,38 @@ angular.module('app')
 	  $scope.origins = origins;
 	});
   
+
     //Function that check the availables destinations whenever the trip origin changes.
-    $scope.checkDestinations = function(){
+    $scope.checkDestinations = function(origin){
+        $scope.params.origin = origin;
       	//Enable the destination picker if the origin has been set.
       	$scope.destinationDisabled = ($scope.params.origin === undefined);
       	//Once the origin has been set, reload the possible destinations.
       	if ($scope.params.origin != undefined){
+          $scope.params.origin_name = origin.Localidad;
         	//Call asynchronously the web service, through tripService, when it's ready, update the destinations in the scope.
         	tripService.getDestinations($scope.params.origin.ID_Localidad).then(function(destinations){
             	$scope.destinations = destinations;
-        	});
+      	});
 		  	tripService.setTripOriginId($scope.params.origin.ID_Localidad);
 		  	tripService.setTripOriginName($scope.params.origin.Localidad);
       	} else {
         	//If the origin is empty, set default value.
-        	$scope.params.destination = '';
+          $scope.params.origin_name = 'Ciudad Origen';
       	}
+        $scope.params.destination = '';
+        $scope.params.destination_name = 'Ciudad Destino';
     };
 	
-  	$scope.setDestinationData = function(){
+  	$scope.setDestinationData = function(destination){
+      $scope.params.destination = destination;
 	  	if ($scope.params.destination != undefined){
-		  tripService.setTripDestinationId($scope.params.destination.id_localidad_destino);
-		  tripService.setTripDestinationName($scope.params.destination.hasta);
-		}
-	};
-
-    $scope.print = function(){
-        console.log($scope.params.origin);
+        $scope.params.destination_name = destination.hasta;
+		    tripService.setTripDestinationId($scope.params.destination.id_localidad_destino);
+		    tripService.setTripDestinationName($scope.params.destination.hasta);
+		  } else {
+        $scope.params.destination_name = 'Ciudad Destino';
+      }
     };
 
     // tripService.getOriginsAngularWSDL().then(function(response){
@@ -118,6 +128,11 @@ angular.module('app')
     };
 
     $scope.$watch('params.departureDate', function(date){
+      if ($scope.params.departureDate !== ''){
+        $scope.returnDateDisabled = false;
+      } else {
+        $scope.returnDateDisabled = true;
+      }
       if ($scope.params.returnDate !== ''){ 
         var a = $scope.params.returnDate;
         var b = date;
