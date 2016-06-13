@@ -82,7 +82,8 @@
 	position: absolute;
 	z-index: +1;
 	bottom:0.25%;
-    width:92.5%;
+    width: 100%;
+    max-width: 92.5%;
 	color: white;
 	background-color: #191919;
 	border-radius: 0;
@@ -151,4 +152,19 @@
 .default-option:hover {
 	color:red;
 	text-decoration: underline;
+}
+
+p.home-news {
+	width: 100%;
+    height: auto;
+    font-size: 87.5%;
+    max-height: 130px;
+    overflow-x: hidden;
+}
+
+.home-news-img {
+	width: 100%;
+	height: 100%;
+	max-width: 300px;
+	max-height: 170px;
 }

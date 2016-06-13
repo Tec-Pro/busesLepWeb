@@ -14,6 +14,11 @@
     background-color: #000;
 }
 
+.comp-text-box {
+    height: 257px;
+    overflow-x: hidden;
+}
+
 .comp-textarea {
 	resize: none;
 	background-color: #dbdbdb;
