@@ -9,20 +9,20 @@
     	</div>
 	</div>
 	<br>
-	<div class="row card2">
+	<div class="row border-top border-bottom">
 		<div class="col-xs-12">
 			<div class="row">
 				<br>
 				<div class="col-xs-12 col-md-3 card2">
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam purus nulla, maximus a fermentum auctor, molestie sit amet lectus. Nullam consectetur ac ante non varius. Etiam vestibulum pulvinar elit, vitae condimentum ex ullamcorper vel. Integer malesuada placerat nulla, eu tempus mauris finibus eu. 
 				</div>
-				<div class="hidden-xs col-md-9">
+				<div class="hidden-xs col-md-9 border-bottom">
 					<div class="row">
 						<div class="col-xs-1">
 							<input class="comp-gall-nav-btn" type="image" src="./img/special/left_button.png" data-ng-click="active_gall_img_left()"></input>
 						</div>
 						<div data-ng-repeat="image in gallery_thumbnails track by $index" class="col-xs-2">
-							<input type="image" data-ng-click="set_active_gall_img($index)" data-ng-src="{{image.source}}" data-ng-class="{'comp-gall-wrap': active_gall_img != $index}" class="img-responsive"></input>
+							<input type="image" data-ng-mouseover="set_active_gall_img($index)" data-ng-click="set_active_gall_img($index)" data-ng-src="{{image.source}}" data-ng-class="{'comp-gall-wrap': active_gall_img != $index}" class="img-responsive"></input>
 						</div>
 						<div class="col-xs-1">
 							<input class="comp-gall-nav-btn" type="image" src="./img/special/right_button.png" data-ng-click="active_gall_img_right()"></input>
@@ -42,8 +42,10 @@
 			<div class="row">
 				<div class="col-xs-12">
 					<h3><u>Formulario de Cotización</u></h3>
+					<br>
 					<form name="specialTravelForm" role="form" class="form-horizontal">
-						<div class="row">
+						<div class="row border-top">
+							<br>
 							<div class="col-xs-12 col-sm-4">
 								<div class="form-group">
 									<div class="row">
@@ -224,15 +226,13 @@
 								</div>
 							</div>
 						</div>
-						<div class="row">
+						<div class="row border-bottom">
 							<div class="col-xs-10">
 								<textarea placeholder="Observaciones" class="form-control comp-textarea" rows="1" name="observations"></textarea>
 							</div>
 							<button class="col-xs-1 btn">Enviar</button>
 						</div>
 						<br>
-						<div class="row">
-						</div>
 					</form>
 				</div>
 				<div class="col-xs-12">
