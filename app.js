@@ -7,6 +7,10 @@ angular.module("app", ["ngRoute","LocalStorageModule","angularSoap","daterangepi
                 controller: "HomeCtrl",
                 templateUrl: "views/home.html"
             })
+            .when("/test", {
+                controller: "TestCtrl",
+                templateUrl: "views/test.html"
+            })
             .when("/editProfile", {
                 templateUrl: "views/editProfile.html"
             })
