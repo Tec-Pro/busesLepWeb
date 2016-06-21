@@ -1,5 +1,9 @@
 angular.module('app')
-.controller('HomeCtrl', function($scope, $location, $window, tripService, companyService){
+.controller('HomeCtrl', function($scope, $location, $window, wsService, tripService, companyService){
+  
+    var wsdl_url = wsdl_url = 'https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService';
+    var urn = 'LepWebServiceIntf-ILepWebService';
+
 
     //Date picker options
     $scope.dpOpts = {
@@ -34,8 +38,25 @@ angular.module('app')
       returnDate: ''
     };
 
+  var localidadesDesde_parameters = [
+    {
+      name: "userWS",
+      type: "string",
+      value: "UsuarioLep"
+    },
+    {
+      name: "passWS",
+      type: "string",
+      value: "Lep1234"
+    },
+    {
+      name: "id_plataforma",
+      type: "int",
+      value: "3"
+    }
+  ]
 	//Call the web service and update the origins from the scope.
-	tripService.getOrigins().then(function(origins){
+	wsService.callService(wsdl_url, urn, "LocalidadesDesde",localidadesDesde_parameters).then(function(origins){
 	  $scope.origins = origins;
 	});
   
@@ -48,8 +69,31 @@ angular.module('app')
       	//Once the origin has been set, reload the possible destinations.
       	if ($scope.params.origin != undefined){
           $scope.params.origin_name = origin.Localidad;
-        	//Call asynchronously the web service, through tripService, when it's ready, update the destinations in the scope.
-        	tripService.getDestinations($scope.params.origin.ID_Localidad).then(function(destinations){
+        	//Call asynchronously the web service, through wsService, when it's ready, update the destinations in the scope.
+        	// var id_localidad = $scope.params.origin.ID_Localidad.toString();
+          var getDestinations_params = [
+            {
+              name: "userWS",
+              type: "string",
+              value: "UsuarioLep"
+            },
+            {
+              name: "passWS",
+              type: "string",
+              value: "Lep1234"
+            },
+            {
+              name: "IdLocalidadOrigen",
+              type: "int",
+              value: $scope.params.origin.ID_Localidad.toString()
+            },
+            {
+              name: "id_plataforma",
+              type: "int",
+              value: "3"
+            }
+          ];
+          wsService.callService(wsdl_url,urn,"Localidadeshasta",getDestinations_params).then(function(destinations){
             	$scope.destinations = destinations;
       	});
 		  	tripService.setTripOriginId($scope.params.origin.ID_Localidad);
@@ -114,10 +158,47 @@ angular.module('app')
 				tripService.setTripDestinationId($scope.params.destination.id_localidad_destino);
 				tripService.setTripDestinationName($scope.params.destination.hasta);
 				tripService.setTripDeparture($scope.params.departureDate);
-				tripService.searchTrips($scope.params.origin.ID_Localidad, $scope.params.destination.id_localidad_destino, $scope.params.departureDate.format("YYYYMMDD")).then(function(schedules){
+				// tripService.searchTrips($scope.params.origin.ID_Localidad, $scope.params.destination.id_localidad_destino, $scope.params.departureDate.format("YYYYMMDD")).then(function(schedules)
+        var listarHorarios_parameters = [
+          {
+            name: "userWS",
+            type: "string",
+            value: "UsuarioLep"
+          },
+          {
+            name: "passWS",
+            type: "string",
+            value: "Lep1234"
+          },
+          {
+            name: "IdLocalidadOrigen",
+            type: "int",
+            value: $scope.params.origin.ID_Localidad
+          },
+          {
+            name: "IdLocalidadDestino",
+            type: "int",
+            value: $scope.params.destination.id_localidad_destino
+          },
+          {
+            name: "Fecha",
+            type: "string",
+            value: $scope.params.departureDate.format("YYYYMMDD")
+          },
+          {
+            name: "DNI",
+            type: "int",
+            value: "1"
+          },
+          {
+            name: "id_plataforma",
+            type: "int",
+            value: "3"
+          }          
+        ];
+        wsService.callService(wsdl_url, urn, "ListarHorarios", listarHorarios_parameters).then(function(schedules){
 						if (schedules.length > 0){
 							tripService.setSchedules(schedules);
-              console.log(tripService.getTrip());
 							$location.path('/schedules');
 						} else {
 							window.alert("No existen viajes para esa fecha");

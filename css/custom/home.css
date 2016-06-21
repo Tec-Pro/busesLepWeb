@@ -157,7 +157,7 @@
 p.home-news {
 	width: 100%;
     height: auto;
-    font-size: 87.5%;
+    font-size: 75%;
     max-height: 130px;
     overflow-x: hidden;
 }
