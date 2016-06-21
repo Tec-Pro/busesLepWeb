@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('TestCtrl', function($scope, wsService){
+.controller('TestCtrl', function($scope,$http, wsService){
 
 	$scope.wsdl_url = 'https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService';
 	$scope.urn = 'LepWebServiceIntf-ILepWebService';

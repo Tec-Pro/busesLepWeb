@@ -49,12 +49,12 @@
       <div class="col-lg-2 hidden-xs"></div>
       <div class="col-lg-10 col-md-12 hidden-xs">
           <div class="col-lg-4 col-md-4 col-sm-6 card2">
-            <h4 class="title  lepStyle background-white">Cordoba</h4>
+            <h4 class="title  lepStyle background-white">{{origin}}</h4>
           </div>
           <div class="col-lg-1 col-md-1 hidden-sm">
           </div>
           <div class="col-lg-4 col-md-4 col-sm-6 card2">
-            <h4 class="title lepStyle background-white">Sta Rosa de Calamuchita</h4>
+            <h4 class="title lepStyle background-white">{{destination}}</h4>
           </div>
            <div class="col-lg-1 col-md-1 hidden-sm">
             
@@ -79,13 +79,13 @@
         <div class = "col-sm-12 hidden-sm"> <br></div>
         <br>
         <div class= "col-xs-2 no-mar-pad-bor hidden-sm">
-          <h4 class = "no-mar-pad-bor no-bold lepStyle background-white">Precio Ida: <strong>$110</strong></h4>
+          <h4 class = "no-mar-pad-bor no-bold lepStyle background-white">Precio Ida: <strong>${{goPrice}}</strong></h4>
         </div>
         <div class= "col-xs-2 col-sm-6 visible-sm no-mar-pad-bor">
-          <h4 class = "no-mar-pad-bor title no-bold lepStyle background-white">Precio Ida: <strong>$110</strong></h4>
+          <h4 class = "no-mar-pad-bor title no-bold lepStyle background-white">Precio Ida: <strong>${{goPrice}}</strong></h4>
         </div>
         <div class= "col-sm-6 no-mar-pad-bor visible-sm">
-          <h4 class = "no-mar-pad-bor title no-bold lepStyle background-white">Precio Ida y vuelta: <strong>$110</strong></h4>
+          <h4 class = "no-mar-pad-bor title no-bold lepStyle background-white">Precio Ida y vuelta: <strong>${{goPrice}}</strong></h4>
         </div>
         <div class = "col-sm-12 visible-sm"> <br></div>
       </div>
@@ -93,7 +93,7 @@
       <!-- precio idavueta y header de la lista de horarios-->
       <div class= "hidden-xs col-xs-12 no-mar-pad-bor">
         <div class= "col-xs-2 no-mar-pad-bor hidden-sm">
-          <h4 class = "no-bold no-mar-pad-bor lepStyle background-white">Ida y vuelta: <strong>$227</strong></h4>
+          <h4 class = "no-bold no-mar-pad-bor lepStyle background-white">Ida y vuelta: <strong>${{roundTripPrice}}</strong></h4>
         </div>
         <div class= "col-md-10 col-lg-10 col-sm-12 no-mar-pad-bor">
           <div class= "col-xs-6 no-mar-pad-bor">
@@ -131,7 +131,7 @@
       </div>
       
       <!-- lista horarios mayor que 750px -->
-      <div class="hidden-xs" ng-repeat="i in range(0,20,1)">
+      <div class="hidden-xs" ng-repeat="sched in schedules">
         <!-- separador entre header y lista-->
         <div class= "col-xs-2 hidden-sm">  
         </div>
@@ -185,7 +185,7 @@
 
       <div class="col-xs-12 visible-xs">
          <div class="col-xs-12 card2">
-            <h5 class = "title lepStyle background-white">Cordoba <span class = "bold-blue"> > </span> Sta. Rosa de calamuchita</h5>
+            <h5 class = "title lepStyle background-white">{{origin}} <span class = "bold-blue"> > </span>{{destination}}</h5>
           </div>
           <div class = "col-xs-12"> <br></div>
           <div class="col-xs-8 col-xs-offset-2">
@@ -204,7 +204,7 @@
       </div>
 
       <!-- lista de horarios -->
-      <div class="visible-xs" ng-repeat="i in range(0,20,1)">
+      <div class="visible-xs" ng-repeat="sched in schedules">
         <!-- separador entre header y lista-->
         <div class= "col-xs-12 background-lightgrey2 lightgrey2"><h6 class = "lightgrey2 no-mar-pad-bor">.</h6> </div>
 

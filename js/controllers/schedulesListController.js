@@ -1,5 +1,44 @@
-angular.module('app').controller('ScheduleController', function ($scope, $location, tripService, scheduleService, $filter){
+angular.module('app').controller('ScheduleController', function ($scope, $location, tripService, scheduleService, $filter, wsService){
 	
+	$scope.schedules = tripService.getSchedules();
+	console.log($scope.schedules);
+	$scope.origin = tripService.getTripOriginName();
+
+	$scope.destination = tripService.getTripDestinationName();
+
+	$scope.wsdl_url = 'https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService';
+	$scope.urn = 'LepWebServiceIntf-ILepWebService';
+	$scope.method = 'ObtenerTarifaTramo';
+	$scope.parameters = [
+		{
+			name: "userWS",
+			type: "string",
+			value: "UsuarioLep"
+		},
+		{
+			name: "passWS",
+			type: "string",
+			value: "Lep1234"
+		},
+		{
+			name: "ID_LocalidadOrigen",
+			type: "int",
+			value: tripService.getTripOriginId()
+		},
+		{
+			name: "ID_LocalidadDestino",
+			type: "int",
+			value: tripService.getTripDestinationId()
+		}
+	]
+
+	wsService.callService($scope.wsdl_url, $scope.urn, $scope.method, $scope.parameters).then(function(tarifas){
+ 		result = tarifas.split("-");
+ 		$scope.goPrice = Number(result[0].trim().substring(7));
+ 		$scope.roundTripPrice = Number(result[1].trim().substring(13));
+ 	});
+ 	
+	//riocuarto es id=10 cordoba plaza es id=1
 	//Date picker options
     $scope.dpOpts = {
         locale: {
@@ -13,6 +52,8 @@ angular.module('app').controller('ScheduleController', function ($scope, $locati
         showDropdowns: true
     };
 
+
+
 	$scope.params = {
       today: moment(),
       origin: '',
@@ -22,11 +63,7 @@ angular.module('app').controller('ScheduleController', function ($scope, $locati
       amount: ''
     };
 
-  	$scope.schedules = tripService.getSchedules();
-	
-		$scope.origin = tripService.getTripOriginName();
-	
-		$scope.destination = tripService.getTripDestinationName();
+  	
 	
   	$scope.goSummary = function(index) {
 			/*var selectedSchedule = $scope.schedules[index];

@@ -19,6 +19,7 @@ angular.module('app')
 		//Specify the type of request so that it will be a post, sent to the wsdl
 		//passed by the user and that it will be an asynchronous call.
 		xmlhttp.open('POST', wsdl_url, true);
+     
 		//Build the SOAP request
 		var soap_request = 
 				'<?xml version="1.0" encoding="UTF-8" standalone="no"?>' +
@@ -57,10 +58,24 @@ angular.module('app')
        				var json_response = x2js.xml_str2json(xmlhttp.response);
        				//Set the method response tag.
        				var method_response = method+'Response';
+             
        				//Create the json object.
-       				var json_object = eval("("+json_response.Envelope.Body[method_response].return.__text+")");
-       				//Resolve the deferred call with the data of the Json object.
-       				deferred.resolve(json_object.Data);
+              try{
+       				   var json_object = eval("("+json_response.Envelope.Body[method_response].return.__text+")");
+                 //Resolve the deferred call with the data of the Json object.
+                 deferred.resolve(json_object.Data);
+              }
+              catch(err) {
+                  str = xmlhttp.response.toString();
+                  //console.log("sds" + str);
+                  n = str.search("</return>");
+                  x = str.search("<return");
+                  str = str.substring(x,n);
+                  x = str.search("\">");
+                  str = str.substring(x+2,n);
+                  deferred.resolve(str);
+              }
+
        			}
        		}
        	}                
