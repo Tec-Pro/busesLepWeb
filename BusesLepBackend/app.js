@@ -11,7 +11,7 @@ app.use(methodOverride());
 
 // Example Route
 var router = express.Router();
-router.get('/', function(req, res) {
+router.post('/', function(req, res) {
   res.send("Hello world!");
 });
 app.use(router);
@@ -19,8 +19,13 @@ app.use(router);
 // API routes
 var accessTkRoute = express.Router();
 
+/*app.post('/myaction', function(req, res) {
+	console.log(req.body);
+  res.send('You sent the name "' + req.body + '".');
+});*/
+
 accessTkRoute.route('/mercadopago')
-  .get(mpCtrl.getAccessToken)
+  .post(mpCtrl.addPay)
 
 app.use('/api', accessTkRoute);
 

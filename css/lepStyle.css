@@ -16,6 +16,10 @@ body {
   padding-top: 53px;
 }
 
+input.ng-invalid{
+  border: 1px solid red;
+}
+
 .lepWhite-bg{
   background: #ffffff;
 }
