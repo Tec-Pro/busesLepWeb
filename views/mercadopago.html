@@ -10,53 +10,101 @@
 <div class = "container">
     <form action="http://localhost:8081/api/mercadopago" method="post" id="pay" name="pay" >
         <fieldset>
-            <div class = "row">
-
-                <div class = "col-xs-12 col-sm-12">
-                    <label class = "control-label"for="email">Email</label>
-                    <div>
-                        <input class="form-control" id="email" name="email" value="test_user_19653727@testuser.com" ng-model="user.email" type="email" placeholder="test_user_19653727@testuser.com" required/>
-                       <!-- <span ng-show="pay.email.$error.email"> Email incorrecto</span> -->
+            <div class = "row ">
+                <div class = "col-xs-12 col-sm-8 col-sm-offset-2 ">
+                    <div> <!-- TENGO QUE SETEAR EL EMAIL POSTA DEL USUARIO ANTES DE PASAR AL MODO PRODUCCION!!!!!!! -->
+                        <input type="hidden" class="form-control" id="email" name="email" value="test_user_19653727@testuser.com" ng-model="user.email" type="email" required/> 
                     </div>
-                    <br>
-                </div>
-                
+                   
+                    <div class = "col-xs-12">
+                        <label class = "col-xs-4 text-right" style = "margin-top:5px;" for="cardNumber">Numero de tarjeta:</label> 
+                        <div class = "col-xs-4">          
+                            <input class="form-control" ng-model="cardNum" numbers-only type="text" id="cardNumber" data-checkout="cardNumber" placeholder="4509 9535 6623 3704" />
+                        </div> 
+                    </div>
 
-                <div class = "col-xs-12 col-sm-6">
-                    <label for="cardNumber">Numero de tarjeta:</label>
-                    <input class="form-control" type="text" id="cardNumber" data-checkout="cardNumber" placeholder="4509 9535 6623 3704" />
-                </div>
-                <div class = "col-xs-12 col-sm-6">
-                    <label for="securityCode">Security code:</label>
-                    <input class="form-control" type="text" id="securityCode" data-checkout="securityCode" placeholder="123" />
-                </div>
-                <div class = "col-xs-12"><br></div>
-                <div class = "col-xs-12 col-sm-6">
-                    <label for="cardExpirationMonth">Mes de Expiracion:</label>
-                    <input class="form-control" type="text" id="cardExpirationMonth" data-checkout="cardExpirationMonth" placeholder="12" />
-                </div>
-                <div class = "col-xs-12 col-sm-6">
-                    <label for="cardExpirationYear">Año de Expiracion:</label>
-                    <input class="form-control" type="text" id="cardExpirationYear" data-checkout="cardExpirationYear" placeholder="2015" />
-                </div>
-                <div class = "col-xs-12"><br></div>
-                <div class = "col-xs-12 col-sm-4">
-                    <label for="cardholderName">Nombre Y apellido impreso en tarjeta:</label>
-                    <input class="form-control" type="text" id="cardholderName" data-checkout="cardholderName" placeholder="APRO" />
-                </div>
-                <div class = "col-xs-12 col-sm-4">
-                    <label for="docType">Tipo de documento:</label>
-                    <select class="form-control" id="docType" data-checkout="docType">
-                        <!--esto se completa solo cuando se llama a getIdentificationTypes(); de mercadopago -->
-                    </select>
-                </div>
-                <div class = "col-xs-12 col-sm-4">
-                    <label for="docNumber">Numero de documento:</label>
-                    <input class="form-control" type="text" id="docNumber" data-checkout="docNumber" placeholder="12345678" />
-                </div>
-                <div class = "col-xs-12"><br></div>
+                    <div class = "col-xs-12"> <br></div>
+
+                    <div class = "col-xs-12"> 
+                        <label class = "col-xs-4 text-right" style = "margin-top:5px;" for="issuer">Banco:</label>
+                        <div class = "col-xs-5">
+                            <select class="form-control" id="issuer" name="issuer"></select>
+                        </div>
+                    </div>
+
+                    <div class = "col-xs-12"> <br></div>
+
+                    <div class = "col-xs-12" ng-show = "showSecurityCodeInput">
+                        <label class = "col-xs-4 text-right" style = "margin-top:5px;"  for="securityCode">Codigo de Seguridad:</label>
+                        <div  class = "col-xs-2">
+                            <input class="form-control" type="text" ng-model="secCode" numbers-only id="securityCode" data-checkout="securityCode" placeholder="123" />
+                        </div>
+                    </div>
+
+                    <div class = "col-xs-12"><br></div>
+
+                    <div class = "col-xs-12">
+                        <label class = "col-xs-4 text-right" style = "margin-top:5px;" for="cardExpirationMonth">Fecha de vencimiento:</label>
+                        <div class = "col-xs-2">
+                            <input class="form-control" type="text" id="cardExpirationMonth" data-checkout="cardExpirationMonth" placeholder="12" />
+
+                        </div>
+                        <div class = "col-xs-2">
+                            <input class="form-control" type="text" id="cardExpirationYear" data-checkout="cardExpirationYear" placeholder="2015" />
+                        </div>
+                    </div>
+
+                    <div class = "col-xs-12"><br></div>
+
+                    <div class = "col-xs-12">
+                        <label for="cardholderName" class = "col-xs-4 text-right" style = "margin-top:5px;">Titular de la tarjeta:</label>
+                        <div class = "col-xs-6">
+                            <input class="form-control" type="text" id="cardholderName" data-checkout="cardholderName" placeholder="Como figura en la tarjeta" /> <!-- poner "APRO" para un pago aprobado es para testear-->
+                        </div>
+                    </div>
+
+                    <div class = "col-xs-12"><br></div>
+
+                    <div class = "col-xs-12 ">
+                        <label for="docType" class = "col-xs-4 text-right" style = "margin-top:5px;">Tipo y numero de Documento:</label>
+                        <div class = "col-xs-2">
+                            <select class="form-control" id="docType" data-checkout="docType">
+                            <!--esto se completa solo cuando se llama a getIdentificationTypes(); de mercadopago -->
+                            </select>
+                        </div>
+                        <div class = "col-xs-4">
+                            <input class="form-control" type="text" id="docNumber"  ng-model="docNum" numbers-only data-checkout="docNumber" placeholder="12345678" />
+                        </div>
+                    </div>
+                    <div class = "col-xs-12"><br></div>
+
+                    <!-- <div class = "col-xs-12">
+                        <label for="docNumber">Numero de documento:</label>
+                        
+                    </div> -->
+                    
+                    <div class = "col-xs-12">
+                        <label class = "col-xs-4 text-right" style = "margin-top:5px;" for="installments">Cuotas:</label>
+                        <div class = "col-xs-6">
+                            <select class="form-control"id="installments" name="installments"></select>
+                        </div>
+                    </div>
+
+                    <div class = "col-xs-12"><br></div>
+
+                    <input type="hidden" id="amount" name="amount" /> <!-- tiene que estar si o si por que la usa el sdk -->
+                    <div class = "col-xs-12">
+                        <div class = "col-xs-6 title">
+                            <h3>Total: ${{totalAmount}}</h3>
+                        </div>
+                        <div class = "col-xs-6">
+                            <input class = "btn btn-danger lepStyleRed btn-lg center-block" type="submit" value="Comprar" />
+                        </div>
+                    </div>
+
+                   
+                </div>  
             </div>
-              <input class = "btn btn-danger lepStyleRed btn-lg" type="submit" value="Comprar" />
         </fieldset>
     </form>
 </div>

@@ -7,6 +7,11 @@ angular.module('app').controller('DetailsController', function ($scope, $locatio
 	    $location.path('/endPurchase/' + $scope.code);	 
 	    //seat.img = '../img/occupied_seat.png'
 	};
+	$scope.goMercadopagoBuy = function() {
+	    $location.path('/buy');	 
+	    //seat.img = '../img/occupied_seat.png'
+	};
+
 	$scope.goReserve= function() {
 	    $location.path('/endReserve');	 
 	};
