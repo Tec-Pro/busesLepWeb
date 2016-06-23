@@ -18,16 +18,20 @@ app.use(router);
 
 // API routes
 var accessTkRoute = express.Router();
-
+var paymentMethods = express.Router();
 /*app.post('/myaction', function(req, res) {
 	console.log(req.body);
   res.send('You sent the name "' + req.body + '".');
 });*/
 
 accessTkRoute.route('/mercadopago')
-  .post(mpCtrl.addPay)
+  .post(mpCtrl.addPay);
+
+paymentMethods.route('/paymentMethods').get(mpCtrl.getPayments);
 
 app.use('/api', accessTkRoute);
+app.use('/api', paymentMethods);
+
 
 // Start server
 app.listen(8081, function() {

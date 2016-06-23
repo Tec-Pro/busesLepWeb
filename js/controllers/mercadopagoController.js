@@ -2,16 +2,22 @@ angular.module('app')
 .controller('MercadopagoController', function($scope,$http, wsService){	
 
 	Mercadopago.setPublishableKey("TEST-c550b59e-e455-472a-a24e-e7a2f3ca07d3");
-	
-	/*$http.get("http://localhost:8081/api/mercadopago").success(function(response){ //llama a la api nuestra y ahi se obtiene el access token
+	$scope.paymentMethods = [];
+	$http.get("http://localhost:8081/api/paymentMethods").success(function(response){ //llama a la api nuestra y ahi se obtiene los medios de pago
 		//obj = JSON.parse(response)
-		console.log(response.accessToken);
-    	url = "https://api.mercadopago.com/v1/payment_methods/?access_token=" + response.accessToken;
-    	$http.get(url).success(function(response2){ // llama  a la api de mercadopago para obtener mdeios de pago
-    		$scope.paymentMethods = response2;
-   		 });
-    });*/
+		
+		payments = response.response;
+		if (payments.length > 0) {
+			for (var i = 0; i < payments.length; i++) {
+				if(payments[i].payment_type_id == 'credit_card'){
+					$scope.paymentMethods.push({id:payments[i].id,name:payments[i].name});
+				}
+			}; 		
+    	}
+    });
+
 	document.querySelector('#amount').value = 200;
+	$scope.selectedPayment = null;
 	$scope.totalAmount = document.querySelector('#amount').value;
    	$scope.showSecurityCodeInput = true;
    	$scope.onlyNumbers = /^\d+$/;
@@ -23,6 +29,8 @@ angular.module('app')
 		}, function (status, response){
 			//console.log(response);
 	});*/
+
+	
 
 	function addEvent(el, eventName, handler){
 	    if (el.addEventListener) {
@@ -60,7 +68,14 @@ angular.module('app')
 	    }
 	}
 
-	function guessingPaymentMethod(event) {
+
+	$scope.paymentMethodSelected = function(){
+    	//console.log($scope.selectedPayment);
+    	amount = document.querySelector('#amount').value;
+    	Mercadopago.getPaymentMethod({"payment_method_id": $scope.selectedPayment}, setPaymentMethodInfo);
+ 	 }
+	/*function guessingPaymentMethod(event) {
+		
 	    var bin = getBin();
 	    amount = document.querySelector('#amount').value;
 	    if (event.type == "keyup") {
@@ -78,9 +93,10 @@ angular.module('app')
 	            }
 	        }, 100);
 	    }
-	};
+	};*/
 
 	function setPaymentMethodInfo(status, response) {
+		console.log(response);
 	    if (status == 200) {
 	        // do somethings ex: show logo of the payment method
 	        var form = document.querySelector('#pay');
@@ -90,7 +106,7 @@ angular.module('app')
 	            paymentMethod.setAttribute('name', "paymentMethodId");
 	            paymentMethod.setAttribute('type', "hidden");
 	            paymentMethod.setAttribute('value', response[0].id);
-
+	            console.log(response[0].id);
 	            form.appendChild(paymentMethod);
 	        } else {
 	            document.querySelector("input[name=paymentMethodId]").value = response[0].id;
@@ -116,7 +132,7 @@ angular.module('app')
 	        }
 
 	        Mercadopago.getInstallments({
-	            "bin": bin,
+	            "payment_method_id": response[0].id,
 	            "amount": amount
 	        }, setInstallmentInfo);
 
@@ -171,7 +187,7 @@ angular.module('app')
 	    }
 	    
 	    Mercadopago.getInstallments({
-	        "bin": getBin(),
+	        "payment_method_id": $scope.selectedPayment,
 	        "amount": amount,
 	        "issuer_id": issuerId
 	    }, setInstallmentInfo);
@@ -209,9 +225,9 @@ angular.module('app')
 	    }
 	}
 
-	addEvent(document.querySelector('input[data-checkout="cardNumber"]'), 'keyup', guessingPaymentMethod);
+	addEvent(document.querySelector('input[data-checkout="cardNumber"]'), 'keyup', $scope.paymentMethodSelected);
 	addEvent(document.querySelector('input[data-checkout="cardNumber"]'), 'keyup', clearOptions);
-	addEvent(document.querySelector('input[data-checkout="cardNumber"]'), 'change', guessingPaymentMethod);
+	addEvent(document.querySelector('input[data-checkout="cardNumber"]'), 'change', $scope.paymentMethodSelected);
 
 	cardsHandler();
 
