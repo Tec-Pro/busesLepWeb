@@ -143,8 +143,8 @@
                         <input type="text" class="lep-form col-sm-3" id="DNI" placeholder="DNI" required ng-model="user.dni"/>
                         <input type="password" class="lep-form col-sm-3" id="Password" placeholder="Contraseña" required ng-model="user.pass"/>
                         <div class="col-sm-4"style="margin-top:8px;">
-                             <a href="#/" type="submit" style="margin-left:3px;font-size:0.9em"><strong>Ingresar </strong></a> /
-                             <a href="#/signin" type="button" style="font-size:0.9em"><strong>Registrarse</strong></a>
+                             <button class="button-link" href="#/" type="submit" style="margin-left:3px;font-size:0.9em"><strong>Ingresar </strong></button> /
+                             <button class="button-link" ng-click="go('/signin')" type="button" style="font-size:0.9em"><strong>Registrarse</strong></button>
                         </div>                                    
                     </form>
                 </div>        
@@ -168,7 +168,7 @@
                 <input type="text" class="lep-form col-xs-4" id="DNI" placeholder="DNI" required ng-model="user.dni"/>
                 <input type="password" class="lep-form col-xs-4" id="Password" placeholder="Contraseña" required ng-model="user.pass"/>                 
                 <div class="col-xs-5"style="margin-top:8px;">
-                     <a href="#/" type="submit" style="font-size:0.8em"><strong>Ingresar </strong></a> /
+                     <a href="#/" ng-click="login()" type="submit" style="font-size:0.8em"><strong>Ingresar </strong></a> /
                      <a href="#/signin" style="font-size:0.8em"><strong>Registrarse</strong></a>
                 </div> 
             </form>

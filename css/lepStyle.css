@@ -766,3 +766,16 @@ color:#ff0008;
 .font-arial {
   font-family: Arial;
 }
+
+.button-link {
+     background:none!important;
+     border:none;
+     color:#5588BB; 
+     padding:0!important;
+     font: inherit;
+     cursor: pointer;
+}
+.button-link:hover {
+     border-bottom:1px solid #444;
+     border-bottom-color: #5588BB; 
+}
