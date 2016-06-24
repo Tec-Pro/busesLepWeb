@@ -1,32 +1,42 @@
 
 
     <div ng-controller="LoginCtrl" class="container" >
-        <h2 class="text-center">Registro de usuario</h2>
-        <form ng-submit="signin()">
-           <div class="form-group">
-            <label class="sr-only"  for="nombre">Nombre</label>
-            <input type="text" required class="form-control" id="Nombre" placeholder="Nombre" ng-model="user.name">
+        <h3 class="text-center padding-bottom10">Registro de usuario</h2>
+        <form class="row" ng-submit="signin()">
+          <div class="col-sm-4"></div>
+          <div class="col-sm-4">
+               <div class="form-group">
+                <label class="sr-only"  for="nombre">Nombre</label>
+                <input type="text" required class="form-control" id="Nombre" placeholder="Nombre" ng-model="user.name">
+              </div>
+               <div class="form-group">
+                <label class="sr-only"  for="dni">Apellido</label>
+                <input type="text" required class="form-control" id="Apellido" placeholder="Apellido" ng-model="user.lastname">
+              </div>
+              <div class="form-group">
+                <label class="sr-only"  for="dni">DNI</label>
+                <input type="text" required class="form-control" id="DNI" placeholder="DNI" ng-model="user.dni">
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for="email">Dirección de correo electrónico</label>
+                <input type="email" required class="form-control" id="email" placeholder="Dirección de corre electronico" ng-model="user.email">
+              </div>
+              <div class="form-group">
+                <label class="sr-only"  for="Password">Contraseña</label>
+                <input type="password" required class="form-control" id="Password" placeholder="Contraseña" ng-model="user.pass">
+              </div>
+              <div class="form-group">
+                <label class="sr-only"  for="Password2">Confirmación Contraseña</label>
+                <input type="password" required class="form-control" id="Password2" placeholder="Confirmación Contraseña" ng-model="user.pass2">
+              </div>
+              <div class="row">
+                  <div class="col-xs-3"></div>
+                  <div class="col-xs-6">
+                      <button type="submit" class="btn btn-default lepRed-bg lepWhite-color col-xs-12 text-center">Registrarme</button>
+                  </div>
+                  <div class="col-xs-3"></div>
+              </div>  
           </div>
-           <div class="form-group">
-            <label class="sr-only"  for="dni">Apellido</label>
-            <input type="text" required class="form-control" id="Apellido" placeholder="Apellido" ng-model="user.lastname">
-          </div>
-          <div class="form-group">
-            <label class="sr-only"  for="dni">DNI</label>
-            <input type="text" required class="form-control" id="DNI" placeholder="DNI" ng-model="user.dni">
-          </div>
-          <div class="form-group">
-            <label class="sr-only" for="email">Dirección de correo electrónico</label>
-            <input type="email" required class="form-control" id="email" placeholder="Dirección de corre electronico" ng-model="user.email">
-          </div>
-          <div class="form-group">
-            <label class="sr-only"  for="Password">Contraseña</label>
-            <input type="password" required class="form-control" id="Password" placeholder="Contraseña" ng-model="user.pass">
-          </div>
-          <div class="form-group">
-            <label class="sr-only"  for="Password2">Confirmación Contraseña</label>
-            <input type="password" required class="form-control" id="Password2" placeholder="Confirmación Contraseña" ng-model="user.pass2">
-          </div>
-          <button type="submit" class="btn btn-default col-xs-12 text-center">Registrarme</button>
+          <div class="col-sm-4"></div>
         </form>        
     </div>
