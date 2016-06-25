@@ -3,10 +3,10 @@ angular.module('app')
 
 	Mercadopago.setPublishableKey("TEST-c550b59e-e455-472a-a24e-e7a2f3ca07d3");
 	$scope.paymentMethods = [];
-	$http.get("http://localhost:8081/api/paymentMethods").success(function(response){ //llama a la api nuestra y ahi se obtiene los medios de pago
+	$http.get("https://api.mercadolibre.com/sites/MLA/payment_methods").success(function(response){ //llama a la api nuestra y ahi se obtiene los medios de pago
 		//obj = JSON.parse(response)
 		
-		payments = response.response;
+		payments = response;
 		if (payments.length > 0) {
 			for (var i = 0; i < payments.length; i++) {
 				if(payments[i].payment_type_id == 'credit_card'){
