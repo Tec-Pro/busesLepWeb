@@ -55,22 +55,22 @@
             <h3 class= "title lepStyle background-white">Ida</h3>
             <div class = "container page " ng-controller="SeatsController">
               <div class="content-seats summary-row"> 
-                <div class="row " ng-repeat="i in range(0,65,5)">
+                <div class="row " ng-repeat="i in range(0,seatsArr.length,5)">
                   <div class= "col-xs-12 col-xs-offset-1  row-top-margin15">
                     <div class="col-xs-2  no-padding">
-                      <img ng-click="toggleImage(seats[i])" class = "size-seats center-block" ng-src="{{seats[i].img}}" alt="">
+                      <img ng-click="toggleImage(seatsArr[i])" class = "size-seats center-block" ng-src="{{seatsArr[i].img}}" alt="">
                     </div>
                     <div class="col-xs-2 no-padding">
-                      <img ng-click="toggleImage(seats[i+1])" class = "size-seats center-block" ng-src="{{seats[i+1].img}}" alt="">
+                      <img ng-click="toggleImage(seatsArr[i+1])" class = "size-seats center-block" ng-src="{{seatsArr[i+1].img}}" alt="">
                     </div>
                     <div class="col-xs-2 no-padding ">
-                      <img ng-click="toggleImage(seats[i+2])" class = "size-seats center-block" ng-src="{{seats[i+2].img}}" alt="">
+                      <img ng-click="toggleImage(seatsArr[i+2])" class = "size-seats center-block" ng-src="{{seatsArr[i+2].img}}" alt="">
                     </div>
                     <div class="col-xs-2 no-padding">
-                      <img ng-click="toggleImage(seats[i+3])" class = "size-seats center-block" ng-src="{{seats[i+3].img}}" alt="">
+                      <img ng-click="toggleImage(seatsArr[i+3])" class = "size-seats center-block" ng-src="{{seatsArr[i+3].img}}" alt="">
                     </div>
                     <div class="col-xs-2 no-padding">
-                      <img ng-click="toggleImage(seats[i+4])" class = "size-seats center-block" ng-src="{{seats[i+4].img}}" alt="">
+                      <img ng-click="toggleImage(seatsArr[i+4])" class = "size-seats center-block" ng-src="{{seatsArr[i+4].img}}" alt="">
                     </div>
                   </div>
                 </div>
