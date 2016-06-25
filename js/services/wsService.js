@@ -45,7 +45,7 @@ angular.module('app')
                             // '<userWS xsi:type="xs:string">UsuarioLep</userWS>' +
                             // '<passWS xsi:type="xs:string">Lep1234</passWS>' +
                             // '<id_plataforma xsi:type="xs:int">3</id_plataforma>' +
-       	console.log("Peticion: "+soap_request);
+       //	console.log("Peticion: "+soap_request);
        	//When the status of the request changes to ready, parse the received object.
        	xmlhttp.onreadystatechange = function() {
        		//When the request status is ready and the response has been received.
@@ -63,11 +63,24 @@ angular.module('app')
               try{
        				   var json_object = eval("("+json_response.Envelope.Body[method_response].return.__text+")");
                  //Resolve the deferred call with the data of the Json object.
-                 deferred.resolve(json_object.Data);
+                 if(json_object.Data != undefined){
+                    deferred.resolve(json_object.Data);
+                 }
+                 else{
+                    str = xmlhttp.response.toString();
+                    
+                    n = str.search("</return>");
+                    x = str.search("<return");
+                    str = str.substring(x,n);
+                    x = str.search("\">");
+                    str = str.substring(x+2,n);
+                    deferred.resolve(str);
+                 }
+                 
               }
               catch(err) {
                   str = xmlhttp.response.toString();
-                  //console.log("sds" + str);
+                  
                   n = str.search("</return>");
                   x = str.search("<return");
                   str = str.substring(x,n);
