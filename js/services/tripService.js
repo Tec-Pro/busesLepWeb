@@ -2,21 +2,21 @@ angular.module('app')
 .factory('tripService', ["$soap","$q", function($soap, $q){
 
 	var departure_trip = {
-		round_trip = 0;
-		buy = 0;
-		destination_id = '';
-		destination_name = '';
-		origin_id = '';
-		origin_name = '';
-		departure_date = '';
-		departure_time ='';
-		return_date = '';
-		return_time = '';
-		first_arrival_date = '';
-		first_arrival_time = '';
-		secondArrival_date= '';	
-		second_arrival_time = '';
-		ticket_amount = 0;
+		round_trip = 0,
+		buy = 0,
+		destination_id = '',
+		destination_name = '',
+		origin_id = '',
+		origin_name = '',
+		departure_date = '',
+		departure_time ='',
+		return_date = '',
+		return_time = '',
+		first_arrival_date = '',
+		first_arrival_time = '',
+		secondArrival_date= '',	
+		second_arrival_time = '',
+		ticket_amount = 0
 	};
 
 	var return_trip = {
