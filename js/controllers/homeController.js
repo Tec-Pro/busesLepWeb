@@ -38,6 +38,8 @@ angular.module('app')
       returnDate: ''
     };
 
+    $scope.origin_search = '';
+    
   var localidadesDesde_parameters = [
     {
       name: "userWS",

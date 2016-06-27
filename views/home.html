@@ -14,8 +14,9 @@
 							    {{params.origin_name}}
 							  </button>
 							  <ul class="dropdown-menu dropdown-menu-right search-menu-items" aria-labelledby="origin">
+							  	<li><input data-ng-model=origin_search></input></li>
 							  	<li><a href class = "search-menu-item" data-ng-click="checkDestinations(undefined)">Ciudad Origen</a></li>
-							    <li><a href class= "search-menu-item" data-ng-repeat="origin in origins" data-ng-click="checkDestinations(origin)">{{origin.Localidad}}</a></li>
+							    <li><a href class= "search-menu-item" data-ng-repeat="origin in origins | filter:origin_search" data-ng-click="checkDestinations(origin)">{{origin.Localidad}}</a></li>
 							  </ul>
 							</div>
 							<!-- <label class="sr-only" for="origin">Origen:</label>

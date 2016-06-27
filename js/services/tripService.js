@@ -1,22 +1,28 @@
 angular.module('app')
 .factory('tripService', ["$soap","$q", function($soap, $q){
 
-	var trip = {};
-	trip.round_trip = 0;
-	trip.buy = 0;
-	trip.destination_id = '';
-	trip.destination_name = '';
-	trip.origin_id = '';
-	trip.origin_name = '';
-	trip.departure = '';
-	trip.departure_time ='';
-	trip.return = '';
-	trip.return_time = '';
-	trip.first_arrival = '';
-	trip.first_arrival_time = '';
-	trip.secondArrival= '';	
-	trip.second_arrival_time = '';
-	trip.ticket_amount = 0;
+	var departure_trip = {
+		round_trip = 0;
+		buy = 0;
+		destination_id = '';
+		destination_name = '';
+		origin_id = '';
+		origin_name = '';
+		departure_date = '';
+		departure_time ='';
+		return_date = '';
+		return_time = '';
+		first_arrival_date = '';
+		first_arrival_time = '';
+		secondArrival_date= '';	
+		second_arrival_time = '';
+		ticket_amount = 0;
+	};
+
+	var return_trip = {
+
+	};
+	
 
 	var schedules = [];
 		
@@ -93,37 +99,37 @@ angular.module('app')
 			return trip.destination_name;
 		},
 		getTripDeparture: function(){
-			return trip.departure;
+			return trip.departure_date;
 		},
 		getTripDepartureTime: function(){
-				return trip.departure_time;
+			return trip.departure_time;
 		},
 		getTripReturn: function(){
-			return trip.return;
+			return trip.return_date;
 		},
 		getTripReturnTime: function(){
-				return trip.return_time;
+			return trip.return_time;
 		},
 		getTripTicketAmount: function(){
 			return trip.ticket_amount;
 		},
 		getTripFirstArrival: function(){
-			return trip.first_arrival;
+			return trip.first_arrival_date;
 		},
 		getTripSecondArrival: function(){
-				return trip.secondArrival;
+			return trip.secondArrival_date;
 		},
 		getTripFirstArrivalTime: function(){
-				return trip.first_arrival_time;
+			return trip.first_arrival_time;
 		},
 		getTripSecondArrivalTime: function(){
-				return trip.second_arrival_time;
+			return trip.second_arrival_time;
 		},
 		getSchedules: function(){
-				return schedules;
+			return schedules;
 		},
 		setSchedules: function(val){
-				schedules = val;
+			schedules = val;
 		},
 		setRoundTrip: function(val) {
 			trip.round_trip = val;
@@ -144,10 +150,10 @@ angular.module('app')
 			trip.destination_name = val;
 		},
 		setTripDeparture: function(val){
-			trip.departure = val;
+			trip.departure_date = val;
 		},
 		setTripReturn: function(val){
-			trip.return = val;
+			trip.return_date = val;
 		},
 		setTripTicketAmount: function(val){
 			trip.ticket_amount = val;
@@ -156,7 +162,7 @@ angular.module('app')
 			return $soap.post(base_urlWSDL, "LocalidadesDesde",{userWS: "UsuarioLep", passWS: "Lep1234", id_plataforma: 3});
 		},
 		getOriginsAngularSOAP: function(){
-				return $soap.post(base_urlSOAP, "LocalidadesDesde",{userWS: "UsuarioLep", passWS: "Lep1234", id_plataforma: 3});
+			return $soap.post(base_urlSOAP, "LocalidadesDesde",{userWS: "UsuarioLep", passWS: "Lep1234", id_plataforma: 3});
 		},
 		getDestinations : function(id_origin){
 				var deferred = $q.defer();
