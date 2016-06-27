@@ -2,9 +2,11 @@ angular.module('app').controller('ScheduleController', function ($scope, $locati
 	
 	$scope.schedules = tripService.getSchedules();
 	console.log($scope.schedules);
-	$scope.origin = tripService.getTripOriginName();
 
-	$scope.destination = tripService.getTripDestinationName();
+	$scope.departure_trip = tripService.getDepartureTrip();
+	$scope.origin = $scope.departure_trip.origin_name;
+
+	$scope.destination = $scope.departure_trip.destination_name;
 
 	$scope.wsdl_url = 'https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService';
 	$scope.urn = 'LepWebServiceIntf-ILepWebService';
