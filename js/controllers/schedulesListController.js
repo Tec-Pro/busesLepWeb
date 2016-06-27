@@ -25,12 +25,12 @@ angular.module('app').controller('ScheduleController', function ($scope, $locati
 		{
 			name: "ID_LocalidadOrigen",
 			type: "int",
-			value: tripService.getTripOriginId()
+			value: $scope.departure_trip.origin_id
 		},
 		{
 			name: "ID_LocalidadDestino",
 			type: "int",
-			value: tripService.getTripDestinationId()
+			value: $scope.departure_trip.destination_id
 		}
 	]
 
