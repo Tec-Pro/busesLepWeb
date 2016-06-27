@@ -77,53 +77,11 @@ angular.module('app')
 
     
 	return {
-		getTrip: function(){
-			return trip;
+		getDepartureTrip: function(){
+			return departure_trip;
 		},
-		getRoundTrip: function() {
-			return trip.round_trip;
-		},
-		getBuy: function(){
-			return trip.buy;
-		},
-		getTripOriginId: function(){
-			return trip.origin_id;
-		},	
-		getTripDestinationId: function(){
-			return trip.destination_id;
-		},
-		getTripOriginName: function(){
-			return trip.origin_name;
-		},
-		getTripDestinationName: function(){
-			return trip.destination_name;
-		},
-		getTripDeparture: function(){
-			return trip.departure_date;
-		},
-		getTripDepartureTime: function(){
-			return trip.departure_time;
-		},
-		getTripReturn: function(){
-			return trip.return_date;
-		},
-		getTripReturnTime: function(){
-			return trip.return_time;
-		},
-		getTripTicketAmount: function(){
-			return trip.ticket_amount;
-		},
-		getTripFirstArrival: function(){
-			return trip.first_arrival_date;
-		},
-		getTripSecondArrival: function(){
-			return trip.secondArrival_date;
-		},
-		getTripFirstArrivalTime: function(){
-			return trip.first_arrival_time;
-		},
-		getTripSecondArrivalTime: function(){
-			return trip.second_arrival_time;
+		getReturnTrip: function(){
+			return return_trip;
 		},
 		getSchedules: function(){
 			return schedules;
