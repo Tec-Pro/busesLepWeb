@@ -1,7 +1,7 @@
 angular.module('app')
 .controller('HomeCtrl', function($scope, $location, $window, wsService, tripService, companyService){
   
-    var wsdl_url = wsdl_url = 'https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService';
+    var wsdl_url = 'https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService';
     var urn = 'LepWebServiceIntf-ILepWebService';
 
 
@@ -114,6 +114,8 @@ angular.module('app')
 		    tripService.setTripDestinationName($scope.params.destination.hasta);
 		  } else {
         $scope.params.destination_name = 'Ciudad Destino';
+        tripService.setTripDestinationId('');
+        tripService.setTripDestinationName('');
       }
     };
 
