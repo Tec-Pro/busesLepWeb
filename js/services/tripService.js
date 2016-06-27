@@ -90,31 +90,31 @@ angular.module('app')
 			schedules = val;
 		},
 		setRoundTrip: function(val) {
-			trip.round_trip = val;
+			departure_trip.round_trip = val;
 		},
 		setBuy: function(val){
-			trip.buy = val;
+			departure_trip.buy = val;
 		},
 		setTripOriginId: function(val){
-			trip.origin_id = val;
+			departure_trip.origin_id = val;
 		},
 		setTripDestinationId: function(val){
-			trip.destination_id = val;
+			departure_trip.destination_id = val;
 		},
 		setTripOriginName: function(val){
-			trip.origin_name = val;
+			departure_trip.origin_name = val;
 		},
 		setTripDestinationName: function(val){
-			trip.destination_name = val;
+			departure_trip.destination_name = val;
 		},
 		setTripDeparture: function(val){
-			trip.departure_date = val;
+			departure_trip.departure_date = val;
 		},
 		setTripReturn: function(val){
-			trip.return_date = val;
+			departure_trip.return_date = val;
 		},
 		setTripTicketAmount: function(val){
-			trip.ticket_amount = val;
+			departure_trip.ticket_amount = val;
 		},
 		getOriginsAngularWSDL: function(){
 			return $soap.post(base_urlWSDL, "LocalidadesDesde",{userWS: "UsuarioLep", passWS: "Lep1234", id_plataforma: 3});
