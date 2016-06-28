@@ -61,7 +61,7 @@ angular.module('app').controller('ScheduleController', function ($scope, $locati
       today: moment(),
       origin: '',
       destination: '',
-      departureDate: moment(),
+      departureDate: $scope.departure_trip.departure_date,
       returnDate: moment(),
       amount: ''
     };
