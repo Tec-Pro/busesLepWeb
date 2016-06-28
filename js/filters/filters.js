@@ -1,4 +1,4 @@
-angular.module('app').filter('lepDate', function($filter){
+angular.module('app').filter('lepDateYear', function($filter){
 	
 	return function(input){
 		if (input == null) {
@@ -19,4 +19,24 @@ angular.module('app').filter('lepHour', function(){
 		var _hour = moment(input).format("HH:MM");
 		return _hour.toUpperCase();
 	}
+});
+
+angular.module('app').filter('lepDateMonth', function($filter){
+	
+	return function(input){
+		if (input == null) {
+			return "";
+		} 
+		var _date = moment(input).format("DD/MM");
+		return _date.toUpperCase();
+	}
+	
+});
+
+angular.module('app').filter('capitalize', function($filter){
+	
+	 return function(input) {
+      return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
+    }
+	
 });

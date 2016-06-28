@@ -131,7 +131,7 @@
       </div>
       
       <!-- lista horarios mayor que 750px -->
-      <div class="hidden-xs" ng-repeat="sched in schedules">
+      <div class="hidden-xs" ng-repeat="sched in schedules track by $index">
         <!-- separador entre header y lista-->
         <div class= "col-xs-2 hidden-sm">  
         </div>
@@ -145,19 +145,19 @@
           <div class= "col-md-10 col-lg-10 col-sm-12 no-mar-pad-bor card">
             <div class= "col-xs-6 no-mar-pad-bor">
               <div class= "title col-xs-3">
-                <h5 class="no-bold">21/Abr</h5>
-                <h5 class = "no-mar-pad-bor"><strong><span class = "bold-blue">08:00 </span>Hs</strong></h5>
+                <h5 class="no-bold">{{sched.fechahora | lepDateMonth}}</h5>
+                <h5 class = "no-mar-pad-bor"><strong><span class = "bold-blue">{{sched.fechahora | lepHour}} </span>Hs</strong></h5>
               </div>
               <div class= "title col-xs-3">
-                <h5 class="no-bold">21/Abr</h5>
-                <h5 class = "no-mar-pad-bor"><strong>08:00 Hs</strong></h5>
+                <h5 class="no-bold">{{sched.FechaHoraLlegada | lepDateMonth}}</h5>
+                <h5 class = "no-mar-pad-bor"><strong>{{sched.FechaHoraLlegada | lepHour}} Hs</strong></h5>
               </div>  
               <div class= "title col-xs-3">
-                <h5 class = "no-bold ">2:30 hs</h5>
+                <h5 class = "no-bold ">{{sched.DemoraViaje | limitTo: 5}} hs</h5>
                 <h5 class="no-bold blue hidden-sm">Recorrido</h5>
               </div>
               <div class= "title col-xs-3">
-                <h5 class = "no-bold red">En viaje</h5>
+                <h5 class = "no-bold" data-ng-class="{'red': sched.ServicioPrestado == 'en viaje' || sched.ServicioPrestado == 'completo', 'green': sched.ServicioPrestado == 'disponible', 'blue': sched.ServicioPrestado == 'en destino'}">{{sched.ServicioPrestado | capitalize}}</h5>
               </div>
             </div>
             <div class= "col-xs-6 no-mar-pad-bor">
@@ -166,7 +166,7 @@
                 <h5 class= "hidden-md hidden-lg no-bold">Dif.</h5>
               </div>
               <div class= "title col-xs-3">
-                <h5>$110</h5>
+                <h5>${{goPrice}}</h5>
               </div>
               <div class= "title col-xs-3">
                  <img class = "map-img center-block" ng-src="img/Posicionamiento.png" alt="">
@@ -204,7 +204,7 @@
       </div>
 
       <!-- lista de horarios -->
-      <div class="visible-xs" ng-repeat="sched in schedules">
+      <div class="visible-xs" ng-repeat="sched in schedules track by $index">
         <!-- separador entre header y lista-->
         <div class= "col-xs-12 background-lightgrey2 lightgrey2"><h6 class = "lightgrey2 no-mar-pad-bor">.</h6> </div>
 
@@ -213,24 +213,24 @@
             <div class= "col-xs-12 no-mar-pad-bor">
               <div class= "title col-xs-4">
                 <h5>Salida:</h5>
-                <h5 class="no-bold">21/Abr</h5>
-                <h5 class = "no-mar-pad-bor"><strong><span class = "bold-blue">08:00 </span>Hs</strong></h5>
+                <h5 class="no-bold">{{sched.fechahora | lepDateMonth}}</h5>
+                <h5 class = "no-mar-pad-bor"><strong><span class = "bold-blue">{{sched.fechahora | lepHour }} </span>Hs</strong></h5>
               </div>
               <div class= "title col-xs-4">
                 <h5>Llegada:</h5>
-                <h5 class="no-bold">21/Abr</h5>
-                <h5 class = "no-mar-pad-bor"><strong>08:00 Hs</strong></h5>
+                <h5 class="no-bold">{{sched.FechaHoraLlegada | lepDateMonth}}</h5>
+                <h5 class = "no-mar-pad-bor"><strong>{{sched.fechahora | lepHour}} Hs</strong></h5>
               </div>  
               <div class= "title col-xs-4">
                 <h5>Duracion:</h5>
-                <h5 class = "no-bold ">2:30 hs</h5>
+                <h5 class = "no-bold ">{{sched.DemoraViaje | limitTo: 5}} hs</h5>
                 <h5 class="no-bold blue hidden-sm">Recorrido</h5>
               </div>        
             </div>
             <hr>
             <div class= "col-xs-12 no-mar-pad-bor">
               <div class= "title col-xs-4">
-                <h5 class = "no-bold red">En viaje</h5>
+                <h5 class = "no-bold" data-ng-class="{'red': sched.ServicioPrestado == 'en viaje' || sched.ServicioPrestado == 'completo', 'green': sched.ServicioPrestado == 'disponible', 'blue': sched.ServicioPrestado == 'en destino'}">{{sched.ServicioPrestado | capitalize}}</h5>
               </div>
               <div class= "title col-xs-4">
                 <h5 class= "no-bold">Diferencial</h5>
@@ -242,7 +242,7 @@
             <hr>
             <div class= "col-xs-12 no-mar-pad-bor">
               <div class= "title col-xs-6">
-                <h4>Precio: $110</h4>
+                <h4>Precio: ${{goPrice}}</h4>
               </div>
               <div class= "title col-xs-6 center-block">
                 <button type="submit" class="center-block btn btn-danger col-xs-12 lepStyleRed btn-sm" style="margin-top:5px;"ng-click="goSummary(1)">Seleccionar</button>

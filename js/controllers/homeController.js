@@ -155,7 +155,7 @@ angular.module('app')
 					tripService.setTripReturn(b);
 				} else {
 					tripService.setRoundTrip(0);
-									tripService.setTripReturn('');
+					tripService.setTripReturn('');
 				}
 				tripService.setTripOriginId($scope.params.origin.ID_Localidad);
 				tripService.setTripOriginName($scope.params.origin.Localidad);

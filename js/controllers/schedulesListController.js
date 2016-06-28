@@ -1,6 +1,7 @@
 angular.module('app').controller('ScheduleController', function ($scope, $location, tripService, scheduleService, $filter, wsService){
 	
 	$scope.schedules = tripService.getSchedules();
+
 	console.log($scope.schedules);
 
 	$scope.departure_trip = tripService.getDepartureTrip();
