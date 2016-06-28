@@ -88,24 +88,27 @@ angular.module("app", ["ngRoute","ngAnimate","LocalStorageModule","angularSoap",
                 templateUrl: "views/encomiendas.html"
             })
             .when("/account/reserves", {
+                controller: "LoginCtrl",
                 templateUrl: "views/accountReserves.html"
             })
             .when("/account/purchases", {
+                controller: "LoginCtrl",
                 templateUrl: "views/accountPurchases.html"
             })
             .when("/account/lastsearch", {
+                controller: "LoginCtrl",
                 templateUrl: "views/accountSearches.html"
             })
             .when("/account/checkbalance", {
+                controller: "LoginCtrl",
                 templateUrl: "views/accountCheckBalance.html"
             })
             .when("/account/buycredits", {
+                controller: "LoginCtrl",
                 templateUrl: "views/accountBuyCredits.html"
             })
-            .when("/account/reserves", {
-                templateUrl: "views/accountReserves.html"
-            })
             .when("/account/update", {
+                controller: "LoginCtrl",
                 templateUrl: "views/accountUpdate.html"
             });             
     })

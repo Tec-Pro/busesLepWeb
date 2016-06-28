@@ -20,7 +20,6 @@ angular.module('app')
       value: "3"
     }]
 
-
    if(localStorageService.get("user-lep")){
         $scope.user = localStorageService.get("user-lep");
    } else {
@@ -37,6 +36,8 @@ angular.module('app')
       }
    };
 
+   
+
     $scope.go = function ( path ) {
       $location.path( path );
     };
@@ -45,7 +46,8 @@ angular.module('app')
         parameters.splice(2,0, {name: "DNI",type: "int",value: $scope.user.dni.toString()},
                                {name: "Pass",type: "string",value: $scope.user.pass}); //meto los parametros
         wsService.callService(wsdl_url, urn, "login", parameters).then(function(origins){
-          if (origins != null && origins[0] != null){ 
+          //alert(JSON.stringify(origins));
+          if (origins != null && origins[0] != null && origins[0].Email != null){
             $scope.user.name = origins[0].Nombre;
             $scope.user.lastname = origins[0].Apellido;
             $scope.user.email = origins[0].Email;
@@ -74,6 +76,7 @@ angular.module('app')
                                  {name: "Apellido",type: "string",value: $scope.user.lastname},
                                  {name: "Email",type: "string",value: $scope.user.email}); //meto los parametros
           wsService.callService(wsdl_url, urn, "RegistrarUsuario", parameters).then(function(origins){
+            //alert(JSON.stringify(origins));
             if (origins != null && origins[0] != null){
               localStorageService.set("user-lep", $scope.user);
               localStorageService.set("rld", "yes");
@@ -90,13 +93,13 @@ angular.module('app')
 
     $scope.editPass = function ( ) {
         if ($scope.user.pass.localeCompare($scope.user.pass2) == 0){
-          var oldPass = localStorageService.get("user-lep").pass;
+          var oldPass = localStorageService.get("user-lep");
           parameters.splice(2,0, {name: "Dni",type: "int",value: $scope.user.dni.toString()},
                                  {name: "Email",type: "string",value: $scope.user.email},
-                                 {name: "pas",type: "string",value: oldPass},
+                                 {name: "pas",type: "string",value: oldPass.pass},
                                  {name: "NuevaPass",type: "string",value: $scope.user.pass}
                                  ); //meto los parametros
-          wsService.callService(wsdl_url, urn, "ModificarContraseÃ±a", parameters).then(function(origins){
+          wsService.callService(wsdl_url, urn, "ModificarContraseña", parameters).then(function(origins){
             if (origins == 1) {
                 localStorageService.set("user-lep", $scope.user);
                 $location.path("/");
