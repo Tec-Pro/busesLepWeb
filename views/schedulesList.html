@@ -171,7 +171,7 @@
               <div class= "title col-xs-3">
                  <img class = "map-img center-block" ng-src="img/Posicionamiento.png" alt="">
               </div>
-              <div class= "title col-xs-3">
+              <div class= "title col-xs-3" data-ng-show="sched.ServicioPrestado == 'disponible'">
                 <button type="submit" class="center-block btn btn-danger col-xs-12 lepStyleRed btn-sm visible-lg" style="margin-top:10px;"ng-click="goSummary(1)">Seleccionar</button>
                 <button type="submit" class="center-block btn btn-danger col-xs-12 lepStyleRed btn-sm hidden-lg" style="margin-top:10px;"ng-click="goSummary(1)">Elegir</button>
               </div>
