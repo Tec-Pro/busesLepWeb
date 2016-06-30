@@ -1,14 +1,63 @@
 angular.module('app').controller('ScheduleController', function ($scope, $location, tripService, scheduleService, $filter, wsService){
-	
-	$scope.schedules = tripService.getSchedules();
+	var wsdl_url = 'https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService';
+    var urn = 'LepWebServiceIntf-ILepWebService';
 
-	console.log($scope.schedules);
+	$scope.schedules = tripService.getSchedules();
 
 	$scope.departure_trip = tripService.getDepartureTrip();
 	$scope.origin = $scope.departure_trip.origin_name;
 
 	$scope.destination = $scope.departure_trip.destination_name;
 
+	$scope.$watch('params.departureDate', function(date){
+    	if (!$scope.params.departureDate.isSame($scope.departure_trip.departure_date)){
+	        var listarHorarios_parameters = [
+	        {
+	            name: "userWS",
+	            type: "string",
+	            value: "UsuarioLep"
+	        },
+	        {
+	            name: "passWS",
+	            type: "string",
+	            value: "Lep1234"
+	        },
+	        {
+	            name: "IdLocalidadOrigen",
+	            type: "int",
+				value: $scope.departure_trip.origin_id
+	        },
+	        {
+	            name: "IdLocalidadDestino",
+	            type: "int",
+				value: $scope.departure_trip.destination_id
+	        },
+	        {
+	        	name: "Fecha",
+	          	type: "string",
+	          	value: $scope.params.departureDate.format("YYYYMMDD")
+	        },
+	        {
+	            name: "DNI",
+	            type: "int",
+	            value: "1"
+	        },
+	        {
+	            name: "id_plataforma",
+	            type: "int",
+	            value: "3"
+			}          
+        ];
+        wsService.callService(wsdl_url, urn, "ListarHorarios", listarHorarios_parameters).then(function(schedules){
+			if (schedules.length > 0){
+				$scope.schedules = schedules;
+			} else {
+				window.alert("No existen viajes para esa fecha");
+			}
+		});
+	
+    	}
+    });
 	$scope.wsdl_url = 'https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService';
 	$scope.urn = 'LepWebServiceIntf-ILepWebService';
 	$scope.method = 'ObtenerTarifaTramo';
@@ -59,11 +108,8 @@ angular.module('app').controller('ScheduleController', function ($scope, $locati
 
 	$scope.params = {
       today: moment(),
-      origin: '',
-      destination: '',
       departureDate: $scope.departure_trip.departure_date,
       returnDate: moment(),
-      amount: ''
     };
 
   	
