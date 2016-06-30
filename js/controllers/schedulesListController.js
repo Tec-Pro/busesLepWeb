@@ -112,7 +112,7 @@ angular.module('app').controller('ScheduleController', function ($scope, $locati
       returnDate: moment(),
     };
 
-  	
+  	console.log($scope.schedules);
 	
   	$scope.goSummary = function(index) {
 		var selectedSchedule = $scope.schedules[index];

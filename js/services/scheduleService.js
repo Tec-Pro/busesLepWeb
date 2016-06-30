@@ -4,13 +4,16 @@ angular.module('app')
 		var schedule = {};
 		schedule.origin_id = '';
 		schedule.origin_name = '';
+		schedule.duration = '';
+		schedule.status = '';
+		schedule.service = '';
+		schedule.price = '';
 		schedule.destination_id = '';
 		schedule.destination_name = '';
 		schedule.arrival_datetime_1 = '';
 		schedule.departure_datetime_1 = '';
 		schedule.arrival_datetime_2 = '';
 		schedule.departure_datetime_2 = '';
-		schedule.amount = 0;
 		schedule.round_trip = false;
 		
 		return {
@@ -48,6 +51,15 @@ angular.module('app')
 			setScheduleDestinationName : function(val){
 				schedule.destination_name = val;
 			},
+			setScheduleDuration: function(val) {
+				schedule.duration = val;
+			},
+			setSchedulePrice: function(val) {
+				schedule.price = val;
+			},
+			setScheduleStatus: function(val){
+				schedule.status = val;
+			},
 			setScheduleFirstArrivalDatetime : function(val){
 				schedule.arrival_datetime_1 = val;
 			},
@@ -59,9 +71,6 @@ angular.module('app')
 			},
 			setScheduleSecondDepartureDatetime : function(val){
 				schedule.departure_datetime_2 = val;
-			},
-			setScheduleTicketAmount : function(val){
-				schedule.amount = val;
 			},
 			setScheduleRoundTrip : function(val){
 				schedule.round_trip = val;
