@@ -96,7 +96,7 @@ angular.module("app", ["ngRoute","ngAnimate","LocalStorageModule","angularSoap",
                 templateUrl: "views/accountPurchases.html"
             })
             .when("/account/lastsearch", {
-                controller: "LoginCtrl",
+                controller: "HomeCtrl",
                 templateUrl: "views/accountSearches.html"
             })
             .when("/account/checkbalance", {

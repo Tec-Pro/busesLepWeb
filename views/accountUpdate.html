@@ -15,142 +15,143 @@
       </div>
 </div>
 <br>
-<div ng-controller="LoginCtrl">
-<!--DNI-->
-<div class="row row-bottom-margin15">
-    <div class="col-xs-1"></div>
-    <div class="col-sm-4 col-xs-10">
-        <div class="row card">
-            <div class = "col-xs-4 text-center row-top-margin5">
-                <strong>DNI</strong>
+<form class="row" ng-submit="editProfile()">
+    <!--DNI-->
+    <div class="row row-bottom-margin15">
+        <div class="col-xs-1"></div>
+        <div class="col-sm-4 col-xs-10">
+            <div class="row card">
+                <div class = "col-xs-4 text-center row-top-margin5">
+                    <strong>DNI</strong>
+                </div>
+                <div class = "form-group col-xs-5 text-center row-bottom-margin15">
+                    <input type="text" class="lep-form" id="DNI" placeholder="DNI" required ng-model="user.dni"/>
+                </div>
             </div>
-            <div class = "col-xs-5 text-center row-bottom-margin15">
-                <input type="text" class="lep-form" id="DNI" placeholder="DNI" required ng-model="user.dni"/>
+        </div>
+        <div class="col-xs-1"></div>
+        <div class="col-xs-4">
+            <button class="btn btn-default lepRed-bg lepWhite-color"type="submit" style="margin:10px">Editar</button>
+        </div>
+    </div>
+    <!--APELLIDO Y DIRECCION-->
+    <div class="row row-bottom-margin15">
+        <div class="col-xs-1"></div>
+        <div class="col-sm-4 col-xs-10">
+            <div class="row card">
+                <div class = "col-xs-4 text-center row-top-margin5">
+                    <strong>Apellido/s</strong>
+                </div>
+                <div class = "form-group col-xs-5 text-center row-bottom-margin15">
+                    <input type="text" class="lep-form" id="Apellido" placeholder="Apellido/s" required ng-model="user.lastname"/>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-1"></div>
+        <div class="col-sm-4 col-xs-10">
+            <div class="row card">
+                <div class = "col-xs-4 text-center row-top-margin5">
+                    <strong>Dirección</strong>
+                </div>
+                <div class = "form-group col-xs-5 text-center row-bottom-margin15">
+                    <input type="text" class="lep-form" id="Direccion" placeholder="Dirección" required ng-model="user.dir"/>
+                </div>
             </div>
         </div>
     </div>
-    <div class="col-xs-1"></div>
-    <div class="col-xs-4">
-        <button ng-click="editProfile()"class="btn btn-default lepRed-bg lepWhite-color"type="submit" style="margin:10px">Editar</button>
-    </div>
-</div>
-<!--APELLIDO Y DIRECCION-->
-<div class="row row-bottom-margin15">
-    <div class="col-xs-1"></div>
-    <div class="col-sm-4 col-xs-10">
-        <div class="row card">
-            <div class = "col-xs-4 text-center row-top-margin5">
-                <strong>Apellido/s</strong>
+    <!--NOMBRE Y BARRIO-->
+    <div class="row row-bottom-margin15">
+        <div class="col-xs-1"></div>
+        <div class="col-sm-4 col-xs-10">
+            <div class="row card">
+                <div class = "col-xs-4 text-center row-top-margin5">
+                    <strong>Nombre/s</strong>
+                </div>
+                <div class = "form-group col-xs-5 text-center row-bottom-margin15">
+                    <input type="text" class="lep-form" id="Nombre" placeholder="Nombre/s" required ng-model="user.name"/>
+                </div>
             </div>
-            <div class = "col-xs-5 text-center row-bottom-margin15">
-                <input type="text" class="lep-form" id="Apellido" placeholder="Apellido/s" required ng-model="user.lastname"/>
+        </div>
+        <div class="col-xs-1"></div>
+        <div class="col-sm-4 col-xs-10">
+            <div class="row card">
+                <div class = "col-xs-4 text-center row-top-margin5">
+                    <strong>Barrio</strong>
+                </div>
+                <div class = "form-group col-xs-5 text-center row-bottom-margin15">
+                    <input type="text" class="lep-form" id="Barrio" placeholder="Barrio" required ng-model="user.barrio"/>
+                </div>
             </div>
         </div>
     </div>
-    <div class="col-xs-1"></div>
-    <div class="col-sm-4 col-xs-10">
-        <div class="row card">
-            <div class = "col-xs-4 text-center row-top-margin5">
-                <strong>Dirección</strong>
+    <!--FECHA NACIM Y CIUDAD-->
+    <div class="row row-bottom-margin15">
+        <div class="col-xs-1"></div>
+        <div class="col-sm-4 col-xs-10">
+            <div class="row card">
+                <div class = "col-xs-4 text-center row-top-margin5">
+                    <strong>Fecha Nacim.</strong>
+                </div>
+                <div class = "form-group col-xs-5 text-center row-bottom-margin15">
+                    <input type="text" class="lep-form" id="Birth" placeholder="Fecha Nacim." required ng-model="user.birth"/>
+                </div>
             </div>
-            <div class = "col-xs-5 text-center row-bottom-margin15">
-                <input type="text" class="lep-form" id="Direccion" placeholder="Dirección" required ng-model="user.dir"/>
+        </div>
+        <div class="col-xs-1"></div>
+        <div class="col-sm-4 col-xs-10">
+            <div class="row card">
+                <div class = "col-xs-4 text-center row-top-margin5">
+                    <strong>Ciudad</strong>
+                </div>
+                <div class = "form-group col-xs-5 text-center row-bottom-margin15">
+                    <input type="text" class="lep-form" id="City" placeholder="Ciudad" required ng-model="user.city"/>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<!--NOMBRE Y BARRIO-->
-<div class="row row-bottom-margin15">
-    <div class="col-xs-1"></div>
-    <div class="col-sm-4 col-xs-10">
-        <div class="row card">
-            <div class = "col-xs-4 text-center row-top-margin5">
-                <strong>Nombre/s</strong>
+    <!--TEL Y CEL-->
+    <div class="row row-bottom-margin15">
+        <div class="col-xs-1"></div>
+        <div class="col-sm-4 col-xs-10">
+            <div class="row card">
+                <div class = "col-xs-4 text-center row-top-margin5">
+                    <strong>Teléfono</strong>
+                </div>
+                <div class = "form-group col-xs-5 text-center row-bottom-margin15">
+                    <input type="text" class="lep-form" id="Tel" placeholder="Teléfono" required ng-model="user.tel"/>
+                </div>
             </div>
-            <div class = "col-xs-5 text-center row-bottom-margin15">
-                <input type="text" class="lep-form" id="Nombre" placeholder="Nombre/s" required ng-model="user.name"/>
+        </div>
+        <div class="col-xs-1"></div>
+        <div class="col-sm-4 col-xs-10">
+            <div class="row card">
+                <div class = "col-xs-4 text-center row-top-margin5">
+                    <strong>Celular</strong>
+                </div>
+                <div class = "form-group col-xs-5 text-center row-bottom-margin15">
+                    <input type="text" class="lep-form" id="Cel" placeholder="Celular" required ng-model="user.cel"/>
+                </div>
             </div>
         </div>
     </div>
-    <div class="col-xs-1"></div>
-    <div class="col-sm-4 col-xs-10">
-        <div class="row card">
-            <div class = "col-xs-4 text-center row-top-margin5">
-                <strong>Barrio</strong>
-            </div>
-            <div class = "col-xs-5 text-center row-bottom-margin15">
-                <input type="text" class="lep-form" id="Barrio" placeholder="Barrio" required ng-model="user.barrio"/>
-            </div>
-        </div>
-    </div>
-</div>
-<!--FECHA NACIM Y CIUDAD-->
-<div class="row row-bottom-margin15">
-    <div class="col-xs-1"></div>
-    <div class="col-sm-4 col-xs-10">
-        <div class="row card">
-            <div class = "col-xs-4 text-center row-top-margin5">
-                <strong>Fecha Nacim.</strong>
-            </div>
-            <div class = "col-xs-5 text-center row-bottom-margin15">
-                <input type="text" class="lep-form" id="Birth" placeholder="Fecha Nacim." required ng-model="user.birth"/>
+    <!--EMAIL-->
+    <div class="row row-bottom-margin15">
+        <div class="col-xs-1"></div>
+        <div class="col-sm-4 col-xs-10">
+            <div class="row card">
+                <div class = "col-xs-4 text-center row-top-margin5">
+                    <strong>E-mail</strong>
+                </div>
+                <div class = "form-group col-xs-5 text-center row-bottom-margin15">
+                    <input type="text" class="lep-form" id="Email" placeholder="E-mail" required ng-model="user.email"/>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-xs-1"></div>
-    <div class="col-sm-4 col-xs-10">
-        <div class="row card">
-            <div class = "col-xs-4 text-center row-top-margin5">
-                <strong>Ciudad</strong>
-            </div>
-            <div class = "col-xs-5 text-center row-bottom-margin15">
-                <input type="text" class="lep-form" id="City" placeholder="Ciudad" required ng-model="user.city"/>
-            </div>
+        <div class="col-xs-1"></div>
+        <div class="col-xs-4">
         </div>
     </div>
-</div>
-<!--TEL Y CEL-->
-<div class="row row-bottom-margin15">
-    <div class="col-xs-1"></div>
-    <div class="col-sm-4 col-xs-10">
-        <div class="row card">
-            <div class = "col-xs-4 text-center row-top-margin5">
-                <strong>Teléfono</strong>
-            </div>
-            <div class = "col-xs-5 text-center row-bottom-margin15">
-                <input type="text" class="lep-form" id="Tel" placeholder="Teléfono" required ng-model="user.tel"/>
-            </div>
-        </div>
-    </div>
-    <div class="col-xs-1"></div>
-    <div class="col-sm-4 col-xs-10">
-        <div class="row card">
-            <div class = "col-xs-4 text-center row-top-margin5">
-                <strong>Celular</strong>
-            </div>
-            <div class = "col-xs-5 text-center row-bottom-margin15">
-                <input type="text" class="lep-form" id="Cel" placeholder="Celular" required ng-model="user.cel"/>
-            </div>
-        </div>
-    </div>
-</div>
-<!--EMAIL-->
-<div class="row row-bottom-margin15">
-    <div class="col-xs-1"></div>
-    <div class="col-sm-4 col-xs-10">
-        <div class="row card">
-            <div class = "col-xs-4 text-center row-top-margin5">
-                <strong>E-mail</strong>
-            </div>
-            <div class = "col-xs-5 text-center row-bottom-margin15">
-                <input type="text" class="lep-form" id="Email" placeholder="E-mail" required ng-model="user.email"/>
-            </div>
-        </div>
-    </div>
-    <div class="col-xs-1"></div>
-    <div class="col-xs-4">
-    </div>
-</div>
+</form>
 
 <!--PASS-->
 <div class="row row-bottom-margin15">

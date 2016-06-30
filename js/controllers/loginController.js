@@ -119,6 +119,7 @@ angular.module('app')
                                  {name: "Apellido",type: "string",value: $scope.user.lastname},
                                  {name: "Email",type: "string",value: $scope.user.email}); //meto los parametros
           wsService.callService(wsdl_url, urn, "EditarPerfilCliente", parameters).then(function(origins){
+            //alert(JSON.stringify(origins));
             if (origins != null && origins[0] != null){
               localStorageService.set("user-lep", $scope.user);
               $location.path("/");

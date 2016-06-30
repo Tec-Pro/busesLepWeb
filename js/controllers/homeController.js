@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('HomeCtrl', function($scope, $location, $window, wsService, tripService, companyService){
+.controller('HomeCtrl', function($scope, $location, $window,localStorageService, wsService, tripService, companyService){
   
     var wsdl_url = 'https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService';
     var urn = 'LepWebServiceIntf-ILepWebService';
@@ -17,7 +17,14 @@ angular.module('app')
         //If month dropdowns should be shown.
         showDropdowns: true
     };
-
+    var lastSearches = localStorageService.get("last-searches");
+    if (lastSearches != null){ // it isn't the first search
+      $scope.searches = JSON.parse(lastSearches); 
+    }
+    else{
+      $scope.searches = [];
+    }
+    $scope.searches.length = 6; //Only last 6 searches are stored
     //By default, the destinationpicker is disabled.
     $scope.destinationDisabled = true;
 
@@ -202,6 +209,9 @@ angular.module('app')
         ];
         wsService.callService(wsdl_url, urn, "ListarHorarios", listarHorarios_parameters).then(function(schedules){
 						if (schedules.length > 0){
+              var ida = tripService.getDepartureTrip();
+              $scope.searches.push({ goingDate: ida.departure_date, backDate: ida.return_date, goingCity: ida.origin_name, backCity: ida.destination_name, status: false});
+              localStorageService.set("last-searches",JSON.stringify($scope.searches));
 							tripService.setSchedules(schedules);
 							$location.path('/schedules');
 						} else {
