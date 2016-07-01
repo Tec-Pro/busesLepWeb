@@ -210,7 +210,7 @@ angular.module('app')
         wsService.callService(wsdl_url, urn, "ListarHorarios", listarHorarios_parameters).then(function(schedules){
 						if (schedules.length > 0){
               var ida = tripService.getDepartureTrip();
-              $scope.searches.push({ goingDate: ida.departure_date, backDate: ida.return_date, goingCity: ida.origin_name, backCity: ida.destination_name, status: false});
+              $scope.searches.unshift({ goingDate: ida.departure_date, backDate: ida.return_date, goingCity: ida.origin_name, backCity: ida.destination_name, status: false});
               localStorageService.set("last-searches",JSON.stringify($scope.searches));
 							tripService.setSchedules(schedules);
 							$location.path('/schedules');
