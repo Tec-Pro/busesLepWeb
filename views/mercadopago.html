@@ -8,12 +8,12 @@
 	</div>
 </div> -->
 <div class = "container">
-    <form action="http://localhost:8081/api/mercadopago" method="post" id="pay" name="pay" >
+    <form action="http://localhost:8081/api/mercadopago" method="post" id="pay" name="pay" novalidate>
         <fieldset>
             <div class = "row ">
                 <div class = "col-xs-12 col-sm-8 col-sm-offset-2 ">
                     <div> <!-- TENGO QUE SETEAR EL EMAIL POSTA DEL USUARIO ANTES DE PASAR AL MODO PRODUCCION!!!!!!! -->
-                        <input type="hidden" class="form-control" id="email" name="email" value="test_user_19653727@testuser.com" ng-model="user.email" type="email" required/> 
+                        <input type="hidden" class="form-control" id="email" name="email" value="test_user_19653727@testuser.com" ng-model="user.email" type="email"/> 
                     </div>
                     <div class = "col-xs-12">
                         <label class = "col-sm-4 text-right hidden-xs" style = "margin-top:5px;" for="paymentMethod">Medio de pago:</label>
@@ -31,7 +31,7 @@
                             <label class = "col-sm-4 text-right hidden-xs" style = "margin-top:5px;" for="paymentMethod">Numero de tarjeta:</label>
                             <label class = "col-xs-12 text-left visible-xs" style = "margin-top:5px;" for="paymentMethod">Numero de tarjeta:</label>                         
                             <div class = "col-xs-12 col-sm-4">          
-                                <input class="form-control" ng-model="cardNum" numbers-only type="text" id="cardNumber" data-checkout="cardNumber" placeholder="4509 9535 6623 3704" />
+                                <input class="form-control validation" ng-model="cardNum" numbers-only type="text" id="cardNumber" data-checkout="cardNumber" placeholder="4509 9535 6623 3704" type="number" ng-minlength="12" ng-maxlength="18" required/>
                             </div> 
                         </div>
 
@@ -51,7 +51,7 @@
                             <label class = "col-sm-4 text-right hidden-xs" style = "margin-top:5px;"  for="securityCode">Codigo de Seguridad:</label>
                             <label class = "col-xs-12 text-left visible-xs" style = "margin-top:5px;"  for="securityCode">Codigo de Seguridad:</label>
                             <div  class = "col-sm-2 col-xs-6">
-                                <input class="form-control" type="text" ng-model="secCode" numbers-only id="securityCode" data-checkout="securityCode" placeholder="123" />
+                                <input class="form-control validation" type="text" ng-model="secCode" numbers-only id="securityCode" data-checkout="securityCode" placeholder="123" type="number" ng-minlength="3" ng-maxlength="5" required/>
                             </div>
                         </div>
 
@@ -61,11 +61,11 @@
                             <label class = "col-sm-4 text-right hidden-xs" style = "margin-top:5px;" for="cardExpirationMonth">Fecha de vencimiento:</label>
                              <label class = "col-xs-12 text-left visible-xs" style = "margin-top:5px;" for="cardExpirationMonth">Fecha de vencimiento:</label>
                             <div class = "col-sm-2 col-xs-5">
-                                <input class="form-control" type="text" id="cardExpirationMonth" data-checkout="cardExpirationMonth" placeholder="12" />
+                                <input class="form-control validation" ng-model="expMonth" id="cardExpirationMonth" data-checkout="cardExpirationMonth"  placeholder="12" type="number" ng-minlength="1" ng-maxlength="2" step="1" min="1" max="12" required/>
 
                             </div>
                             <div class = "col-sm-2 col-xs-6">
-                                <input class="form-control" type="text" id="cardExpirationYear" data-checkout="cardExpirationYear" placeholder="2015" />
+                                <input class="form-control validation" ng-model="expYear"  id="cardExpirationYear" data-checkout="cardExpirationYear" value="2016" placeholder="2016" type="number" step="1" min="2016" max="3000" required/>
                             </div>
                         </div>
 
@@ -75,7 +75,7 @@
                             <label for="cardholderName" class = "col-sm-4 text-right hidden-xs" style = "margin-top:5px;">Titular de la tarjeta:</label>
                             <label for="cardholderName" class = "col-xs-12 text-left visible-xs" style = "margin-top:5px;">Titular de la tarjeta:</label>
                             <div class = "col-sm-6 col-xs-12">
-                                <input class="form-control" type="text" id="cardholderName" data-checkout="cardholderName" placeholder="Como figura en la tarjeta" /> <!-- poner "APRO" para un pago aprobado es para testear-->
+                                <input class="form-control validation" type="text" id="cardholderName" data-checkout="cardholderName" placeholder="Como figura en la tarjeta" required/> <!-- poner "APRO" para un pago aprobado es para testear-->
                             </div>
                         </div>
 
@@ -90,7 +90,7 @@
                                 </select>
                             </div>
                             <div class = "col-sm-4 col-xs-7">
-                                <input class="form-control" type="text" id="docNumber"  ng-model="docNum" numbers-only data-checkout="docNumber" placeholder="12345678" />
+                                <input class="form-control validation" type="text" id="docNumber"  ng-model="docNum" numbers-only data-checkout="docNumber" placeholder="12345678" required/>
                             </div>
                         </div>
                         <div class = "col-xs-12"><br></div>
@@ -124,10 +124,10 @@
                     <input type="hidden" id="amount" name="amount" /> <!-- tiene que estar si o si por que la usa el sdk -->
                     <div class = "col-xs-12">
                         <div class = " col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
-                            <input class = "btn btn-danger lepStyleRed center-block" type="submit" value="Confirmar Compra" />
+                            <input class = "btn btn-danger lepStyleRed center-block" type="submit" value="Confirmar Compra"/>
                         </div>
                     </div>
-
+                    <div>{{pay.$valid}}</div>
                    
                 </div>  
             </div>

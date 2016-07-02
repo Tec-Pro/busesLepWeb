@@ -12,6 +12,13 @@ body {
     top: 0;
 }
 
+.validation.ng-invalid.ng-dirty{
+  border-color: #FA787E;
+}
+.validation.ng-valid.ng-dirty{
+  border-color: #00cc00;
+}
+
 .movidita {
   padding-top: 53px;
 }
