@@ -2,15 +2,88 @@ angular.module('app').controller('ScheduleController', function ($scope, $locati
 	var wsdl_url = 'https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService';
     var urn = 'LepWebServiceIntf-ILepWebService';
 
-	$scope.schedules = tripService.getSchedules();
+    
 
+     getReturnSchedules = function(){
+		var listarHorarios_parameters2 = [
+          {
+            name: "userWS",
+            type: "string",
+            value: "UsuarioLep"
+          },
+          {
+            name: "passWS",
+            type: "string",
+            value: "Lep1234"
+          },
+          {
+            name: "IdLocalidadOrigen",
+            type: "int",
+            value: $scope.origin_id
+          },
+          {
+            name: "IdLocalidadDestino",
+            type: "int",
+            value: $scope.destination_id
+          },
+          {
+            name: "Fecha",
+            type: "string",
+            value: $scope.departure_trip.return_date.format("YYYYMMDD")
+          },
+          {
+            name: "DNI",
+            type: "int",
+            value: "1"
+          },
+          {
+            name: "id_plataforma",
+            type: "int",
+            value: "3"
+          }          
+        ];
+        wsService.callService(wsdl_url, urn, "ListarHorarios", listarHorarios_parameters2).then(function(schedules){
+			if (schedules.length > 0){
+				$scope.schedules = schedules;
+			} else {
+				window.alert("No existen viajes para esa fecha");
+			}
+		});
+	};
+    
 	$scope.departure_trip = tripService.getDepartureTrip();
-	$scope.origin = $scope.departure_trip.origin_name;
 
+	$scope.origin = $scope.departure_trip.origin_name;
 	$scope.destination = $scope.departure_trip.destination_name;
+	$scope.origin_id = $scope.departure_trip.origin_id;
+	$scope.destination_id = $scope.departure_trip.destination_id;
+	$scope.departure_date = $scope.departure_trip.departure_date;
+	$scope.schedules = tripService.getSchedules();
+	$scope.titleLabel = "Ida";
+
+	if(scheduleService.getIsReturnTrip()){
+		$scope.origin = $scope.departure_trip.destination_name;
+		$scope.destination = $scope.departure_trip.origin_name;
+		$scope.departure_date = $scope.departure_trip.return_date;
+		$scope.origin_id = $scope.departure_trip.destination_id;
+		$scope.destination_id = $scope.departure_trip.origin_id;
+		$scope.titleLabel = "Vuelta";
+		getReturnSchedules();
+	}
+	
+   
+
+	
+
+	$scope.params = {
+      today: moment(),
+      departureDate: $scope.departure_date,
+      returnDate: moment(),
+    };
 
 	$scope.$watch('params.departureDate', function(date){
-    	if (!$scope.params.departureDate.isSame($scope.departure_trip.departure_date)){
+		//console.log($scope.params.departureDate);
+    	if (!$scope.params.departureDate.isSame($scope.departure_date)){
 	        var listarHorarios_parameters = [
 	        {
 	            name: "userWS",
@@ -25,12 +98,12 @@ angular.module('app').controller('ScheduleController', function ($scope, $locati
 	        {
 	            name: "IdLocalidadOrigen",
 	            type: "int",
-				value: $scope.departure_trip.origin_id
+				value: $scope.origin_id
 	        },
 	        {
 	            name: "IdLocalidadDestino",
 	            type: "int",
-				value: $scope.departure_trip.destination_id
+				value: $scope.destination_id
 	        },
 	        {
 	        	name: "Fecha",
@@ -58,10 +131,8 @@ angular.module('app').controller('ScheduleController', function ($scope, $locati
 	
     	}
     });
-	$scope.wsdl_url = 'https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService';
-	$scope.urn = 'LepWebServiceIntf-ILepWebService';
-	$scope.method = 'ObtenerTarifaTramo';
-	$scope.parameters = [
+
+	parametersPrice = [
 		{
 			name: "userWS",
 			type: "string",
@@ -75,16 +146,16 @@ angular.module('app').controller('ScheduleController', function ($scope, $locati
 		{
 			name: "ID_LocalidadOrigen",
 			type: "int",
-			value: $scope.departure_trip.origin_id
+			value: $scope.origin_id
 		},
 		{
 			name: "ID_LocalidadDestino",
 			type: "int",
-			value: $scope.departure_trip.destination_id
+			value: $scope.destination_id
 		}
 	]
 
-	wsService.callService($scope.wsdl_url, $scope.urn, $scope.method, $scope.parameters).then(function(tarifas){
+	wsService.callService(wsdl_url, urn, 'ObtenerTarifaTramo', parametersPrice).then(function(tarifas){
  		result = tarifas.split("-");
  		$scope.goPrice = Number(result[0].trim().substring(7));
  		$scope.roundTripPrice = Number(result[1].trim().substring(13));
@@ -106,15 +177,31 @@ angular.module('app').controller('ScheduleController', function ($scope, $locati
 
 
 
-	$scope.params = {
-      today: moment(),
-      departureDate: $scope.departure_trip.departure_date,
-      returnDate: moment(),
-    };
-
-  	console.log($scope.schedules);
 	
-  	$scope.goSummary = function(index) {
+
+  	//console.log($scope.schedules);
+	
+  	$scope.goSummary = function(index) {		
+		if($scope.departure_trip.round_trip != 0){
+			if(!scheduleService.getIsReturnTrip()){
+				setScheduleGo(index);
+				scheduleService.setIsReturnTrip(true);
+				location.reload();
+			}
+			else{
+				setScheduleReturn(index);
+				tripService.saveTripPrice($scope.roundTripPrice);
+				$location.path('/summary');
+			}
+		}
+		else{
+			tripService.saveTripPrice($scope.goPrice);
+			setScheduleGo(index);
+			$location.path('/summary');
+		} 			
+	};
+
+	setScheduleGo = function(index){
 		var selectedSchedule = $scope.schedules[index];
 		scheduleService.setScheduleFirstDepartureDatetime(selectedSchedule.fechahora);
 		scheduleService.setScheduleFirstArrivalDatetime(selectedSchedule.FechaHoraLlegada);
@@ -124,10 +211,16 @@ angular.module('app').controller('ScheduleController', function ($scope, $locati
 		scheduleService.setScheduleDestinationId($scope.departure_trip.destination_id);
 		scheduleService.setScheduleOriginId($scope.departure_trip.origin_id);
 		scheduleService.setScheduleDestinationName($scope.departure_trip.destination_name);
-		scheduleService.setScheduleOriginName($scope.departure_trip.origin_name);		
-	    $location.path('/summary');
-			
+		scheduleService.setScheduleOriginName($scope.departure_trip.origin_name);
+		scheduleService.saveSchedule();		
 	};
+
+	setScheduleReturn = function(index){
+		var selectedSchedule = $scope.schedules[index];
+		scheduleService.saveScheduleReturn(selectedSchedule);
+	};
+
+	
 
 	$scope.range = function(min, max, step){
 		    step = step || 1;

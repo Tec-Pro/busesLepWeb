@@ -7,6 +7,7 @@ angular.module('app').controller('SummaryController', function($scope, $location
 	
 	$scope.isBuy = false;
 	$scope.isRoundTrip = tripService.getDepartureTrip().round_trip === 1;
+	$scope.price = tripService.getTripPrice();
 	window.scrollTo(0,140);
 	
 	$scope.trip = {
@@ -19,7 +20,12 @@ angular.module('app').controller('SummaryController', function($scope, $location
 		amount: ''
 	};
 
+	if($scope.isRoundTrip){
+
+	};
+
 	$scope.schedule = scheduleService.getSchedule();
+	$scope.scheduleReturn = scheduleService.getScheduleReturn();
 
 	$scope.goSeatPicker = function () {
 		$location.path('/seatPicker');

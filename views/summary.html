@@ -78,19 +78,19 @@
 				<h5>{{schedule.destination_name}} <span class = "bold-blue"> > </span>{{schedule.origin_name}}</h5>	
 			</div>
 			<div class= "title col-xs-2">
-				<h5 class="no-bold">{{schedule.departure_datetime_1 | lepDateMonth}}</h5>
-				<p class = "normal"><strong><span class = "bold-blue">{{schedule.departure_datetime_1 | lepHour}} </span>Hs</strong></p>
+				<h5 class="no-bold">{{scheduleReturn.fechahora | lepDateMonth}}</h5>
+				<p class = "normal"><strong><span class = "bold-blue">{{scheduleReturn.fechahora | lepHour}} </span>Hs</strong></p>
 			</div>
 			<div class= "title col-xs-2">
-				<h5 class="no-bold">{{schedule.arrival_datetime_1 | lepDateMonth}}</h5>
-				<p class = "normal"><strong>{{schedule.arrival_datetime_1 | lepHour}} Hs</strong></p>
+				<h5 class="no-bold">{{scheduleReturn.FechaHoraLlegada | lepDateMonth}}</h5>
+				<p class = "normal"><strong>{{scheduleReturn.FechaHoraLlegada | lepHour}} Hs</strong></p>
 			</div>	
 			<div class= "title col-xs-1">
-				<h5 class = "no-bold ">{{schedule.duration | limitTo: 5}} hs</h5>
+				<h5 class = "no-bold ">{{scheduleReturn.DemoraViaje | limitTo: 5}} hs</h5>
 				<h5 class="no-bold blue hidden-sm">Recorrido</h5>
 			</div>
 			<div class= "title col-xs-1">
-				<h5 class = "no-bold green">{{schedule.status | capitalize}}</h5>
+				<h5 class = "no-bold green">{{scheduleReturn.ServicioPrestado | capitalize}}</h5>
 			</div>
 			<div class= "title col-xs-1">
 				<h5 class= "visible-md visible-lg no-bold">Diferencial</h5>
@@ -155,22 +155,22 @@
 			</div>
 			<div class= "title col-xs-4">
 				<h5>Salida:</h5>
-				<h5 class="no-bold">{{schedule.departure_datetime_1 | lepDateMonth}}</h5>
-				<p class = "normal"><strong><span class = "bold-blue">{{schedule.departure_datetime_1 | lepHour}} </span>Hs</strong></p>
+				<h5 class="no-bold">{{scheduleReturn.fechahora | lepDateMonth}}</h5>
+				<p class = "normal"><strong><span class = "bold-blue">{{scheduleReturn.fechahora | lepHour}} </span>Hs</strong></p>
 			</div>
 			<div class= "title col-xs-4">
 				<h5>Llegada:</h5>
-				<h5 class="no-bold">{{schedule.arrival_datetime_1 | lepDateMonth}}</h5>
-				<p class = "normal"><strong>{{schedule.arrival_datetime_1 | lepHour}} Hs</strong></p>
+				<h5 class="no-bold">{{scheduleReturn.FechaHoraLlegada | lepDateMonth}}</h5>
+				<p class = "normal"><strong>{{scheduleReturn.FechaHoraLlegada | lepHour}} Hs</strong></p>
 			</div>	
 			<div class= "title col-xs-4">
 				<h5>Duracion:</h5>
-				<h5 class = "no-bold ">{{schedule.duration | limitTo: 5}} hs</h5>
+				<h5 class = "no-bold ">{{scheduleReturn.DemoraViaje | limitTo: 5}} hs</h5>
 				<h5 class="no-bold blue hidden-sm">Recorrido</h5>
 			</div>
 			<div class= "title col-xs-12"> <hr></div>
 			<div class= "title col-xs-4">
-				<h5 class = "no-bold green">{{schedule.status | capitalize}}</h5>
+				<h5 class = "no-bold green">{{scheduleReturn.ServicioPrestado | capitalize}}</h5>
 			</div>
 			<div class= "title col-xs-4">
 				<h5 class= "no-bold">Diferencial</h5>	
@@ -227,7 +227,7 @@
 						<h3 class="no-bold no-mar-pad-bor lepStyle background-white">Precio por persona: </h3>
 					</div>
 					<div class="col-xs-4">
-						<h3 class = "no-mar-pad-bor lepStyle background-white"><strong>${{schedule.price}}</strong></h3>
+						<h3 class = "no-mar-pad-bor lepStyle background-white"><strong>${{price}}</strong></h3>
 					</div>
 				</div>
 				<div class = "col-xs-12">
@@ -238,7 +238,7 @@
 						<h3 class="no-bold no-mar-pad-bor lepStyle background-white">Total: </h3>
 					</div>
 					<div class="col-xs-4">
-						<h3 class="bold-blue no-mar-pad-bor lepStyle background-white">${{schedule.price * trip.amount}}</h3>
+						<h3 class="bold-blue no-mar-pad-bor lepStyle background-white">${{price * trip.amount}}</h3>
 					</div>
 				</div>
 			</div>

@@ -1,24 +1,83 @@
 angular.module('app')
 	.factory('scheduleService',[function(){
 		
-		var schedule = {};
-		schedule.origin_id = '';
-		schedule.origin_name = '';
-		schedule.duration = '';
-		schedule.status = '';
-		schedule.service = '';
-		schedule.price = '';
-		schedule.destination_id = '';
-		schedule.destination_name = '';
-		schedule.arrival_datetime_1 = '';
-		schedule.departure_datetime_1 = '';
-		schedule.arrival_datetime_2 = '';
-		schedule.departure_datetime_2 = '';
-		schedule.round_trip = false;
+		var schedule = {
+			origin_id :'',
+			origin_name : '',
+			duration : '',
+			status : '',
+			service : '',
+			price : '',
+			destination_id : '',
+			destination_name : '',
+			arrival_datetime_1 : '',
+			departure_datetime_1 : '',
+			arrival_datetime_2 : '',
+			departure_datetime_2 : '',
+			round_trip : false
+		};
+
+		var schedule_return = null;
 		
+		var is_return_trip = false; 
+
 		return {
+			saveSchedule: function(){
+				sessionStorage.setItem('schedule', JSON.stringify(schedule));
+			},
+			saveScheduleReturn: function(obj){
+				schedule_return = obj;
+				sessionStorage.setItem('schedule_return', JSON.stringify(schedule_return));
+			},
 			getSchedule: function(){
-				return schedule;
+				if(sessionStorage.schedule == undefined){
+					schedule = {
+						origin_id :'',
+						origin_name : '',
+						duration : '',
+						status : '',
+						service : '',
+						price : '',
+						destination_id : '',
+						destination_name : '',
+						arrival_datetime_1 : '',
+						departure_datetime_1 : '',
+						arrival_datetime_2 : '',
+						departure_datetime_2 : '',
+						round_trip : false
+					};
+					return schedule;
+				}else{
+					schedule = JSON.parse(sessionStorage.schedule);
+					
+					return schedule;
+				}
+				//return schedule;
+			},
+			getScheduleReturn: function(){
+				if(sessionStorage.schedule_return == undefined){
+					schedule_return = false;
+					return schedule_return;
+				}else{
+					schedule_return = JSON.parse(sessionStorage.schedule_return);
+					
+					return schedule_return;
+				}
+				//return schedule;
+			},
+			setIsReturnTrip: function(val){
+				is_return_trip = val;
+				sessionStorage.setItem('is_return_trip', is_return_trip);		
+			},
+			getIsReturnTrip: function(){
+				if(sessionStorage.is_return_trip == undefined){
+					is_return_trip = false;
+					return is_return_trip;
+				}else{
+					is_return_trip = sessionStorage.is_return_trip;
+					
+					return is_return_trip;
+				}
 			},
 			/*getScheduleOriginId : function(){
 				return schedule.origin_id;

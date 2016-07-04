@@ -1,6 +1,8 @@
 angular.module('app')
 .factory('tripService', ["$soap","$q", function($soap, $q){
 
+	
+
 	var departure_trip = {
 		round_trip : 0,
 		buy : 0,
@@ -19,10 +21,12 @@ angular.module('app')
 		ticket_amount: 0
 	};
 
-	var return_trip = {
-
-	};
+	var trip_price = 0;
 	
+	
+	/*var user = {'name':'John'};
+	sessionStorage.setItem('user', JSON.stringify(user));
+	var obj = JSON.parse(sessionStorage.user);*/
 
 	var schedules = [];
 		
@@ -77,17 +81,57 @@ angular.module('app')
 
     
 	return {
+		saveDepartureTrip: function(){
+			sessionStorage.setItem('departure_trip', JSON.stringify(departure_trip));	
+		},
+		saveTripPrice: function(val){
+			trip_price = val;
+			sessionStorage.setItem('trip_price', JSON.stringify(trip_price));	
+		},
 		getDepartureTrip: function(){
-			return departure_trip;
+			if(sessionStorage.departure_trip == undefined){
+				departure_trip = {
+					round_trip : 0,
+					buy : 0,
+					destination_id : '',
+					destination_name : '',
+					origin_id : '',
+					origin_name : '',
+					departure_date : '',
+					departure_time :'',
+					return_date : '',
+					return_time : '',
+					first_arrival_date : '',
+					first_arrival_time : '',
+					secondArrival_date: '',	
+					second_arrival_time: '',
+					ticket_amount: 0
+				};
+				return departure_trip;
+			}else{
+				departure_trip = JSON.parse(sessionStorage.departure_trip);
+				departure_trip.departure_date = moment(departure_trip.departure_date);
+				if(departure_trip.round_trip == 1){
+					departure_trip.return_date = moment(departure_trip.return_date);
+				}
+				return departure_trip;
+			}
 		},
 		getReturnTrip: function(){
 			return return_trip;
 		},
+		getTripPrice: function(){
+			return sessionStorage.trip_price;
+		},
 		getSchedules: function(){
-			return schedules;
+			//return schedules;
+			return JSON.parse(sessionStorage.schedules);
 		},
 		setSchedules: function(val){
 			schedules = val;
+			//console.log(JSON.stringify(schedules));
+			sessionStorage.setItem('schedules', JSON.stringify(schedules));
+			//console.log(JSON.parse(sessionStorage.schedules));
 		},
 		setRoundTrip: function(val) {
 			departure_trip.round_trip = val;

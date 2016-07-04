@@ -4,7 +4,7 @@ angular.module('app')
     var wsdl_url = 'https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService';
     var urn = 'LepWebServiceIntf-ILepWebService';
 
-
+    sessionStorage.clear();
     //Date picker options
     $scope.dpOpts = {
         locale: {
@@ -149,6 +149,7 @@ angular.module('app')
     //Call the search web service and
     $scope.goSearch = function(){
       //Get the dates from the datepicker.
+      sessionStorage.clear();
       var a = $scope.params.departureDate;
       var b = $scope.params.returnDate;
       //a must be != null, b can be null.
@@ -168,6 +169,7 @@ angular.module('app')
 				tripService.setTripOriginName($scope.params.origin.Localidad);
 				tripService.setTripDestinationId($scope.params.destination.id_localidad_destino);
 				tripService.setTripDestinationName($scope.params.destination.hasta);
+        //console.log($scope.params.departureDate);
 				tripService.setTripDeparture($scope.params.departureDate);
 				// tripService.searchTrips($scope.params.origin.ID_Localidad, $scope.params.destination.id_localidad_destino, $scope.params.departureDate.format("YYYYMMDD")).then(function(schedules)
         var listarHorarios_parameters = [
@@ -207,11 +209,14 @@ angular.module('app')
             value: "3"
           }          
         ];
+        tripService.saveDepartureTrip();
         wsService.callService(wsdl_url, urn, "ListarHorarios", listarHorarios_parameters).then(function(schedules){
 						if (schedules.length > 0){
               var ida = tripService.getDepartureTrip();
               $scope.searches.unshift({ goingDate: ida.departure_date, backDate: ida.return_date, goingCity: ida.origin_name, backCity: ida.destination_name, status: false});
               localStorageService.set("last-searches",JSON.stringify($scope.searches));
+              //guardar aca departure-trip
+              //tripService.saveDepartureTrip();
 							tripService.setSchedules(schedules);
 							$location.path('/schedules');
 						} else {
