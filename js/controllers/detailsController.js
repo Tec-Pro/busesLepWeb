@@ -6,8 +6,7 @@ angular.module('app').controller('DetailsController', function ($scope, $locatio
 	$scope.isRoundTrip = tripService.getDepartureTrip().round_trip === 1;
 	$scope.price = tripService.getTripPrice();
   	$scope.trip = tripService.getDepartureTrip();  
-  	$scope.passengers = tripService.getPassengers().replace("\"","");
-  	$scope.passengers = $scope.passengers.replace("\"","");
+  	$scope.passengers = tripService.getPassengers();
   	$scope.schedule = scheduleService.getSchedule();
 	$scope.scheduleReturn = scheduleService.getScheduleReturn();
 

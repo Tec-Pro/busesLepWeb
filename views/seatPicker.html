@@ -53,50 +53,50 @@
         <div>
           <div class= "col-xs-12 col-sm-6">
             <h3 class= "title lepStyle background-white">Ida</h3>
-            <div class = "container page " ng-controller="SeatsController">
+            <div class = "container page ">
               <div class="content-seats summary-row"> 
                 <div class="row " ng-repeat="i in range(0,seatsArrGo.length,5)">
                   <div class= "col-xs-12 col-xs-offset-1  row-top-margin15">
                     <div class="col-xs-2  no-padding">
-                      <img ng-click="toggleImage(seatsArrGo[i],i)" class = "size-seats center-block" ng-src="{{seatsArrGo[i].img}}" alt="">
+                      <img ng-click="toggleSeat(seatsArrGo[i],i,true)" class = "size-seats center-block" ng-src="{{seatsArrGo[i].img}}" alt="">
                     </div>
                     <div class="col-xs-2 no-padding">
-                      <img ng-click="toggleImage(seatsArrGo[i+1],i+1)" class = "size-seats center-block" ng-src="{{seatsArrGo[i+1].img}}" alt="">
+                      <img ng-click="toggleSeat(seatsArrGo[i+1],i+1,true)" class = "size-seats center-block" ng-src="{{seatsArrGo[i+1].img}}" alt="">
                     </div>
                     <div class="col-xs-2 no-padding ">
-                      <img ng-click="toggleImage(seatsArrGo[i+2],i+2)" class = "size-seats center-block" ng-src="{{seatsArrGo[i+2].img}}" alt="">
+                      <img ng-click="toggleSeat(seatsArrGo[i+2],i+2,true)" class = "size-seats center-block" ng-src="{{seatsArrGo[i+2].img}}" alt="">
                     </div>
                     <div class="col-xs-2 no-padding">
-                      <img ng-click="toggleImage(seatsArrGo[i+3],i+3)" class = "size-seats center-block" ng-src="{{seatsArrGo[i+3].img}}" alt="">
+                      <img ng-click="toggleSeat(seatsArrGo[i+3],i+3,true)" class = "size-seats center-block" ng-src="{{seatsArrGo[i+3].img}}" alt="">
                     </div>
                     <div class="col-xs-2 no-padding">
-                      <img ng-click="toggleImage(seatsArrGo[i+4],i+4)" class = "size-seats center-block" ng-src="{{seatsArrGo[i+4].img}}" alt="">
+                      <img ng-click="toggleSeat(seatsArrGo[i+4],i+4,true)" class = "size-seats center-block" ng-src="{{seatsArrGo[i+4].img}}" alt="">
                     </div>
                   </div>
                 </div>
               </div> 
             </div>
           </div>
-          <div class= "col-xs-12 col-sm-6">
+          <div class= "col-xs-12 col-sm-6" ng-show = "isRoundTrip">
             <h3 class= "title lepStyle background-white">Vuelta</h3>
-            <div class = "container page" ng-controller="SeatsController">
+            <div class = "container page">
               <div class="content-seats summary-row"> 
                 <div class="row " ng-repeat="i in range(0,seatsArrReturn.length,5)">
                   <div class= "col-xs-12 col-xs-offset-1  row-top-margin15">
                     <div class="col-xs-2  no-padding">
-                      <img ng-click="toggleImage(seatsArrReturn[i],i)" class = "size-seats center-block" ng-src="{{seatsArrReturn[i].img}}" alt="">
+                      <img ng-click="toggleSeat(seatsArrReturn[i],i,false)" class = "size-seats center-block" ng-src="{{seatsArrReturn[i].img}}" alt="">
                     </div>
                     <div class="col-xs-2 no-padding">
-                      <img ng-click="toggleImage(seatsArrReturn[i+1],i+1)" class = "size-seats center-block" ng-src="{{seatsArrReturn[i+1].img}}" alt="">
+                      <img ng-click="toggleSeat(seatsArrReturn[i+1],i+1,false)" class = "size-seats center-block" ng-src="{{seatsArrReturn[i+1].img}}" alt="">
                     </div>
                     <div class="col-xs-2 no-padding ">
-                      <img ng-click="toggleImage(seatsArrReturn[i+2],i+2)" class = "size-seats center-block" ng-src="{{seatsArrReturn[i+2].img}}" alt="">
+                      <img ng-click="toggleSeat(seatsArrReturn[i+2],i+2,false)" class = "size-seats center-block" ng-src="{{seatsArrReturn[i+2].img}}" alt="">
                     </div>
                     <div class="col-xs-2 no-padding">
-                      <img ng-click="toggleImage(seatsArrReturn[i+3],i+3)" class = "size-seats center-block" ng-src="{{seatsArrReturn[i+3].img}}" alt="">
+                      <img ng-click="toggleSeat(seatsArrReturn[i+3],i+3,false)" class = "size-seats center-block" ng-src="{{seatsArrReturn[i+3].img}}" alt="">
                     </div>
                     <div class="col-xs-2 no-padding">
-                      <img ng-click="toggleImage(seatsArrReturn[i+4],i+4)" class = "size-seats center-block" ng-src="{{seatsArrReturn[i+4].img}}" alt="">
+                      <img ng-click="toggleSeat(seatsArrReturn[i+4],i+4,false)" class = "size-seats center-block" ng-src="{{seatsArrReturn[i+4].img}}" alt="">
                     </div>
                   </div>  
                 </div>
@@ -105,7 +105,10 @@
           </div>
         </div>
         <div class = "col-xs-12"><br></div>
-        <button type="submit" class="center-block btn btn-danger lepStyleRed btn-lg" ng-click="goDetails()">Continuar</button>
+        
+        <div class = "col-xs-12" >
+          <button type="submit" class="center-block btn btn-danger lepStyleRed btn-lg" ng-click="goBuy()">Continuar</button>
+        </div>
         <div class = "col-xs-12 hidden-xs hidden-sm">
           <div class = "col-xs-10"></div>
           <div class = "col-xs-2">  

@@ -84,18 +84,18 @@ angular.module('app')
 	return {
 		savePassengers: function(obj){
 			passengers = obj;
-			sessionStorage.setItem('passengers', JSON.stringify(passengers));	
+			sessionStorage.setItem('passengers', passengers);	
 		},
 		saveSellCode: function(obj){
 			sell_code = obj;
-			sessionStorage.setItem('sell_code', JSON.stringify(sell_code));	
+			sessionStorage.setItem('sell_code', sell_code);	
 		},
 		saveDepartureTrip: function(){
 			sessionStorage.setItem('departure_trip', JSON.stringify(departure_trip));	
 		},
 		saveTripPrice: function(val){
 			trip_price = val;
-			sessionStorage.setItem('trip_price', JSON.stringify(trip_price));	
+			sessionStorage.setItem('trip_price', trip_price);	
 		},
 		getDepartureTrip: function(){
 			if(sessionStorage.departure_trip == undefined){

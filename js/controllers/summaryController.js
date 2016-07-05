@@ -10,7 +10,8 @@ angular.module('app').controller('SummaryController', function($scope, $location
 	$scope.isBuy = false;
 	$scope.isRoundTrip = tripService.getDepartureTrip().round_trip === 1;
 	$scope.price = tripService.getTripPrice();
-  $scope.trip = tripService.getDepartureTrip();  
+  $scope.trip = tripService.getDepartureTrip();
+
   $scope.passengers = 1; 
   //console.log(localStorageService.get("user-lep").dni);                               
 	window.scrollTo(0,140);
@@ -152,9 +153,11 @@ angular.module('app').controller('SummaryController', function($scope, $location
           }          
         ];
         wsService.callService(wsdl_url, urn, "AgregarReserva", add_reserve_parameters).then(function(response){
-           if(isBuy == "1"){
+           if(response > 0){
+               
+               tripService.saveSellCode(response);
                tripService.saveTripPrice($scope.price * $scope.passengers);
-               tripService.setBuy(1);
+               tripService.savePassengers($scope.passengers);
                $location.path('/seatPicker');
            }
 		    });

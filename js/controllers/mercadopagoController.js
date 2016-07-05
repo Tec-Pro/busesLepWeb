@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('MercadopagoController', function($scope,$http, wsService, localStorageService){	
+.controller('MercadopagoController', function($scope,$http, wsService, localStorageService, tripService){	
 
 	urn = "WSCobroMercadoPagoIntf-IWSCobroMercadoPago";
 	wsdl_url = "https://webservices.buseslep.com.ar/WebServices/WSCobroMercadoPago.dll/soap/ILepWebService";
@@ -18,7 +18,7 @@ angular.module('app')
     	}
     });
 
-	document.querySelector('#amount').value = 200;
+	document.querySelector('#amount').value = tripService.getTripPrice();
 	$scope.selectedPayment = null;
 	$scope.totalAmount = document.querySelector('#amount').value;
    	$scope.showSecurityCodeInput = true;

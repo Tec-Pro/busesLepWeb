@@ -1,86 +1,78 @@
-angular.module('app').controller('SeatsController', function ($scope, $location, wsService){
-
-	//ejemplo de seasson storage
-	/*var user = {'name':'John'};
-		sessionStorage.setItem('user', JSON.stringify(user));
-		var obj = JSON.parse(sessionStorage.user);*/
+angular.module('app').controller('SeatsController', function ($scope, $location, wsService, tripService, scheduleService){
 	
-	$scope.wsdl_url = 'https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService';
-	$scope.urn = 'LepWebServiceIntf-ILepWebService';
-	$scope.method = 'EstadoButacasPlantaHorario';
-	$scope.parameters = [
-	{
-		name: "userWS",
-		type: "string",
-		value: "UsuarioLep"
-	},
-	{
-		name: "passWS",
-		type: "string",
-		value: "Lep1234"
-	},
-	{
-		name: "IdEmpresa",
-		type: "int",
-		value: "1"
-	},
-	{
-		name: "IdDestino",
-		type: "int",
-		value: "26"
-	},
-	{
-		name: "CodHorario",
-		type: "int",
-		value: "959"
-	},
-	{
-		name: "IdLocalidadDesde",
-		type: "int",
-		value: "10"
-	},
-	{
-		name: "IdLocalidadHasta",
-		type: "int",
-		value: "1"
-	},
-	{
-		name: "id_plataforma",
-		type: "int",
-		value: "3"
-	}]
-
+	wsdl_url = 'https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService';
+	urn = 'LepWebServiceIntf-ILepWebService';
+    var sell_code = tripService.getSellCode();
+    var trip = tripService.getDepartureTrip();
+    var schedule = scheduleService.getSchedule();
+    var scheduleReturn = scheduleService.getScheduleReturn();
+    $scope.passengers = tripService.getPassengers();
+    $scope.isRoundTrip = tripService.getDepartureTrip().round_trip === 1;
+    $scope.seatsSelectedGo = [];
+    $scope.seatsSelectedReturn = [];
 	const Occupied =  'img/occupied_seat.png';
     const Free =  'img/free_seat.png';
     const Selected = 'img/selected_seat.png';
     const None = 'img/none_seat.png';
     const Driver = 'img/driver_seat.png';
 
-	
- 	wsService.callService($scope.wsdl_url, $scope.urn, $scope.method, $scope.parameters).then(function(response){
- 		
- 		
- 		
- 		
-		
- 		 /*$scope.seatsArr = [
-            {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0},
-            {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0},
-            {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0},
-            {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0},
-            {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0},
-            {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0},
-            {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0},
-            {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0},
-           	{img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0},
-            {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0},
-            {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0},
-            {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0},
-    	];*/
-    	$scope.seatsArrGo = reallocateSeats(response);
-    	$scope.seatsArrReturn = reallocateSeats(response);
-    	
- 	});
+ 	seatsWsCall(schedule.Id_Empresa,schedule.id_destino,schedule.cod_horario,trip.origin_id,trip.destination_id,true);
+    if($scope.isRoundTrip){
+        seatsWsCall(scheduleReturn.Id_Empresa,scheduleReturn.id_destino,scheduleReturn.cod_horario,trip.destination_id, trip.origin_id, false);
+    }
+
+    function seatsWsCall(companyId,destintionId,scheduleCode,originId,destinationId,isGo){
+        parameters = [
+        {
+            name: "userWS",
+            type: "string",
+            value: "UsuarioLep"
+        },
+        {
+            name: "passWS",
+            type: "string",
+            value: "Lep1234"
+        },
+        {
+            name: "IdEmpresa",
+            type: "int",
+            value: companyId.toString()
+        },
+        {
+            name: "IdDestino",
+            type: "int",
+            value: destintionId.toString()
+        },
+        {
+            name: "CodHorario",
+            type: "int",
+            value: scheduleCode.toString()
+        },
+        {
+            name: "IdLocalidadDesde",
+            type: "int",
+            value: originId.toString()
+        },
+        {
+            name: "IdLocalidadHasta",
+            type: "int",
+            value: destinationId.toString()
+        },
+        {
+            name: "id_plataforma",
+            type: "int",
+            value: "3"
+        }]
+        wsService.callService(wsdl_url, urn, 'EstadoButacasPlantaHorario', parameters).then(function(response){
+            if(isGo){
+                $scope.seatsArrGo = reallocateSeats(response);
+            }
+            else{
+                $scope.seatsArrReturn = reallocateSeats(response);
+            } 
+
+        });
+    };
 
 	function reallocateSeats(seatsToReallocate){
 		var driverAdded = false;
@@ -211,14 +203,16 @@ angular.module('app').controller('SeatsController', function ($scope, $location,
             iAux--;
         }
         return aux.slice(0);
- 
-
 	};
 
-    $scope.toggleImage = function(seat,position) {
+    $scope.toggleSeat = function(seat,position,isGo) {
     	//console.log(seat.seatNum);
     	var isSelection = 0;
     	var newImage = Free;
+        var isIda = "1";
+        if(!isGo){
+            isIda = "0";
+        }
     	switch(seat.img) {
 		    case Free: // selecciona
 		       	isSelection = 1;
@@ -231,7 +225,6 @@ angular.module('app').controller('SeatsController', function ($scope, $location,
 		     	return;
 		        break;
 		}
-    	pickSeatMethod = 'SeleccionarButaca';
 		parametersPickSeat = [
 		{
 			name: "userWS",
@@ -251,12 +244,12 @@ angular.module('app').controller('SeatsController', function ($scope, $location,
 		{
 			name: "IDVenta",
 			type: "int",
-			value: "8454"
+			value: sell_code.toString()
 		},
 		{
 			name: "EsIda",
 			type: "int",
-			value: "1"
+			value: isIda
 		},
 		{
 			name: "EsSeleccion",
@@ -268,31 +261,49 @@ angular.module('app').controller('SeatsController', function ($scope, $location,
 			type: "int",
 			value: "3"
 		}]
-		wsService.callService($scope.wsdl_url, $scope.urn, pickSeatMethod, parametersPickSeat).then(function(response){
+		wsService.callService(wsdl_url,urn, 'SeleccionarButaca', parametersPickSeat).then(function(response){
 			//console.log(response);
-			if(response == '1' || response == '0' ){
-				$scope.seatsArr[position].img = newImage;
+
+			if(response == '1'){
+                if(isGo){
+                    $scope.seatsArrGo[position].img = newImage;
+                    $scope.seatsSelectedGo.push(seat.seatNum);
+                }
+                else{
+                    $scope.seatsArrReturn[position].img = newImage;
+                    $scope.seatsSelectedReturn.push(seat.seatNum);
+                }
+				
 			}
-			
+            if(response == '0'){
+                if(isGo){
+                    $scope.seatsArrGo[position].img = newImage;
+                    var index = $scope.seatsSelectedGo.indexOf(seat.seatNum);
+                    if (index > -1) {
+                        $scope.seatsSelectedGo.splice(index, 1);
+                    }
+                }
+                else{
+                    $scope.seatsArrReturn[position].img = newImage;
+                    var index = $scope.seatsSelectedReturn.indexOf(seat.seatNum);
+                    if (index > -1) {
+                        $scope.seatsSelectedReturn.splice(index, 1);
+                    }
+                }               
+            }
 		});
-		
-    	/*switch($scope.seatsArr[seat.id].status) {
-		    case 1: // libre
-		       $scope.seatsArr[seat.id].img = 'img/selected_seat.png';
-    			$scope.seatsArr[seat.id].status = 3;
-		        break;
-		    case 2: // ocupado no hace nada
-		        break;
-		    case 3: // seleccionado
-		       $scope.seatsArr[seat.id].img = 'img/free_seat.png';
-    			$scope.seatsArr[seat.id].status = 1;
-		        break;
-		}*/
-        //seat.img = '../img/occupied_seat.png'
     };
 
-    $scope.goDetails= function() {
-    	$location.path('/details');	 
+    $scope.goBuy = function() {
+        if($scope.seatsSelectedGo.length != $scope.passengers){
+            alert("Quedan asientos de Ida sin seleccionar");
+            return;
+        }
+        if($scope.isRoundTrip && $scope.seatsSelectedReturn.length != $scope.passengers){
+            alert("Quedan asientos de Vuelta sin seleccionar");
+            return;
+        }     
+    	$location.path('/buy'); 
 	};
 
 	$scope.goBack = function () {
