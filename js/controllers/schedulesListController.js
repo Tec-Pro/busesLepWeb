@@ -203,7 +203,7 @@ angular.module('app').controller('ScheduleController', function ($scope, $locati
 
 	setScheduleGo = function(index){
 		var selectedSchedule = $scope.schedules[index];
-		scheduleService.setScheduleFirstDepartureDatetime(selectedSchedule.fechahora);
+		/*scheduleService.setScheduleFirstDepartureDatetime(selectedSchedule.fechahora);
 		scheduleService.setScheduleFirstArrivalDatetime(selectedSchedule.FechaHoraLlegada);
 		scheduleService.setSchedulePrice($scope.goPrice);
 		scheduleService.setScheduleStatus(selectedSchedule.ServicioPrestado);
@@ -211,8 +211,8 @@ angular.module('app').controller('ScheduleController', function ($scope, $locati
 		scheduleService.setScheduleDestinationId($scope.departure_trip.destination_id);
 		scheduleService.setScheduleOriginId($scope.departure_trip.origin_id);
 		scheduleService.setScheduleDestinationName($scope.departure_trip.destination_name);
-		scheduleService.setScheduleOriginName($scope.departure_trip.origin_name);
-		scheduleService.saveSchedule();		
+		scheduleService.setScheduleOriginName($scope.departure_trip.origin_name);*/
+		scheduleService.saveSchedule(selectedSchedule);		
 	};
 
 	setScheduleReturn = function(index){

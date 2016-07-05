@@ -22,7 +22,8 @@ angular.module('app')
 	};
 
 	var trip_price = 0;
-	
+	var sell_code = -1;
+	var passengers = 1;
 	
 	/*var user = {'name':'John'};
 	sessionStorage.setItem('user', JSON.stringify(user));
@@ -81,6 +82,14 @@ angular.module('app')
 
     
 	return {
+		savePassengers: function(obj){
+			passengers = obj;
+			sessionStorage.setItem('passengers', JSON.stringify(passengers));	
+		},
+		saveSellCode: function(obj){
+			sell_code = obj;
+			sessionStorage.setItem('sell_code', JSON.stringify(sell_code));	
+		},
 		saveDepartureTrip: function(){
 			sessionStorage.setItem('departure_trip', JSON.stringify(departure_trip));	
 		},
@@ -122,6 +131,12 @@ angular.module('app')
 		},
 		getTripPrice: function(){
 			return sessionStorage.trip_price;
+		},
+		getSellCode: function(){
+			return sessionStorage.sell_code;
+		},
+		getPassengers: function(){
+			return sessionStorage.passengers;
 		},
 		getSchedules: function(){
 			//return schedules;

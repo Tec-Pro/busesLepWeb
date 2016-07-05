@@ -17,40 +17,28 @@ angular.module('app')
 			round_trip : false
 		};
 
+		var schedule_go = null;
 		var schedule_return = null;
 		
 		var is_return_trip = false; 
 
 		return {
-			saveSchedule: function(){
-				sessionStorage.setItem('schedule', JSON.stringify(schedule));
+			saveSchedule: function(obj){
+				schedule_go = obj;
+				sessionStorage.setItem('schedule_go', JSON.stringify(schedule_go));
 			},
 			saveScheduleReturn: function(obj){
 				schedule_return = obj;
 				sessionStorage.setItem('schedule_return', JSON.stringify(schedule_return));
 			},
 			getSchedule: function(){
-				if(sessionStorage.schedule == undefined){
-					schedule = {
-						origin_id :'',
-						origin_name : '',
-						duration : '',
-						status : '',
-						service : '',
-						price : '',
-						destination_id : '',
-						destination_name : '',
-						arrival_datetime_1 : '',
-						departure_datetime_1 : '',
-						arrival_datetime_2 : '',
-						departure_datetime_2 : '',
-						round_trip : false
-					};
-					return schedule;
-				}else{
-					schedule = JSON.parse(sessionStorage.schedule);
+				if(sessionStorage.schedule_go == undefined){
 					
-					return schedule;
+					return null;
+				}else{
+					schedule_go = JSON.parse(sessionStorage.schedule_go);
+					
+					return schedule_go;
 				}
 				//return schedule;
 			},
