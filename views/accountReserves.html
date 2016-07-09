@@ -1,95 +1,48 @@
 <div class = "container">
       <div class="row border-bottom border-top">
         <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
-        	<a href="#/account/reserves">Mis <span><strong class="lepBlue-color">Reservas</strong><span></a></div>
+        	<a href="#/account/reserves">Mis <span><strong class="lepBlue-color">Reservas</strong></span></a></div>
         <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
-        	<a href="#/account/purchases">Mis <span><strong>Compras</strong><span></a></div>
+        	<a href="#/account/purchases">Mis <span><strong>Compras</strong></span></a></div>
         <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
-        	<a href="#/account/lastsearch">Últimas <span><strong>Búsquedas</strong><span></a></div>
+        	<a href="#/account/lastsearch">Últimas <span><strong>Búsquedas</strong></span></a></div>
         <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
-        	<a href="#/account/checkbalance">Consultar <span><strong>Saldo</strong><span></a></div>
+        	<a href="#/account/checkbalance">Consultar <span><strong>Saldo</strong></span></a></div>
         <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
-        	<a href="#/account/buycredits">Recargar <span><strong>Saldo</strong><span></a></div>
+        	<a href="#/account/buycredits">Recargar <span><strong>Saldo</strong></span></a></div>
         <div class="col-xs-4 col-sm-2 text-center lep-href lep-margin">
-        	<a href="#/account/update">Modificar <span><strong>Cuenta</strong><span></a></div>
+        	<a href="#/account/update">Modificar <span><strong>Cuenta</strong></span></a></div>
       </div>
-  </br>
-      <div>
-        <ul class="nav container">
-            <li class="row">
+  <br></br>
+        <div class="nav container" ng-controller = "ReservesCtrl">
+            <div class="container row" ng-repeat = "reserve in reserves">
                 <div class="col-xs-10 col-sm-5 card2">
                     <div class="row lepGrey-bg">
-                        <div class="col-xs-5"><strong>Córdoba</strong></div>
-                        <div class="col-xs-12 col-sm-2"><strong>></strong></div>
-                        <div class="col-xs-5"><strong>Sta. Rosa de Calamuchita</strong></div>
+                        <div class="col-xs-10"><strong>{{reserve.Destino}}</strong></div>
                     </div>
                     <div class="row lepLightGrey-bg">
                         <div class="col-xs-6">Salida</div>
-                        <div class="col-xs-6">21/12/2016 <strong>  <span class="lepBlue-color">08:00</span> hs</strong></div>
+                        <div class="col-xs-6"><strong><span class="lepBlue-color">{{reserve.Salida}}</span></strong></div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-6">Servicio</div>
-                        <div class="col-xs-6"><strong>Diferencial</strong></div>
+                        <div class="col-xs-6">Sentido</div>
+                        <div class="col-xs-6"><strong>{{reserve.Sentido}}</strong></div>
                     </div>
                     <div class="row lepLightGrey-bg">
                         <div class="col-xs-6">Cantidad de pasajes</div>
-                        <div class="col-xs-6"><strong>1</strong></div>
+                        <div class="col-xs-6"><strong>{{reserve.cantidad}}</strong></div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-6">Lugar de abordo</div>
-                        <div class="col-xs-6"><strong>T1</strong></div>
-                    </div>
-                    <div class="row lepLightGrey-bg">
-                        <div class="col-xs-6">Plataforma</div>
-                        <div class="col-xs-6"><strong>36 a 39</strong></div>
-                    </div>
-                    <div class="row ">
                         <div class="col-xs-4"></div>
                         <div class="col-xs-4">
-                            <button class="btn btn-default lepRed-bg lepWhite-color"type="submit" style="margin:10px">Anular</button>
+                            <button class="btn btn-default lepRed-bg lepWhite-color" ng-click="cancelReserve(reserve.FechaHoraReserva)" style="margin:10px">Anular</button>
                         </div>
                         <div class="col-xs-4"></div>
                     </div>
                 </div>
-                <div class="col-xs-1"></div>
-                <div class="col-xs-10 col-sm-5 card2">
-                    <div class="row lepGrey-bg">
-                        <div class="col-xs-5"><strong>Córdoba</strong></div>
-                        <div class="col-xs-12 col-sm-2"><strong>></strong></div>
-                        <div class="col-xs-5"><strong>Sta. Rosa de Calamuchita</strong></div>
-                    </div>
-                    <div class="row lepLightGrey-bg">
-                        <div class="col-xs-6">Salida</div>
-                        <div class="col-xs-6">21/12/2016 <strong>  <span class="lepBlue-color">08:00</span> hs</strong></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-6">Servicio</div>
-                        <div class="col-xs-6"><strong>Diferencial</strong></div>
-                    </div>
-                    <div class="row lepLightGrey-bg">
-                        <div class="col-xs-6">Cantidad de pasajes</div>
-                        <div class="col-xs-6"><strong>1</strong></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-6">Lugar de abordo</div>
-                        <div class="col-xs-6"><strong>T1</strong></div>
-                    </div>
-                    <div class="row lepLightGrey-bg">
-                        <div class="col-xs-6">Plataforma</div>
-                        <div class="col-xs-6"><strong>36 a 39</strong></div>
-                    </div>
-                    <div class="row ">
-                        <div class="col-xs-4"></div>
-                        <div class="col-xs-4">
-                            <button class="btn btn-default lepRed-bg lepWhite-color"type="submit" style="margin:10px">Anular</button>
-                        </div>
-                        <div class="col-xs-4"></div>
-                    </div>
-                </div>                
-                
-            </li>
+                <div class="col-xs-1"></div>                       
+            </div>
 
 
-        </ul>
-      </div>
+        </div>
 </div>

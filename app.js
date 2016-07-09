@@ -88,11 +88,11 @@ angular.module("app", ["ngRoute","ngAnimate","LocalStorageModule","angularSoap",
                 templateUrl: "views/encomiendas.html"
             })
             .when("/account/reserves", {
-                controller: "LoginCtrl",
+                controller: "ReservesCtrl",
                 templateUrl: "views/accountReserves.html"
             })
             .when("/account/purchases", {
-                controller: "LoginCtrl",
+                controller: "ReservesCtrl",
                 templateUrl: "views/accountPurchases.html"
             })
             .when("/account/lastsearch", {
