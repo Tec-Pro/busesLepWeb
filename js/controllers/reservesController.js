@@ -52,7 +52,7 @@ angular.module('app')
           {
             name: "DNI",
             type: "int",
-            value: $scope.user.dni.toString()
+            value: localStorageService.get("user-lep").dni.toString()
           },
           {
             name: "FechaHoraReserva",
@@ -66,10 +66,10 @@ angular.module('app')
           }
         ];
         wsService.callService(wsdl_url, urn, "AnularReservas", cancel_parameters).then(function(response){
-          //alert(JSON.stringify(response));
           if (response != 1){
                 alert("No se ha podido cancelar la reserva");
           }
+          location.reload();
         });
     };
 

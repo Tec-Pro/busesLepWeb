@@ -14,77 +14,29 @@
         	<a href="#/account/update">Modificar <span><strong>Cuenta</strong><span></a></div>
       </div>
 </br>
-      <div>
-        <ul class="nav container">
-            <li class="row">
+            <br></br>
+        <div class="nav container" ng-controller = "ReservesCtrl">
+            <div class="container row" ng-repeat = "purchase in purchases">
                 <div class="col-xs-10 col-sm-5 card2">
                     <div class="row lepGrey-bg">
-                        <div class="col-xs-5"><strong>Córdoba</strong></div>
-                        <div class="col-xs-12 col-sm-2"><strong>></strong></div>
-                        <div class="col-xs-5"><strong>Sta. Rosa de Calamuchita</strong></div>
+                        <div class="col-xs-10"><strong>{{purchase.Destino}}</strong></div>
                     </div>
                     <div class="row lepLightGrey-bg">
                         <div class="col-xs-6">Salida</div>
-                        <div class="col-xs-6">21/12/2016 <strong>  <span class="lepBlue-color">08:00</span> hs</strong></div>
+                        <div class="col-xs-6"><strong><span class="lepBlue-color">{{purchase.Salida}}</span></strong></div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-6">Servicio</div>
-                        <div class="col-xs-6"><strong>Diferencial</strong></div>
+                        <div class="col-xs-6">Sentido</div>
+                        <div class="col-xs-6"><strong>{{purchase.Sentido}}</strong></div>
                     </div>
                     <div class="row lepLightGrey-bg">
                         <div class="col-xs-6">Cantidad de pasajes</div>
-                        <div class="col-xs-6"><strong>1</strong></div>
+                        <div class="col-xs-6"><strong>{{purchase.cantidad}}</strong></div>
                     </div>
-                     <div class="row">
-                        <div class="col-xs-6">Butaca</div>
-                        <div class="col-xs-6"><strong>7</strong></div>
-                    </div>
-                    <div class="row lepLightGrey-bg">
-                        <div class="col-xs-6">Lugar de abordo</div>
-                        <div class="col-xs-6"><strong>T1</strong></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-6">Plataforma</div>
-                        <div class="col-xs-6"><strong>36 a 39</strong></div>
-                    </div>
-                    
                 </div>
-                <div class="col-xs-1"></div>
-                <div class="col-xs-10 col-sm-5 card2">
-                    <div class="row lepGrey-bg">
-                        <div class="col-xs-5"><strong>Córdoba</strong></div>
-                        <div class="col-xs-12 col-sm-2"><strong>></strong></div>
-                        <div class="col-xs-5"><strong>Sta. Rosa de Calamuchita</strong></div>
-                    </div>
-                    <div class="row lepLightGrey-bg">
-                        <div class="col-xs-6">Salida</div>
-                        <div class="col-xs-6">21/12/2016 <strong>  <span class="lepBlue-color">08:00</span> hs</strong></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-6">Servicio</div>
-                        <div class="col-xs-6"><strong>Diferencial</strong></div>
-                    </div>
-                    <div class="row lepLightGrey-bg">
-                        <div class="col-xs-6">Cantidad de pasajes</div>
-                        <div class="col-xs-6"><strong>1</strong></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-6">Butaca</div>
-                        <div class="col-xs-6"><strong>7</strong></div>
-                    </div>
-                    <div class="row lepLightGrey-bg">
-                        <div class="col-xs-6">Lugar de abordo</div>
-                        <div class="col-xs-6"><strong>T1</strong></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-6">Plataforma</div>
-                        <div class="col-xs-6"><strong>36 a 39</strong></div>
-                    </div>
-                </div>                
-                
-            </li>
+                <div class="col-xs-1"></div>                       
+            </div>
 
 
-        </ul>
-      </div>
+        </div>
 </div>
