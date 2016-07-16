@@ -29,6 +29,9 @@ angular.module('app').filter('lepDateMonth', function($filter){
 		if (input == null) {
 			return "";
 		} 
+		if (input == ''){
+			return "-";
+		}
 		var _date = moment(input).format("DD/MM");
 		return _date.toUpperCase();
 	}

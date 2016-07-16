@@ -22,13 +22,13 @@
                     <div class = "col-sm-4 col-xs-12 search-item-box text-center">
                         <strong>{{search.goingCity}}     >     {{search.backCity}}</strong>
                     </div>
-                    <div class = "col-sm-3 col-xs-12 search-item-box text-center">
-                        <strong>Salida: {{search.goingDate}} Regreso: {{search.backDate}}</strong>
+                    <div class = "col-sm-4 col-xs-12 search-item-box text-center">
+                        <strong>Salida: {{search.goingDate | lepDateMonth}} Regreso: {{search.backDate | lepDateMonth}}</strong>
                     </div>
-                    <div class = "col-sm-2 col-xs-12 search-item-box text-center">
+                    <!--<div class = "col-sm-2 col-xs-12 search-item-box text-center">
                         <strong>-</strong>
-                    </div>
-                    <div class = "col-sm-2 col-xs-12 search-item-box text-center">
+                    </div>-->
+                    <div class = "col-sm-3 col-xs-12 search-item-box text-center">
                         <a href="#/schedules"><img src="img/busqueda2.png" class="img-responsive"style="float:left;height:20px"><strong>Ir a Horario</strong></a>                   
                     </div>
                 </div>
