@@ -10,12 +10,11 @@
 					<div class="col-xs-12">
 						<div class="form-group">
 							<div class="dropdown">
-							  <button class="btn btn-default search-menu-button dropdown-toggle" type="button" id="origin" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true">
+								<input type="text" name="dropdown-toggle" data-ng-model=origin_search placeholder="Ciudad Origen" class="btn btn-default search-menu-button dropdown-toggle" id="origin" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true">
+							  <!-- <button class="btn btn-default search-menu-button dropdown-toggle" type="button" id="origin" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true">
 							    {{params.origin_name}}
-							  </button>
+							  </button> -->
 							  <ul class="dropdown-menu dropdown-menu-right search-menu-items" aria-labelledby="origin">
-							  	<li><input data-ng-model=origin_search></input></li>
-							  	<li><a href class = "search-menu-item" data-ng-click="checkDestinations(undefined)">Ciudad Origen</a></li>
 							    <li><a href class= "search-menu-item" data-ng-repeat="origin in origins | filter:origin_search" data-ng-click="checkDestinations(origin)">{{origin.Localidad}}</a></li>
 							  </ul>
 							</div>
@@ -31,12 +30,9 @@
 						<div class="form-group">
 							<label class="sr-only" for="destination">Destino:</label>
 							<div class="dropdown">
-							  <button class="btn btn-default search-menu-button dropdown-toggle" data-ng-disabled="destinationDisabled" type="button" id="origin" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true">
-							    {{params.destination_name}}
-							  </button>
+							  <input type="text" name="dropdown-toggle" data-ng-model=destination_search placeholder="Ciudad Destino" class="btn btn-default search-menu-button dropdown-toggle" id="destination" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true">
 							  <ul class="dropdown-menu search-menu-items" aria-labelledby="origin">
-							  	<li class="search-menu-item"><a href class="search-menu-item" data-ng-click="setDestinationData(undefined)">Ciudad Destino</a></li>
-							    <li><a href class="search-menu-item" data-ng-repeat="destination in destinations" data-ng-click="setDestinationData(destination)">{{destination.hasta}}</a></li>
+							    <li><a href class="search-menu-item" data-ng-repeat="destination in destinations | filter:destination_search" data-ng-click="setDestinationData(destination)">{{destination.hasta}}</a></li>
 							  </ul>
 							</div>
 							<!-- <select class="search-text form-control" name="destination" id="destination" data-ng-model="params.destination" data-ng-disabled="destinationDisabled" data-ng-options="destination as destination.hasta for destination in destinations" data-ng-change="setDestinationData()" required>

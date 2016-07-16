@@ -46,6 +46,7 @@ angular.module('app')
     };
 
     $scope.origin_search = '';
+    $scope.destination_search = '';
     
   var localidadesDesde_parameters = [
     {
@@ -73,10 +74,11 @@ angular.module('app')
     //Function that check the availables destinations whenever the trip origin changes.
     $scope.checkDestinations = function(origin){
         $scope.params.origin = origin;
+        $scope.origin_search = origin.Localidad;
       	//Enable the destination picker if the origin has been set.
-      	$scope.destinationDisabled = ($scope.params.origin === undefined);
+      	$scope.destinationDisabled = ($scope.params.origin === '');
       	//Once the origin has been set, reload the possible destinations.
-      	if ($scope.params.origin != undefined){
+      	if ($scope.params.origin != ''){
           $scope.params.origin_name = origin.Localidad;
         	//Call asynchronously the web service, through wsService, when it's ready, update the destinations in the scope.
         	// var id_localidad = $scope.params.origin.ID_Localidad.toString();
@@ -116,8 +118,9 @@ angular.module('app')
     };
 	
   	$scope.setDestinationData = function(destination){
+      $scope.destination_search = destination.hasta;
       $scope.params.destination = destination;
-	  	if ($scope.params.destination != undefined){
+	  	if ($scope.params.destination != ''){
         $scope.params.destination_name = destination.hasta;
 		    tripService.setTripDestinationId($scope.params.destination.id_localidad_destino);
 		    tripService.setTripDestinationName($scope.params.destination.hasta);
