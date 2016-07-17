@@ -57,19 +57,31 @@
 				</div>
 				<div class="row">
 					<div class="col-xs-12">
-						<div class="form-group">
-							<div class="input-group date">
-								<input date-range-picker name="returnDate" id="returnDate" class="search-date form-control date-picker ng-valid ng-dirty" type="text" min="params.departureDate" data-ng-disabled="returnDateDisabled" ng-model="params.returnDate" placeholder="Fecha Vuelta (Opcional)" options="dpOpts" readonly/>
-								<span class="input-group-addon">
-									<span class="glyphicon glyphicon-calendar">
-									</span>
-								</span>
+						<div class="row">
+							<div class="col-xs-10">
+								<div class="form-group">
+									<div class="input-group date">
+										<input date-range-picker name="returnDate" id="returnDate" class="search-date form-control date-picker ng-valid ng-dirty" type="text" min="params.today" data-ng-disabled="returnDateDisabled" ng-model="params.returnDate" placeholder="Fecha Vuelta (Opcional)" options="dpOpts" readonly/>						
+										<span class="input-group-addon">
+											<span class="glyphicon glyphicon-calendar">
+											</span>
+										</span>
+									</div>
+								</div>
 							</div>
+							<div class="col-xs-2">
+									<button type="button" class="btn btn-default">
+										<span class="glyphicon glyphicon-remove"></span> 
+									
+									</button>
+								</div>
 						</div>
 					</div>
 				</div>
 				<div class="row">
-					<button type="submit" class="btn btn-default col-xs-10 col-xs-offset-1">Buscar</button>
+					<div class="col-xs-10 col-xs-offset-1">
+						<button type="submit" class="btn btn-default btn-block">Buscar</button>
+					</div>
 				</div>
 			</form>
 		</div>
