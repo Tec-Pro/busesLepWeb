@@ -1,10 +1,10 @@
 angular.module('app')
 .controller('MercadopagoController', function($scope,$http, wsService, localStorageService, tripService){	
 
-	urn = "WSCobroMercadoPagoIntf-IWSCobroMercadoPago";
-	wsdl_url = "https://webservices.buseslep.com.ar/WebServices/WSCobroMercadoPago.dll/soap/ILepWebService";
+	var wsdl_url = "https://webservices.buseslep.com.ar:443/WebServices/WSCobroMercadoPagocTestyEnc.dll/soap/IWSCobroMercadoPago";
+	var urn = "WSCobroMercadoPagoIntf-IWSCobroMercadoPago";
 	wsMethod = "RealizarCobroMercadoPago";
-	Mercadopago.setPublishableKey("TEST-c550b59e-e455-472a-a24e-e7a2f3ca07d3"); //APP_USR-3f8dc194-8894-4d07-bb6c-b4a786a19c6c
+	Mercadopago.setPublishableKey("TEST-2e5d7d95-7cb8-48d3-8bd6-cfde1bc34254"); //APP_USR-3f8dc194-8894-4d07-bb6c-b4a786a19c6c
 	$scope.paymentMethods = [];
 	$http.get("https://api.mercadolibre.com/sites/MLA/payment_methods").success(function(response){ //llama a la api nuestra y ahi se obtiene los medios de pago
 		//obj = JSON.parse(response)		
@@ -275,7 +275,7 @@ angular.module('app')
 	        var datosCompra = {descriptions:"boletos", 
 	        				external_reference: "boleto:"+idventa,
 	        				installments: cuotas,
-	        				payer:{email: localStorageService.get("user-lep").email},
+	        				payer:{email: "test_user_19653727@testuser.com"},
 	        				payment_method_id: $scope.selectedPayment,
 	        				token: response.id,
 	        				transaction_amount: $scope.totalAmount
