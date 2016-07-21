@@ -58,8 +58,25 @@ angular.module('app')
 			$scope.active_gall_img--;
 		}
 	}
+		// Get the modal
+	var modal = document.getElementById('my-comp-modal');
 
-	$scope.openImage = function (index) {
-    	Lightbox.openModal($scope.images, index);
-  	};
+	// Get the button that opens the modal
+	var btn = document.getElementById("comp-gall-btn");
+
+	// When the user clicks the button, open the modal
+	btn.onclick = function() {
+	  modal.style.display = "block";
+	}
+
+	var display_modal = function(){
+	  modal.style.display = "block";
+	}
+
+	// When the user clicks anywhere outside of the modal, close it
+	window.onclick = function(event) {
+	    if (event.target == modal) {
+	        modal.style.display = "none";
+	    }
+	}
 });

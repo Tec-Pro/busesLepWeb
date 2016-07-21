@@ -57,7 +57,7 @@
 
 .comp-contact-img-logo-ph {
 	width: 25px;
-	height: 40px;	
+	height: 40px;
 }
 
 .comp-contact-img-logo-ml {
@@ -88,3 +88,75 @@
 .comp-units-content {
 	padding-top: 5%;
 }
+
+.comp-btn {
+	padding: 0;
+	border: none;
+	background: none;
+}
+
+/* The Modal (background) */
+.comp-modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 10; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.comp-modal-content {
+		margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.comp-close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.comp-close:hover,
+.comp-close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 700px){
+    .comp-modal {
+        display: none;
+    }
+}
+
+.comp-modal-img {
+	width: 575px;
+	height: 350px;
+}
+
+.comp-modal-body {}
