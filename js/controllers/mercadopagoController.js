@@ -259,6 +259,24 @@ angular.module('app')
 	    }
 	};
 
+	var error_modal = document.getElementById('error-modal');
+
+	    // Get the modal
+    var load_modal = document.getElementById('load-modal');
+
+    var display_load_modal = function(){
+      load_modal.style.display = "block";
+    }
+
+    var hide_load_modal = function(){
+      load_modal.style.display = "none";
+    }
+
+    $scope.hide_modal = function(){
+      error_modal.style.display = "none";
+      location.reload();
+    }
+
 	function sdkResponseHandler(status, response) {
 	    if (status != 200 && status != 201) {
 	    	//console.log(response);
@@ -307,7 +325,9 @@ angular.module('app')
 					type: "int",
 					value: "3"
 				}]
+			display_load_modal();
 	       	wsService.callService(wsdl_url, urn, wsMethod, wsParameters).then(function(response){
+	       		hide_load_modal();
 	       		splittedResponse = response.split("{\"Cod_Impresion\":\"");
 	       		var codImpresion = -1;
 	       		if(splittedResponse[1] != undefined){
@@ -345,12 +365,15 @@ angular.module('app')
 					}
 
 					if(messageError != ""){
-		        		alert(messageError);
-		        		location.reload();
+		        		//alert(messageError);
+		        		document.getElementById("error-modal-text").innerHTML = messageError;
+		        		error_modal.style.display = "block";
+		        		//location.reload();
 		        	}
 				}
 				catch(err) {
-				    alert(splittedResponse[0]);
+					document.getElementById("error-modal-text").innerHTML = splittedResponse[0];
+		        	error_modal.style.display = "block";
 				}
 	       		
 	        });
@@ -373,5 +396,7 @@ angular.module('app')
 	    if(theEvent.preventDefault) theEvent.preventDefault();
 	  }
 	}
+
+	
 	
 });
