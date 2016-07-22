@@ -3,7 +3,7 @@ angular.module('app')
 
   $scope.active_gall_img = 2;
   $scope.is_fullscreen = false;
-  
+
 	//Date picker options
   $scope.dpOpts = {
       locale: {
@@ -25,7 +25,7 @@ angular.module('app')
   }
 
   $scope.$watch('params.departureDate', function(date){
-    if ($scope.params.returnDate !== ''){ 
+    if ($scope.params.returnDate !== ''){
       var a = $scope.params.returnDate;
       var b = date;
       if (a.isBefore(b, 'day')){
@@ -34,26 +34,26 @@ angular.module('app')
     }
   })
 
-  $scope.gallery_thumbnails = [
+  $scope.gallery_images = [
     {
       source: "./img/special/thumbnail1.png",
-      full_size: "./img/special/fullscreen1.png"
+      full_size: "./img/special/fullsize1.png"
     },
     {
       source: "./img/special/thumbnail2.png",
-      full_size: "./img/special/fullscreen2.png"
+      full_size: "./img/special/fullsize2.png"
     },
     {
       source: "./img/special/thumbnail3.png",
-      full_size: "./img/special/fullscreen3.png"
+      full_size: "./img/special/fullsize3.png"
     },
     {
       source: "./img/special/thumbnail4.png",
-      full_size: "./img/special/fullscreen4.png"
+      full_size: "./img/special/fullsize4.png"
     },
     {
       source: "./img/special/thumbnail5.png",
-      full_size: "./img/special/fullscreen5.png"
+      full_size: "./img/special/fullsize5.png"
     }
   ];
 
@@ -79,4 +79,26 @@ angular.module('app')
       $scope.active_gall_img--;
     }
   };
+
+  // Get the modal
+var modal = document.getElementById('sp-modal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("sp-modal-btn");
+
+// When the user clicks the button, open the modal
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+var display_modal = function(){
+  modal.style.display = "block";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
 });
