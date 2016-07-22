@@ -1,11 +1,13 @@
 angular.module('app')
 .controller('MercadopagoController', function($scope,$http, wsService, localStorageService, tripService){	
 
-	var wsdl_url = "https://webservices.buseslep.com.ar:443/WebServices/WSCobroMercadoPagocTestyEnc.dll/soap/IWSCobroMercadoPago";
-	var urn = "WSCobroMercadoPagoIntf-IWSCobroMercadoPago";
+	//https://webservices.buseslep.com.ar/WebServices/WSCobroMercadoPago.dll/wsdl/IWSCobroMercadoPago para poner en el soap client
+	//https://webservices.buseslep.com.ar:443/WebServices/WSCobroMercadoPago.dll/soap/IWSCobroMercadoPago //para poner en la wsdl_urn
+	var wsdl_url ="https://webservices.buseslep.com.ar:443/WebServices/WSCobroMercadoPago.dll/soap/IWSCobroMercadoPago"; //"https://webservices.buseslep.com.ar:443/WebServices/WSCobroMercadoPagocTestyEnc.dll/soap/IWSCobroMercadoPago";
+	var urn = "";
 	wsMethod = "RealizarCobroMercadoPago";
-	Mercadopago.setPublishableKey("TEST-2e5d7d95-7cb8-48d3-8bd6-cfde1bc34254"); //APP_USR-3f8dc194-8894-4d07-bb6c-b4a786a19c6c
-	$scope.paymentMethods = [];
+	Mercadopago.setPublishableKey("APP_USR-3f8dc194-8894-4d07-bb6c-b4a786a19c6c"); //TEST-2e5d7d95-7cb8-48d3-8bd6-cfde1bc34254
+	$scope.paymentMethods = [];													//APP_USR-3f8dc194-8894-4d07-bb6c-b4a786a19c6c
 	$http.get("https://api.mercadolibre.com/sites/MLA/payment_methods").success(function(response){ //llama a la api nuestra y ahi se obtiene los medios de pago
 		//obj = JSON.parse(response)		
 		payments = response;
@@ -17,8 +19,10 @@ angular.module('app')
 			}; 		
     	}
     });
-
-	document.querySelector('#amount').value = tripService.getTripPrice();
+    var user_email = localStorageService.get("user-lep").email;
+    document.querySelector('#email').value = user_email;
+	var sell_code = tripService.getSellCode();
+	document.querySelector('#amount').value = tripService.getTripPrice();//10//tripService.getTripPrice();
 	$scope.selectedPayment = null;
 	$scope.totalAmount = document.querySelector('#amount').value;
    	$scope.showSecurityCodeInput = true;
@@ -267,20 +271,20 @@ angular.module('app')
 	        card.setAttribute('type',"hidden");
 	        card.setAttribute('value',response.id);
 	        form.appendChild(card);
-	        idventa = "354";
+	        idventa = sell_code;
 	        //var form = new FormData(document.getElementById("form"));
 			//var inputValue = form.get("inputTypeName");
 			cuotas = document.querySelector('#installments').value
 			
-	        var datosCompra = {descriptions:"boletos", 
+	        var datosCompra = {description:"boletos", 
 	        				external_reference: "boleto:"+idventa,
-	        				installments: cuotas,
-	        				payer:{email: "test_user_19653727@testuser.com"},
+	        				installments: parseInt(cuotas),
+	        				payer:{email: user_email},//"test_user_19653727@testuser.com"},//user_email}, 
 	        				payment_method_id: $scope.selectedPayment,
 	        				token: response.id,
-	        				transaction_amount: $scope.totalAmount
+	        				transaction_amount: parseInt($scope.totalAmount)
 	        				}
-	       // console.log(JSON.stringify(datosCompra));
+	        console.log(JSON.stringify(datosCompra));
 	        wsParameters = [
 				{
 					name: "UserCobro",
@@ -302,14 +306,14 @@ angular.module('app')
 					type: "int",
 					value: "3"
 				}]
-	        wsService.callService(wsdl_url, urn, wsMethod, wsParameters).then(function(response){
+	       	wsService.callService(wsdl_url, urn, wsMethod, wsParameters).then(function(response){
 	        	console.log(response);
 	        });
 	        doSubmit=true;
 	        //form.submit();
-	        //$http.post("http://localhost:8081/api/mercadopago").success(function(response){ //llama a nuestra api para efectuar el pago
-			//	console.log(response);
-			//});
+	        /*$http.post("http://localhost:8081/api/mercadopago").success(function(response){ //llama a nuestra api para efectuar el pago
+				console.log(response);
+			});*/
 	    }
 	};
 
