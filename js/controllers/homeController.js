@@ -73,7 +73,6 @@ angular.module('app')
 
     //Function that check the availables destinations whenever the trip origin changes.
     $scope.checkDestinations = function(origin){
-        console.log(origin);
         $scope.params.origin = origin;
         $scope.origin_search = origin.Localidad;
       	//Enable the destination picker if the origin has been set.
@@ -105,8 +104,10 @@ angular.module('app')
               value: "3"
             }
           ];
+          display_modal();
           wsService.callService(wsdl_url,urn,"Localidadeshasta",getDestinations_params).then(function(destinations){
             	$scope.destinations = destinations;
+              hide_modal();
       	});
 		  	tripService.setTripOriginId($scope.params.origin.ID_Localidad);
 		  	tripService.setTripOriginName($scope.params.origin.Localidad);
@@ -217,8 +218,10 @@ angular.module('app')
             }          
           ];
           tripService.saveDepartureTrip();
+          display_modal();
           wsService.callService(wsdl_url, urn, "ListarHorarios", listarHorarios_parameters).then(function(schedules){
-  						if (schedules.length > 0){
+  						hide_modal();
+              if (schedules.length > 0){
                 var ida = tripService.getDepartureTrip();
                 $scope.searches.unshift({ goingDate: ida.departure_date, backDate: ida.return_date, goingCity: ida.origin_name, backCity: ida.destination_name, status: false});
                 localStorageService.set("last-searches",JSON.stringify($scope.searches));
@@ -255,5 +258,16 @@ angular.module('app')
       companyService.setActiveUnitTab(tab);
       $window.scrollTo(0,0);
       $location.path('/company');
+    }
+
+    // Get the modal
+    var modal = document.getElementById('home-modal');
+
+    var display_modal = function(){
+      modal.style.display = "block";
+    }
+
+    var hide_modal = function(){
+      modal.style.display = "none";
     }
 });

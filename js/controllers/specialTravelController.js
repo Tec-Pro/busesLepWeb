@@ -2,6 +2,7 @@ angular.module('app')
 .controller('SpecialTravelCtrl', function($scope, $location){
 
   $scope.active_gall_img = 2;
+  $scope.active_gall_thmb = $scope.active_gall_img;
   $scope.is_fullscreen = false;
 
 	//Date picker options
@@ -76,6 +77,34 @@ angular.module('app')
     if ($scope.active_gall_img == 0){
       $scope.active_gall_img = 4;
     } else {
+      $scope.active_gall_img--;
+    }
+  };
+
+  $scope.set_active_gall_thmb = function(pos){
+    if (0 <= pos || pos <= 4){
+      $scope.active_gall_thmb = pos;
+      $scope.active_gall_img = pos;
+    }
+  };
+
+  $scope.active_gall_thmb_right = function(){
+    if ($scope.active_gall_thmb == 4){
+      $scope.active_gall_thmb = 0;
+      $scope.active_gall_img = 0;
+    } else {
+      $scope.active_gall_thmb++;
+      $scope.active_gall_img++;
+    }
+  };
+
+
+  $scope.active_gall_thmb_left = function(){
+    if ($scope.active_gall_thmb == 0){
+      $scope.active_gall_thmb = 4;
+      $scope.active_gall_img = 0;
+    } else {
+      $scope.active_gall_thmb--;
       $scope.active_gall_img--;
     }
   };

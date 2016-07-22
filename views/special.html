@@ -21,13 +21,13 @@
 				<div class="hidden-xs col-md-9 border-bottom">
 					<div class="row">
 						<div class="col-xs-1">
-							<input class="sp-gall-nav-btn" type="image" src="./img/special/left_button.png" data-ng-click="active_gall_img_left()"></input>
+							<input class="sp-gall-nav-btn" type="image" src="./img/special/left_button.png" data-ng-click="active_gall_thmb_left()"></input>
 						</div>
 						<div data-ng-repeat="image in gallery_images track by $index" class="col-xs-2">
-							<input type="image" data-ng-mouseover="set_active_gall_img($index)" data-ng-click="display_modal()" data-ng-src="{{image.source}}" data-ng-class="{'comp-gall-wrap': active_gall_img != $index}" class="sp-gall-img img-responsive"></input>
+							<input type="image" data-ng-mouseover="set_active_gall_thmb($index)" data-ng-click="display_modal()" data-ng-src="{{image.source}}" data-ng-class="{'comp-gall-wrap': active_gall_thmb != $index}" class="sp-gall-img img-responsive"></input>
 						</div>
 						<div class="col-xs-1">
-							<input class="sp-gall-nav-btn" type="image" src="./img/special/right_button.png" data-ng-click="active_gall_img_right()"></input>
+							<input class="sp-gall-nav-btn" type="image" src="./img/special/right_button.png" data-ng-click="active_gall_thmb_right()"></input>
 						</div>
 					</div>
 					<br>
@@ -42,7 +42,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="row">
+			<!-- <div class="row">
 				<div class="col-xs-12">
 					<h3><u>Formulario de Cotización</u></h3>
 					<br>
@@ -152,7 +152,9 @@
 								<div class="form-group">
 									<div class="row">
 										<label class="control-label col-xs-4">Fecha Ida</label>
+										-->
 										<!-- Departure date input -->
+										<!--
 										<div class="col-xs-6">
 											<div class="input-group date">
 												<input date-range-picker name="departureDate" id="departureDate" class="form-control date-picker" type="text" min="params.today" ng-model="params.departureDate" options="dpOpts" required readonly/>
@@ -169,7 +171,9 @@
 								<div class="form-group visible-xs">
 									<div class="row">
 										<label class="control-label col-xs-4">Fecha Vuelta</label>
+
 										<!-- Return date input -->
+										<!--
 										<div class="col-xs-6">
 											<div class="input-group date">
 												<input date-range-picker name="returnDate" id="returnDate" class="form-control date-picker" type="text" min="params.departureDate" ng-model="params.returnDate" options="dpOpts" required readonly/>
@@ -216,6 +220,7 @@
 									<div class="row">
 										<label class="control-label col-xs-4">Fecha Vuelta</label>
 										<!-- Return date input -->
+										<!--
 										<div class="col-xs-6">
 											<div class="input-group date">
 												<input date-range-picker name="returnDate" id="returnDate" class="form-control date-picker" type="text" min="params.departureDate" ng-model="params.returnDate" options="dpOpts" required readonly/>
@@ -240,7 +245,7 @@
 						<br>
 					</form>
 				</div>
-			</div>
+			</div> -->
 		</div>
 	</div>
 
