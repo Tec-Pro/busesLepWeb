@@ -1,8 +1,8 @@
 angular.module('app')
 .controller('HomeCtrl', function($scope, $location, $window,localStorageService, wsService, tripService, companyService){
   
-    var wsdl_url = 'https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService';
-    var urn = 'LepWebServiceIntf-ILepWebService';
+    var wsdl_url = 'https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService'//https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService';
+    var urn = '';
 
     sessionStorage.clear();
     //Date picker options
