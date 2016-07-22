@@ -2,6 +2,7 @@ angular.module('app')
 .controller('HomeCtrl', function($scope, $location, $window,localStorageService, wsService, tripService, companyService){
   
     var wsdl_url = 'https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService'//https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService';
+    var wsdl_url_wsConGps = "https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepcGPS.dll/soap/ILepWebService";
     var urn = '';
 
     sessionStorage.clear();
@@ -219,7 +220,7 @@ angular.module('app')
           ];
           tripService.saveDepartureTrip();
           display_modal();
-          wsService.callService(wsdl_url, urn, "ListarHorarios", listarHorarios_parameters).then(function(schedules){
+          wsService.callService(wsdl_url_wsConGps, urn, "ListarHorarioscGPS", listarHorarios_parameters).then(function(schedules){
   						hide_modal();
               if (schedules.length > 0){
                 var ida = tripService.getDepartureTrip();

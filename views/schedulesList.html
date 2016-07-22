@@ -130,14 +130,17 @@
             </div>
             <div class= "col-xs-6 no-mar-pad-bor">
               <div class= "title col-xs-3">
-                <h5 class= "visible-md visible-lg no-bold">Diferencial</h5>
-                <h5 class= "hidden-md hidden-lg no-bold">Dif.</h5>
+                <h5 class= "visible-md visible-lg no-bold">{{sched.Servicio}}</h5>
+                <h5 class= "hidden-md hidden-lg no-bold">Reg.</h5>
               </div>
               <div class= "title col-xs-3">
                 <h5>${{goPrice}}</h5>
               </div>
               <div class= "title col-xs-3">
-                 <img class = "map-img center-block" ng-src="img/Posicionamiento.png" alt="">
+                  <div ng-hide="sched.latitud == 'Sin GPS'">
+                     <img class = "map-img center-block" ng-src="img/Posicionamiento.png" alt="">
+                  </div>
+                
               </div>
               <div class= "title col-xs-3" data-ng-show="sched.ServicioPrestado == 'disponible'">
                 <button type="submit" class="center-block btn btn-danger col-xs-12 lepStyleRed btn-sm visible-lg" style="margin-top:10px;"ng-click="goSummary($index)">Seleccionar</button>
@@ -201,10 +204,12 @@
                 <h5 class = "no-bold" data-ng-class="{'red': sched.ServicioPrestado == 'en viaje' || sched.ServicioPrestado == 'completo', 'green': sched.ServicioPrestado == 'disponible', 'blue': sched.ServicioPrestado == 'en destino'}">{{sched.ServicioPrestado | capitalize}}</h5>
               </div>
               <div class= "title col-xs-4">
-                <h5 class= "no-bold">Diferencial</h5>
+                <h5 class= "no-bold">{{sched.Servicio}}</h5>
               </div>
               <div class= "title col-xs-4">
-                 <img class = "map-img center-block" ng-src="img/Posicionamiento.png" alt="">
+                 <div ng-hide="sched.latitud == 'Sin GPS'">
+                    <img class = "map-img center-block" ng-src="img/Posicionamiento.png" alt="">
+                  </div>
               </div>
             </div> 
             <hr>

@@ -1,5 +1,6 @@
 angular.module('app').controller('ScheduleController', function ($scope, $location, tripService, scheduleService, $filter, wsService){
 	var wsdl_url = 'https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService';
+	var wsdl_url_wsConGps = "https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepcGPS.dll/soap/ILepWebService";
     var urn = 'LepWebServiceIntf-ILepWebService';
 
     
@@ -42,7 +43,7 @@ angular.module('app').controller('ScheduleController', function ($scope, $locati
             value: "3"
           }          
         ];
-        wsService.callService(wsdl_url, urn, "ListarHorarios", listarHorarios_parameters2).then(function(schedules){
+        wsService.callService(wsdl_url_wsConGps, urn, "ListarHorarioscGPS", listarHorarios_parameters2).then(function(schedules){
 			if (schedules.length > 0){
 				$scope.schedules = schedules;
 			} else {
@@ -121,7 +122,7 @@ angular.module('app').controller('ScheduleController', function ($scope, $locati
 	            value: "3"
 			}          
         ];
-        wsService.callService(wsdl_url, urn, "ListarHorarios", listarHorarios_parameters).then(function(schedules){
+        wsService.callService(wsdl_url_wsConGps, urn, "ListarHorarioscGPS", listarHorarios_parameters).then(function(schedules){
 			if (schedules.length > 0){
 				$scope.schedules = schedules;
 			} else {
