@@ -14,24 +14,27 @@
 			<div class="row">
 				<br>
 				<div class="col-xs-12 col-md-3 card2">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam purus nulla, maximus a fermentum auctor, molestie sit amet lectus. Nullam consectetur ac ante non varius. Etiam vestibulum pulvinar elit, vitae condimentum ex ullamcorper vel. Integer malesuada placerat nulla, eu tempus mauris finibus eu. 
+					Buses LEP te ofrece el servicio de viajes especiales para aquellos que deseen contratar nuestras unidades en servicios de media o larga distancia con fines turísticos, empresariales, educativos, congresos o convenciones, eventos, entre otros.
+					<br>
+					Contamos con una moderna línea de unidades con todo el confort, provistas de aire acondicionado, calefacción, música funcional, TV, reproductores de DVD, GPS y baños.
 				</div>
 				<div class="hidden-xs col-md-9 border-bottom">
 					<div class="row">
 						<div class="col-xs-1">
-							<input class="comp-gall-nav-btn" type="image" src="./img/special/left_button.png" data-ng-click="active_gall_img_left()"></input>
+							<input class="sp-gall-nav-btn" type="image" src="./img/special/left_button.png" data-ng-click="active_gall_img_left()"></input>
 						</div>
-						<div data-ng-repeat="image in gallery_thumbnails track by $index" class="col-xs-2">
-							<input type="image" data-ng-mouseover="set_active_gall_img($index)" data-ng-click="set_active_gall_img($index)" data-ng-src="{{image.source}}" data-ng-class="{'comp-gall-wrap': active_gall_img != $index}" class="img-responsive"></input>
+						<div data-ng-repeat="image in gallery_images track by $index" class="col-xs-2">
+							<input type="image" data-ng-mouseover="set_active_gall_img($index)" data-ng-click="display_modal()" data-ng-src="{{image.source}}" data-ng-class="{'comp-gall-wrap': active_gall_img != $index}" class="sp-gall-img img-responsive"></input>
 						</div>
 						<div class="col-xs-1">
-							<input class="comp-gall-nav-btn" type="image" src="./img/special/right_button.png" data-ng-click="active_gall_img_right()"></input>
+							<input class="sp-gall-nav-btn" type="image" src="./img/special/right_button.png" data-ng-click="active_gall_img_right()"></input>
 						</div>
 					</div>
 					<br>
 					<div class="row">
 						<div class="col-xs-offset-10 col-xs-1">
-							<p>Galería</p>
+							<!-- Trigger/Open The Modal -->
+							<button class="sp-btn" id="sp-modal-btn">Galería</button>
 						</div>
 						<div class="col-xs-1">
 							<img class="sp-gall-icon" src="./img/special/gallery.png">
@@ -95,7 +98,7 @@
 												<option>
 													Provincial
 												</option>
-											</select> 
+											</select>
 										</div>
 									</div>
 								</div>
@@ -182,7 +185,7 @@
 									<div class="row">
 										<label class="control-label col-xs-4">Pasajeros</label>
 										<div class="col-xs-6">
-											<input class="form-control" type="number"></input>
+											<input class="form-control" type="number" value="0" min="0"></input>
 										</div>
 									</div>
 								</div>
@@ -227,17 +230,39 @@
 							</div>
 						</div>
 						<div class="row border-bottom">
-							<div class="col-xs-10">
-								<textarea placeholder="Observaciones" class="form-control comp-textarea" rows="1" name="observations"></textarea>
+							<div class="col-sm-10 col-xs-12">
+								<textarea placeholder="Observaciones" class="form-control sp-textarea" rows="1" name="observations"></textarea>
 							</div>
-							<button class="col-xs-1 btn">Enviar</button>
+							<div class="col-xs-2">
+								<button class="btn btn-block">Enviar</button>
+							</div>
 						</div>
 						<br>
 					</form>
 				</div>
-				<div class="col-xs-12">
-				</div>
 			</div>
 		</div>
+	</div>
+
+	<!-- The Modal -->
+	<div id="sp-modal" class="sp-modal">
+
+	  <!-- Modal content -->
+	  <div class="sp-modal-content">
+	    <div class="sp-modal-body">
+				<div class="row">
+					<div class="col-xs-1">
+						<input class="sp-gall-nav-btn" type="image" src="./img/special/left_button.png" data-ng-click="active_gall_img_left()"></input>
+					</div>
+					<div class="col-xs-10">
+		      	<img class="sp-modal-img" ng-src="{{gallery_images[active_gall_img].full_size}}"/>
+					</div>
+					<div class="col-xs-1">
+						<input class="sp-gall-nav-btn" type="image" src="./img/special/right_button.png" data-ng-click="active_gall_img_right()"></input>
+					</div>
+		    </div>
+			</div>
+	  </div>
+
 	</div>
 </div>
