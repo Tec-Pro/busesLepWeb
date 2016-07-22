@@ -13,12 +13,12 @@ angular.module('app').filter('lepDateYear', function($filter){
 angular.module('app').filter('lepHour', function(){
 	
 	return function(input){
-		console.log(input);
+		//console.log(input);
 		if (input == null){
 			return "";
 		}
 		var _hour = moment(input).format("HH:mm");
-		console.log(_hour);
+		//console.log(_hour);
 		return _hour.toUpperCase();
 	}
 });

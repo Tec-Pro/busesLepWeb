@@ -1,12 +1,12 @@
 angular.module('app')
-.controller('MercadopagoController', function($scope,$http, wsService, localStorageService, tripService){	
+.controller('MercadopagoController', function($scope,$http, $location, wsService, localStorageService, tripService){	
 
 	//https://webservices.buseslep.com.ar/WebServices/WSCobroMercadoPago.dll/wsdl/IWSCobroMercadoPago para poner en el soap client
 	//https://webservices.buseslep.com.ar:443/WebServices/WSCobroMercadoPago.dll/soap/IWSCobroMercadoPago //para poner en la wsdl_urn
-	var wsdl_url ="https://webservices.buseslep.com.ar:443/WebServices/WSCobroMercadoPago.dll/soap/IWSCobroMercadoPago"; //"https://webservices.buseslep.com.ar:443/WebServices/WSCobroMercadoPagocTestyEnc.dll/soap/IWSCobroMercadoPago";
+	var wsdl_url ="https://webservices.buseslep.com.ar:443/WebServices/WSCobroMercadoPagocTestyEnc.dll/soap/IWSCobroMercadoPago"; //"https://webservices.buseslep.com.ar:443/WebServices/WSCobroMercadoPagocTestyEnc.dll/soap/IWSCobroMercadoPago";
 	var urn = "";
 	wsMethod = "RealizarCobroMercadoPago";
-	Mercadopago.setPublishableKey("APP_USR-3f8dc194-8894-4d07-bb6c-b4a786a19c6c"); //TEST-2e5d7d95-7cb8-48d3-8bd6-cfde1bc34254
+	Mercadopago.setPublishableKey("TEST-2e5d7d95-7cb8-48d3-8bd6-cfde1bc34254"); //TEST-2e5d7d95-7cb8-48d3-8bd6-cfde1bc34254
 	$scope.paymentMethods = [];													//APP_USR-3f8dc194-8894-4d07-bb6c-b4a786a19c6c
 	$http.get("https://api.mercadolibre.com/sites/MLA/payment_methods").success(function(response){ //llama a la api nuestra y ahi se obtiene los medios de pago
 		//obj = JSON.parse(response)		
@@ -307,10 +307,55 @@ angular.module('app')
 					value: "3"
 				}]
 	       	wsService.callService(wsdl_url, urn, wsMethod, wsParameters).then(function(response){
-	        	console.log(response);
+	       		splittedResponse = response.split("{\"Cod_Impresion\":\"");
+	       		var codImpresion = -1;
+	       		if(splittedResponse[1] != undefined){
+	       			codImpresion = splittedResponse[1].replace("\"}","");
+	       		}
+	       		var messageError = "";
+	       		try {
+				    switch(JSON.parse(splittedResponse[0]).status_detail) {
+				    case "accredited": //Pago aprobado
+                        $location.path('/endPurchase/' + codImpresion);
+                        //doSubmit=true;
+	        			//form.submit();
+                        break;
+                    case "pending_contingency": //Pago pendiente
+                        messageError="ERROR: Pago pendiente";
+                        break;
+                    case "cc_rejected_call_for_authorize": //Pago rechazado, llamar para autorizar.
+                        messageError="ERROR: Pago rechazado, llamar para autorizar.";              
+                        break;
+                    case "cc_rejected_insufficient_amount": //Pago rechazado, saldo insuficiente.
+                        messageError="ERROR: Pago rechazado, saldo insuficiente.";                    
+                        break;
+                    case "cc_rejected_bad_filled_security_code": //Pago rechazado por código de seguridad.
+                        messageError="ERROR: Pago rechazado por código de seguridad.";                      
+                        break;
+                    case "cc_rejected_bad_filled_date": //Pago rechazado por fecha de expiración.
+                        messageError="ERROR: Pago rechazado por fecha de expiración.";                   
+                        break;
+                    case "cc_rejected_bad_filled_other": //Pago rechazado por error en el formulario
+                        messageError="ERROR: Pago rechazado por error en el formulario";
+                        break;
+                    default: //Pago rechazado
+                        messageError="ERROR";                    
+                        break;
+					}
+
+					if(messageError != ""){
+		        		alert(messageError);
+		        		location.reload();
+		        	}
+				}
+				catch(err) {
+				    alert(splittedResponse[0]);
+				}
+	       		
 	        });
-	        doSubmit=true;
-	        //form.submit();
+	        
+	        
+	        //alert(messageError);
 	        /*$http.post("http://localhost:8081/api/mercadopago").success(function(response){ //llama a nuestra api para efectuar el pago
 				console.log(response);
 			});*/
