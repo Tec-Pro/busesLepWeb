@@ -244,7 +244,7 @@ angular.module('app')
           wsService.callService(wsdl_url, urn, "ListarHorarios", listarHorarios_parameters).then(function(schedules){ //"ListarHorarioscGPS"
   						hide_modal();
               if (schedules.length > 0){
-                var ida = tripService.getDepartureTrip();
+                var trip = tripService.getDepartureTrip();
                 $scope.searches.unshift({ goingDate: trip.departure_date, backDate: trip.return_date, goingCity_id:trip.origin_id, goingCity:trip.origin_name, backCity_id:trip.destination_id, backCity:trip.destination_name, status: false});
                 localStorageService.set("last-searches",JSON.stringify($scope.searches));
                 //guardar aca departure-trip
@@ -324,9 +324,6 @@ angular.module('app')
       //alert(JSON.stringify(tripService.getDepartureTrip()));
       wsService.callService(wsdl_url, urn, "ListarHorarios", listarHorarios_parameters).then(function(schedules){
           if (schedules.length > 0){
-            var trip = tripService.getDepartureTrip();            
-            $scope.searches.unshift({ goingDate: trip.departure_date, backDate: trip.return_date, goingCity_id:trip.origin_id, goingCity:trip.origin_name, backCity_id:trip.destination_id, backCity:trip.destination_name, status: false});
-            localStorageService.set("last-searches",JSON.stringify($scope.searches));
             //guardar aca departure-trip
             //tripService.saveDepartureTrip();
             tripService.setSchedules(schedules);
