@@ -79,7 +79,7 @@ angular.module('app')
         if (reason == "timeout"){
           alert("Tiempo de respuesta agotado, verifique su conexión o intente más tarde.");
         } else {
-          alert("Error: "+reason+" intente más tarde.");
+          alert("Error: "+reason+". Por favor, intente más tarde.");
         }
         hide_modal();
       });
@@ -127,7 +127,7 @@ angular.module('app')
               if (reason == "timeout"){
                 alert("Tiempo de respuesta agotado, verifique su conexión o intente más tarde.");
               } else {
-                alert("Error: "+reason+" intente más tarde.");
+                alert("Error: "+reason+". Por favor, intente más tarde.");
               }
               hide_modal();
           });
@@ -258,7 +258,7 @@ angular.module('app')
               if (reason == "timeout"){
                 alert("Tiempo de respuesta agotado, verifique su conexión o intente más tarde.");
               } else {
-                alert("Error: "+reason+" intente más tarde.");
+                alert("Error: "+reason+". Por favor, intente más tarde.");
               }
               hide_modal();
           });
