@@ -245,7 +245,7 @@ angular.module('app')
   						hide_modal();
               if (schedules.length > 0){
                 var ida = tripService.getDepartureTrip();
-                $scope.searches.unshift({ goingDate: ida.departure_date, backDate: ida.return_date, goingCity: ida.origin_name, backCity: ida.destination_name, status: false});
+                $scope.searches.unshift({ goingDate: trip.departure_date, backDate: trip.return_date, goingCity_id:trip.origin_id, goingCity:trip.origin_name, backCity_id:trip.destination_id, backCity:trip.destination_name, status: false});
                 localStorageService.set("last-searches",JSON.stringify($scope.searches));
                 //guardar aca departure-trip
                 //tripService.saveDepartureTrip();
@@ -264,6 +264,77 @@ angular.module('app')
           });
         }
       }
+    };
+
+    $scope.goSearch2 = function(orig_id,dest_id,orig,dest,dDate,rDate){
+      dDate = moment(dDate).toString();
+      rDate = moment(rDate).toString();
+      if (rDate != ''){
+        tripService.setRoundTrip(1);
+        tripService.setTripReturn(rDate);
+      } else {
+        tripService.setRoundTrip(0);
+        tripService.setTripReturn('');
+      }
+      tripService.setTripOriginId(orig_id.toString());
+      tripService.setTripOriginName(orig);
+      tripService.setTripDestinationId(dest_id.toString());
+      tripService.setTripDestinationName(dest);
+      //console.log($scope.params.departureDate);
+      tripService.setTripDeparture(dDate);
+      // tripService.searchTrips($scope.params.origin.ID_Localidad, $scope.params.destination.id_localidad_destino, $scope.params.departureDate.format("YYYYMMDD")).then(function(schedules)
+      var listarHorarios_parameters = [
+        {
+          name: "userWS",
+          type: "string",
+          value: "UsuarioLep"
+        },
+        {
+          name: "passWS",
+          type: "string",
+          value: "Lep1234"
+        },
+        {
+          name: "IdLocalidadOrigen",
+          type: "int",
+          value: orig_id.toString()
+        },
+        {
+          name: "IdLocalidadDestino",
+          type: "int",
+          value: dest_id.toString()
+        },
+        {
+          name: "Fecha",
+          type: "string",
+          value: moment(dDate).format("YYYYMMDD")
+        },
+        {
+          name: "DNI",
+          type: "int",
+          value: "1"
+        },
+        {
+          name: "id_plataforma",
+          type: "int",
+          value: "3"
+        }          
+      ];
+      tripService.saveDepartureTrip();
+      //alert(JSON.stringify(tripService.getDepartureTrip()));
+      wsService.callService(wsdl_url, urn, "ListarHorarios", listarHorarios_parameters).then(function(schedules){
+          if (schedules.length > 0){
+            var trip = tripService.getDepartureTrip();            
+            $scope.searches.unshift({ goingDate: trip.departure_date, backDate: trip.return_date, goingCity_id:trip.origin_id, goingCity:trip.origin_name, backCity_id:trip.destination_id, backCity:trip.destination_name, status: false});
+            localStorageService.set("last-searches",JSON.stringify($scope.searches));
+            //guardar aca departure-trip
+            //tripService.saveDepartureTrip();
+            tripService.setSchedules(schedules);
+            $location.path('/schedules');
+          } else {
+            window.alert("No existen viajes para esa fecha");
+          }
+      });
     };
 
     $scope.$watch('params.departureDate', function(date){

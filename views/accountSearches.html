@@ -1,20 +1,20 @@
 <div class="container">
       <div class="row border-bottom border-top">
         <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
-        	<a href="#/account/reserves">Mis <span><strong>Reservas</strong><span></a></div>
+        	<a href="#/account/reserves">Mis <span><strong>Reservas</strong></span></a></div>
         <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
-        	<a href="#/account/purchases">Mis <span><strong >Compras</strong><span></a></div>
+        	<a href="#/account/purchases">Mis <span><strong >Compras</strong></span></a></div>
         <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
-        	<a href="#/account/lastsearch">Últimas <span><strong class="lepBlue-color">Búsquedas</strong><span></a></div>
+        	<a href="#/account/lastsearch">Últimas <span><strong class="lepBlue-color">Búsquedas</strong></span></a></div>
         <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
-        	<a href="#/account/checkbalance">Consultar <span><strong>Saldo</strong><span></a></div>
+        	<a href="#/account/checkbalance">Consultar <span><strong>Saldo</strong></span></a></div>
         <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
-        	<a href="#/account/buycredits">Recargar <span><strong>Saldo</strong><span></a></div>
+        	<a href="#/account/buycredits">Recargar <span><strong>Saldo</strong></span></a></div>
         <div class="col-xs-4 col-sm-2 text-center lep-href lep-margin">
-        	<a href="#/account/update">Modificar <span><strong>Cuenta</strong><span></a></div>
+        	<a href="#/account/update">Modificar <span><strong>Cuenta</strong></span></a></div>
       </div>
 
-      </br>
+      <br>
 
       <div class="nav container lepDarkGrey-color" ng-controller = "HomeCtrl">
             <div class = "container schedules-row" ng-repeat = "search in searches">
@@ -29,7 +29,7 @@
                         <strong>-</strong>
                     </div>-->
                     <div class = "col-sm-3 col-xs-12 search-item-box text-center">
-                        <a href="#/schedules"><img src="img/busqueda2.png" class="img-responsive"style="float:left;height:20px"><strong>Ir a Horario</strong></a>                   
+                        <button ng-click="goSearch2(search.goingCity_id,search.backCity_id,search.goingCity, search.backCity, search.goingDate, search.backDate)"><img src="img/busqueda2.png" class="img-responsive"style="float:left;height:20px"><strong>Ir a Horario</strong></button>                   
                     </div>
                 </div>
             </div>
