@@ -43,7 +43,7 @@ angular.module('app').controller('ScheduleController', function ($scope, $locati
             value: "3"
           }          
         ];
-        wsService.callService(wsdl_url, urn, "ListarHorarios", listarHorarios_parameters2).then(function(schedules){ //"ListarHorarioscGPS"
+        wsService.callService(wsdl_url_wsConGps, urn, "ListarHorarioscGPS", listarHorarios_parameters2).then(function(schedules){ //"ListarHorarioscGPS"
 			if (schedules.length > 0){
 				$scope.schedules = schedules;
 			} else {
