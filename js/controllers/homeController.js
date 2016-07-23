@@ -75,9 +75,17 @@ angular.module('app')
       wsService.callService(wsdl_url, urn, "LocalidadesDesde",localidadesDesde_parameters).then(function(origins){
         hide_modal();
         $scope.origins = origins;
+      }, function(reason){
+        if (reason == "timeout"){
+          alert("Tiempo de respuesta agotado, verifique su conexión o intente más tarde.");
+        } else {
+          alert("Error: "+reason+" intente más tarde.");
+        }
+        hide_modal();
       });
     }
-  }
+  };
+
     //Function that check the availables destinations whenever the trip origin changes.
     $scope.checkDestinations = function(origin){
         $scope.params.origin = origin;
@@ -113,9 +121,16 @@ angular.module('app')
           ];
           display_modal();
           wsService.callService(wsdl_url,urn,"Localidadeshasta",getDestinations_params).then(function(destinations){
-            	$scope.destinations = destinations;
+              $scope.destinations = destinations;
               hide_modal();
-      	});
+      	    }, function(reason){
+              if (reason == "timeout"){
+                alert("Tiempo de respuesta agotado, verifique su conexión o intente más tarde.");
+              } else {
+                alert("Error: "+reason+" intente más tarde.");
+              }
+              hide_modal();
+          });
 		  	tripService.setTripOriginId($scope.params.origin.ID_Localidad);
 		  	tripService.setTripOriginName($scope.params.origin.Localidad);
       	} else {
@@ -239,8 +254,14 @@ angular.module('app')
   						} else {
   							window.alert("No existen viajes para esa fecha");
   						}
-  				});
-  			
+  				}, function(reason){
+              if (reason == "timeout"){
+                alert("Tiempo de respuesta agotado, verifique su conexión o intente más tarde.");
+              } else {
+                alert("Error: "+reason+" intente más tarde.");
+              }
+              hide_modal();
+          });
         }
       }
     };

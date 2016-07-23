@@ -1,5 +1,5 @@
 angular.module('app')
-.factory('wsService', ["$q", function($q){
+.factory('wsService', ["$q","$timeout", function($q, $timeout){
 
 	var wsService = {};
 	/*
@@ -15,6 +15,7 @@ angular.module('app')
 		//Create the deferred object
 		var deferred = $q.defer();
 		//Create the xmlhttp petition 
+
 		var xmlhttp = new XMLHttpRequest();
 		//Specify the type of request so that it will be a post, sent to the wsdl
 		//passed by the user and that it will be an asynchronous call.
@@ -58,7 +59,6 @@ angular.module('app')
        				var json_response = x2js.xml_str2json(xmlhttp.response);
        				//Set the method response tag.
        				var method_response = method+'Response';
-             
        				//Create the json object.
               try{
        				   var json_object = eval("("+json_response.Envelope.Body[method_response].return.__text+")");
@@ -88,15 +88,18 @@ angular.module('app')
                   str = str.substring(x+2,n);
                   deferred.resolve(str);
               }
-
-       			}
+       			} else {
+              deferred.reject(xmlhttp.status.toString());
+            }
        		}
-       	}                
+       	}  
+        $timeout(function(){
+          deferred.reject("timeout");
+        }, 10000);              
        	//Send the POST request.
        	xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+        //Return a promise.
        	xmlhttp.send(soap_request);
-
-       	//Return a promise.
        	return deferred.promise;
 
 	};
