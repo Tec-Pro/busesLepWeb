@@ -241,7 +241,7 @@ angular.module('app')
           ];
           tripService.saveDepartureTrip();
           display_modal();
-          wsService.callService(wsdl_url, urn, "ListarHorarios", listarHorarios_parameters).then(function(schedules){ //"ListarHorarioscGPS"
+          wsService.callService(wsdl_url_wsConGps, urn, "ListarHorarioscGPS", listarHorarios_parameters).then(function(schedules){ //"ListarHorarioscGPS"
   						hide_modal();
               if (schedules.length > 0){
                 var trip = tripService.getDepartureTrip();

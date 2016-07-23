@@ -137,8 +137,8 @@
                 <h5>${{goPrice}}</h5>
               </div>
               <div class= "title col-xs-3">
-                  <div > <!-- ng-hide="sched.latitud == 'Sin GPS'"> -->
-                     <img ng-click = "showMap(-31.398602,-64.182139)"class = "map-img center-block" ng-src="img/Posicionamiento.png" alt="">
+                  <div ng-hide="sched.latitud == 'Sin GPS'"> 
+                     <img ng-click = "showMap(sched.latitud,sched.longitud)"class = "map-img center-block" ng-src="img/Posicionamiento.png" alt="">
                   </div>
                 
               </div>

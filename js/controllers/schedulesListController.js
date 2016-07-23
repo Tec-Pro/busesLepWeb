@@ -52,9 +52,10 @@ angular.module('app').controller('ScheduleController', function ($scope, $locati
             type: "int",
             value: "3"
           }          
-        ];display_loading_modal();
-        wsService.callService(wsdl_url, urn, "ListarHorarios", listarHorarios_parameters2).then(function(schedules){ //"ListarHorarioscGPS"
-			hide_loading_modal();
+        ];
+        display_loading_modal();
+        wsService.callService(wsdl_url_wsConGps, urn, "ListarHorarioscGPS", listarHorarios_parameters2).then(function(schedules){ //"ListarHorarioscGPS"
+        	hide_loading_modal();
 			if (schedules.length > 0){
 				$scope.schedules = schedules;
 			} else {
@@ -263,8 +264,8 @@ angular.module('app').controller('ScheduleController', function ($scope, $locati
   	var longitude = 0;
   	var map_modal = document.getElementById('map-modal');
   	$scope.showMap =  function(lat,lon){
-  		latitude = lat;
-  		longitude =lon;   
+  		latitude = Number(lat);
+  		longitude = Number(lon);   
   		var mapCenter = new google.maps.LatLng(latitude, longitude);
 	    map_modal.style.display = "block";
 	    var mapOptions = {
