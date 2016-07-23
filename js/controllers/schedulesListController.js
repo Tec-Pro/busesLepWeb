@@ -102,7 +102,6 @@ angular.module('app').controller('ScheduleController', function ($scope, $locati
     };
 
 	$scope.$watch('params.departureDate', function(date){
-		//console.log($scope.params.departureDate);
     	if (!$scope.params.departureDate.isSame($scope.departure_date)){
 	        var listarHorarios_parameters = [
 		        {
@@ -157,7 +156,7 @@ angular.module('app').controller('ScheduleController', function ($scope, $locati
 			    }
 			    hide_loading_modal();
     		});
-	
+			$scope.departure_date = $scope.params.departureDate;
     	}
     });
 
