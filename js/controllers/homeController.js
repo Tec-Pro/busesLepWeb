@@ -65,12 +65,18 @@ angular.module('app')
       value: "3"
     }
   ]
-	//Call the web service and update the origins from the scope.
-	wsService.callService(wsdl_url, urn, "LocalidadesDesde",localidadesDesde_parameters).then(function(origins){
-	  $scope.origins = origins;
-	});
-  
+  $scope.origins = [];
 
+  $scope.load_origins = function(){
+    //Call the web service and update the origins from the scope.
+    if ($scope.origins.length == 0){
+      display_modal();
+      wsService.callService(wsdl_url, urn, "LocalidadesDesde",localidadesDesde_parameters).then(function(origins){
+        hide_modal();
+        $scope.origins = origins;
+      });
+    }
+  }
     //Function that check the availables destinations whenever the trip origin changes.
     $scope.checkDestinations = function(origin){
         $scope.params.origin = origin;
