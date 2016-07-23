@@ -43,7 +43,7 @@ angular.module('app').controller('ScheduleController', function ($scope, $locati
             value: "3"
           }          
         ];
-        wsService.callService(wsdl_url_wsConGps, urn, "ListarHorarioscGPS", listarHorarios_parameters2).then(function(schedules){
+        wsService.callService(wsdl_url, urn, "ListarHorarios", listarHorarios_parameters2).then(function(schedules){ //"ListarHorarioscGPS"
 			if (schedules.length > 0){
 				$scope.schedules = schedules;
 			} else {
@@ -175,12 +175,6 @@ angular.module('app').controller('ScheduleController', function ($scope, $locati
         //If month dropdowns should be shown.
         showDropdowns: true
     };
-
-
-
-	
-
-  	//console.log($scope.schedules);
 	
   	$scope.goSummary = function(index) {		
 		if($scope.departure_trip.round_trip != 0){
@@ -228,5 +222,34 @@ angular.module('app').controller('ScheduleController', function ($scope, $locati
 		    var input = [];
 		    for (var i = min; i <= max; i += step) input.push(i);
 		    return input;
-  		};
+  	};
+
+	var latitude = 0;
+  	var longitude = 0;
+  	var map_modal = document.getElementById('map-modal');
+  	$scope.showMap =  function(lat,lon){
+  		latitude = lat;
+  		longitude =lon;   
+  		var mapCenter = new google.maps.LatLng(latitude, longitude);
+	    map_modal.style.display = "block";
+	    var mapOptions = {
+	        zoom: 8,
+	        center: mapCenter,
+	        mapTypeId: google.maps.MapTypeId.ROADMAP
+	    };
+    	var map = new google.maps.Map(document.getElementById('googleMap'), mapOptions);
+    	var marker=new google.maps.Marker({
+  			position:mapCenter,
+  		});
+
+		marker.setMap(map);
+    };
+
+	
+
+	$scope.hide_modal = function(){
+      map_modal.style.display = "none";
+    }
+
+
 });
