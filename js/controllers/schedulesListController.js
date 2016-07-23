@@ -228,8 +228,8 @@ angular.module('app').controller('ScheduleController', function ($scope, $locati
   	var longitude = 0;
   	var map_modal = document.getElementById('map-modal');
   	$scope.showMap =  function(lat,lon){
-  		latitude = lat;
-  		longitude =lon;   
+  		latitude = Number(lat);
+  		longitude = Number(lon);   
   		var mapCenter = new google.maps.LatLng(latitude, longitude);
 	    map_modal.style.display = "block";
 	    var mapOptions = {
