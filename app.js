@@ -110,6 +110,9 @@ angular.module("app", ["ngRoute","ngAnimate","LocalStorageModule","angularSoap",
             .when("/account/update", {
                 controller: "LoginCtrl",
                 templateUrl: "views/accountUpdate.html"
+            })
+            .otherwise({
+                redirectTo: "/"
             });             
     })
 .directive('numbersOnly', function() {
