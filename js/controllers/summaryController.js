@@ -12,6 +12,7 @@ angular.module('app').controller('SummaryController', function($scope, $location
 	$scope.price = tripService.getTripPrice();
   $scope.trip = tripService.getDepartureTrip();
 
+  
   $scope.passengers = 1; 
   //console.log(localStorageService.get("user-lep").dni);                               
 	window.scrollTo(0,140);
@@ -26,15 +27,22 @@ angular.module('app').controller('SummaryController', function($scope, $location
 		amount: ''
 	};*/
 
-	if($scope.isRoundTrip){
-
-	};
 
 	$scope.schedule = scheduleService.getSchedule();
 	$scope.scheduleReturn = scheduleService.getScheduleReturn();
 
+  if($scope.trip == undefined || $scope.schedule == undefined){
+        $location.path('/'); 
+  }
+
 	$scope.goSeatPicker = function () {
-    addReserve("1");
+
+    if(localStorageService.get("user-lep").email == ""){
+      $location.path('/login');
+    }
+    else{
+      addReserve("1");
+    }
    
     //console.log($scope.passengers);
 	}
@@ -45,7 +53,12 @@ angular.module('app').controller('SummaryController', function($scope, $location
 
 	$scope.goReserve = function(){
     tripService.savePassengers($scope.passengers);
-    $location.path('/reserveDetails');
+    if(localStorageService.get("user-lep").email == ""){
+      $location.path('/login');
+    }
+    else{    
+      $location.path('/reserveDetails');
+    }
 	}
 
 	addReserve = function(isBuy){

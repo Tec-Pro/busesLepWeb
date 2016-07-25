@@ -6,6 +6,9 @@ angular.module('app').controller('SeatsController', function ($scope, $location,
     var trip = tripService.getDepartureTrip();
     var schedule = scheduleService.getSchedule();
     var scheduleReturn = scheduleService.getScheduleReturn();
+    if(sell_code == undefined || schedule==undefined){
+        $location.path('/'); 
+    }
     $scope.passengers = tripService.getPassengers();
     $scope.isRoundTrip = tripService.getDepartureTrip().round_trip === 1;
     $scope.seatsSelectedGo = [];
@@ -312,6 +315,8 @@ angular.module('app').controller('SeatsController', function ($scope, $location,
             alert("Quedan asientos de Vuelta sin seleccionar");
             return;
         }     
+        tripService.saveSelectedSeatsGo($scope.seatsSelectedGo);
+        tripService.saveSelectedSeatsReturn($scope.seatsSelectedReturn);
     	$location.path('/details'); 
 	};
 
