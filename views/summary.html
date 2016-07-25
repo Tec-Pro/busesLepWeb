@@ -62,14 +62,16 @@
 				<h5 class = "no-bold green">{{schedule.ServicioPrestado | capitalize}}</h5>
 			</div>
 			<div class= "title col-xs-1">
-				<h5 class= "visible-md visible-lg no-bold">Diferencial</h5>
+				<h5 class= "visible-md visible-lg no-bold">{{schedule.Servicio}}</h5>
 				<h5 class= "hidden-md hidden-lg no-bold">Dif.</h5>
 			</div>
 			<div class= "title col-xs-1">
 				<h5>${{price}}</h5>
 			</div>
 			<div class= "title col-xs-1">
+				<div ng-hide="schedule.latitud == 'Sin GPS'">
 				 <img class = "map-img center-block" ng-src="img/Posicionamiento.png" alt="">
+				</div>
 			</div>
 		</div>
 		<div class= "col-xs-12 background-lightgrey2 lightgrey2">. </div>
@@ -93,14 +95,16 @@
 				<h5 class = "no-bold green">{{scheduleReturn.ServicioPrestado | capitalize}}</h5>
 			</div>
 			<div class= "title col-xs-1">
-				<h5 class= "visible-md visible-lg no-bold">Diferencial</h5>
+				<h5 class= "visible-md visible-lg no-bold">{{scheduleReturn.Servicio}}</h5>
 				<h5 class= "hidden-md hidden-lg no-bold">Dif.</h5>
 			</div>
 			<div class= "title col-xs-1">
 				<h5>${{price}}</h5>
 			</div>
 			<div class= "title col-xs-1">
+				<div ng-hide="scheduleReturn.latitud == 'Sin GPS'"> 
 				 <img class = "map-img center-block" ng-src="img/Posicionamiento.png" alt="">
+				</div>
 			</div>
 		</div>
 		<div class= "col-xs-12 background-lightgrey2 lightgrey2">. </div>
@@ -137,10 +141,12 @@
 				<h5 class = "no-bold green">{{schedule.ServicioPrestado | capitalize}}</h5>
 			</div>
 			<div class= "title col-xs-4">
-				<h5 class= "no-bold">Diferencial</h5>	
+				<h5 class= "no-bold">{{schedule.Servicio}}</h5>	
 			</div>
 			<div class= "title col-xs-4">
-				 <img class = "map-img center-block" ng-src="img/Posicionamiento.png" alt="">
+				<div ng-hide="schedule.latitud == 'Sin GPS'"> 
+					<img class = "map-img center-block" ng-src="img/Posicionamiento.png" alt="">
+				</div>
 			</div>
 			<div class= "title col-xs-12"> <hr></div>
 			<div class= "title col-xs-12">
@@ -173,10 +179,12 @@
 				<h5 class = "no-bold green">{{scheduleReturn.ServicioPrestado | capitalize}}</h5>
 			</div>
 			<div class= "title col-xs-4">
-				<h5 class= "no-bold">Diferencial</h5>	
+				<h5 class= "no-bold">{{scheduleReturn.Servicio}}</h5>	
 			</div>
 			<div class= "title col-xs-4">
-				 <img class = "map-img center-block" ng-src="img/Posicionamiento.png" alt="">
+				<div ng-hide="scheduleReturn.latitud == 'Sin GPS'"> 
+					<img class = "map-img center-block" ng-src="img/Posicionamiento.png" alt="">
+				</div>
 			</div>
 			<div class= "title col-xs-12"> <hr></div>
 			<div class= "title col-xs-12">
