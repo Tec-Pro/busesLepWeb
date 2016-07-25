@@ -28,7 +28,7 @@ body {
 }*/
 
 .lepWhite-bg{
-  background: #ffffff;
+  background: #000000;
 }
 .lepWhite-color{
   color: #ffffff;
@@ -856,4 +856,18 @@ color:#ff0008;
 
 .sched-modal-body {
 
+}
+
+.lep-container {
+  background-color: #ffffff; 
+  width: 90%;
+  margin-left: 5%;
+}
+
+#footer {
+  width: 88%;
+}
+
+#movida {
+  background-color: #303030;
 }
