@@ -29,7 +29,7 @@ angular.module('app').controller('DetailsController', function ($scope, $locatio
 
 	$scope.$on('$routeChangeStart', function (scope, next, current) {
         //console.log(next.$$route.controller);
-        if (next.$$route.controller == "SeatsController" && $$route.controller == "DetailsController") {
+        if (next.$$route.controller == "SeatsController") {
             // Show here for your model, and do what you need**
             //$("#yourModel").show();
             $location.path('/');	
