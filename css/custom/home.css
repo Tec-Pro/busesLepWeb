@@ -34,10 +34,12 @@
 }
 
 .carousel-control.left, .carousel-control.right {
-	background-image: none
+	background-image: none;
+	cursor:	default;
 }
 
 .carousel-indicators {
+	display: none;
 	bottom: 5%;
 }
 

@@ -21,6 +21,15 @@ angular.module('app').controller('SeatsController', function ($scope, $location,
         seatsWsCall(scheduleReturn.Id_Empresa,scheduleReturn.id_destino,scheduleReturn.cod_horario,trip.destination_id, trip.origin_id, false);
     }
 
+   /* $scope.noBack = function(event){
+        console.log(event.persisted);
+        if(event.persisted){
+            $location.path('/'); 
+        }
+    }*/
+
+    //$scope.noBack(event);
+
     function seatsWsCall(companyId,destintionId,scheduleCode,originId,destinationId,isGo){
         parameters = [
         {
@@ -303,7 +312,7 @@ angular.module('app').controller('SeatsController', function ($scope, $location,
             alert("Quedan asientos de Vuelta sin seleccionar");
             return;
         }     
-    	$location.path('/buy'); 
+    	$location.path('/details'); 
 	};
 
 	$scope.goBack = function () {

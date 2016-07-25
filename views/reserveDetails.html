@@ -33,10 +33,10 @@
 					<p class = "background-lightgrey3 normal hidden-xs">{{schedule.fechahora | lepDateMonth}} <span class="bold-blue"> {{schedule.fechahora | lepHour}} </span><strong>hs</strong></p>
 					
 					<!-- en pantallas chicas se divide en 2 renglones fecha y hora-->
-					<p class = "background-lightgrey3 normal visible-xs">{{schedule.FechaHoraLlegada | lepDateMonth}}</p>
-					<p class = "background-lightgrey3 normal visible-xs"><span class="bold-blue"> {{schedule.FechaHoraLlegada | lepHour}} </span><strong>hs</strong></p>
+					<p class = "background-lightgrey3 normal visible-xs">{{schedule.fechahora | lepDateMonth}}</p>
+					<p class = "background-lightgrey3 normal visible-xs"><span class="bold-blue"> {{schedule.fechahora | lepHour}} </span><strong>hs</strong></p>
 
-					<p class = "normal"><strong>Diferencial</strong></p>
+					<p class = "normal"><strong>{{schedule.Servicio}}</strong></p>
 					<p class = " background-lightgrey3 normal"><strong>{{passengers}}</strong></p>
 					<p class = "normal"><strong> - </strong></p>
 					<p class = "background-lightgrey3 normal"><strong> - </strong></p>
@@ -70,10 +70,10 @@
 					<p class = "background-lightgrey3 normal hidden-xs">{{scheduleReturn.fechahora | lepDateMonth}} <span class="bold-blue"> {{scheduleReturn.fechahora | lepHour}} </span><strong>hs</strong></p>
 					
 					<!-- en pantallas chicas se divide en 2 renglones fecha y hora-->
-					<p class = "background-lightgrey3 normal visible-xs">{{scheduleReturn.FechaHoraLlegada | lepDateMonth}}</p>
-					<p class = "background-lightgrey3 normal visible-xs"><span class="bold-blue"> {{scheduleReturn.FechaHoraLlegada | lepHour}} </span><strong>hs</strong></p>
+					<p class = "background-lightgrey3 normal visible-xs">{{scheduleReturn.fechahora | lepDateMonth}}</p>
+					<p class = "background-lightgrey3 normal visible-xs"><span class="bold-blue"> {{scheduleReturn.fechahora | lepHour}} </span><strong>hs</strong></p>
 
-					<p class = "normal"><strong>Diferencial</strong></p>
+					<p class = "normal"><strong>{{scheduleReturn.Servicio}}</strong></p>
 					<p class = " background-lightgrey3 normal"><strong>{{passengers}}</strong></p>
 					<p class = "  normal"><strong> - </strong></p>
 					<p class = "background-lightgrey3 normal"><strong> - </strong></p>

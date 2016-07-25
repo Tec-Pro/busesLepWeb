@@ -27,6 +27,15 @@ angular.module('app').controller('DetailsController', function ($scope, $locatio
 		window.history.back();
 	}
 
+	$scope.$on('$routeChangeStart', function (scope, next, current) {
+        //console.log(next.$$route.controller);
+        if (next.$$route.controller == "SeatsController") {
+            // Show here for your model, and do what you need**
+            //$("#yourModel").show();
+            $location.path('/');	
+        }
+    });
+
 	addReserve = function(isBuy){
 	    var idEmprVuelta = '0';
 	    var idDestVuelta = '0';
