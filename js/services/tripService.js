@@ -24,6 +24,8 @@ angular.module('app')
 	var trip_price = 0;
 	var sell_code = -1;
 	var passengers = 1;
+	var selectedSeatsGo = [];
+	var selectedSeatsReturn = [];
 	
 	/*var user = {'name':'John'};
 	sessionStorage.setItem('user', JSON.stringify(user));
@@ -97,6 +99,18 @@ angular.module('app')
 			trip_price = val;
 			sessionStorage.setItem('trip_price', trip_price);	
 		},
+		saveSelectedSeatsGo: function(val){
+			if(val != undefined){
+				selectedSeatsGo = val;	
+			}	
+			sessionStorage.setItem('selected_seats_go', JSON.stringify(selectedSeatsGo));
+		},
+		saveSelectedSeatsReturn: function(val){
+			if(val != undefined){
+				selectedSeatsReturn = val;
+			}
+			sessionStorage.setItem('selected_seats_return', JSON.stringify(selectedSeatsReturn));	
+		},
 		getDepartureTrip: function(){
 			if(sessionStorage.departure_trip == undefined){
 				departure_trip = {
@@ -129,6 +143,26 @@ angular.module('app')
 		getReturnTrip: function(){
 			return return_trip;
 		},
+		getSelectedSeatsGo: function(){
+			var result = sessionStorage.selected_seats_go;
+		
+			if(result != undefined){
+				return JSON.parse(result);
+			}
+			else{
+				return selectedSeatsGo;
+			}
+		},
+		getSelectedSeatsReturn: function(){
+			var result = sessionStorage.selected_seats_return;
+			
+			if(result != undefined){
+				return JSON.parse(result);
+			}
+			else{
+				return selectedSeatsReturn;
+			}
+		},
 		getTripPrice: function(){
 			return sessionStorage.trip_price;
 		},
@@ -140,7 +174,12 @@ angular.module('app')
 		},
 		getSchedules: function(){
 			//return schedules;
-			return JSON.parse(sessionStorage.schedules);
+			if(sessionStorage.schedules != undefined){
+				return JSON.parse(sessionStorage.schedules);
+			}
+			else{
+				return undefined;
+			}
 		},
 		setSchedules: function(val){
 			schedules = val;

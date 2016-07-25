@@ -72,15 +72,18 @@ angular.module('app').controller('ScheduleController', function ($scope, $locati
 	};
     
 	$scope.departure_trip = tripService.getDepartureTrip();
-
+	$scope.schedules = tripService.getSchedules();
+	if($scope.schedules == undefined || $scope.departure_trip == undefined){
+        $location.path('/'); 
+    }
 	$scope.origin = $scope.departure_trip.origin_name;
 	$scope.destination = $scope.departure_trip.destination_name;
 	$scope.origin_id = $scope.departure_trip.origin_id;
 	$scope.destination_id = $scope.departure_trip.destination_id;
 	$scope.departure_date = $scope.departure_trip.departure_date;
-	$scope.schedules = tripService.getSchedules();
+	
 	$scope.titleLabel = "Ida";
-
+	
 	if(scheduleService.getIsReturnTrip()){
 		$scope.origin = $scope.departure_trip.destination_name;
 		$scope.destination = $scope.departure_trip.origin_name;
@@ -102,6 +105,8 @@ angular.module('app').controller('ScheduleController', function ($scope, $locati
     };
 
 	$scope.$watch('params.departureDate', function(date){
+		if($scope.params.departureDate.isSame == undefined)
+			return;
     	if (!$scope.params.departureDate.isSame($scope.departure_date)){
 	        var listarHorarios_parameters = [
 		        {
