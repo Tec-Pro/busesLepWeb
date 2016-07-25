@@ -353,7 +353,7 @@ angular.module('app')
     });
 
     $scope.goCompanyUnits = function(tab){
-      companyService.setActiveTab(4);
+      companyService.setActiveTab(3);
       companyService.setActiveUnitTab(tab);
       $window.scrollTo(0,0);
       $location.path('/company');
