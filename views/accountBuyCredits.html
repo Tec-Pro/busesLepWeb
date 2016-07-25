@@ -26,7 +26,7 @@
                         <strong>Número de Tarjeta</strong>
                     </div>
                     <div class = "col-xs-5 text-center ">
-                      <input type="text" class="lep-form" id="nroTarjeta" placeholder="Ingresar Nro" required ng-model="user.nroTarjeta"/>
+                      <input type="text" class="lep-form card-input" id="nroTarjeta" placeholder="Ingresar Nro" required ng-model="card.number"/>
                     </div>
                     <div class = "col-xs-12 col-lg-3 padding-top5">
                       <img ng-src="img/Mi cuenta/Abono Gral.png" style="float:right;width:40px;height:30px">
@@ -37,14 +37,14 @@
                         <strong>Monto a Recargar</strong>
                     </div>
                     <div class = "col-xs-5 text-center">
-                        <input type="text" class="lep-form" id="montoRecarga" placeholder="Ingresar Monto" required ng-model="user.montoRecarga"/>
+                        <input type="text" class="lep-form card-input" id="montoRecarga" placeholder="Ingresar Monto" required ng-model="card.amount"/>
                     </div>
                 </div>
             </li>
         </ul>
     </div>
     <div class="col-xs-5 col-sm-4">
-        <button id="recargarBtn"class="btn btn-default lepRed-bg lepWhite-color margin-top-80"type="submit">Recargar</button>
+        <button ng-disabled="card.amount <= 0" id="depositBtn" class="btn btn-default lepRed-bg lepWhite-color margin-top-80" type="button">Recargar</button>
     </div>
 </div>
 
@@ -58,37 +58,38 @@
         <h4>Confirmación</h4>
       </div>
       <div class="modal-body">
-        <p>Usted esta por hacer una recarga en la tarjeta Nro <span><strong>51346</strong></span> por un monto de <span><strong>$2000</strong></span></p>
-        <button class="btn btn-default lepRed-bg lepWhite-color row-top-margin15"type="submit">Confirmar</button>
+        <p>Usted esta por hacer una recarga en la tarjeta Nro <span><strong>{{card.number}}</strong></span> por un monto de <span><strong>$ {{card.amount}}</strong></span></p>
+        <button class="btn btn-default lepRed-bg lepWhite-color row-top-margin15" type="button"  ng-click="deposit_to_card(card.number,card.amount)">Confirmar</button>
       </div>
     </div>
 
 </div>
 
-<script>
-// Get the modal
-var modal = document.getElementById('myModal');
+<!-- The Modal -->
+<div id="response-modal" class="modal">
 
-// Get the button that opens the modal
-var btn = document.getElementById("recargarBtn");
+ <!-- Modal content -->
+    <div class="modal-content ">
+      <div class="modal-header">
+        <span class="close">×</span>
+        <h4>Transacción exitosa</h4>
+      </div>
+      <div class="modal-body">
+        <p>El número de transacción es <span id="sale-id"></span>, usted recibió una bonificación de <span id="sale-bonus"></span></p>
+        <button class="btn btn-default lepRed-bg lepWhite-color row-top-margin15" type="button" ng-click="hide_response()">Cerrar</button>
+      </div>
+    </div>
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+</div>
 
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-    modal.style.display = "block";
-}
+<!-- The Loading Modal -->
+<div id="acc-dep-loading-modal" class="acc-loading-modal">
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
-}
+  <!-- Modal content -->
+  <div class="acc-loading-modal-content">
+    <div>
+        <img src="./img/shared/ajax-loader.gif">
+    </div>
+  </div>
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-</script>
+</div>
