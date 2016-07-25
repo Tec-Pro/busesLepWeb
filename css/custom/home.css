@@ -196,6 +196,23 @@ p.home-news {
 .home-modal-body {
 
 }
+
+@media (max-width: 640px) {
+ 	.img-container {
+ 		padding-left: 0px;
+ 		padding-right: 0px;
+ 	}
+
+ 	.btn-home {
+ 		max-width: 100%;
+ 	}
+
+ 	.img-container h3 {
+ 		padding-left: 15px;
+ 		padding-right: 15px;
+ 	}
+}
+
 /* Add Animation */
 @-webkit-keyframes animatetop {
     from {top:-300px; opacity:0}

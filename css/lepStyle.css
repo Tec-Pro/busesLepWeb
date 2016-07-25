@@ -862,6 +862,7 @@ color:#ff0008;
   background-color: #ffffff; 
   width: 90%;
   margin-left: 5%;
+  margin-bottom: 5%;
 }
 
 #footer {
@@ -870,4 +871,20 @@ color:#ff0008;
 
 #movida {
   background-color: #303030;
+}
+
+@media (max-width: 600px) {
+  .lep-container {
+    width: 110%;
+    margin-left: -5%;
+  }
+
+  #footer {
+    width: 100%;
+  }
+
+  #movida {
+    width: 100%;
+    background-color: #ffffff;
+  }
 }
