@@ -277,22 +277,19 @@
                     <a  ng-hide="tab === 5" href="#/special">Viajes Especiales</a>
                     <a  ng-show="tab === 5" href="#/special"><strong>Viajes Especiales</strong></a>
                 </li>
-                <li ng-click="tab = 6">
+                <li ng-click="tab = 6" ng-show = "user.dni != ''">
                     <a  ng-hide="tab === 6" href="#/account/reserves">Mi Cuenta</a>
                     <a  ng-show="tab === 6" href="#/account/reserves"><strong>Mi Cuenta</strong></a>
+                </li>
+                <li ng-click="tab = 6" ng-show = "user.dni == ''">
+                    <a  ng-hide="tab === 6" href="#/login">Mi Cuenta</a>
+                    <a  ng-show="tab === 6" href="#/login"><strong>Mi Cuenta</strong></a>
                 </li>
                 <li ng-click="tab = 7">
                     <a  ng-hide="tab === 7" href="#/">Inicio</a>
                     <a  ng-show="tab === 7" href="#/"><strong>Inicio</strong></a>
                 </li>
             </ul>
-            <!--<li><a  ng-show="user.dni != '' " href="">Recargar ciudades</a></li>
-            <li><a  ng-show="user.dni != '' " href="#/lastSearches">Últimas Búsquedas</a></li>
-            <li><a  ng-show="user.dni != '' " href="#/editProfile">Editar Perfil</a></li>
-            <li><a  ng-show="user.dni != '' " href="#/editPass">Cambiar Contraseña</a></li>
-            <li><a  ng-show="user.dni != '' " href="#/userReserves">Mis Reservas</a></li>
-            <li><a  ng-show="user.dni != '' " href="#/userTickets">Mis Compras</a></li>
-            <li><a  ng-show="user.dni != '' " href="#/" ng-click="logout()">{{console.log(localStorageService.get("user-lep"))}}Cerrar Sesion</a></li>-->
           
         </div><!--/.nav-collapse -->
       </div>
