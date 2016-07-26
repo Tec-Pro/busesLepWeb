@@ -24,6 +24,9 @@ angular.module('app')
     document.querySelector('#email').value = user_email;
 	var sell_code = tripService.getSellCode();
 	document.querySelector('#amount').value = tripService.getTripPrice();//10//tripService.getTripPrice();
+	if(tripService.getTripPrice() == undefined){
+		$location.path('/');
+	}
 	$scope.selectedPayment = null;
 	$scope.totalAmount = document.querySelector('#amount').value;
    	$scope.showSecurityCodeInput = true;
@@ -280,7 +283,8 @@ angular.module('app')
 	function sdkResponseHandler(status, response) {
 	    if (status != 200 && status != 201) {
 	    	//console.log(response);
-	        alert("Numero de tarjeta o codigo de seguridad incorrectos");
+	    	document.getElementById("error-modal-text").innerHTML = "Datos Incorrectos";
+		    error_modal.style.display = "block";
 	    }else{
 	       //alert("all good" + response.id);
 	       //console.log(response);
@@ -303,7 +307,7 @@ angular.module('app')
 	        				token: response.id,
 	        				transaction_amount: parseInt($scope.totalAmount)
 	        				}
-	        console.log(JSON.stringify(datosCompra));
+	        //console.log(JSON.stringify(datosCompra));
 	        wsParameters = [
 				{
 					name: "UserCobro",
@@ -365,7 +369,6 @@ angular.module('app')
 					}
 
 					if(messageError != ""){
-		        		//alert(messageError);
 		        		document.getElementById("error-modal-text").innerHTML = messageError;
 		        		error_modal.style.display = "block";
 		        		//location.reload();
@@ -379,7 +382,6 @@ angular.module('app')
 	        });
 	        
 	        
-	        //alert(messageError);
 	        /*$http.post("http://localhost:8081/api/mercadopago").success(function(response){ //llama a nuestra api para efectuar el pago
 				console.log(response);
 			});*/

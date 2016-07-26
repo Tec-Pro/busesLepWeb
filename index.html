@@ -133,7 +133,7 @@
 <body ng-app="app"  ng-init = "tab = 7">    
 
     <!-- Info bar-->
-    <div class="container-fluid lepStyle hidden-xs">
+    <div id="info-bar" class="container-fluid lepStyle hidden-xs">
         <div class="row" ng-controller="LoginCtrl" style="padding-bottom:5px">
             <div class="col-sm-7 col-md-7 visible-lg">
                 <div class="row">
@@ -199,7 +199,7 @@
         </div>
     </div>
     <!-- Cover Image-->
-    <div class="container-fluid lepStyle background-white hidden-xs">
+    <div id="cover" class="container-fluid lepStyle background-white hidden-xs">
       <div class="row">
         <a href="#/"><img class="col-xs-6 size-logo img-responsive left" ng-src="img/Iconos comunes/Isologo.png" alt="Buses Lep" ></a>
         <p class="col-xs-6 font-arial" style="padding-top:5%;text-align:center;font-size:180%;"> 
@@ -299,8 +299,9 @@
     </nav>
 
     <div id="movida">
-     <div class= "container-fluid"ng-view></div>
-    <br><br><br>
+    	<div>
+     		<div class= "lep-container" ng-view></div>
+     	</div>
       <!-- footer-->
   <div id="footer" class="container-fluid lepStyle2" ng-controller="FooterCtrl">
       <div class="row">
@@ -359,7 +360,7 @@
                     <img src="img/Iconos comunes/Icono sobre.png" style="width:18px;height:12px;margin-right:10px;">expreso@buseslep.com.ar
                 </div>
                 <div class="col-xs-12 col-sm-1">
-                   <button class="btn btn-default lepRed-bg lepWhite-color"type="contacto" style="margin:10px">Contacto</button> 
+                   <button class="btn btn-default lepRed-bg lepWhite-color" type="button" style="margin:10px" ng-click="goCompanyContact()">Contacto</button> 
                 </div>
             </div>
         </div>

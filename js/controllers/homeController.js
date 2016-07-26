@@ -69,6 +69,9 @@ angular.module('app')
   $scope.origins = [];
 
   $scope.load_origins = function(){
+    $scope.origin_search = '';
+    $scope.destination_search = '';
+    $scope.destinations = '';
     //Call the web service and update the origins from the scope.
     if ($scope.origins.length == 0){
       display_modal();
@@ -350,7 +353,7 @@ angular.module('app')
     });
 
     $scope.goCompanyUnits = function(tab){
-      companyService.setActiveTab(4);
+      companyService.setActiveTab(3);
       companyService.setActiveUnitTab(tab);
       $window.scrollTo(0,0);
       $location.path('/company');

@@ -857,3 +857,15 @@ color:#ff0008;
 .sched-modal-body {
 
 }
+
+#movida {
+  background-color: #303030;
+}
+
+
+/*Color of borders to white on extra small screens */
+@media screen and (max-width: 768px) {
+    #movida {
+      background-color: #ffffff;
+    }
+}

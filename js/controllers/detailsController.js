@@ -2,18 +2,18 @@ angular.module('app').controller('DetailsController', function ($scope, $locatio
 
 	var wsdl_url = 'https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService';
   	var urn = 'LepWebServiceIntf-ILepWebService';
-	$scope.code = 2456;
 	$scope.isRoundTrip = tripService.getDepartureTrip().round_trip === 1;
 	$scope.price = tripService.getTripPrice();
   	$scope.trip = tripService.getDepartureTrip();  
   	$scope.passengers = tripService.getPassengers();
   	$scope.schedule = scheduleService.getSchedule();
+  	if($scope.trip == undefined || $scope.schedule == undefined){
+        $location.path('/'); 
+    }
 	$scope.scheduleReturn = scheduleService.getScheduleReturn();
-
-	$scope.goEnd = function() {
-	    $location.path('/endPurchase/' + $scope.code);	 
-	    //seat.img = '../img/occupied_seat.png'
-	};
+	$scope.seatsSelectedGo = tripService.getSelectedSeatsGo();
+	$scope.seatsSelectedReturn = tripService.getSelectedSeatsReturn();
+	
 	$scope.goMercadopagoBuy = function() {
 	    $location.path('/buy');	 
 	    //seat.img = '../img/occupied_seat.png'
