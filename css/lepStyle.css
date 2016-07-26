@@ -859,19 +859,35 @@ color:#ff0008;
 }
 
 .lep-container {
-  background-color: #ffffff;
-  width: 90%;
-  margin-left: 5%;
+  width: 100%;
 }
 
 #movida {
-  background-color: #303030;
+  background-color: #ffffff;
+}
+
+@media screen and (min-width: 768px) {
+  .lep-container{
+    width: 95%;
+    background-color: #ffffff;
+  }
+
+  #movida {
+    background-color: #303030;
+  }
+}
+
+@media screen and (min-width: 1280px){
+  .lep-container {
+    width: 90%;
+  }
+}
+
+@media screen and (min-width: 1920px){
+  .lep-container {
+    width: 75%;
+  }
 }
 
 
-/*Color of borders to white on extra small screens */
-@media screen and (max-width: 768px) {
-    #movida {
-      background-color: #ffffff;
-    }
-}
+

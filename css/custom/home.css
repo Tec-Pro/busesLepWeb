@@ -206,3 +206,9 @@ p.home-news {
     from {top:-300px; opacity:0}
     to {top:0; opacity:1}
 }
+
+@media screen and (max-width: 768px) {
+   	.img-container {
+   		width: 100%;
+   	}
+}
