@@ -28,7 +28,7 @@ body {
 }*/
 
 .lepWhite-bg{
-  background: #000000;
+  background: #ffffff;
 }
 .lepWhite-color{
   color: #ffffff;
@@ -858,16 +858,14 @@ color:#ff0008;
 
 }
 
-.lep-container {
-  background-color: #ffffff; 
-  width: 90%;
-  margin-left: 5%;
-}
-
-#footer {
-  width: 88%;
-}
-
 #movida {
   background-color: #303030;
+}
+
+
+/*Color of borders to white on extra small screens */
+@media screen and (max-width: 768px) {
+    #movida {
+      background-color: #ffffff;
+    }
 }
