@@ -858,6 +858,12 @@ color:#ff0008;
 
 }
 
+.lep-container {
+  background-color: #ffffff;
+  width: 90%;
+  margin-left: 5%;
+}
+
 #movida {
   background-color: #303030;
 }
