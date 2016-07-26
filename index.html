@@ -61,6 +61,7 @@
 	<script type="text/javascript" src="js/services/scheduleService.js"></script>	
     <script type="text/javascript" src="js/services/companyService.js"></script>
     <script type="text/javascript" src="js/services/wsService.js"></script>
+    <script type="text/javascript" src="js/services/feedService.js"></script>
 
 	<!-- Custom filters -->
 	<script type="text/javascript" src="js/filters/filters.js"></script>
@@ -328,7 +329,13 @@
                     <span class="h1-responsive">{{weather.temp}}°</span></p>
             </div>
             <div class="row text-center">
-                <p>Cuidemos el medio ambiente</p>
+                <ul class="unstyled">
+                  <li class="item" ng-repeat="feed in feeds | limitTo:3">                    
+                      <h5><a target="_blank" href="{{feed.link}}">{{feed.title}}</a></h5>
+                      <p class="text-left">{{feed.contentSnippet}}</p>                    
+                      <span class="small">{{feed.publishedDate}}</span>
+                  </li>                
+              </ul>
             </div>
         </div>
         <div class="hidden-xs col-sm-3 text-center h4-responsive" style="padding:10px"><strong>Tu opinión nos interesa...</strong>
@@ -364,3 +371,4 @@
 </div> <!--end movida-->
 </body>
 </html>
+
