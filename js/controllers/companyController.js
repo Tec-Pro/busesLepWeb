@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('CompCtrl', function($scope, $location, companyService, Lightbox){
+.controller('CompCtrl', function($scope, $location, companyService){
 
 	$scope.active = companyService.getActiveTab();
 	$scope.active_unit_tab = companyService.getActiveUnitTab();
