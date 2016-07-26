@@ -169,8 +169,8 @@
         </div>
     </div>
     <!--info bar xs-->
-    <div class="container-fluid visible-xs lepGrey-bg">
-        <div ng-show="user.dni == '' " ng-controller="LoginCtrl" style="margin-bottom:10px" href="">
+    <div class="container-fluid visible-xs lepGrey-bg" >
+        <div ng-controller="LoginCtrl" style="margin-bottom:10px" ng-show = "user.dni != ''" href="">
             <form class="row" ng-submit="login()">
                 <input type="text" class="lep-form col-xs-4" id="DNI" placeholder="DNI" required ng-model="user.dni"/>
                 <input type="password" class="lep-form col-xs-4" id="Password" placeholder="Contraseña" required ng-model="user.pass"/>                 
@@ -238,9 +238,13 @@
                     <a ng-hide="tab === 5" data-toggle="collapse" data-target=".navbar-collapse" href="#/special">Viajes Especiales</a>
                     <a ng-show="tab === 5" data-toggle="collapse" data-target=".navbar-collapse" href="#/special"><strong>Viajes Especiales</strong></a>
                 </li>
-                <li ng-click="tab = 6">
+                <li ng-click="tab = 6" ng-show = "user.dni != ''">
                     <a ng-hide="tab === 6" data-toggle="collapse" data-target=".navbar-collapse" href="#/account/reserves">Mi Cuenta</a>
                     <a ng-show="tab === 6" data-toggle="collapse" data-target=".navbar-collapse" href="#/account/reserves"><strong>Mi Cuenta</strong></a>
+                </li>
+                <li ng-click="tab = 6" ng-show = "user.dni == ''">
+                    <a ng-hide="tab === 6" data-toggle="collapse" data-target=".navbar-collapse" href="#/login">Mi Cuenta</a>
+                    <a ng-show="tab === 6" data-toggle="collapse" data-target=".navbar-collapse" href="#/login"><strong>Mi Cuenta</strong></a>
                 </li>
                 <li ng-click="tab = 7">
                     <a ng-hide="tab === 7" data-toggle="collapse" data-target=".navbar-collapse" href="#/">Inicio</a>
@@ -270,22 +274,19 @@
                     <a  ng-hide="tab === 5" href="#/special">Viajes Especiales</a>
                     <a  ng-show="tab === 5" href="#/special"><strong>Viajes Especiales</strong></a>
                 </li>
-                <li ng-click="tab = 6">
+                <li ng-click="tab = 6" ng-show = "user.dni != ''">
                     <a  ng-hide="tab === 6" href="#/account/reserves">Mi Cuenta</a>
                     <a  ng-show="tab === 6" href="#/account/reserves"><strong>Mi Cuenta</strong></a>
+                </li>
+                <li ng-click="tab = 6" ng-show = "user.dni == ''">
+                    <a  ng-hide="tab === 6" href="#/login">Mi Cuenta</a>
+                    <a  ng-show="tab === 6" href="#/login"><strong>Mi Cuenta</strong></a>
                 </li>
                 <li ng-click="tab = 7">
                     <a  ng-hide="tab === 7" href="#/">Inicio</a>
                     <a  ng-show="tab === 7" href="#/"><strong>Inicio</strong></a>
                 </li>
             </ul>
-            <!--<li><a  ng-show="user.dni != '' " href="">Recargar ciudades</a></li>
-            <li><a  ng-show="user.dni != '' " href="#/lastSearches">Últimas Búsquedas</a></li>
-            <li><a  ng-show="user.dni != '' " href="#/editProfile">Editar Perfil</a></li>
-            <li><a  ng-show="user.dni != '' " href="#/editPass">Cambiar Contraseña</a></li>
-            <li><a  ng-show="user.dni != '' " href="#/userReserves">Mis Reservas</a></li>
-            <li><a  ng-show="user.dni != '' " href="#/userTickets">Mis Compras</a></li>
-            <li><a  ng-show="user.dni != '' " href="#/" ng-click="logout()">{{console.log(localStorageService.get("user-lep"))}}Cerrar Sesion</a></li>-->
           
         </div><!--/.nav-collapse -->
       </div>
@@ -294,71 +295,71 @@
     <div id="movida">
      	<div class="lep-container container" ng-view></div>
       <!-- footer-->
-	  	<div id="footer" class="container-fluid lepStyle2" ng-controller="FooterCtrl">
-	      <div class="row">
-	        <div class="col-xs-12 col-sm-3 text-center h4-responsive" style="padding:10px"><strong>Noticias</strong>
-	            <div class="row text-center ">
-	                <p>October Fest 2015  </br> <span class="lepGrey-color"> 21/09/2015 </span></p>
-	            </div>
-	            <div class="row text-center">
-	                <p>Fiesta de la Primavera </br> <span class="lepGrey-color"> 21/09/2015 </span></p>
-	            </div>
-	            <div class="row text-center ">
-	                <p>Próxima nota  </br> <span class="lepGrey-color"> 21/09/2015 </span></p>
-	            </div>
-	        </div>
-	        <div class="col-xs-12 col-sm-3 text-center h4-responsive" style="padding:10px"><strong>Novedades</strong>
-	            <div class="row text-center ">
-	                <p>A partir del 1 de Septiembre se podrán gestionar las renovaciones de los Boletos Educativos Gratuitos</p>
-	            </div>
-	            <div class="row text-center">
-	                <p>Ya podes conseguir tu tarjeta electronica para viajar a cualquiera de nuestros destinos</p>
-	            </div>
-	        </div>
-	        <div class="col-xs-12 col-sm-3 text-center h4-responsive" style="padding:10px"><strong>Actualidad</strong>
-	            <div class="row text-center">
-	                <p>Temperatura en Cordoba Capital </br> Min {{weather.tempMin}}° / Max {{weather.tempMax}}° </br> 
-	                    <span class="h1-responsive">{{weather.temp}}°</span></p>
-	            </div>
-	            <div class="row text-center">
-	                <ul class="unstyled">
-	                  <li class="item" ng-repeat="feed in feeds | limitTo:3">                    
-	                      <a target="_blank" class="small lepGrey-color"href="{{feed.link}}">{{feed.title}}</a>
-	                  </li>                
-	              </ul>
-	            </div>
-	        </div>
-	        <div class="hidden-xs col-sm-3 text-center h4-responsive" style="padding:10px"><strong>Tu opinión nos interesa...</strong>
-	           <textarea class="lep-form textarea" name="Opinion"></textarea>
-	           <button class="btn btn-default lepStyle2"type="submit" style="font-size:0.7em;margin-top:10px;margin-bottom:10px">Enviar</button> 
-	        </div>
-	      </div>      
-	      <div class="row lepDarkestGrey-bg lepWhite-color border-bottom-red">
-	        <div class="col-xs-12 col-sm-2 padding-top10" >
-	            <p class="h2-responsive font-arial"><strong>buses Lep</strong></p>
-	        </div>
-	        <div class="col-xs-6 col-sm-10">
-	            <div class="row">
-	                 <div class=" font-normal2 padding-top15 col-sm-3 col-xs-10">
-	                    <img src="img/Iconos comunes/Icono Celular.png" style="width:12px;height:19px;margin-right:10px">0351-5696600, 0358-4219090
-	                </div>
-	                <div class="font-normal2 padding-top15 col-sm-4 col-xs-10">
-	                    <img src="img/Iconos comunes/icono posicionamiento pie.png" style="width:15px;height:17px;margin-right:10px;">Av.Vélez Sarfield 1580 - CP(5000)Córdoba
-	                </div>
-	                <div class="font-normal2 padding-top15 col-sm-3 col-xs-10">
-	                    <img src="img/Iconos comunes/Icono sobre.png" style="width:18px;height:12px;margin-right:10px;">expreso@buseslep.com.ar
-	                </div>
-	                <div class="col-xs-12 col-sm-1">
-	                   <button class="btn btn-default lepRed-bg lepWhite-color" type="button" style="margin:10px" ng-click="goCompanyContact()">Contacto</button> 
-	                </div>
-	            </div>
-	        </div>
-	      </div>
-	      <div class="row lepDarkestGrey-bg lepWhite-color">
-	        <p class="text-center padding-top5"> Copyright <strong>buses Lep 2016</strong> - Todos los derechos reservados</p>
-	      </div>
-	  	</div> <!--end footer-->
-		</div> <!--end movida-->
-	</body>
+		  <div id="footer" class="container-fluid lepStyle2" ng-controller="FooterCtrl">
+      <div class="row">
+        <div class="col-xs-12 col-sm-3 text-center h4-responsive" style="padding:10px"><strong>Noticias</strong>
+            <div class="row text-center ">
+                <p>October Fest 2015  </br> <span class="lepGrey-color"> 21/09/2015 </span></p>
+            </div>
+            <div class="row text-center">
+                <p>Fiesta de la Primavera </br> <span class="lepGrey-color"> 21/09/2015 </span></p>
+            </div>
+            <div class="row text-center ">
+                <p>Próxima nota  </br> <span class="lepGrey-color"> 21/09/2015 </span></p>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-3 text-center h4-responsive" style="padding:10px"><strong>Novedades</strong>
+            <div class="row text-center ">
+                <p>A partir del 1 de Septiembre se podrán gestionar las renovaciones de los Boletos Educativos Gratuitos</p>
+            </div>
+            <div class="row text-center">
+                <p>Ya podes conseguir tu tarjeta electronica para viajar a cualquiera de nuestros destinos</p>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-3 text-center h4-responsive" style="padding:10px"><strong>Actualidad</strong>
+            <div class="row text-center">
+                <p>Temperatura en Cordoba Capital </br> Min {{weather.tempMin}}° / Max {{weather.tempMax}}° </br> 
+                    <span class="h1-responsive">{{weather.temp}}°</span></p>
+            </div>
+            <div class="row text-center">
+                <ul class="unstyled">
+                  <li class="item" ng-repeat="feed in feeds | limitTo:3">                    
+                      <a target="_blank" class="small lepGrey-color"href="{{feed.link}}">{{feed.title}}</a>
+                  </li>                
+              </ul>
+            </div>
+        </div>
+        <div class="hidden-xs col-sm-3 text-center h4-responsive" style="padding:10px"><strong>Tu opinión nos interesa...</strong>
+           <textarea class="lep-form textarea" name="Opinion"></textarea>
+           <button class="btn btn-default lepStyle2"type="submit" style="font-size:0.7em;margin-top:10px;margin-bottom:10px">Enviar</button> 
+        </div>
+      </div>      
+      <div class="row lepDarkestGrey-bg lepWhite-color border-bottom-red">
+        <div class="col-xs-12 col-sm-2 padding-top10" >
+            <p class="h2-responsive font-arial"><strong>buses Lep</strong></p>
+        </div>
+        <div class="col-xs-12 col-sm-10">
+            <div class="row">
+                 <div class=" font-normal2 padding-top15 col-sm-3 col-xs-10 h5-responsive">
+                    <img src="img/Iconos comunes/Icono Celular.png" style="width:12px;height:19px;margin-right:10px">0351-5696600, 0358-4219090
+                </div>
+                <div class="font-normal2 padding-top15 col-sm-4 col-xs-10 h5-responsive">
+                    <img src="img/Iconos comunes/icono posicionamiento pie.png" style="width:15px;height:17px;margin-right:10px;">Av.Vélez Sarfield 1580 - CP(5000)Córdoba
+                </div>
+                <div class="font-normal2 padding-top15 col-sm-3 col-xs-10 h5-responsive">
+                    <img src="img/Iconos comunes/Icono sobre.png" style="width:18px;height:12px;margin-right:10px;">expreso@buseslep.com.ar
+                </div>
+                <div class="col-xs-12 col-sm-1">
+                   <button class="btn btn-default lepRed-bg lepWhite-color" type="button" style="margin:10px" ng-click="goCompanyContact()">Contacto</button> 
+                </div>
+            </div>
+        </div>
+      </div>
+      <div class="row lepDarkestGrey-bg lepWhite-color">
+        <p class="text-center padding-top5"> Copyright <strong>buses Lep 2016</strong> - Todos los derechos reservados</p>
+      </div>
+  </div> <!--end footer-->
+</div> <!--end movida-->
+</body>
 </html>
 
