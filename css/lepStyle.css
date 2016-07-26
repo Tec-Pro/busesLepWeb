@@ -9,7 +9,7 @@ body {
     position: fixed;
     right:0;
     left:0;
-    top: 0;
+    top: 35px;
 }
 
 .validation.ng-invalid.ng-dirty{
@@ -158,6 +158,11 @@ body {
   border-bottom: 2px;
   border-bottom-style: solid;
   border-bottom-color: #e6e6e6;
+}
+.border-bottom-grey{
+  border-bottom: 2px;
+  border-bottom-style: solid;
+  border-bottom-color: #c6c6c6;
 }
 .border-bottom-red{
   border-bottom: 3px;
@@ -426,6 +431,9 @@ hr {
 
 .padding-top50{
    padding-top: 50px;
+}
+.padding-top30{
+   padding-top: 30px;
 }
 .padding-top20{
    padding-top: 20px;
