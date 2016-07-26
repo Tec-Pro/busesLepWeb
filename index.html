@@ -176,8 +176,8 @@
         </div>
     </div>
     <!--info bar xs-->
-    <div class="container-fluid visible-xs lepGrey-bg">
-        <div ng-show="user.dni == '' " ng-controller="LoginCtrl" style="margin-bottom:10px" href="">
+    <div class="container-fluid visible-xs lepGrey-bg" >
+        <div ng-controller="LoginCtrl" style="margin-bottom:10px" ng-show="user.dni == '' " href="">
             <form class="row" ng-submit="login()">
                 <input type="text" class="lep-form col-xs-4" id="DNI" placeholder="DNI" required ng-model="user.dni"/>
                 <input type="password" class="lep-form col-xs-4" id="Password" placeholder="Contraseña" required ng-model="user.pass"/>                 
@@ -245,9 +245,13 @@
                     <a ng-hide="tab === 5" data-toggle="collapse" data-target=".navbar-collapse" href="#/special">Viajes Especiales</a>
                     <a ng-show="tab === 5" data-toggle="collapse" data-target=".navbar-collapse" href="#/special"><strong>Viajes Especiales</strong></a>
                 </li>
-                <li ng-click="tab = 6">
+                <li ng-click="tab = 6" ng-show = "user.dni != ''">
                     <a ng-hide="tab === 6" data-toggle="collapse" data-target=".navbar-collapse" href="#/account/reserves">Mi Cuenta</a>
                     <a ng-show="tab === 6" data-toggle="collapse" data-target=".navbar-collapse" href="#/account/reserves"><strong>Mi Cuenta</strong></a>
+                </li>
+                <li ng-click="tab = 6" ng-show = "user.dni == ''">
+                    <a ng-hide="tab === 6" data-toggle="collapse" data-target=".navbar-collapse" href="#/login">Mi Cuenta</a>
+                    <a ng-show="tab === 6" data-toggle="collapse" data-target=".navbar-collapse" href="#/login"><strong>Mi Cuenta</strong></a>
                 </li>
                 <li ng-click="tab = 7">
                     <a ng-hide="tab === 7" data-toggle="collapse" data-target=".navbar-collapse" href="#/">Inicio</a>
