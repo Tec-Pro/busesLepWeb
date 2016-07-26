@@ -3,8 +3,8 @@ angular.module('app')
 
 	$scope.active = companyService.getActiveTab();
 	$scope.active_unit_tab = companyService.getActiveUnitTab();
-	$scope.active_gall_img = 2;
-	$scope.active_gall_thmb = 2;
+	$scope.active_gall_img = 1;
+	$scope.active_gall_thmb = 1;
 
 	$scope.set_active = function(tab){
 		$scope.active = tab;
