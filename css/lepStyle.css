@@ -860,15 +860,28 @@ color:#ff0008;
 
 .lep-container {
   width: 100%;
+  padding-bottom: 50px;
 }
 
 #movida {
   background-color: #ffffff;
 }
 
-@media screen and (min-width: 768px) {
-  .lep-container{
+@media screen and (min-width: 768px){
+  .lep-container {
     width: 95%;
+  }
+}
+
+@media screen and (min-width: 980px){
+  .lep-container {
+    width: 85%;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .lep-container{
+    width: 60%;
     background-color: #ffffff;
   }
 
@@ -876,18 +889,3 @@ color:#ff0008;
     background-color: #303030;
   }
 }
-
-@media screen and (min-width: 1280px){
-  .lep-container {
-    width: 90%;
-  }
-}
-
-@media screen and (min-width: 1920px){
-  .lep-container {
-    width: 75%;
-  }
-}
-
-
-
