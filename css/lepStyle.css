@@ -2,14 +2,23 @@ body {
     padding-top: 0px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 @media screen and (max-width: 768px) {
-    body { padding-top: 0px; }
+    body { padding-top: 35px; }
 }
 
 .sticky {
     position: fixed;
     right:0;
     left:0;
-    top: 35px;
+    top: 45px;
+}
+
+@media screen and (max-width: 768px) {
+    .sticky {
+        position: fixed;
+        right:0;
+        left:0;
+        top: 35px;
+    }
 }
 
 .validation.ng-invalid.ng-dirty{
@@ -158,6 +167,11 @@ body {
   border-bottom: 2px;
   border-bottom-style: solid;
   border-bottom-color: #e6e6e6;
+}
+.border-bottom-white{
+  border-bottom: 2px;
+  border-bottom-style: solid;
+  border-bottom-color: white;
 }
 .border-bottom-grey{
   border-bottom: 2px;
@@ -447,8 +461,14 @@ hr {
 .padding-top5{
    padding-top: 5px;
 }
+.padding-top4{
+   padding-top: 4px;
+}
 .padding-bottom10{
    padding-bottom: 10px;
+}
+.padding-bottom4{
+   padding-bottom: 4px;
 }
 
 .h1-responsive {
