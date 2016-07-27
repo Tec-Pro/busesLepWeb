@@ -1,4 +1,4 @@
-angular.module('app').controller('ToursController', function ($scope, $location){
+angular.module('app').controller('ToursController', ['$scope', '$location', function ($scope, $location){
 
   	$scope.tours = [
 	    { origin: 'Cordoba', destination: 'Sta Rosa de Calamuchita', 'cities':[{name: "Va. Gral Belgrano"}]},
@@ -6,4 +6,4 @@ angular.module('app').controller('ToursController', function ($scope, $location)
 	    { origin: 'Va. Gral Belgrano', destination: 'Va. Ciudad Parque', 'cities':[{name: "Los Reartes"}]},
   	];
 
- });
+ }]);
