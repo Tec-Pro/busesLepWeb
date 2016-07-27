@@ -43,13 +43,13 @@
                 <div class = "col-xs-11 card3 no-mar-pad-bor" ng-class-odd="'background-lightgrey3'" ng-class-even="" >
                     <div class = "col-xs-12 no-mar-pad-bor" style="cursor:pointer" ng-class="{'card4':$index == selectedRow}" ng-click="setClickedRow($index)">
                         <div class = "col-xs-4">
-                          <h5 class = "title ">{{office.location}}</h5>
+                          <h5 class = "title ">{{office.Localidad}}</h5>
                         </div>
                         <div class = "col-xs-4">
-                          <h5 class = "title" ng-class="{'lepBlue-color':$index == selectedRow}">{{office.address}}</h5>
+                          <h5 class = "title" ng-class="{'lepBlue-color':$index == selectedRow}">{{office.Boleteria_Ubicacion}}</h5>
                         </div>
                         <div class = "col-xs-4">
-                          <h5 class = "title">{{office.phone}}</h5>
+                          <h5 class = "title">{{office.Boleteria_Telefono}}</h5>
                         </div>
                     </div>
                 </div>
@@ -62,13 +62,13 @@
             <div class = "col-xs-12 no-mar-pad-bor visible-xs card3" ng-class-odd="'background-lightgrey3'" ng-class-even="" >   
                 <div class = "col-xs-10 no-mar-pad-bor">          
                     <div class = "col-xs-12">
-                      <h5 class = "text-left">{{office.location}}</h5>
+                      <h5 class = "text-left">{{office.Localidad}}</h5>
                     </div>
                     <div class = "col-xs-12">
-                      <h5 class = "text-left"> Dir: {{office.address}}</h5>
+                      <h5 class = "text-left"> Dir: {{office.Boleteria_Ubicacion}}</h5>
                     </div>
                     <div class = "col-xs-12">   
-                        <h5 class = "text-left"> Tel: {{office.phone}}</h5>
+                        <h5 class = "text-left"> Tel: {{office.Boleteria_Telefono}}</h5>
                     </div>
                 </div> 
                 <div class = "col-xs-2 no-mar-pad-bor">
