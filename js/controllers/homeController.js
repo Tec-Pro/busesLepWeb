@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('HomeCtrl', function($scope, $location, $window,localStorageService, wsService, tripService, companyService){
+.controller('HomeCtrl', ['$scope', '$location', '$window', 'localStorageService', 'wsService', 'tripService', 'companyService', function($scope, $location, $window,localStorageService, wsService, tripService, companyService){
   
     var wsdl_url = 'https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService'//https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService';
     var wsdl_url_wsConGps = "https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepcGPS.dll/soap/ILepWebService";
@@ -369,4 +369,4 @@ angular.module('app')
     var hide_modal = function(){
       modal.style.display = "none";
     }
-});
+}]);

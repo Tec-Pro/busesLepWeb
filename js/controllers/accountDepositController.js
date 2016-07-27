@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('AccDepCtrl', function($scope, $location, $window, wsService){
+.controller('AccDepCtrl', ['$scope', '$lcoation', '$window', 'wsService', function($scope, $location, $window, wsService){
 	wsdl_url = "https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepcGPS.dll/soap/ILepWebService";
 	urn = "LepWebServiceIntf-ILepWebService";
 	method = "PrecargaTarjeta";
@@ -118,4 +118,4 @@ angular.module('app')
 	    }
 	}
 
-});
+}]);

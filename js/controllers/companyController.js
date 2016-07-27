@@ -1,10 +1,10 @@
 angular.module('app')
-.controller('CompCtrl', function($scope, $location, companyService){
+.controller('CompCtrl', ['$scope', '$location', 'companyService', function($scope, $location, companyService){
 
 	$scope.active = companyService.getActiveTab();
 	$scope.active_unit_tab = companyService.getActiveUnitTab();
 	$scope.active_gall_img = 1;
-	$scope.active_gall_thmb = 1;
+	$scope.active_gall_thmb = 2;
 
 	$scope.set_active = function(tab){
 		$scope.active = tab;
@@ -108,4 +108,4 @@ angular.module('app')
 	        modal.style.display = "none";
 	    }
 	}
-});
+}]);

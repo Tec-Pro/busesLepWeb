@@ -1,4 +1,4 @@
-angular.module('app').controller('TicketOfficesController', function ($scope, $location){
+angular.module('app').controller('TicketOfficesController', ['$scope', '$location', function ($scope, $location){
   	$scope.ticketOffices = [
 	    { location: 'Adelia Maria', address: 'Terminal de Omnibus', phone: '03585 421541 / 422300', img: 'img/Boleterias/EjemploFotoBoleteria.png'},
 	    { location: 'Adelia Maria', address: 'Terminal de Omnibus', phone: '03585 421541 / 422300', img: "img/Empresa/Confort_imagen2.png"},
@@ -23,4 +23,4 @@ angular.module('app').controller('TicketOfficesController', function ($scope, $l
     	$scope.selectedImg = $scope.ticketOffices[index].img;
   	}
 
-});
+}]);

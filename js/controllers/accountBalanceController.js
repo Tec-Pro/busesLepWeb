@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('AccBalCtrl', function($scope, $location, $window, wsService){
+.controller('AccBalCtrl', ['$scope', '$location', '$window', 'wsService', function($scope, $location, $window, wsService){
 	wsdl_url = "https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepcGPS.dll/wsdl/ILepWebService";
 	urn = "LepWebServiceIntf-ILepWebService";
 
@@ -69,4 +69,4 @@ angular.module('app')
 			console.log("Invalid card");
 		}
 	}
-});
+}]);

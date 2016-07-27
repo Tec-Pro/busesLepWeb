@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('LoginCtrl', function ($scope, $location, localStorageService, wsService) {
+.controller('LoginCtrl', ['$scope', '$location', 'localStorageService', 'wsService', function ($scope, $location, localStorageService, wsService) {
 
    var wsdl_url = 'https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService';
    var urn = 'LepWebServiceIntf-ILepWebService';
@@ -146,4 +146,4 @@ angular.module('app')
       parameters.splice(2,2); //saco los parametros 
     };
 
-});
+}]);

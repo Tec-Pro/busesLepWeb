@@ -1,4 +1,4 @@
-angular.module('app').controller('ScheduleController', function ($scope, $location, tripService, scheduleService, $filter, wsService){
+angular.module('app').controller('ScheduleController', ['$scope', '$location', 'tripService', 'scheduleService', '$filter', 'wsService', function ($scope, $location, tripService, scheduleService, $filter, wsService){
 	var wsdl_url = 'https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService';
 	var wsdl_url_wsConGps = "https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepcGPS.dll/soap/ILepWebService";
     var urn = 'LepWebServiceIntf-ILepWebService';
@@ -290,4 +290,4 @@ angular.module('app').controller('ScheduleController', function ($scope, $locati
     }
 
 
-});
+}]);

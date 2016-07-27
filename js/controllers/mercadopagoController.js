@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('MercadopagoController', function($scope,$http, $location, wsService, localStorageService, tripService){
+.controller('MercadopagoController', ['$scope', '$http', '$location', 'wsService', 'localStorageService', 'tripService', function($scope,$http, $location, wsService, localStorageService, tripService){
 //https://webservices.buseslep.com.ar:443/WebServices/WSCobroMercadoPagoTest.dll/soap/IWSCobroMercadoPago	
 //http://webservices.buseslep.com.ar:8080/WebServices/WSCobroMercadoPagoTest.dll/soap/IWSCobroMercadoPago
 	//https://webservices.buseslep.com.ar/WebServices/WSCobroMercadoPago.dll/wsdl/IWSCobroMercadoPago para poner en el soap client
@@ -401,4 +401,4 @@ angular.module('app')
 
 	
 	
-});
+}]);

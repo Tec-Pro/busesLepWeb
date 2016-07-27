@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('FooterCtrl', function ($scope, $location, $http, $window, localStorageService, companyService, wsService,feedService) {
+.controller('FooterCtrl', ['$scope', '$location', '$http', '$window', 'localStorageService', 'companyService', 'wsService', 'feedService', function ($scope, $location, $http, $window, localStorageService, companyService, wsService,feedService) {
 	$http.get("http://api.openweathermap.org/data/2.5/weather?id=3860259&APPID=6b10444e5758a2d047de8e60b9fd368d")
 	.then(function (response){
 		$scope.weather = {temp: response.data.main.temp - 273.15,
@@ -16,6 +16,6 @@ angular.module('app')
       $window.scrollTo(0,0);
       $location.path('/company');
     }
-});
+}]);
 
 

@@ -1,7 +1,7 @@
-angular.module('app').controller('SeatsController', function ($scope, $location, wsService, tripService, scheduleService){
-	
-	wsdl_url = 'https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService';
-	urn = 'LepWebServiceIntf-ILepWebService';
+angular.module('app').controller('SeatsController', ['$scope', '$location', 'wsService', 'tripService', 'scheduleService', function ($scope, $location, wsService, tripService, scheduleService){
+    
+    wsdl_url = 'https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService';
+    urn = 'LepWebServiceIntf-ILepWebService';
     var sell_code = tripService.getSellCode();
     var trip = tripService.getDepartureTrip();
     var schedule = scheduleService.getSchedule();
@@ -13,13 +13,13 @@ angular.module('app').controller('SeatsController', function ($scope, $location,
     $scope.isRoundTrip = tripService.getDepartureTrip().round_trip === 1;
     $scope.seatsSelectedGo = [];
     $scope.seatsSelectedReturn = [];
-	const Occupied =  'img/occupied_seat.png';
+    const Occupied =  'img/occupied_seat.png';
     const Free =  'img/free_seat.png';
     const Selected = 'img/selected_seat.png';
     const None = 'img/none_seat.png';
     const Driver = 'img/driver_seat.png';
 
- 	seatsWsCall(schedule.Id_Empresa,schedule.id_destino,schedule.cod_horario,trip.origin_id,trip.destination_id,true);
+     seatsWsCall(schedule.Id_Empresa,schedule.id_destino,schedule.cod_horario,trip.origin_id,trip.destination_id,true);
     if($scope.isRoundTrip){
         seatsWsCall(scheduleReturn.Id_Empresa,scheduleReturn.id_destino,scheduleReturn.cod_horario,trip.destination_id, trip.origin_id, false);
     }
@@ -86,9 +86,9 @@ angular.module('app').controller('SeatsController', function ($scope, $location,
         });
     };
 
-	function reallocateSeats(seatsToReallocate){
-		var driverAdded = false;
-		var result = [
+    function reallocateSeats(seatsToReallocate){
+        var driverAdded = false;
+        var result = [
             {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0},
             {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0},
             {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0},
@@ -97,12 +97,12 @@ angular.module('app').controller('SeatsController', function ($scope, $location,
             {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0},
             {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0},
             {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0},
-           	{img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0},
+               {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0},
             {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0},
             {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0},
             {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0}, {img: None,seatNum: 0},
-    	];
-		for (var i = 0; i < seatsToReallocate.length; i++) {
+        ];
+        for (var i = 0; i < seatsToReallocate.length; i++) {
             col = seatsToReallocate[i].Columna;
             row = seatsToReallocate[i].Fila;
             ocu = seatsToReallocate[i].Ocupado;
@@ -215,68 +215,68 @@ angular.module('app').controller('SeatsController', function ($scope, $location,
             iAux--;
         }
         return aux.slice(0);
-	};
+    };
 
     $scope.toggleSeat = function(seat,position,isGo) {
-    	//console.log(seat.seatNum);
-    	var isSelection = 0;
-    	var newImage = Free;
+        //console.log(seat.seatNum);
+        var isSelection = 0;
+        var newImage = Free;
         var isIda = "1";
         if(!isGo){
             isIda = "0";
         }
-    	switch(seat.img) {
-		    case Free: // selecciona
-		       	isSelection = 1;
-		       	newImage = Selected;
-		        break;
-		    case Selected: // deselecciona
-		    	isSelection = 0;
-		        break;
-		     default: // seleccionado
-		     	return;
-		        break;
-		}
-		parametersPickSeat = [
-		{
-			name: "userWS",
-			type: "string",
-			value: "UsuarioLep"
-		},
-		{
-			name: "passWS",
-			type: "string",
-			value: "Lep1234"
-		},
-		{
-			name: "NroButaca",
-			type: "int",
-			value: seat.seatNum.toString()
-		},
-		{
-			name: "IDVenta",
-			type: "int",
-			value: sell_code.toString()
-		},
-		{
-			name: "EsIda",
-			type: "int",
-			value: isIda
-		},
-		{
-			name: "EsSeleccion",
-			type: "int",
-			value: isSelection.toString()
-		},
-		{
-			name: "id_plataforma",
-			type: "int",
-			value: "3"
-		}]
-		wsService.callService(wsdl_url,urn, 'SeleccionarButaca', parametersPickSeat).then(function(response){
-			//console.log(response);
+        switch(seat.img) {
+            case Free: // selecciona
+                   isSelection = 1;
+                   newImage = Selected;
+                break;
+            case Selected: // deselecciona
+                isSelection = 0;
+                break;
+             default: // seleccionado
+                 return;
+                break;
+        }
+        parametersPickSeat = [
+        {
+            name: "userWS",
+            type: "string",
+            value: "UsuarioLep"
+        },
+        {
+            name: "passWS",
+            type: "string",
+            value: "Lep1234"
+        },
+        {
+            name: "NroButaca",
+            type: "int",
+            value: seat.seatNum.toString()
+        },
+        {
+            name: "IDVenta",
+            type: "int",
+            value: sell_code.toString()
+        },
+        {
+            name: "EsIda",
+            type: "int",
+            value: isIda
+        },
+        {
+            name: "EsSeleccion",
+            type: "int",
+            value: isSelection.toString()
+        },
+        {
+            name: "id_plataforma",
+            type: "int",
+            value: "3"
+        }]
+        wsService.callService(wsdl_url,urn, 'SeleccionarButaca', parametersPickSeat).then(function(response){
+            //console.log(response);
 
-			if(response == '1'){
+            if(response == '1'){
                 if(isGo){
                     $scope.seatsArrGo[position].img = newImage;
                     $scope.seatsSelectedGo.push(seat.seatNum);
@@ -285,8 +285,8 @@ angular.module('app').controller('SeatsController', function ($scope, $location,
                     $scope.seatsArrReturn[position].img = newImage;
                     $scope.seatsSelectedReturn.push(seat.seatNum);
                 }
-				
-			}
+                
+            }
             if(response == '0'){
                 if(isGo){
                     $scope.seatsArrGo[position].img = newImage;
@@ -303,7 +303,7 @@ angular.module('app').controller('SeatsController', function ($scope, $location,
                     }
                 }               
             }
-		});
+        });
     };
 
     $scope.goBuy = function() {
@@ -317,17 +317,17 @@ angular.module('app').controller('SeatsController', function ($scope, $location,
         }     
         tripService.saveSelectedSeatsGo($scope.seatsSelectedGo);
         tripService.saveSelectedSeatsReturn($scope.seatsSelectedReturn);
-    	$location.path('/details'); 
-	};
+        $location.path('/details'); 
+    };
 
-	$scope.goBack = function () {
-		window.history.back();
-	}
+    $scope.goBack = function () {
+        window.history.back();
+    }
 
-	$scope.range = function(min, max, step){
-	    step = step || 1;
-	    var input = [];
-	    for (var i = min; i <= max; i += step) input.push(i);
-	    return input;
-		};
-});
+    $scope.range = function(min, max, step){
+        step = step || 1;
+        var input = [];
+        for (var i = min; i <= max; i += step) input.push(i);
+        return input;
+        };
+}]);

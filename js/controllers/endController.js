@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('EndController', function($scope, $routeParams, $location) {
+.controller('EndController', ['$scope', '$routeParams', '$location', function($scope, $routeParams, $location) {
     $scope.code = $routeParams.code;
 
      $scope.go = function ( path ) {
@@ -15,4 +15,4 @@ angular.module('app')
             $location.path('/');	
         }
     });
-});
+}]);

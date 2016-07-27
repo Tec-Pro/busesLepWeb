@@ -1,4 +1,4 @@
-angular.module('app').controller('DetailsController', function ($scope, $location, tripService, scheduleService, localStorageService, wsService){
+angular.module('app').controller('DetailsController', ['$scope', '$location', 'tripService', 'scheduleService', 'localStorageService', 'wsService', function ($scope, $location, tripService, scheduleService, localStorageService, wsService){
 
 	var wsdl_url = 'https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService';
   	var urn = 'LepWebServiceIntf-ILepWebService';
@@ -145,4 +145,4 @@ angular.module('app').controller('DetailsController', function ($scope, $locatio
 	               $location.path('/endReserve');	
 			});
 		}
-});
+}]);

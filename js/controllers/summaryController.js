@@ -3,39 +3,39 @@
 *
 * Description
 */
-angular.module('app').controller('SummaryController', function($scope, $location, tripService, scheduleService, localStorageService, wsService){
-	
-	var wsdl_url = 'https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService';
+angular.module('app').controller('SummaryController', ['$scope', '$location', 'tripService', 'scheduleService', 'localStorageService', 'wsService', function($scope, $location, tripService, scheduleService, localStorageService, wsService){
+  
+  var wsdl_url = 'https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService';
   var urn = 'LepWebServiceIntf-ILepWebService';
-	$scope.isBuy = false;
-	$scope.isRoundTrip = tripService.getDepartureTrip().round_trip === 1;
-	$scope.price = tripService.getTripPrice();
+  $scope.isBuy = false;
+  $scope.isRoundTrip = tripService.getDepartureTrip().round_trip === 1;
+  $scope.price = tripService.getTripPrice();
   $scope.trip = tripService.getDepartureTrip();
 
   
   $scope.passengers = 1; 
   //console.log(localStorageService.get("user-lep").dni);                               
-	window.scrollTo(0,140);
-	
-	/*$scope.trip = {
-		// origin: tripService.getTrip().origin_name,
-		// destination: tripService.getTrip().destination_name,
-		// departure1: scheduleService.getSchedule().departure_datetime_1,
-		// arrival1: scheduleService.getSchedule().arrival_datetime_1,
-		// departure2: scheduleService.getSchedule().departure_datetime_2,
-		// arrival2: scheduleService.getSchedule().arrival_datetime_2,
-		amount: ''
-	};*/
+  window.scrollTo(0,140);
+  
+  /*$scope.trip = {
+    // origin: tripService.getTrip().origin_name,
+    // destination: tripService.getTrip().destination_name,
+    // departure1: scheduleService.getSchedule().departure_datetime_1,
+    // arrival1: scheduleService.getSchedule().arrival_datetime_1,
+    // departure2: scheduleService.getSchedule().departure_datetime_2,
+    // arrival2: scheduleService.getSchedule().arrival_datetime_2,
+    amount: ''
+  };*/
 
 
-	$scope.schedule = scheduleService.getSchedule();
-	$scope.scheduleReturn = scheduleService.getScheduleReturn();
+  $scope.schedule = scheduleService.getSchedule();
+  $scope.scheduleReturn = scheduleService.getScheduleReturn();
 
   if($scope.trip == undefined || $scope.schedule == undefined){
         $location.path('/'); 
   }
 
-	$scope.goSeatPicker = function () {
+  $scope.goSeatPicker = function () {
 
     if(localStorageService.get("user-lep").email == ""){
       $location.path('/login');
@@ -45,13 +45,13 @@ angular.module('app').controller('SummaryController', function($scope, $location
     }
    
     //console.log($scope.passengers);
-	}
-	
-	$scope.goBack = function () {
-		window.history.back();
-	}
+  }
+  
+  $scope.goBack = function () {
+    window.history.back();
+  }
 
-	$scope.goReserve = function(){
+  $scope.goReserve = function(){
     tripService.savePassengers($scope.passengers);
     if(localStorageService.get("user-lep").email == ""){
       $location.path('/login');
@@ -59,9 +59,9 @@ angular.module('app').controller('SummaryController', function($scope, $location
     else{    
       $location.path('/reserveDetails');
     }
-	}
+  }
 
-	addReserve = function(isBuy){
+  addReserve = function(isBuy){
     var idEmprVuelta = '0';
     var idDestVuelta = '0';
     var codHorarioVuelta = '0';
@@ -69,7 +69,7 @@ angular.module('app').controller('SummaryController', function($scope, $location
     var idLocHastaVuelta = '0';
     var cantVuelta = '0';
 
-		if($scope.isRoundTrip){
+    if($scope.isRoundTrip){
       idEmprVuelta = $scope.scheduleReturn.Id_Empresa;
       idDestVuelta = $scope.scheduleReturn.id_destino;
       codHorarioVuelta = $scope.scheduleReturn.cod_horario;
@@ -78,7 +78,7 @@ angular.module('app').controller('SummaryController', function($scope, $location
       cantVuelta = $scope.passengers;
     }
 
-		var add_reserve_parameters = [
+    var add_reserve_parameters = [
           {
             name: "userWS",
             type: "string",
@@ -173,7 +173,7 @@ angular.module('app').controller('SummaryController', function($scope, $location
                tripService.savePassengers($scope.passengers);
                $location.path('/seatPicker');
            }
-		    });
-	}
+        });
+  }
 
-});
+}]);
