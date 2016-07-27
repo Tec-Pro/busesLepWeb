@@ -15,7 +15,7 @@
       </div>
 </br>
             <br></br>
-        <div class="nav container" ng-controller = "ReservesCtrl">
+        <div class="nav container">
             <div class="container row" ng-repeat = "purchase in purchases">
                 <div class="col-xs-10 col-sm-5 card2">
                     <div class="row lepGrey-bg">
@@ -26,15 +26,15 @@
                         <div class="col-xs-6"><strong><span class="lepBlue-color">{{purchase.Salida}}</span></strong></div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-6">Sentido</div>
-                        <div class="col-xs-6"><strong>{{purchase.Sentido}}</strong></div>
+                        <div class="col-xs-6">Cod. Impresión</div>
+                        <div class="col-xs-6"><strong>{{purchase.CodImpresion}}</strong></div>
                     </div>
                     <div class="row lepLightGrey-bg">
                         <div class="col-xs-6">Cantidad de pasajes</div>
                         <div class="col-xs-6"><strong>{{purchase.cantidad}}</strong></div>
                     </div>
                 </div>
-                <div class="col-xs-1"></div>                       
+                <div class="col-xs-1"></div>                      
             </div>
 
 
