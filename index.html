@@ -6,11 +6,11 @@
 	  <meta name="viewport" content="width=device-width, initial-scale=1">
 	  <meta name="description" content="">
 	  <meta name="author" content="">
-
+      <base href="/">
 	  <title>Buses Lep</title>
 
 	  <!-- Bootstrap Core CSS -->
-	  <link href="css/bootstrap.min.css" rel="stylesheet">
+	  <link href="./css/bootstrap.min.css" rel="stylesheet">
 
 	  <!--<link rel="stylesheet" type="text/css" href="css/angular-datepicker.min.css">-->
 	  <link rel="stylesheet" type="text/css" href="css/daterangepicker.min.css">
@@ -121,7 +121,9 @@
 	          $(window).scroll(sticky_relocate);
 	          sticky_relocate();
 	      });
-	  </script>
+
+         // document.location.href = String( document.location.href ).replace( "#/", "" );
+	  </script> 
 	</head>
 	<body ng-app="app"  ng-init = "tab = -1">    
 
