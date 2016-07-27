@@ -1,5 +1,5 @@
 angular.module("app", ["ngRoute","ngAnimate","LocalStorageModule","angularSoap","daterangepicker"])
-    .config(['$stateProvider$locationProvider', '$routeProvider', function($locationProvider, $routeProvider){
+    .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider){
             $routeProvider
                 .when("/", {
                     controller: "HomeCtrl",
@@ -112,7 +112,7 @@ angular.module("app", ["ngRoute","ngAnimate","LocalStorageModule","angularSoap",
                 .otherwise({
                     redirectTo: "/"
                 });
-                $locationProvider.html5Mode(true);            
+               // $locationProvider.html5Mode(true);            
         }])
     .directive('numbersOnly', function() {
       return {
