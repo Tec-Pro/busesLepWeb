@@ -583,6 +583,13 @@ smaller than 650
     width:50px;
     height:80px;
   }
+
+  .size-logo{
+    height:25%;
+    width:25%;
+    margin:10px;
+    vertical-align: middle;
+  }
 }
 
 @media (max-width: 600px) {
