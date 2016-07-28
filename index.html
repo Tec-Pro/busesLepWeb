@@ -122,11 +122,34 @@
 	          $(window).scroll(sticky_relocate);
 	          sticky_relocate();
 	      });
-
          // document.location.href = String( document.location.href ).replace( "#/", "" );
-	  </script> 
+	  </script>
+      <script ng-init = "navbar_tab_id = 0;">
+            
+            if (location.pathname == "#/company"){
+               navbar_tab_id = 1; 
+            }
+            if (location.pathname == "#/tours"){
+               navbar_tab_id = 2; 
+            }
+            if (location.pathname == "#/ticketOffices"){
+               navbar_tab_id = 3; 
+            }
+            if (location.pathname == "#/encomiendas"){
+               navbar_tab_id = 4; 
+            }
+            if (location.pathname == "#/special"){
+               navbar_tab_id = 5; 
+            }
+            if (location.pathname == "#/account/reserves"){
+               navbar_tab_id = 6; 
+            } 
+            if (location.pathname == "#/"){
+               navbar_tab_id = 7; 
+            } 
+      </script> 
 	</head>
-	<body ng-app="app"  ng-init = "tab = -1">    
+	<body ng-app="app" ng-init="tab = 23">    
 
     <!-- Info bar-->
     <div id="info-bar" class="container-fluid lepStyle hidden-xs navbar-fixed-top border-bottom-grey">
@@ -259,35 +282,35 @@
            <ul class="selected nav navbar-nav hidden-xs hidden-sm" > 
                 <li ng-click="tab = 1" >
                     <a  ng-hide="tab === 1" href="#/company"><strong>Empresa</strong></a>
-                    <a  ng-show="tab === 1" href="#/company"><span class="lepWhite-color"><strong>Empresa</strong></span></a>
+                    <a  ng-show="tab === 1" href="#/company"><span class="lepBlue-color"><strong>Empresa</strong></span></a>
                 </li>
                 <li ng-click="tab = 2">
                     <a  ng-hide="tab === 2" href="#/tours"><strong>Recorridos</strong></a>
-                    <a  ng-show="tab === 2" href="#/tours"><span class="lepWhite-color"><strong>Recorridos</strong></span></a>
+                    <a  ng-show="tab === 2" href="#/tours"><span class="lepBlue-color"><strong>Recorridos</strong></span></a>
                 </li>
                 <li ng-click="tab = 3">
                     <a  ng-hide="tab === 3" href="#/ticketOffices"><strong>Boleterías</strong></a>
-                    <a  ng-show="tab === 3" href="#/ticketOffices"><span class="lepWhite-color"><strong>Boleterías</strong></span></a>
+                    <a  ng-show="tab === 3" href="#/ticketOffices"><span class="lepBlue-color"><strong>Boleterías</strong></span></a>
                 </li>
                 <li ng-click="tab = 4">
                     <a  ng-hide="tab === 4" href="#/encomiendas"><strong>Encomiendas</strong></a>
-                    <a  ng-show="tab === 4" href="#/encomiendas"><span class="lepWhite-color"><strong>Encomiendas</strong></span></a>
+                    <a  ng-show="tab === 4" href="#/encomiendas"><span class="lepBlue-color"><strong>Encomiendas</strong></span></a>
                 </li>
                 <li ng-click="tab = 5">
                     <a  ng-hide="tab === 5" href="#/special"><strong>Viajes Especiales</strong></a>
-                    <a  ng-show="tab === 5" href="#/special"><span class="lepWhite-color"><strong>Viajes Especiales</strong></span></a>
+                    <a  ng-show="tab === 5" href="#/special"><span class="lepBlue-color"><strong>Viajes Especiales</strong></span></a>
                 </li>
                 <li ng-click="tab = 6" ng-show = "user.dni != ''">
                     <a  ng-hide="tab === 6" href="#/account/reserves"><strong>Mi Cuenta</strong></a>
-                    <a  ng-show="tab === 6" href="#/account/reserves"><span class="lepWhite-color"><strong>Mi Cuenta</strong></span></a>
+                    <a  ng-show="tab === 6" href="#/account/reserves"><span class="lepBlue-color"><strong>Mi Cuenta</strong></span></a>
                 </li>
                 <li ng-click="tab = 6" ng-show = "user.dni == ''">
                     <a  ng-hide="tab === 6" href="#/login"><strong>Mi Cuenta</strong></a>
-                    <a  ng-show="tab === 6" href="#/login"><span class="lepWhite-color"><strong>Mi Cuenta</strong></span></a>
+                    <a  ng-show="tab === 6" href="#/login"><span class="lepBlue-color"><strong>Mi Cuenta</strong></span></a>
                 </li>
                 <li ng-click="tab = 7">
                     <a  ng-hide="tab === 7" href="#/"><strong>Inicio</strong></a>
-                    <a  ng-show="tab === 7" href="#/"><span class="lepWhite-color"><strong>Inicio</strong></span></a>
+                    <a  ng-show="tab === 7" href="#/"><span class="lepBlue-color"><strong>Inicio</strong></span></a>
                 </li>
             </ul>
           
