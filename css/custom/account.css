@@ -6,6 +6,11 @@ input.card-input {
 	color: red;
 }
 
+.credits-row {
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
 /* The Modal (background) */
 .acc-loading-modal {
     display: none; /* Hidden by default */
@@ -19,6 +24,13 @@ input.card-input {
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.3); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.acc-modal-content {
+    margin: 15%; /* 15% from the top and centered */
+    padding: 20px;
+    width: 80%; /* Could be more or less, depending on screen size */
 }
 
 /* Modal Content */
