@@ -54,7 +54,7 @@
                     </div>
                 </div>
                 <div class = "col-xs-1">
-                    <img class = "map-img center-block" style = "height:22px; width:15px;" ng-src="img/Posicionamiento.png" alt="">
+                    <img ng-click="showMap(office.latitud, office.longitud)" class = "map-img center-block" style = "height:22px; width:15px;" ng-src="img/Posicionamiento.png" alt="">
                 </div>
             </div>
 
@@ -86,4 +86,14 @@
         <img class = "center-block img-responsive center-vertically" style = "width:70%;" ng-src="{{selectedImg}}" alt="">
         
     </div>
+
+    <!-- Map Modal -->
+      <div id="map-modal" class="mercadopago-modal">
+        <!-- Modal content -->
+        <div class="mercadopago-modal-content">         
+            <div id="googleMap" style="width:100%;height:300px;"></div> 
+            <br>
+             <button type="button" class="btn btn-large btn-danger lepStyleRed center-block" ng-click="hide_modal()">Cerrar</button>   
+        </div>
+      </div>
 </div>

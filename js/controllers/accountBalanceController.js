@@ -1,72 +1,46 @@
 angular.module('app')
 .controller('AccBalCtrl', ['$scope', '$location', '$window', 'wsService', function($scope, $location, $window, wsService){
-	wsdl_url = "https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepcGPS.dll/wsdl/ILepWebService";
-	urn = "LepWebServiceIntf-ILepWebService";
-
-	$scope.lep_card = {
-		number: '',
-		balance: 0.00
-	}
-
-	$scope.beg_card = {
-		number: '',
-		balance: 0.00
-	}
-
-	var get_balance_lep_params = [
-		{
-	      name: "userWS",
-	      type: "string",
-	      value: "UsuarioLep"
-	    },
-	    {
-	      name: "passWS",
-	      type: "string",
-	      value: "Lep1234"
-	    },
-	    {
-	    	name: "NroTarjeta",
-	    	type: "string",
-	    	value: $scope.lep_card.number
-	    },
-	    {
-	      name: "id_plataforma",
-	      type: "int",
-	      value: "3"
-	    }
-	]
-
-	var get_balance_beg_params = [
-		{
-	      name: "userWS",
-	      type: "string",
-	      value: "UsuarioLep"
-	    },
-	    {
-	      name: "passWS",
-	      type: "string",
-	      value: "Lep1234"
-	    },
-	    {
-	    	name: "NroTarjeta",
-	    	type: "string",
-	    	value: $scope.beg_card.number
-	    },
-	    {
-	      name: "id_plataforma",
-	      type: "int",
-	      value: "3"
-	    }
-	]
-
+	wsdl_url = "https://webservices.buseslep.com.ar:443/WebServices/WSLepPaginaWeb.dll/soap/IWSLepPaginaWeb";
+	urn = "WSLepPaginaWebIntf-IWSLepPaginaWeb";
+	method = "ConsultaSaldoTarjeta";
 	
-	$scope.get_balance = function(card){
-		if (card === 'beg'){
-			wsService.callService();
-		} else if (card === 'lep'){
-			wsService.callService();
+	$scope.dni = '';
+	$scope.cards;
+
+	$scope.get_balance = function(dni){
+		if (dni === '' || dni != parseInt(dni)|| isNaN(parseInt(dni))){
+			alert("Ingrese un DNI válido");
 		} else {
-			console.log("Invalid card");
+			var get_balance_params = [
+				{
+			      name: "userWS",
+			      type: "string",
+			      value: "UsuarioLep"
+			    },
+			    {
+			      name: "passWS",
+			      type: "string",
+			      value: "Lep1234"
+			    },
+			    {
+			    	name: "DNI",
+			    	type: "string",
+			    	value: dni
+			    }
+			]
+			wsService.callService(wsdl_url,urn,method,get_balance_params).then(function(cards){
+				$scope.cards = cards;
+				$scope.cards = [
+				{
+					Nro_Tarjeta: 1,
+					Saldo: 100.00,
+					LinkFoto: "img/Mi cuenta/Abono BEG.png"
+				},{
+					Nro_Tarjeta: 2,
+					Saldo: 200.00,
+					LinkFoto: "img/Mi cuenta/Abono Gral.png"
+				}];
+			});
 		}
 	}
 }]);

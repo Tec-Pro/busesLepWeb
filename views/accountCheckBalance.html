@@ -1,24 +1,58 @@
 <div>
-      <div class="row border-bottom border-top">
+    <div class="row border-bottom border-top">
         <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
-        	<a href="#/account/reserves">Mis <span><strong>Reservas</strong><span></a></div>
+        	<a href="#/account/reserves">Mis <span><strong>Reservas</strong></span></a>
+        </div>
         <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
-        	<a href="#/account/purchases">Mis <span><strong >Compras</strong><span></a></div>
+        	<a href="#/account/purchases">Mis <span><strong >Compras</strong></span></a>
+        </div>
         <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
-        	<a href="#/account/lastsearch">Últimas <span><strong >Búsquedas</strong><span></a></div>
+        	<a href="#/account/lastsearch">Últimas <span><strong >Búsquedas</strong></span></a>
+        </div>
         <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
-        	<a href="#/account/checkbalance">Consultar <span><strong class="lepBlue-color">Saldo</strong><span></a></div>
+        	<a href="#/account/checkbalance">Consultar <span><strong class="lepBlue-color">Saldo</strong></span></a>
+        </div>
         <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
-        	<a href="#/account/buycredits">Recargar <span><strong>Saldo</strong><span></a></div>
+        	<a href="#/account/buycredits">Recargar <span><strong>Saldo</strong></span></a>
+        </div>
         <div class="col-xs-4 col-sm-2 text-center lep-href lep-margin">
-        	<a href="#/account/update">Modificar <span><strong>Cuenta</strong><span></a></div>
-      </div>
+        	<a href="#/account/update">Modificar <span><strong>Cuenta</strong></span></a>
+        </div>
+    </div>
 </div>
 
 </br>
 <div class="row">
-    <div class="col-sm-4"></div>
-    <div class = "col-sm-4 col-xs-12 container-fluid search-item-box2">
+    <div class="col-xs-6 col-xs-offset-3 col-sm-3">
+        <input type="text" name="dni" placeholder="DNI" ng-model = "dni">
+    </div>
+    <div class="col-xs-6 col-xs-offset-3 col-sm-3 col-sm-offset-0">
+        <button class="btn btn-default btn-block" type="button" ng-click = "get_balance(dni)">Obtener Saldo</button>
+    </div>
+</div>
+<br>
+<br>
+<div class="row">
+    <div class="col-sm-8 col-sm-offset-2 col-xs-12">
+        <div ng-hide="cards.length != 0" class="row">
+            <p class="lead text-center">Usted no posee ninguna tarjeta asociada.</p>
+        </div>
+        <div ng-hide="cards.length == 0"  class="row">
+            <div ng-repeat="card in cards track by $index" class="col-xs-12" ng-class-odd = "'lepLightGrey-bg'" ng-class-even="'lepGrey-bg'">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6">
+	                    <p><strong>Número de tarjeta:</strong> {{card.Nro_Tarjeta}}</p>
+	                    <p><strong>Saldo:</strong> $ {{card.Saldo}}</p>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                    	<img class="img-sm" ng-src="{{card.LinkFoto}}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- <div class = "col-sm-8 col-sm-offset-2 col-xs-12 search-item-box2">
         <ul class="nav lepDarkGrey-color lep-margin">
             <li class="search-item-box padding-top10 padding-bottom10">
                 <div class="row ">
@@ -63,6 +97,4 @@
                 </div>
             </li>
         </ul>
-    </div>
-    <div class="col-sm-4"></div>
-</div>
+    </div> -->

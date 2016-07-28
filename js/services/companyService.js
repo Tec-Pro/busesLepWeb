@@ -1,8 +1,8 @@
 angular.module('app')
 .factory('companyService', [function(){
 
-	var active_tab = 1;
-	var active_unit_tab = 1;
+	var active_tab = 0;
+	var active_unit_tab = 0;
 
 	return {
 		getActiveTab: function(){

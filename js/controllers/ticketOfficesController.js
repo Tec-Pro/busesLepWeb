@@ -36,4 +36,29 @@ angular.module('app').controller('TicketOfficesController', ['$scope', '$locatio
     	$scope.selectedImg = $scope.ticketOffices[index].linkfoto;
   	}
 
+  	var latitude = 0;
+  	var longitude = 0;
+  	var map_modal = document.getElementById('map-modal');
+  	$scope.showMap =  function(lat,lon){
+  		latitude = Number(lat);
+  		longitude = Number(lon);   
+  		var mapCenter = new google.maps.LatLng(latitude, longitude);
+	    map_modal.style.display = "block";
+	    var mapOptions = {
+	        zoom: 8,
+	        center: mapCenter,
+	        mapTypeId: google.maps.MapTypeId.ROADMAP
+	    };
+    	var map = new google.maps.Map(document.getElementById('googleMap'), mapOptions);
+    	var marker=new google.maps.Marker({
+  			position:mapCenter,
+  		});
+
+		marker.setMap(map);
+    };
+
+	$scope.hide_modal = function(){
+      map_modal.style.display = "none";
+    }
+  	
 }]);
