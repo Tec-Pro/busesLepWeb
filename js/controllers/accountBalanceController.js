@@ -30,16 +30,16 @@ angular.module('app')
 			]
 			wsService.callService(wsdl_url,urn,method,get_balance_params).then(function(cards){
 				$scope.cards = cards;
-				$scope.cards = [
-				{
-					Nro_Tarjeta: 1,
-					Saldo: 100.00,
-					LinkFoto: "img/Mi cuenta/Abono BEG.png"
-				},{
-					Nro_Tarjeta: 2,
-					Saldo: 200.00,
-					LinkFoto: "img/Mi cuenta/Abono Gral.png"
-				}];
+				// $scope.cards = [
+				// {
+				// 	Nro_Tarjeta: 1,
+				// 	Saldo: 100.00,
+				// 	LinkFoto: "img/Mi cuenta/Abono BEG.png"
+				// },{
+				// 	Nro_Tarjeta: 2,
+				// 	Saldo: 200.00,
+				// 	LinkFoto: "img/Mi cuenta/Abono Gral.png"
+				// }];
 			});
 		}
 	}

@@ -82,9 +82,8 @@
 .btn-home {
 	position: absolute;
 	z-index: +1;
-	bottom:0.25%;
-    width: 100%;
-    max-width: 92.5%;
+	bottom:0.15%;
+    width: 91.5%;
 	color: white;
 	background-color: #191919;
 	border-radius: 0;
@@ -206,8 +205,46 @@ p.home-news {
     to {top:0; opacity:1}
 }
 
-@media screen and (max-width: 768px) {
+.img-container {
+	width: 109.5%;
+   	margin-left: -5%;
+}
+
+@media screen and (min-width: 768px) {
    	.img-container {
-   		width: 100%;
+   		margin-left: 0%;
+   		width: auto;
    	}
+}
+
+@media screen and (min-width: 360px){
+	.btn-home{
+		width: 92.25%;
+	}
+}
+
+@media screen and (min-width: 768px){
+	.btn-home{
+		width: 87.75%;
+	}
+} 
+
+@media screen and (min-width: 980px){
+	.btn-home{
+		width: 89.2%;
+		bottom: 0.12%;
+	}
+}
+
+@media screen and (min-width: 1280px){
+	.btn-home{
+		width: 91.75%;
+	}
+}
+
+@media screen and (min-width: 1366px){
+	.btn-home{
+		width: 92.25%;
+		bottom: 0;
+	}
 }
