@@ -87,13 +87,14 @@
                         <img class = "map-img center-block" style = "height:18px; width:18px; margin-top:10px;" ng-src="img/Iconos comunes/BotonDesplazamientoDerecha.png" alt="">
                     </div>
                     <div class = "col-xs-11 no-mar-pad-bor">
-                        <h5 class = "text-left">{{tour.origin}}
+                        <h5 class = "text-left"> <!--{{tour.origin}}-->
                                 <span ng-repeat="city in tour.cities">
-                                    <span class = "lepRed-color"> <strong> . </strong></span> 
+                                    
                                     <span class = "lepDarkerGrey-color no-bold" >{{city.name}}</span>
+                                    <span class = "lepRed-color"> <strong> . </strong></span>
                                 </span>
-                                <span class = "lepRed-color"> <strong> . </strong></span> 
-                                {{tour.destination}}
+                               <!-- <span class = "lepRed-color"> <strong> . </strong></span> 
+                                {{tour.destination}}-->
                         </h5>
                     </div>
                 </div>
