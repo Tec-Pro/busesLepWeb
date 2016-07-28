@@ -44,6 +44,10 @@
                     <div class="col-xs-12 col-sm-6">
 	                    <p><strong>Número de tarjeta:</strong> {{card.Nro_Tarjeta}}</p>
 	                    <p><strong>Saldo:</strong> $ {{card.Saldo}}</p>
+                      <div ng-show="card.Observacion != ''" class="border-top">
+                        <p>{{card.Observacion}}</p>
+                      </div>
+                      <p class="border-top">{{card.FechaHoraUltimaActualizacion}}</p>
                     </div>
                     <div class="col-xs-12 col-sm-6">
                     	<img class="img-sm" ng-src="{{card.LinkFoto}}">

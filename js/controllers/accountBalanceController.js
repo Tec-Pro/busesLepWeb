@@ -1,9 +1,9 @@
 angular.module('app')
 .controller('AccBalCtrl', ['$scope', '$location', '$window', 'wsService', function($scope, $location, $window, wsService){
-	wsdl_url = "https://webservices.buseslep.com.ar:443/WebServices/WSLepPaginaWeb.dll/soap/IWSLepPaginaWeb";
-	urn = "WSLepPaginaWebIntf-IWSLepPaginaWeb";
+	wsdl_url = "https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepcGPS.dll/soap/ILepWebService";
+	urn = "LepWebServiceIntf-ILepWebService";
 	method = "ConsultaSaldoTarjeta";
-	
+
 	$scope.dni = '';
 	$scope.cards;
 
@@ -30,16 +30,18 @@ angular.module('app')
 			]
 			wsService.callService(wsdl_url,urn,method,get_balance_params).then(function(cards){
 				$scope.cards = cards;
-				// $scope.cards = [
-				// {
-				// 	Nro_Tarjeta: 1,
-				// 	Saldo: 100.00,
-				// 	LinkFoto: "img/Mi cuenta/Abono BEG.png"
-				// },{
-				// 	Nro_Tarjeta: 2,
-				// 	Saldo: 200.00,
-				// 	LinkFoto: "img/Mi cuenta/Abono Gral.png"
-				// }];
+				$scope.cards = [
+				{
+					Nro_Tarjeta: 1,
+					Saldo: 100.00,
+					LinkFoto: "img/Mi cuenta/Abono BEG.png"
+				},{
+					Nro_Tarjeta: 2,
+					Saldo: 200.00,
+						Observacion: "En proceso",
+						FechaHoraUltimaActualizacion: "12/05/16 18:09",
+					LinkFoto: "img/Mi cuenta/Abono Gral.png"
+				}];
 			});
 		}
 	}
