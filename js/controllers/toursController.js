@@ -26,12 +26,20 @@ angular.module('app').controller('ToursController', ['$scope', '$location','wsSe
 				citiesArray.push({name: splittedCities2[j]});
 			};
 			
-			$scope.tours.push({origin: splittedOrigAndDest[0],destination: splittedOrigAndDest[splittedOrigAndDest.length-1], 'cities': citiesArray});
+			$scope.tours.push({origin: splittedOrigAndDest[0],destination: splittedOrigAndDest[splittedOrigAndDest.length-1], 'cities': citiesArray, picture: response[i].LinkFoto});
 		};
 	});
 
-	
+	var pic_modal = document.getElementById('pic_modal');
+  	$scope.showPicture =  function(picture){
+  		pichtml = document.getElementById('pic');
+  		pichtml.src = picture;
+  		pic_modal.style.display = "block";
+    };
 
+	$scope.hide_modal = function(){
+      pic_modal.style.display = "none";
+    }
   	/*$scope.tours = [
 	    { origin: 'Cordoba', destination: 'Sta Rosa de Calamuchita', 'cities':[{name: "Va. Gral Belgrano"}]},
 	    { origin: 'Sta Rosa de Calamuchita', destination: 'Amancay', 'cities':[{name: "El torreon"}, {name: "San Ignacio"}, {name: "Amboy"}]},
