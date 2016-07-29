@@ -32,7 +32,7 @@
 	  <script src="js/bootstrap.min.js"></script>
 
 	  <!-- Angularjs -->
-	 
+
 	  <script type="text/javascript" src="js/angular.js"></script>
 	  <script type="text/javascript" src="js/angular-route.min.js"></script>
 	  <script type="text/javascript" src="js/angular-local-storage.js"></script>
@@ -52,14 +52,14 @@
 
 	  <!-- Services -->
 	  <script type="text/javascript" src="js/services/tripService.js"></script>
-		<script type="text/javascript" src="js/services/scheduleService.js"></script>	
+		<script type="text/javascript" src="js/services/scheduleService.js"></script>
 	  <script type="text/javascript" src="js/services/companyService.js"></script>
 	  <script type="text/javascript" src="js/services/wsService.js"></script>
 	  <script type="text/javascript" src="js/services/feedService.js"></script>
 
 		<!-- Custom filters -->
 		<script type="text/javascript" src="js/filters/filters.js"></script>
-		
+
 	  <!-- Controllers -->
 	  <script type="text/javascript" src="js/controllers/testController.js"></script>
 
@@ -80,11 +80,11 @@
 	  <script type="text/javascript" src="js/controllers/endController.js"></script>
 
 	  <script type="text/javascript" src="js/controllers/detailsController.js"></script>
-	 
+
 	  <script type="text/javascript" src="js/controllers/summaryController.js"></script>
 
 	  <script type="text/javascript" src="js/controllers/ticketOfficesController.js"></script>
-	  
+
 	  <script type="text/javascript" src="js/controllers/toursController.js"></script>
 
 	  <script type="text/javascript" src="js/controllers/companyController.js"></script>
@@ -96,7 +96,7 @@
 	  <script type="text/javascript" src="js/controllers/reservesController.js"></script>
 
 	  <script type="text/javascript" src="js/controllers/footerController.js"></script>
-	  
+
 	  <!-- modulo mercadopago  -->
 	  <script src="https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js"></script>
 
@@ -125,32 +125,32 @@
          // document.location.href = String( document.location.href ).replace( "#/", "" );
 	  </script>
       <script ng-init = "navbar_tab_id = 0;">
-            
+
             if (location.pathname == "#/company"){
-               navbar_tab_id = 1; 
+               navbar_tab_id = 1;
             }
             if (location.pathname == "#/tours"){
-               navbar_tab_id = 2; 
+               navbar_tab_id = 2;
             }
             if (location.pathname == "#/ticketOffices"){
-               navbar_tab_id = 3; 
+               navbar_tab_id = 3;
             }
             if (location.pathname == "#/encomiendas"){
-               navbar_tab_id = 4; 
+               navbar_tab_id = 4;
             }
             if (location.pathname == "#/special"){
-               navbar_tab_id = 5; 
+               navbar_tab_id = 5;
             }
             if (location.pathname == "#/account/reserves"){
-               navbar_tab_id = 6; 
-            } 
+               navbar_tab_id = 6;
+            }
             if (location.pathname == "#/"){
-               navbar_tab_id = 7; 
-            } 
-      </script> 
+               navbar_tab_id = 7;
+            }
+      </script>
 	</head>
-	<body ng-app="app" ng-init="tab = 23">    
-
+	<body ng-app="app" ng-init="tab = 23">
+		<div id="movida">
     <!-- Info bar-->
     <div id="info-bar" class="container-fluid lepStyle hidden-xs navbar-fixed-top border-bottom-grey">
         <div class="row" ng-controller="LoginCtrl" style="padding-bottom:5px">
@@ -178,9 +178,9 @@
                         <div class="col-sm-4"style="margin-top:8px;">
                              <button class="button-link" href="#/" type="submit" style="margin-left:3px;font-size:0.9em"><strong>Ingresar </strong></button> /
                              <button class="button-link" ng-click="go('/signin')" type="button" style="font-size:0.9em"><strong>Registrarse</strong></button>
-                        </div>                                    
+                        </div>
                     </form>
-                </div>        
+                </div>
             </div>
             <div class="text-center col-sm-12 col-lg-5"  >
                 <div class="row" ng-controller="LoginCtrl" ng-show="user.dni != '' " style="padding-top:10px;margin-left:100px">
@@ -199,13 +199,13 @@
         <div ng-controller="LoginCtrl" style="margin-bottom:10px" ng-show = "user.email == ''" href="">
             <form class="row" ng-submit="login()">
                 <input type="text" class="lep-form col-xs-2" id="DNI" placeholder="DNI" required ng-model="user.dni"/>
-                <input type="password" class="lep-form col-xs-2" id="Password" placeholder="Contraseña" required ng-model="user.pass"/>                 
+                <input type="password" class="lep-form col-xs-2" id="Password" placeholder="Contraseña" required ng-model="user.pass"/>
                 <div class="col-xs-4"style="margin-top:8px;">
                      <button class="button-link" href="#/" type="submit" style="font-size:0.7em"><strong>Ingr.</strong></button> /
                      <button class="button-link" ng-click="go('/signin')" type="button" style="font-size:0.7em"><strong>Regist.</strong></button>
-                </div> 
+                </div>
             </form>
-        </div>        
+        </div>
         <div class="text-center" ng-controller="LoginCtrl" ng-show="user.email != '' " style="margin-top:10px">
             <div class="row">
                 <div class="col-xs-6" style="font-size:0.9em">
@@ -217,12 +217,12 @@
             </div>
         </div>
     </div>
-    <!--ESTE ES EL QUE CAUSA TODO; CARAJO. Cover Image-->
-   <div id="cover" class="row no-mar-pad-bor row-top-margin15 lepStyle background-white hidden-xs" >
+    <!-- Cover Image-->
+   	<div id="cover" class="row no-mar-pad-bor row-top-margin15 lepStyle background-white hidden-xs" >
       <div>
         <a ng-click="tab = 7" href="#/" class="col-xs-6 no-mar-pad-bor "><img class="padding-top50 no-margin size-logo img-responsive left" ng-src="img/Iconos comunes/Isologo.png" alt="Buses Lep" ></a>
         <img class="padding-top45 col-xs-6 img-responsive no-margin" ng-src="img/Buses-Head.jpg" >
-        <!--<p class="col-xs-6 font-arial" style="padding-top:5%;text-align:center;font-size:180%;"> 
+        <!--<p class="col-xs-6 font-arial" style="padding-top:5%;text-align:center;font-size:180%;">
             Preocupate por otras cosas, <b> buses Lep </b> te lleva.
         </p>-->
       </div>
@@ -280,7 +280,7 @@
             </ul>
 
             <!-- md,lg -->
-           <ul class="selected nav navbar-nav hidden-xs hidden-sm" > 
+           <ul class="selected nav navbar-nav hidden-xs hidden-sm" >
                 <li ng-click="tab = 1" >
                     <a  ng-hide="tab === 1" href="#/company"><strong>Empresa</strong></a>
                     <a  ng-show="tab === 1" href="#/company"><span class="lepBlue-color"><strong>Empresa</strong></span></a>
@@ -314,15 +314,14 @@
                     <a  ng-show="tab === 7" href="#/"><span class="lepBlue-color"><strong>Inicio</strong></span></a>
                 </li>
             </ul>
-          
+
         </div><!--/.nav-collapse -->
       </div>
     </nav>
 
-    <div id="movida">
-     	<div class="lep-container container-fluid" ng-view></div>
+    <div class="lep-container container-fluid" ng-view></div>
       <!-- footer-->
-	<div id="footer" class="container-fluid lepStyle2" ng-controller="FooterCtrl">
+		<div id="footer" class="container-fluid lepStyle2" ng-controller="FooterCtrl">
       <div class = "row">
         <div class="col-xs-12 col-sm-3 text-center h4-responsive" style="padding:10px"><strong>Noticias</strong>
             <div class=" text-center ">
@@ -345,22 +344,22 @@
         </div>
         <div class="col-xs-12 col-sm-3 text-center h4-responsive" style="padding:10px"><strong>Actualidad</strong>
             <div class=" text-center">
-                <p>Temperatura en Cordoba Capital <br> Min {{weather.tempMin}}° / Max {{weather.tempMax}}° <br> 
+                <p>Temperatura en Cordoba Capital <br> Min {{weather.tempMin}}° / Max {{weather.tempMax}}° <br>
                     <span class="h1-responsive">{{weather.temp}}°</span></p>
             </div>
             <div class=" text-center">
                 <ul class="unstyled">
-                  <li class="item" ng-repeat="feed in feeds | limitTo:3">                    
+                  <li class="item" ng-repeat="feed in feeds | limitTo:3">
                       <a target="_blank" class="small lepGrey-color"href="{{feed.link}}">{{feed.title}}</a>
-                  </li>                
+                  </li>
               </ul>
             </div>
         </div>
         <div class="hidden-xs col-sm-3 text-center h4-responsive" style="padding:10px"><strong>Tu opinión nos interesa...</strong>
            <textarea class="lep-form textarea" name="Opinion"></textarea>
-           <button class="btn btn-default lepStyle2"type="submit" style="font-size:0.7em;margin-top:10px;margin-bottom:10px">Enviar</button> 
+           <button class="btn btn-default lepStyle2"type="submit" style="font-size:0.7em;margin-top:10px;margin-bottom:10px">Enviar</button>
         </div>
-      </div>      
+      </div>
       <div class="row lepDarkestGrey-bg lepWhite-color border-bottom-red">
         <div class="col-xs-12 col-sm-2 padding-top10" >
             <p class="h2-responsive font-arial"><strong>buses Lep</strong></p>
@@ -377,7 +376,7 @@
                     <img src="img/Iconos comunes/Icono sobre.png" style="width:18px;height:12px;margin-right:10px;">expreso@buseslep.com.ar
                 </div>
                 <div class="col-xs-12 col-sm-1">
-                   <button class="btn btn-default lepRed-bg lepWhite-color" type="button" style="margin:10px" ng-click="goCompanyContact()">Contacto</button> 
+                   <button class="btn btn-default lepRed-bg lepWhite-color" type="button" style="margin:10px" ng-click="goCompanyContact()">Contacto</button>
                 </div>
             </div>
         </div>
@@ -385,8 +384,7 @@
       <div class="row lepDarkestGrey-bg lepWhite-color">
         <p class="text-center padding-top5"> Copyright <strong>buses Lep 2016</strong> - Todos los derechos reservados</p>
       </div>
-  </div> <!--end footer-->
-</div> <!--end movida-->
+  	</div> <!--end footer-->
+	</div> <!--end movida-->
 </body>
 </html>
-
