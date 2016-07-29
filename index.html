@@ -149,10 +149,11 @@
             } 
       </script> 
 	</head>
-	<body ng-app="app" ng-init="tab = 23">    
-
+	<body ng-app="app" ng-init="tab = 23">  
+    <div class = "center-block lepDarkGrey-bg">  
+    <div style = "max-width: 1300px; " class = "center-block lepWhite-bg">
     <!-- Info bar-->
-    <div id="info-bar" class="container-fluid lepStyle hidden-xs navbar-fixed-top border-bottom-grey">
+    <div id="info-bar" class="container-fluid lepStyle hidden-xs navbar-fixed-top border-bottom-grey" style = "max-width: 1300px;">
         <div class="row" ng-controller="LoginCtrl" style="padding-bottom:5px">
             <div class="col-sm-7 col-md-7 visible-lg">
                 <div class="row">
@@ -228,8 +229,8 @@
       </div>
     </div>
 
-    <div id="sticky-anchor"> </div>
-    <nav id="sticky-element" class="navbar navbar-default on-top">
+    <div id="sticky-anchor" class = "center-block"> </div>
+    <nav id="sticky-element" class="navbar navbar-default on-top center-block">
       <!-- Main bar-->
       <div class="container-fluid lepStyle">
         <div class="navbar-header">
@@ -320,7 +321,7 @@
     </nav>
 
     <div id="movida">
-     	<div class="lep-container container-fluid" ng-view></div>
+     	<div class=" container" ng-view></div>
       <!-- footer-->
 	<div id="footer" class="container-fluid lepStyle2" ng-controller="FooterCtrl">
       <div class = "row">
@@ -387,6 +388,8 @@
       </div>
   </div> <!--end footer-->
 </div> <!--end movida-->
+</div> <!-- end maxwidth 1300 -->
+</div> <!-- end background gray-->
 </body>
 </html>
 

@@ -12,6 +12,7 @@ body {
     right:0;
     left:0;
     top: 45px;
+    max-width: 1300px;
 }
 
 @media screen and (max-width: 768px) {
@@ -908,7 +909,7 @@ color:#ff0008;
 }
 
 #movida {
-  background-color: #ffffff;
+  
 }
 
 @media screen and (min-width: 768px){
@@ -926,10 +927,10 @@ color:#ff0008;
 @media screen and (min-width: 1400px) {
   .lep-container{
     width: 60%;
-    background-color: #ffffff;
+    
   }
 
   #movida {
-    background-color: #303030;
+    
   }
 }
