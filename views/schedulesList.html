@@ -134,11 +134,11 @@
                 <h5 class= "hidden-md hidden-lg no-bold">Reg.</h5>
               </div>
               <div class= "title col-xs-3">
-                <h5>${{goPrice}}</h5>
+                <h5>${{sched.precio}}</h5>
               </div>
               <div class= "title col-xs-3">
                   <div ng-hide="sched.latitud == 'Sin GPS'"> 
-                     <img ng-click = "showMap(sched.latitud,sched.longitud)"class = "map-img center-block" ng-src="img/Posicionamiento.png" alt="">
+                     <img ng-click = "showMap(sched.latitud,sched.longitud)"class = "map-img center-block" style="cursor: pointer;" ng-src="img/Posicionamiento.png" alt="">
                   </div>
                 
               </div>
@@ -208,14 +208,14 @@
               </div>
               <div class= "title col-xs-4">
                  <div ng-hide="sched.latitud == 'Sin GPS'">
-                    <img class = "map-img center-block" ng-src="img/Posicionamiento.png" alt="">
+                    <img class = "map-img center-block" style="cursor: pointer;" ng-src="img/Posicionamiento.png" alt="">
                   </div>
               </div>
             </div> 
             <hr>
             <div class= "col-xs-12 no-mar-pad-bor">
               <div class= "title col-xs-6">
-                <h4>Precio: ${{goPrice}}</h4>
+                <h4>Precio: ${{sched.precio}}</h4>
               </div>
               <div class= "title col-xs-6 center-block" data-ng-show="sched.ServicioPrestado == 'disponible'">
                 <button type="submit" class="center-block btn btn-danger col-xs-12 lepStyleRed btn-sm" style="margin-top:5px;"ng-click="goSummary($index)">Seleccionar</button>
