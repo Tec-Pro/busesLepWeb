@@ -34,6 +34,7 @@
 
 .carousel-control.left, .carousel-control.right {
 	background-image: none;
+	color: grey;
 	cursor:	default;
 }
 
@@ -47,18 +48,6 @@
 }
 .carousel-indicators .active {
 	background-color: red;
-}
-
-.img-lg {
-	max-height: 340px;
-}
-
-.img-md {
-	max-height: 310px;
-}
-
-.img-sm {
-	max-height: 300px;
 }
 
 .first-home-row {
@@ -77,24 +66,6 @@
 
 .white-glyphicon-home {
 	color: white;
-}
-
-.btn-home {
-	position: absolute;
-	z-index: +1;
-	bottom:0.15%;
-    width: 91.5%;
-	color: white;
-	background-color: #191919;
-	border-radius: 0;
-}
-
-.btn-home:hover{
-	color: red;
-}
-
-.btn-home:hover .glyphicon {
-	color: red;
 }
 
 .search-menu-button {
@@ -128,16 +99,16 @@
 .search-menu-items {
 	text-align: center;
 	width: 100%;
-    height: auto;
-    max-height: 200px;
-    overflow-x: hidden;
+  height: auto;
+  max-height: 200px;
+  overflow-x: hidden;
 }
 
 .dropdown-menu > li > a.search-menu-item:hover {
 	color:red;
 }
 
-.search-date{	
+.search-date{
 	background-color: #FFF;
 }
 
@@ -205,11 +176,52 @@ p.home-news {
     to {top:0; opacity:1}
 }
 
-.img-container {
-	width: 109.5%;
-   	margin-left: -5%;
+.img-wrapper {
+	width: 109.9%;
+	margin-left: -5.2%;
+	display: inline-block;
+	height: auto;
 }
 
+@media screen and (min-width: 768px){
+	.img-wrapper {
+		width: auto;
+		margin-left: 0;
+	}
+}
+
+
+ .btn-home {
+	position: relative;
+	z-index: +1;
+	color: white;
+	width: 100%;
+	background-color: #191919;
+	border-radius: 0;
+}
+
+.btn-home:hover{
+	color: red;
+}
+
+.btn-home:hover .glyphicon {
+	color: red;
+}
+
+
+.img-lg {
+	max-height: 340px;
+}
+
+.img-md {
+	max-height: 310px;
+}
+
+.img-sm {
+	max-height: 300px;
+}
+
+/*
 @media screen and (min-width: 768px) {
    	.img-container {
    		margin-left: 0%;
@@ -217,17 +229,13 @@ p.home-news {
    	}
 }
 
-@media screen and (min-width: 360px){
-	.btn-home{
-		width: 92.25%;
-	}
-}
+
 
 @media screen and (min-width: 768px){
 	.btn-home{
 		width: 87.75%;
 	}
-} 
+}
 
 @media screen and (min-width: 980px){
 	.btn-home{
@@ -247,4 +255,4 @@ p.home-news {
 		width: 92.25%;
 		bottom: 0;
 	}
-}
+}*/

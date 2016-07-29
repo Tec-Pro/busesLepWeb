@@ -1,195 +1,208 @@
-<div>
-	<div class="home-row first-home-row row">
+<div class="home-row first-home-row row">
 		<div class="hidden-xs hidden-sm col-md-8">
-			<img src="./img/home/row1col1.png" class="img-lg img-responsive">
+				<img src="./img/home/row1col1.png" class="img-lg img-responsive">
 		</div>
 		<div class="col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-0 col-md-4 search-container">
-			<h3 class="search-header">Búsqueda / Reserva / Compra</h3>
-			<form name="searchForm" role="form" data-ng-submit="goSearch()">
-				<div class="row">
-					<div class="col-xs-12">
-						<div class="form-group">
-							<div class="dropdown">
-								<input type="text" ng-click="load_origins()" name="dropdown-toggle" data-ng-model=origin_search placeholder="Ciudad Origen" class="btn btn-default search-menu-button dropdown-toggle" id="origin" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true" required autocomplete="off">
-							  <!-- <button class="btn btn-default search-menu-button dropdown-toggle" type="button" id="origin" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true">
-							    {{params.origin_name}}
-							  </button> -->
-							  <ul class="dropdown-menu dropdown-menu-right search-menu-items" aria-labelledby="origin">
-							    <li><a href class= "search-menu-item" data-ng-repeat="origin in origins | filter:origin_search" data-ng-click="checkDestinations(origin)">{{origin.Localidad}}</a></li>
-							  </ul>
-							</div>
-							<!-- <label class="sr-only" for="origin">Origen:</label>
-							<select class="search-text form-control" name="origin" id="origin" ng-model="params.origin" ng-change="checkDestinations()" ng-options="origin as origin.Localidad for origin in origins" required>
-								<option class="default-option" value="" selected><div class="background-darkgrey"> Origen </div></option>
-							</select> -->
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-12">
-						<div class="form-group">
-							<label class="sr-only" for="destination">Destino:</label>
-							<div class="dropdown">
-							  <input type="text" name="dropdown-toggle" ng-click="destination_search=''" data-ng-model=destination_search placeholder="Ciudad Destino" ng-disabled = "params.origin === ''" class="btn btn-default search-menu-button dropdown-toggle" id="destination" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true" required autocomplete="off">
-							  <ul class="dropdown-menu search-menu-items" aria-labelledby="origin">
-							    <li><a href class="search-menu-item" data-ng-repeat="destination in destinations | filter:destination_search" data-ng-click="setDestinationData(destination)">{{destination.hasta}}</a></li>
-							  </ul>
-							</div>
-							<!-- <select class="search-text form-control" name="destination" id="destination" data-ng-model="params.destination" data-ng-disabled="destinationDisabled" data-ng-options="destination as destination.hasta for destination in destinations" data-ng-change="setDestinationData()" required>
-								<option value="" selected>Destino</option>
-							</select> -->
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-12">
-						<div class="form-group">
-							<!-- Departure date input -->
-							<div class="input-group date">
-								<input date-range-picker name="departureDate" id="departureDate" class=" form-control date-picker search-date" placeholder="Fecha Ida" type="text" min="params.today" ng-model="params.departureDate" options="dpOpts" required readonly/>
-								<span class="input-group-addon">
-									<span class="glyphicon glyphicon-calendar">
-									</span>
-								</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-12">
+				<h3 class="search-header">Búsqueda / Reserva / Compra</h3>
+				<form name="searchForm" role="form" data-ng-submit="goSearch()">
 						<div class="row">
-							<div class="col-xs-12">
-								<div class="form-group">
-									<div class="input-group date">
-										<input date-range-picker name="returnDate" id="returnDate" class="search-date form-control date-picker ng-valid ng-dirty" type="text" min="params.today" data-ng-disabled="returnDateDisabled" ng-model="params.returnDate" placeholder="Fecha Vuelta (Opcional)" options="dpOpts" readonly/>						
-										<span class="input-group-addon">
-											<span class="glyphicon glyphicon-calendar">
-											</span>
-										</span>
-									</div>
+								<div class="col-xs-12">
+										<div class="form-group">
+												<div class="dropdown">
+														<input type="text" ng-click="load_origins()" name="dropdown-toggle" data-ng-model=origin_search placeholder="Ciudad Origen" class="btn btn-default search-menu-button dropdown-toggle" id="origin" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true" required autocomplete="off">
+													<!-- <button class="btn btn-default search-menu-button dropdown-toggle" type="button" id="origin" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true">
+														{{params.origin_name}}
+													</button> -->
+													<ul class="dropdown-menu dropdown-menu-right search-menu-items" aria-labelledby="origin">
+														<li><a href class= "search-menu-item" data-ng-repeat="origin in origins | filter:origin_search" data-ng-click="checkDestinations(origin)">{{origin.Localidad}}</a></li>
+													</ul>
+												</div>
+												<!-- <label class="sr-only" for="origin">Origen:</label>
+												<select class="search-text form-control" name="origin" id="origin" ng-model="params.origin" ng-change="checkDestinations()" ng-options="origin as origin.Localidad for origin in origins" required>
+														<option class="default-option" value="" selected><div class="background-darkgrey"> Origen </div></option>
+												</select> -->
+										</div>
 								</div>
-							</div>
 						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-10 col-xs-offset-1">
-						<button type="submit" class="btn btn-default btn-block">Buscar</button>
-					</div>
-				</div>
-			</form>
+						<div class="row">
+								<div class="col-xs-12">
+										<div class="form-group">
+												<label class="sr-only" for="destination">Destino:</label>
+												<div class="dropdown">
+													<input type="text" name="dropdown-toggle" ng-click="destination_search=''" data-ng-model=destination_search placeholder="Ciudad Destino" ng-disabled = "params.origin === ''" class="btn btn-default search-menu-button dropdown-toggle" id="destination" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true" required autocomplete="off">
+													<ul class="dropdown-menu search-menu-items" aria-labelledby="origin">
+														<li><a href class="search-menu-item" data-ng-repeat="destination in destinations | filter:destination_search" data-ng-click="setDestinationData(destination)">{{destination.hasta}}</a></li>
+													</ul>
+												</div>
+												<!-- <select class="search-text form-control" name="destination" id="destination" data-ng-model="params.destination" data-ng-disabled="destinationDisabled" data-ng-options="destination as destination.hasta for destination in destinations" data-ng-change="setDestinationData()" required>
+														<option value="" selected>Destino</option>
+												</select> -->
+										</div>
+								</div>
+						</div>
+						<div class="row">
+								<div class="col-xs-12">
+										<div class="form-group">
+												<!-- Departure date input -->
+												<div class="input-group date">
+														<input date-range-picker name="departureDate" id="departureDate" class=" form-control date-picker search-date" placeholder="Fecha Ida" type="text" min="params.today" ng-model="params.departureDate" options="dpOpts" required readonly/>
+														<span class="input-group-addon">
+																<span class="glyphicon glyphicon-calendar">
+																</span>
+														</span>
+												</div>
+										</div>
+								</div>
+						</div>
+						<div class="row">
+								<div class="col-xs-12">
+										<div class="row">
+												<div class="col-xs-12">
+														<div class="form-group">
+																<div class="input-group date">
+																		<input date-range-picker name="returnDate" id="returnDate" class="search-date form-control date-picker ng-valid ng-dirty" type="text" min="params.today" data-ng-disabled="returnDateDisabled" ng-model="params.returnDate" placeholder="Fecha Vuelta (Opcional)" options="dpOpts" readonly/>
+																		<span class="input-group-addon">
+																				<span class="glyphicon glyphicon-calendar">
+																				</span>
+																		</span>
+																</div>
+														</div>
+												</div>
+										</div>
+								</div>
+						</div>
+						<div class="row">
+								<div class="col-xs-10 col-xs-offset-1">
+										<button type="submit" class="btn btn-default btn-block">Buscar</button>
+								</div>
+						</div>
+				</form>
 		</div>
-	</div>
-	<div class="home-row row">
-		<div class="col-xs-12 col-sm-offset-2 col-md-offset-0 col-md-5 img-container">
-			<img src="./img/home/row2col1.png" class="img-lg img-responsive">
-		</div>
-		<div class="col-xs-12 col-md-7 img-container">
-			<div id="Carousel" class="carousel slide">
-				<div class="carousel-inner">
-					<div class="item active">
-						<img src="./img/home/row2col2a.png" class="center-block img-sm img-responsive">
-						<div class="carousel-text">
-							<p class="text-center">Gozá de cualquiera de estos beneficios de manera rápida y segura.<p>
-						</div>
-					</div>
-					<div class="item">
-						<img src="./img/home/row2col2b.png" class="center-block img-sm img-responsive">
-						<div class="carousel-text">
-							<p class="text-center">Lorem ipsum dolor amet<p>
-						</div>
-					</div>
-					
-				</div>
-				<span class="left carousel-control" data-target="#Carousel" data-slide="prev">
-					<span class="glyphicon glyphicon-chevron-left"></span>
-				</span>
-				<span class="right carousel-control" data-target="#Carousel" data-slide="next">
-					<span class="glyphicon glyphicon-chevron-right"></span>
-				</span>
+</div><!-- The Modal -->
+<div class="home-row row">
+		<div class="col-xs-12 col-sm-offset-2 col-sm-10 col-md-offset-0 col-md-5">
+			<div class="img-wrapper">
+				<img src="./img/home/row2col1.png" class="img-lg img-responsive">
 			</div>
 		</div>
+		<div class="col-xs-12 col-md-7">
+			<div class="img-wrapper">
+				<div id="Carousel" class="carousel slide">
+						<div class="carousel-inner">
+								<div class="item active">
+										<img src="./img/home/row2col2a.png" class="center-block img-sm img-responsive">
+										<div class="carousel-text">
+												<p class="text-center">Gozá de cualquiera de estos beneficios de manera rápida y segura.<p>
+										</div>
+								</div>
+								<div class="item">
+										<img src="./img/home/row2col2b.png" class="center-block img-sm img-responsive">
+										<div class="carousel-text">
+												<p class="text-center">Lorem ipsum dolor amet<p>
+										</div>
+								</div>
+						</div>
+						<span class="left carousel-control" data-target="#Carousel" data-slide="prev">
+								<span class="glyphicon glyphicon-chevron-left"></span>
+						</span>
+						<span class="right carousel-control" data-target="#Carousel" data-slide="next">
+								<span class="glyphicon glyphicon-chevron-right"></span>
+						</span>
+				</div>
+			</div>
+		</div>
+</div>
+<div class="home-row row">
+    <div class="col-xs-12 col-sm-5 col-md-offset-0 col-md-5">
+        <h3><span class="red">Red</span> Pack <small>Encomiendas</small></h3>
+        <a href="#/encomiendas">
+					<div class="img-wrapper">
+            <img src="./img/home/row4col1.png" class="img-md img-responsive">
+					</div>
+        </a>
+    </div>
+    <div class="col-xs-12 col-sm-7 col-md-offset-0 col-md-7 img-container">
+        <h3>Viajes Especiales <small>Internacionales/Nacionales/Provinciales</small></h3>
+        <a href="#/special">
+					<div class="img-wrapper">
+            <img src="./img/home/row4col2.png" class="img-md img-responsive">
+					</div>
+        </a>
+    </div>
+</div>
+<div class="visible-xs row">
+  <div class="col-xs-12">
+		<div class = "img-wrapper">
+      <img src="./img/home/row3col1.png" class="img-sm img-responsive">
+      <button data-ng-click="goCompanyUnits(0);" class="btn btn-home"><strong class="pull-left">Confort</strong><span class="glyphicon glyphicon-plus white-glyphicon-home pull-right"></span></button>
+		</div>
+  </div>
+  <br class="visible-xs">
+  <div class="col-xs-12">
+		<div class="img-wrapper">
+      <img src="./img/home/row3col2.png" class="img-sm img-responsive">
+      <button data-ng-click="goCompanyUnits(1);" class="btn btn-home"><strong class="pull-left">Tecnología</strong><span class="glyphicon glyphicon-plus white-glyphicon-home pull-right"></span></button>
+		</div>
+  </div>
+	<br class="visible-xs">
+  <div class="col-xs-12 img-container">
+		<div class="img-wrapper">
+      <img src="./img/home/row3col3.png" class="img-sm img-responsive">
+      <button data-ng-click="goCompanyUnits(2)" class="btn btn-home"><strong class="pull-left">Seguridad</strong><span class="glyphicon glyphicon-plus white-glyphicon-home pull-right"></span></button>
+		</div>
+  </div>
+</div>
+<div class="hidden-xs home-row row">
+  <div class="col-sm-4">
+		<div class="img-wrapper">
+      <img src="./img/home/row3col1.png" class="img-sm img-responsive">
+      <button data-ng-click="goCompanyUnits(0);" class="btn btn-home"><strong class="pull-left">Confort</strong><span class="glyphicon white-glyphicon-home pull-right">+</span></button>
+		</div>
 	</div>
-	<div class="home-row row">
-		<div class="col-xs-12 col-sm-offset-2 col-sm-5 col-md-offset-0 col-md-5 img-container">
-			<h3><span class="red">Red</span> Pack <small>Encomiendas</small></h3>
-			<a href="#/encomiendas">
-				<img src="./img/home/row4col1.png" class="img-md img-responsive">
-			</a>
-		</div>
-		<div class="col-xs-12 col-sm-offset-1 col-sm-7 col-md-offset-0 col-md-7 img-container">
-			<h3>Viajes Especiales <small>Internacionales/Nacionales/Provinciales</small></h3>
-			<a href="#/special">
-				<img src="./img/home/row4col2.png" class="img-md img-responsive">
-			</a>
+  <div class="col-sm-4">
+		<div class="img-wrapper">
+      <img src="./img/home/row3col2.png" class="img-sm img-responsive">
+      <button data-ng-click="goCompanyUnits(1);" class="btn btn-home"><strong class="pull-left">Tecnología</strong><span class="glyphicon glyphicon-plus white-glyphicon-home pull-right"></span></button>
 		</div>
 	</div>
-	<div class="visible-xs row">
-		<div class="col-xs-12 col-sm-4 img-container">
-			<img src="./img/home/row3col1.png" class="img-sm img-responsive">
-			<button data-ng-click="goCompanyUnits(0);" class="btn btn-home col-xs-12"><strong class="pull-left">Confort</strong><span class="glyphicon glyphicon-plus white-glyphicon-home pull-right"></span></button>
-		</div>
-		<br class="visible-xs">
-		<div class="col-xs-12 col-sm-4 img-container">
-			<img src="./img/home/row3col2.png" class="img-sm img-responsive">
-			<button data-ng-click="goCompanyUnits(1);" class="btn btn-home col-xs-12"><strong class="pull-left">Tecnología</strong><span class="glyphicon glyphicon-plus white-glyphicon-home pull-right"></span></button>
-		</div>
-		<br class="visible-xs">
-		<div class="col-xs-12 col-sm-4 img-container">
-			<img src="./img/home/row3col3.png" class="img-sm img-responsive">
-			<button data-ng-click="goCompanyUnits(2)" class="btn btn-home col-xs-12"><strong class="pull-left">Seguridad</strong><span class="glyphicon glyphicon-plus white-glyphicon-home pull-right"></span></button>
+  <div class="col-sm-4">
+		<div class="img-wrapper">
+      <img src="./img/home/row3col3.png" class="img-sm img-responsive">
+      <button data-ng-click="goCompanyUnits(2);" class="btn btn-home"><strong class="pull-left">Seguridad</strong><span class="glyphicon glyphicon-plus white-glyphicon-home pull-right"></span></button>
 		</div>
 	</div>
-	<div class="hidden-xs home-row row">
-		<div class="col-xs-12 col-sm-4">
-			<img src="./img/home/row3col1.png" class="img-sm img-responsive">
-			<button data-ng-click="goCompanyUnits(0);" class="btn btn-home"><strong class="pull-left">Confort</strong><span class="glyphicon white-glyphicon-home pull-right">+</span></button>
-		</div>
-		<br class="visible-xs">
-		<div class="col-xs-12 col-sm-4">
-			<img src="./img/home/row3col2.png" class="img-sm img-responsive">
-			<button data-ng-click="goCompanyUnits(1);" class="btn btn-home"><strong class="pull-left">Tecnología</strong><span class="glyphicon glyphicon-plus white-glyphicon-home pull-right"></span></button>
-		</div>
-		<br class="visible-xs">
-		<div class="col-xs-12 col-sm-4">
-			<img src="./img/home/row3col3.png" class="img-sm img-responsive">
-			<button data-ng-click="goCompanyUnits(2);" class="btn btn-home"><strong class="pull-left">Seguridad</strong><span class="glyphicon glyphicon-plus white-glyphicon-home pull-right"></span></button>
-		</div>
-	</div>
-	<div class="hidden-xs row">
-		<div class="col-xs-12"><h3>Noticias</h3></div>
+</div>
+<div class="hidden-xs row">
+	<div class="col-xs-12"><h3>Noticias</h3></div>
 		<div class="hidden-xs col-xs-12 col-sm-6">
-			<div class="row">
-				<div class="col-xs-6">
-					<img src="./img/home/row6col1.png" class="img-responsive home-news-img">
-				</div>
-				<div class="col-xs-6">
-					<h4 class="text-center">OktoberFest 2016</h4>
-					<p class="home-news">Villa General Belgrano se prepara para la próxima fiesta anual de la cerveza <strong>buses Lep</strong> pone a tu disposición coches que constan de todo el confort y la tecnología para que disfrutes del Valle de Calamuchita, además de horarios con la frecuencia de veinte minutos. Sumate vos también a esta experiencia única y dejanos tu comentario en nuestro muro: <a href="https://www.facebook.com/expresobuseslep">facebook/expresobuseslep</a></p>
-				</div>
-			</div>
+		  <div class="row">
+		      <div class="col-xs-6">
+		          <img src="./img/home/row6col1.png" class="img-responsive home-news-img">
+		      </div>
+		      <div class="col-xs-6">
+		          <h4 class="text-center">OktoberFest 2016</h4>
+		          <p class="home-news">Villa General Belgrano se prepara para la próxima fiesta anual de la cerveza <strong>buses Lep</strong> pone a tu disposición coches que constan de todo el confort y la tecnología para que disfrutes del Valle de Calamuchita, además de horarios con la frecuencia de veinte minutos. Sumate vos también a esta experiencia única y dejanos tu comentario en nuestro muro: <a href="https://www.facebook.com/expresobuseslep">facebook/expresobuseslep</a></p>
+		      </div>
+		  </div>
 		</div>
 		<div class="hidden-xs col-xs-12 col-sm-6">
-			<div class="row">
-				<div class="col-xs-6">
-					<img src="./img/home/row6col2.png" class="img-responsive home-news-img">
-				</div>
-				<div class="col-xs-6">
-					<h4 class="text-center">Fiesta de la Primavera</h4>
-					<p class="home-news">Este año la Municipalidad apuesta fuerte y tiral a casa por la ventana recibiendo a la juventud en dos días que prometen musicalidad y un festejo único. Ponemos a tu alcance todos nuestros recursos para que no te pierdas este evento: Por cada horario regular agregamos tres refuerzos y, si sacás tu tarjeta de abonos, te regalamos hasta un 40% de descuento! Consultá nuestras promos, reservá y comprá desde la App exclusiva de <strong>buses Lep</strong></p>
-				</div>
-			</div>
+		  <div class="row">
+	      <div class="col-xs-6">
+	          <img src="./img/home/row6col2.png" class="img-responsive home-news-img">
+	      </div>
+	      <div class="col-xs-6">
+	          <h4 class="text-center">Fiesta de la Primavera</h4>
+	          <p class="home-news">Este año la Municipalidad apuesta fuerte y tiral a casa por la ventana recibiendo a la juventud en dos días que prometen musicalidad y un festejo único. Ponemos a tu alcance todos nuestros recursos para que no te pierdas este evento: Por cada horario regular agregamos tres refuerzos y, si sacás tu tarjeta de abonos, te regalamos hasta un 40% de descuento! Consultá nuestras promos, reservá y comprá desde la App exclusiva de <strong>buses Lep</strong></p>
+	      </div>
 		</div>
 	</div>
-	<!-- The Modal -->
-	<div id="home-modal" class="home-modal">
-
-	  <!-- Modal content -->
-	  <div class="home-modal-content">
-	    <div class="home-modal-body">
+</div>
+<div id="home-modal" class="home-modal">
+	<!-- Modal content -->
+	<div class="home-modal-content">
+		<div class="home-modal-body">
 			<img src="./img/shared/ajax-loader.gif">
 		</div>
-	  </div>
-
 	</div>
+
 </div>
