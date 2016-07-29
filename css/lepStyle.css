@@ -200,8 +200,8 @@ body {
 }
 
 .size-logo{
-  height:55%;
-  width:55%;
+  height:60%;
+  width:60%;
   margin:20px;
   vertical-align: middle;
   padding-right: 0;
@@ -434,6 +434,7 @@ div.card5{
 .row-top-margin15 { margin-top:15px;}
 .margin-top-45 {margin-top:45px;}
 .margin-top-80 {margin-top:80px;}
+.margin-left-15 {margin-left:15px;}
 
 hr { 
     display: block;
@@ -445,6 +446,12 @@ hr {
     border-width: 1px;
 } 
 
+.padding-left20{
+   padding-left: 20px;
+}
+.padding-top70{
+   padding-top: 70px;
+}
 .padding-top50{
    padding-top: 50px;
 }
@@ -742,6 +749,13 @@ color:#ff0008;
     .textarea{
     width:140px;
     height:120px;
+  }
+
+    .size-logo{
+    height:25%;
+    width:25%;
+    margin:10px;
+    vertical-align: middle;
   }
 }
 
