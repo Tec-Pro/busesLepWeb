@@ -102,6 +102,10 @@ angular.module('app')
 	  modal.style.display = "block";
 	}
 
+	$scope.open_image = function(){
+		display_modal();
+	}
+
 	// When the user clicks anywhere outside of the modal, close it
 	window.onclick = function(event) {
 	    if (event.target == modal) {

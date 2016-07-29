@@ -47,7 +47,15 @@
 }
 
 .comp-tab-inner-elem {
-	border-right: 3px solid #dbdbdb;
+	border-bottom: 2px solid #dbdbdb;
+	padding-left: 10px;
+}
+
+@media (min-width: 768px) {
+	.comp-tab-inner-elem {
+		border-bottom: none;
+		border-right: 2px solid #dbdbdb;
+	}
 }
 
 .comp-contact-img-logo {

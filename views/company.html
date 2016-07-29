@@ -2,16 +2,16 @@
 	<div class="row">
 		<div class="col-xs-12 col-sm-5">
 			<div class="row border-bottom border-top comp-tab-navbar">
-		        <div class="col-xs-3 text-center lep-href lep-margin comp-tab-inner-elem">
+		        <div class="col-xs-12 col-sm-3 text-center lep-href lep-margin comp-tab-inner-elem">
 		        	<a href ng-click="set_active(0)">Historia</a>
 		        </div>
-		        <div class="col-xs-3 text-center lep-href lep-margin comp-tab-inner-elem">
+		        <div class="col-xs-12 col-sm-3 text-center lep-href lep-margin comp-tab-inner-elem">
 		        	<a href data-ng-click="set_active(1)">Nosotros</a>
 		        </div>
-		        <div class="col-xs-3 text-center lep-href lep-margin comp-tab-inner-elem">
+		        <div class="col-xs-12 col-sm-3 text-center lep-href lep-margin comp-tab-inner-elem">
 		        	<a href ng-click="set_active(2)">Contacto</a>
 		        </div>
-		        <div class="col-xs-3 text-center lep-href lep-margin">
+		        <div class="col-xs-12 col-sm-3 text-center lep-href lep-margin">
 		        	<a href ng-click="set_active(3)">Unidades</a>
 		        </div>
 	        </div>
@@ -190,7 +190,7 @@
 								<input class="comp-gall-nav-btn" type="image" src="./img/company/left_button.png" data-ng-click="active_gall_thmb_left()"></input>
 							</div>
 							<div data-ng-repeat="image in images track by $index" class="col-xs-2">
-								<input type="image" data-ng-mouseover="set_active_gall_thmb($index)" data-ng-click="openImage($index)" data-ng-src="{{image.thumbnail}}" data-ng-class="{'comp-gall-wrap': active_gall_thmb != $index}" class="comp-gall-img img-responsive"></input>
+								<input type="image" data-ng-mouseover="set_active_gall_thmb($index)" data-ng-click="open_image()" data-ng-src="{{image.thumbnail}}" data-ng-class="{'comp-gall-wrap': active_gall_thmb != $index}" class="comp-gall-img img-responsive"></input>
 							</div>
 							<div class="col-xs-1">
 								<input class="comp-gall-nav-btn" type="image" src="./img/company/right_button.png" data-ng-click="active_gall_thmb_right()"></input>
@@ -198,11 +198,8 @@
 						</div>
 						<br>
 						<div class="row">
-							<div class="col-xs-offset-10 col-xs-1">
-								<button class="sp-btn" id="comp-gall-btn">Galería</button>
-							</div>
-							<div class="col-xs-1">
-								<img class="sp-gall-icon" src="./img/company/gallery.png">
+							<div class="col-xs-offset-9 col-xs-1">
+								<button class="btn comp-btn" id="comp-gall-btn">Galería <img class="sp-gall-icon" src="./img/company/gallery.png"></button>
 							</div>
 						</div>
 					</div>
@@ -212,9 +209,17 @@
 						<div class="row comp-units-navbar">
 							<div class="col-xs-12 col-md-4">
 								<div class="row">
-									<button class="btn col-xs-3 col-xs-offset-1" data-ng-click="set_active_unit_tab(0)">Confort</button>
-									<button class="btn col-xs-3 col-xs-offset-1" data-ng-click="set_active_unit_tab(1)">Tecnología</button>
-									<button class="btn col-xs-3 col-xs-offset-1" data-ng-click="set_active_unit_tab(2)">Seguridad</button>
+									<button class="btn col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-3" data-ng-click="set_active_unit_tab(0)">Confort</button>
+									<span class="visible-xs">
+										<br>
+										<br>
+									</span>
+									<button class="btn col-xs-10 col-xs-offset-1 col-sm-3" data-ng-click="set_active_unit_tab(1)">Tecnología</button>
+									<span class="visible-xs">
+										<br>
+										<br>
+									</span>
+									<button class="btn col-xs-10 col-xs-offset-1 col-sm-3" data-ng-click="set_active_unit_tab(2)">Seguridad</button>
 									<!-- <div ng-click="set_active_unit_tab(1)" class="col-xs-3 col-xs-offset-1 text-center comp-units-tab">
 							        	<a href class="">Confort</a>
 							        </div>
