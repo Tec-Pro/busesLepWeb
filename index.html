@@ -218,10 +218,10 @@
         </div>
     </div>
     <!--ESTE ES EL QUE CAUSA TODO; CARAJO. Cover Image-->
-    <div id="cover" class=" lepStyle background-white hidden-xs" >
-      <div class="row row-top-margin15">
-        <a ng-click="tab = 7" href="#/" class="col-xs-6"><img class="padding-top30 size-logo img-responsive left" ng-src="img/Iconos comunes/Isologo.png" alt="Buses Lep" ></a>
-        <img class="padding-top30 col-xs-6 img-responsive" ng-src="img/Buses-Head.jpg" >
+   <div id="cover" class="row no-mar-pad-bor row-top-margin15 lepStyle background-white hidden-xs" >
+      <div>
+        <a ng-click="tab = 7" href="#/" class="col-xs-6 no-mar-pad-bor "><img class="padding-top50 no-margin size-logo img-responsive left" ng-src="img/Iconos comunes/Isologo.png" alt="Buses Lep" ></a>
+        <img class="padding-top45 col-xs-6 img-responsive no-margin" ng-src="img/Buses-Head.jpg" >
         <!--<p class="col-xs-6 font-arial" style="padding-top:5%;text-align:center;font-size:180%;"> 
             Preocupate por otras cosas, <b> buses Lep </b> te lleva.
         </p>-->
@@ -320,35 +320,35 @@
     </nav>
 
     <div id="movida">
-     	<div class="lep-container container" ng-view></div>
+     	<div class="lep-container container-fluid" ng-view></div>
       <!-- footer-->
-		  <div id="footer" class="container-fluid lepStyle2" ng-controller="FooterCtrl">
-      <div class="row">
+	<div id="footer" class="container-fluid lepStyle2" ng-controller="FooterCtrl">
+      <div class = "row">
         <div class="col-xs-12 col-sm-3 text-center h4-responsive" style="padding:10px"><strong>Noticias</strong>
-            <div class="row text-center ">
-                <p>October Fest 2015  </br> <span class="lepGrey-color"> 21/09/2015 </span></p>
+            <div class=" text-center ">
+                <p>October Fest 2015  <br> <span class="lepGrey-color"> 21/09/2015 </span></p>
             </div>
-            <div class="row text-center">
-                <p>Fiesta de la Primavera </br> <span class="lepGrey-color"> 21/09/2015 </span></p>
+            <div class=" text-center">
+                <p>Fiesta de la Primavera <br> <span class="lepGrey-color"> 21/09/2015 </span></p>
             </div>
-            <div class="row text-center ">
-                <p>Próxima nota  </br> <span class="lepGrey-color"> 21/09/2015 </span></p>
+            <div class=" text-center ">
+                <p>Próxima nota  <br> <span class="lepGrey-color"> 21/09/2015 </span></p>
             </div>
         </div>
         <div class="col-xs-12 col-sm-3 text-center h4-responsive" style="padding:10px"><strong>Novedades</strong>
-            <div class="row text-center ">
+            <div class=" text-center ">
                 <p>A partir del 1 de Septiembre se podrán gestionar las renovaciones de los Boletos Educativos Gratuitos</p>
             </div>
-            <div class="row text-center">
+            <div class=" text-center">
                 <p>Ya podes conseguir tu tarjeta electronica para viajar a cualquiera de nuestros destinos</p>
             </div>
         </div>
         <div class="col-xs-12 col-sm-3 text-center h4-responsive" style="padding:10px"><strong>Actualidad</strong>
-            <div class="row text-center">
-                <p>Temperatura en Cordoba Capital </br> Min {{weather.tempMin}}° / Max {{weather.tempMax}}° </br> 
+            <div class=" text-center">
+                <p>Temperatura en Cordoba Capital <br> Min {{weather.tempMin}}° / Max {{weather.tempMax}}° <br> 
                     <span class="h1-responsive">{{weather.temp}}°</span></p>
             </div>
-            <div class="row text-center">
+            <div class=" text-center">
                 <ul class="unstyled">
                   <li class="item" ng-repeat="feed in feeds | limitTo:3">                    
                       <a target="_blank" class="small lepGrey-color"href="{{feed.link}}">{{feed.title}}</a>

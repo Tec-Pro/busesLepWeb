@@ -1,3 +1,5 @@
+
+
 body {
     padding-top: 0px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
@@ -445,8 +447,11 @@ hr {
 .padding-top50{
    padding-top: 50px;
 }
+.padding-top45{
+   padding-top: 45px;
+}
 .padding-top30{
-   padding-top: 30px;
+   margin-top: 30px;
 }
 .padding-top20{
    padding-top: 20px;
@@ -709,6 +714,11 @@ smaller than 650
     padding: 0;
     border: 0;
     margin: 0;
+}
+.no-margin{
+  margin:0;
+  padding-right: 0;
+  padding-left: 0;
 }
 
 .col-centered{
