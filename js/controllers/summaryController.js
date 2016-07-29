@@ -37,6 +37,11 @@ angular.module('app').controller('SummaryController', ['$scope', '$location', 't
 
   $scope.goSeatPicker = function () {
 
+    if(localStorageService.get("user-lep") == null || localStorageService.get("user-lep") == undefined){
+      location.path('/login');
+      return;
+    }
+
     if(localStorageService.get("user-lep").email == ""){
       $location.path('/login');
     }
@@ -53,6 +58,10 @@ angular.module('app').controller('SummaryController', ['$scope', '$location', 't
 
   $scope.goReserve = function(){
     tripService.savePassengers($scope.passengers);
+    if(localStorageService.get("user-lep") == null || localStorageService.get("user-lep") == undefined){
+      location.path('/login');
+      return;
+    }
     if(localStorageService.get("user-lep").email == ""){
       $location.path('/login');
     }
