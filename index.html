@@ -328,21 +328,20 @@
 	      	<div class = "row">
 			        <div class="col-xs-12 col-sm-3 text-center h4-responsive" style="padding:10px"><strong>Noticias</strong>
 			            <div class=" text-center ">
-			                <p>October Fest 2015  <br> <span class="lepGrey-color"> 21/09/2015 </span></p>
-			            </div>
-			            <div class=" text-center">
-			                <p>Fiesta de la Primavera <br> <span class="lepGrey-color"> 21/09/2015 </span></p>
-			            </div>
-			            <div class=" text-center ">
-			                <p>Próxima nota  <br> <span class="lepGrey-color"> 21/09/2015 </span></p>
+			                <ul class="unstyled">
+			                  <li style="list-style-type: none;" ng-repeat="noticia in noticias | limitTo:3">
+			                      <p>{{noticia.Texto}}</p>
+			                  </li>
+			              </ul>
 			            </div>
 			        </div>
 			        <div class="col-xs-12 col-sm-3 text-center h4-responsive" style="padding:10px"><strong>Novedades</strong>
 			            <div class=" text-center ">
-			                <p>A partir del 1 de Septiembre se podrán gestionar las renovaciones de los Boletos Educativos Gratuitos</p>
-			            </div>
-			            <div class=" text-center">
-			                <p>Ya podes conseguir tu tarjeta electronica para viajar a cualquiera de nuestros destinos</p>
+			                <ul class="unstyled">
+			                  <li style="list-style-type: none;" ng-repeat="novedad in novedades | limitTo:3">
+			                      <p>{{novedad.DescNovedad}}</p>
+			                  </li>
+			              </ul>
 			            </div>
 			        </div>
 			        <div class="col-xs-12 col-sm-3 text-center h4-responsive" style="padding:10px"><strong>Actualidad</strong>
@@ -352,7 +351,7 @@
 			            </div>
 			            <div class=" text-center">
 			                <ul class="unstyled">
-			                  <li class="item" ng-repeat="feed in feeds | limitTo:3">
+			                  <li style="list-style-type: none;" ng-repeat="feed in feeds | limitTo:3">
 			                      <a target="_blank" class="small lepGrey-color"href="{{feed.link}}">{{feed.title}}</a>
 			                  </li>
 			              </ul>
