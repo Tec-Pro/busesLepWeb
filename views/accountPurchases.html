@@ -16,6 +16,7 @@
 </br>
             <br></br>
         <div class="nav home">
+            <div ng-hide="purchases[0] != null" class="text-center">Usted no ha hecho ninguna compra</div>
             <div class="home row" ng-repeat = "purchase in purchases">
                 <div class="col-xs-10 col-sm-5 card2">
                     <div class="row lepGrey-bg">
