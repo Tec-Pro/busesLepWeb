@@ -330,7 +330,7 @@
 			            <div class=" text-center ">
 			                <ul class="unstyled">
 			                  <li style="list-style-type: none;" ng-repeat="noticia in noticias | limitTo:3">
-			                      <p>{{noticia.Texto}}</p><br>
+			                      <p ng-bind-html="noticia.Texto"></p><br>
 			                  </li>
 			              </ul>
 			            </div>
