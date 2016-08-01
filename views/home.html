@@ -1,6 +1,7 @@
 <div class="home-row first-home-row row">
+		{{home_images[7].LinkImagen}}
 		<div class="hidden-xs hidden-sm col-md-8">
-				<img src="./img/home/row1col1.png" class="img-lg img-responsive">
+				<img ng-src="{{home_images[0].LinkImagen}}" class="img-lg img-responsive">
 		</div>
 		<div class="col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-0 col-md-4 search-container">
 				<h3 class="search-header">Búsqueda / Reserva / Compra</h3>
@@ -82,7 +83,7 @@
 <div class="home-row row">
 		<div class="col-xs-12 col-sm-5">
 			<div class="img-wrapper">
-				<img src="./img/home/row2col1.png" class="img-lg img-responsive">
+				<img ng-src="{{home_images[1].LinkImagen}}" class="img-lg img-responsive">
 			</div>
 		</div>
 		<div class="col-xs-12 col-sm-7">
@@ -90,17 +91,17 @@
 				<div id="Carousel" class="carousel slide">
 						<div class="carousel-inner">
 								<div class="item active">
-										<img src="./img/home/row2col2a.png" class="center-block img-sm img-responsive">
+										<img ng-src="{{home_images[2].LinkImagen}}" class="center-block img-sm img-responsive">
 										<div class="carousel-text">
 												<p class="text-center">Gozá de cualquiera de estos beneficios de manera rápida y segura.<p>
 										</div>
 								</div>
-								<div class="item">
+								<!-- <div class="item">
 										<img src="./img/home/row2col2b.png" class="center-block img-sm img-responsive">
 										<div class="carousel-text">
 												<p class="text-center">Lorem ipsum dolor amet<p>
 										</div>
-								</div>
+								</div> -->
 						</div>
 						<span class="left carousel-control" data-target="#Carousel" data-slide="prev">
 								<span class="glyphicon glyphicon-chevron-left"></span>
@@ -116,38 +117,38 @@
     <div class="col-xs-12 col-sm-5 col-md-offset-0 col-md-5">
         <h3><span class="red">Red</span> Pack <small>Encomiendas</small></h3>
         <a href="#/encomiendas">
-					<div class="img-wrapper">
-            <img src="./img/home/row4col1.png" class="img-md img-responsive">
-					</div>
+			<div class="img-wrapper">
+    			<img ng-src="{{home_images[3].LinkImagen}}" class="img-md img-responsive">
+			</div>
         </a>
     </div>
     <div class="col-xs-12 col-sm-7 col-md-offset-0 col-md-7 img-container">
         <h3>Viajes Especiales <small>Internacionales/Nacionales/Provinciales</small></h3>
         <a href="#/special">
-					<div class="img-wrapper">
-            <img src="./img/home/row4col2.png" class="img-md img-responsive">
-					</div>
+			<div class="img-wrapper">
+            	<img ng-src="{{home_images[4].LinkImagen}}" class="img-md img-responsive">
+			</div>
         </a>
     </div>
 </div>
 <div class="visible-xs row">
   <div class="col-xs-12">
 		<div class = "img-wrapper">
-      <img src="./img/home/row3col1.png" class="img-sm img-responsive">
+      <img ng-src="{{home_images[5].LinkImagen}}" class="img-sm img-responsive">
       <button data-ng-click="goCompanyUnits(0);" class="btn btn-home"><strong class="pull-left">Confort</strong><span class="glyphicon glyphicon-plus white-glyphicon-home pull-right"></span></button>
 		</div>
   </div>
   <br class="visible-xs">
   <div class="col-xs-12">
 		<div class="img-wrapper">
-      <img src="./img/home/row3col2.png" class="img-sm img-responsive">
+      <img ng-src="{{home_images[6].LinkImagen}}" class="img-md img-responsive">
       <button data-ng-click="goCompanyUnits(1);" class="btn btn-home"><strong class="pull-left">Tecnología</strong><span class="glyphicon glyphicon-plus white-glyphicon-home pull-right"></span></button>
 		</div>
   </div>
 	<br class="visible-xs">
   <div class="col-xs-12 img-container">
 		<div class="img-wrapper">
-      <img src="./img/home/row3col3.png" class="img-sm img-responsive">
+      <img ng-src="{{home_images[7].LinkImagen}}" class="img-responsive">
       <button data-ng-click="goCompanyUnits(2)" class="btn btn-home"><strong class="pull-left">Seguridad</strong><span class="glyphicon glyphicon-plus white-glyphicon-home pull-right"></span></button>
 		</div>
   </div>
@@ -155,19 +156,19 @@
 <div class="hidden-xs home-row row">
   <div class="col-sm-4">
 		<div class="img-wrapper">
-      <img src="./img/home/row3col1.png" class="img-sm img-responsive">
+      <img ng-src="{{home_images[5].LinkImagen}}" class="img-sm img-responsive">
       <button data-ng-click="goCompanyUnits(0);" class="btn btn-home"><strong class="pull-left">Confort</strong><span class="glyphicon white-glyphicon-home pull-right">+</span></button>
 		</div>
 	</div>
   <div class="col-sm-4">
 		<div class="img-wrapper">
-      <img src="./img/home/row3col2.png" class="img-sm img-responsive">
+      <img ng-src="{{home_images[6].LinkImagen}}" class="img-sm img-responsive">
       <button data-ng-click="goCompanyUnits(1);" class="btn btn-home"><strong class="pull-left">Tecnología</strong><span class="glyphicon glyphicon-plus white-glyphicon-home pull-right"></span></button>
 		</div>
 	</div>
   <div class="col-sm-4">
 		<div class="img-wrapper">
-      <img src="./img/home/row3col3.png" class="img-sm img-responsive">
+      <img ng-src="{{home_images[7].LinkImagen}}" class="img-sm img-responsive">
       <button data-ng-click="goCompanyUnits(2);" class="btn btn-home"><strong class="pull-left">Seguridad</strong><span class="glyphicon glyphicon-plus white-glyphicon-home pull-right"></span></button>
 		</div>
 	</div>

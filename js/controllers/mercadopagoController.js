@@ -298,16 +298,29 @@ angular.module('app')
 	        //var form = new FormData(document.getElementById("form"));
 			//var inputValue = form.get("inputTypeName");
 			cuotas = document.querySelector('#installments').value
-			
-	        var datosCompra = {description:"boletos", 
+			console.log(tripService.getPurchaseOrigin());
+			if (tripService.getPurchaseOrigin() == "0") {
+				console.log("venta boleto");
+	        	var datosCompra = {description:"boletos", 
 	        				external_reference: "boleto:"+idventa,
 	        				installments: parseInt(cuotas),
 	        				payer:{email: user_email},//"test_user_19653727@testuser.com"},//user_email}, 
 	        				payment_method_id: $scope.selectedPayment,
 	        				token: response.id,
 	        				transaction_amount: parseInt($scope.totalAmount)
-	        				}
-	        //console.log(JSON.stringify(datosCompra));
+	        	}
+	        } else if (tripService.getPurchaseOrigin() == "1") {
+	        	console.log("tarjeta");
+	        	var datosCompra = {description:"precarga tarjeta", 
+	        				external_reference: "recarga:"+idventa,
+	        				installments: parseInt(cuotas),
+	        				payer:{email: user_email},//"test_user_19653727@testuser.com"},//user_email}, 
+	        				payment_method_id: $scope.selectedPayment,
+	        				token: response.id,
+	        				transaction_amount: parseInt($scope.totalAmount)
+	        	}
+	        }
+	        console.log(JSON.stringify(datosCompra));
 	        wsParameters = [
 				{
 					name: "UserCobro",
@@ -332,6 +345,7 @@ angular.module('app')
 			display_load_modal();
 	       	wsService.callService(wsdl_url, urn, wsMethod, wsParameters).then(function(response){
 	       		hide_load_modal();
+	       		console.log(response);
 	       		splittedResponse = response.split("{\"Cod_Impresion\":\"");
 	       		var codImpresion = -1;
 	       		if(splittedResponse[1] != undefined){

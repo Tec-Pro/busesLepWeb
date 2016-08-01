@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('AccDepCtrl', ['$scope', '$location', '$window', 'wsService', function($scope, $location, $window, wsService){
+.controller('AccDepCtrl', ['$scope', '$location', '$window', 'wsService', 'tripService', function($scope, $location, $window, wsService, tripService){
 	wsdl_url = "https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepcGPS.dll/soap/ILepWebService";
 	urn = "LepWebServiceIntf-ILepWebService";
 	method = "PrecargaTarjeta";
@@ -42,7 +42,10 @@ angular.module('app')
 			display_loading_modal()
 			wsService.callService(wsdl_url, urn, method, deposit_params).then(function(msg){
 				hide_loading_modal();
-				display_response(msg);
+				tripService.savePurchaseOrigin(1);
+				tripService.saveTripPrice($scope.card.amount);
+				tripService.saveSellCode(msg[0].Id_Venta);
+				$location.path("/buy");
 			}, function(reason){
         if (reason == "timeout"){
           alert("Tiempo de respuesta agotado, verifique su conexión o intente más tarde.");

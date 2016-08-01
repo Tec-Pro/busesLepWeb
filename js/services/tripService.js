@@ -1,7 +1,7 @@
 angular.module('app')
 .factory('tripService', ["$soap","$q", function($soap, $q){
 
-	
+	var purchase_origin = 0;
 
 	var departure_trip = {
 		round_trip : 0,
@@ -84,6 +84,11 @@ angular.module('app')
 
     
 	return {
+		savePurchaseOrigin: function(obj){
+			purchase_origin = obj;
+			console.log(obj);
+			sessionStorage.setItem('purchase_origin', purchase_origin);
+		},
 		savePassengers: function(obj){
 			passengers = obj;
 			sessionStorage.setItem('passengers', passengers);	
@@ -110,6 +115,9 @@ angular.module('app')
 				selectedSeatsReturn = val;
 			}
 			sessionStorage.setItem('selected_seats_return', JSON.stringify(selectedSeatsReturn));	
+		},
+		getPurchaseOrigin: function () {
+			return sessionStorage.purchase_origin;
 		},
 		getDepartureTrip: function(){
 			if(sessionStorage.departure_trip == undefined){

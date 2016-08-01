@@ -3,7 +3,28 @@ angular.module('app')
   
     var wsdl_url = 'https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService'//https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService';
     var wsdl_url_wsConGps = "https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepcGPS.dll/soap/ILepWebService";
+    var wsdl_url_home = "https://webservices.buseslep.com.ar:443/WebServices/WSLepPaginaWeb.dll/soap/IWSLepPaginaWeb";
     var urn = '';
+
+    $scope.home_images = [];
+
+    var img_home_params = [
+      {
+	      name: "userWS",
+	      type: "string",
+	      value: "UsuarioLep"
+	    },
+	    {
+	      name: "passWS",
+	      type: "string",
+	      value: "Lep1234"
+	    }
+    ]
+
+    wsService.callService(wsdl_url_home, urn, "ImagenesHome",img_home_params).then(function(imgs){
+    	$scope.home_images = imgs;
+    	console.log(imgs);
+    });
 
     sessionStorage.clear();
     //Date picker options
