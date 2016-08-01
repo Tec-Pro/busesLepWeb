@@ -1,10 +1,12 @@
 angular.module('app')
-.controller('HomeCtrl', ['$scope', '$location', '$window', 'localStorageService', 'wsService', 'tripService', 'companyService', function($scope, $location, $window,localStorageService, wsService, tripService, companyService){
+.controller('HomeCtrl', ['$scope', '$sce', '$location', '$window', 'localStorageService', 'wsService', 'tripService', 'companyService', function($scope, $sce, $location, $window,localStorageService, wsService, tripService, companyService){
   
     var wsdl_url = 'https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService'//https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService';
     var wsdl_url_wsConGps = "https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepcGPS.dll/soap/ILepWebService";
-    var wsdl_url_home = "https://webservices.buseslep.com.ar:443/WebServices/WSLepPaginaWeb.dll/soap/IWSLepPaginaWeb";
+    var wsdl_url_web = "https://webservices.buseslep.com.ar:443/WebServices/WSLepPaginaWeb.dll/soap/IWSLepPaginaWeb";
     var urn = '';
+
+    $scope.home_news = [];
 
     $scope.home_images = [];
 
@@ -21,10 +23,28 @@ angular.module('app')
 	    }
     ]
 
-    wsService.callService(wsdl_url_home, urn, "ImagenesHome",img_home_params).then(function(imgs){
+    var news_home_params = [
+      {
+	      name: "userWS",
+	      type: "string",
+	      value: "UsuarioLep"
+	    },
+	    {
+	      name: "passWS",
+	      type: "string",
+	      value: "Lep1234"
+	    }
+    ]
+
+    wsService.callService(wsdl_url_web, urn, "ImagenesHome",img_home_params).then(function(imgs){
     	$scope.home_images = imgs;
     	console.log(imgs);
     });
+
+    wsService.callService(wsdl_url_web, urn, "Noticias", news_home_params).then(function(news){
+    	$scope.home_news = news;
+    	console.log($scope.home_news);
+    })
 
     sessionStorage.clear();
     //Date picker options

@@ -1,5 +1,4 @@
 <div class="home-row first-home-row row">
-		{{home_images[7].LinkImagen}}
 		<div class="hidden-xs hidden-sm col-md-8">
 				<img ng-src="{{home_images[0].LinkImagen}}" class="img-lg img-responsive">
 		</div>
@@ -174,29 +173,33 @@
 	</div>
 </div>
 <div class="hidden-xs row">
-	<div class="col-xs-12"><h3>Noticias</h3></div>
-		<div class="hidden-xs col-xs-12 col-sm-6">
-		  <div class="row">
-		      <div class="col-xs-6">
-		          <img src="./img/home/row6col1.png" class="img-responsive home-news-img">
-		      </div>
-		      <div class="col-xs-6">
-		          <h4 class="text-center">OktoberFest 2016</h4>
-		          <p class="home-news">Villa General Belgrano se prepara para la próxima fiesta anual de la cerveza <strong>buses Lep</strong> pone a tu disposición coches que constan de todo el confort y la tecnología para que disfrutes del Valle de Calamuchita, además de horarios con la frecuencia de veinte minutos. Sumate vos también a esta experiencia única y dejanos tu comentario en nuestro muro: <a href="https://www.facebook.com/expresobuseslep">facebook/expresobuseslep</a></p>
-		      </div>
-		  </div>
-		</div>
-		<div class="hidden-xs col-xs-12 col-sm-6">
-		  <div class="row">
-	      <div class="col-xs-6">
-	          <img src="./img/home/row6col2.png" class="img-responsive home-news-img">
-	      </div>
-	      <div class="col-xs-6">
-	          <h4 class="text-center">Fiesta de la Primavera</h4>
-	          <p class="home-news">Este año la Municipalidad apuesta fuerte y tiral a casa por la ventana recibiendo a la juventud en dos días que prometen musicalidad y un festejo único. Ponemos a tu alcance todos nuestros recursos para que no te pierdas este evento: Por cada horario regular agregamos tres refuerzos y, si sacás tu tarjeta de abonos, te regalamos hasta un 40% de descuento! Consultá nuestras promos, reservá y comprá desde la App exclusiva de <strong>buses Lep</strong></p>
-	      </div>
-		</div>
+	<div class="col-xs-12"><h3>Noticias</h3>
 	</div>
+	<div class="hidden-xs col-sm-6" ng-repeat = "n in home_news">
+	  <div class="row border-bottom">
+		  <div class="col-xs-6">
+		    <img ng-src="{{n.Linkimagen}}" class="img-responsive home-news-img">
+      </div>
+      <div class="col-xs-6">
+		    <div ng-bind-html="n.Texto"></div>
+      </div>
+	  </div>
+	  <span>
+	  	<br>
+	  	<br>
+	  </span>
+	</div>
+	<!-- <div class="hidden-xs col-sm-6">
+	  <div class="row">
+      <div class="col-xs-6">
+        <img src="./img/home/row6col2.png" class="img-responsive home-news-img">
+      </div>
+      <div class="col-xs-6">
+          <h4 class="text-center">Fiesta de la Primavera</h4>
+          <p class="home-news">Este año la Municipalidad apuesta fuerte y tiral a casa por la ventana recibiendo a la juventud en dos días que prometen musicalidad y un festejo único. Ponemos a tu alcance todos nuestros recursos para que no te pierdas este evento: Por cada horario regular agregamos tres refuerzos y, si sacás tu tarjeta de abonos, te regalamos hasta un 40% de descuento! Consultá nuestras promos, reservá y comprá desde la App exclusiva de <strong>buses Lep</strong></p>
+      </div>
+		</div>
+	</div> -->
 </div>
 <div id="home-modal" class="home-modal">
 	<!-- Modal content -->
