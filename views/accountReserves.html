@@ -14,7 +14,8 @@
         	<a href="#/account/update">Modificar <span><strong>Cuenta</strong></span></a></div>
       </div>
   <br></br>
-        <div class="nav home" ng-controller = "ReservesCtrl">
+        <div class="nav home">
+            <div ng-hide="reserves[0] != null" class="text-center">Usted no ha hecho ninguna reserva</div>
             <div class="home row" ng-repeat = "reserve in reserves">
                 <div class="col-xs-10 col-sm-5 card2">
                     <div class="row lepGrey-bg">
