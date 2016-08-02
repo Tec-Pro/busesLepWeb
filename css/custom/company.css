@@ -39,11 +39,21 @@
 
 .comp-tab-navbar a {
 	color: #3f3f3f;
+	font-weight: bold;
+}
+
+.comp-tab-navbar a:active {
+	color: #000B82;
+}
+
+.comp-tab-navbar a:focus {
+	color: #000B82;
 }
 
 .comp-tab-navbar a:hover {
+	color: #000B82;
 	text-decoration: none;
-	font-weight: bold;
+	font-weight: bolder;
 }
 
 .comp-tab-inner-elem {
