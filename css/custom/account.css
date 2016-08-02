@@ -11,6 +11,13 @@ input.card-input {
     margin-bottom: 10%;
 }
 
+.acc-balance-row {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
 /* The Modal (background) */
 .acc-loading-modal {
     display: none; /* Hidden by default */

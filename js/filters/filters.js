@@ -23,6 +23,18 @@ angular.module('app').filter('lepHour', function(){
 	}
 });
 
+angular.module('app').filter('lepDate', function($filter){
+
+	return function(input){
+		console.log(input);
+		if (input == null){
+			return "";
+		}
+		var _date = moment(input).format("DD/MM/YYYY HH:mm");
+		return _date.toUpperCase();
+	}
+})
+
 angular.module('app').filter('lepDateMonth', function($filter){
 	
 	return function(input){
