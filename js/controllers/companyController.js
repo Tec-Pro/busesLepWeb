@@ -1,10 +1,62 @@
 angular.module('app')
-.controller('CompCtrl', ['$scope', '$location', 'companyService', function($scope, $location, companyService){
+.controller('CompCtrl', ['$scope', '$location', 'wsService', 'companyService', function($scope, $location, wsService, companyService){
 
 	$scope.active = companyService.getActiveTab();
 	$scope.active_unit_tab = companyService.getActiveUnitTab();
 	$scope.active_gall_img = 1;
 	$scope.active_gall_thmb = 2;
+
+	$scope.contact = {};
+
+	$scope.submit_contact = function(){
+		var wsdl_url_web = "https://webservices.buseslep.com.ar:443/WebServices/WSLepPaginaWeb.dll/soap/IWSLepPaginaWeb";
+		var urn = "WSLepPaginaWebIntf-IWSLepPaginaWeb";
+		var contact_parameters = 
+		[
+			{
+				name: "userWS",
+				type: "string",
+				value: "UsuarioLep"
+			},
+			{
+				name: "passWS",
+				type: "string",
+				value: "Lep1234"
+			},
+			{
+				name: "DNI",
+				type: "string",
+				value: $scope.contact.dni
+			},
+			{
+				name: "Nombre",
+				type: "string",
+				value: $scope.contact.first_name
+			},
+			{
+				name: "Apellido",
+				type: "string",
+				value: $scope.contact.last_name
+			},
+			{
+				name: "Email",
+				type: "string",
+				value: $scope.contact.email
+			},
+			{
+				name: "Texto",
+				type: "string",
+				value: $scope.contact.text
+			}
+		];
+
+		wsService.callService(wsdl_url_web, urn, "AgregarContacto", contact_parameters).then(function(response){
+            if (response[0].Resul == 1){
+            	display_response_modal();
+            	$scope.contact = {};
+            }
+		});
+	}
 
 	$scope.set_active = function(tab){
 		$scope.active = tab;
@@ -102,6 +154,16 @@ angular.module('app')
 	  modal.style.display = "block";
 	}
 
+	var contact_modal = document.getElementById("response-modal");
+
+	var display_response_modal = function(){
+		contact_modal.style.display = "block";
+	}
+
+	$scope.hide_response_modal = function(){
+		contact_modal.style.display = "none";
+	}
+
 	$scope.open_image = function(){
 		display_modal();
 	}
@@ -109,7 +171,10 @@ angular.module('app')
 	// When the user clicks anywhere outside of the modal, close it
 	window.onclick = function(event) {
 	    if (event.target == modal) {
-	        modal.style.display = "none";
+	      modal.style.display = "none";
+	    }
+	    if (event.target == contact_modal){
+	    	contact_modal.style.display = "none";
 	    }
 	}
 }]);

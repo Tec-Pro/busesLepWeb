@@ -124,13 +124,13 @@
 						</div>
 						<div class="row">
 							<br>
-							<form role="form" class="form">
+							<form role="form" ng-submit="submit_contact()" class="form">
 								<div class="col-xs-12 col-md-6">
 									<div class="form-group">
 										<div class="row">
 											<label class="control-label col-xs-5">D.N.I.</label>
 											<div class="col-xs-7">
-												<input class="form-control" type="text" placeholder="DNI"></input>
+												<input class="form-control" ng-model="contact.dni" type="text" required pattern="\d+" placeholder="DNI"></input>
 											</div>
 										</div>
 									</div>
@@ -138,7 +138,7 @@
 										<div class="row">
 											<label class="control-label col-xs-5">Apellido/s</label>
 											<div class="col-xs-7">
-												<input class="form-control" type="text" placeholder="Apellido/s"></input>
+												<input class="form-control" ng-model="contact.last_name" type="text" required placeholder="Apellido/s"></input>
 											</div>
 										</div>
 									</div>
@@ -146,7 +146,7 @@
 										<div class="row">
 											<label class="control-label col-xs-5">Nombre/s</label>
 											<div class="col-xs-7">
-												<input class="form-control" type="text" placeholder="Nombre/s"></input>
+												<input class="form-control" ng-model="contact.first_name" type="text" required placeholder="Nombre/s"></input>
 											</div>
 										</div>
 									</div>
@@ -154,7 +154,7 @@
 										<div class="row">
 											<label class="control-label col-xs-5">Email</label>
 											<div class="col-xs-7">
-												<input class="form-control" type="text" placeholder="Email	"></input>
+												<input class="form-control" ng-model="contact.email" type="email" placeholder="Email" required></input>
 											</div>
 										</div>
 									</div>
@@ -162,12 +162,12 @@
 								<div class="col-xs-12 col-md-6 ">
 									<div class="row">
 										<div class="col-xs-12">
-											<textarea class="form-control comp-textarea" rows="6" name="Opinion"></textarea>
+											<textarea class="form-control comp-textarea" ng-model="contact.text" required rows="6" name="Opinion"></textarea>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-xs-10">
-											<button class="btn btn-default">Enviar</button>
+											<button type="submit" class="btn btn-default">Enviar</button>
 										</div>
 									</div>
 								</div>
@@ -310,6 +310,22 @@
 				</div>
 			</div>
 		</div>
+
+	</div>
+
+	<!-- The Contact Response Modal -->
+	<div id="response-modal" class="modal">
+
+	 <!-- Modal content -->
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h4>¡Su mensaje ha sido enviado!</h4>
+	      </div>
+	      <div class="modal-body">
+	        <p>Gracias por contactarse con Buses Lep.</p>
+	        <button class="btn btn-default lepRed-bg lepWhite-color row-top-margin15" type="button" ng-click="hide_response_modal()">Cerrar</button>
+	      </div>
+	    </div>
 
 	</div>
 </div>
