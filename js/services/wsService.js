@@ -12,6 +12,7 @@ angular.module('app')
 	* ie: p = [{name: 'userws', type: 'string', value: 'UsuarioLep'}
 	*/
 	wsService.callService = function(wsdl_url, urn, method, parameters){
+    console.clear();
 		//Create the deferred object
 		var deferred = $q.defer();
 		//Create the xmlhttp petition 
@@ -100,6 +101,7 @@ angular.module('app')
        	xmlhttp.setRequestHeader('Content-Type', 'text/xml');
         //Return a promise.
        	xmlhttp.send(soap_request);
+        console.clear();
        	return deferred.promise;
 
 	};
