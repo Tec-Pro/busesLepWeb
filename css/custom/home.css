@@ -2,7 +2,7 @@
 	color: white;
 	text-align: center;
 	background: red;
-	padding-bottom: 5.3%;
+	padding-bottom: 1%;
 }
 
 .search-header {
@@ -16,6 +16,10 @@
 .search-date {
 	padding-left: 14%;
 	text-align: center;
+}
+
+.clear-search-btn {
+	margin-top: 3%;
 }
 
 .search-date::-webkit-input-placeholder       {color:  #000000;}
