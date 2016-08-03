@@ -309,6 +309,7 @@ angular.module('app')
 	        				transaction_amount: parseInt($scope.totalAmount)
 	        	}
 	        } else if (tripService.getPurchaseOrigin() == "1") {
+	        	console.log(idventa);
 	        	var datosCompra = {description:"precarga tarjeta", 
 	        				external_reference: "recarga:"+idventa,
 	        				installments: parseInt(cuotas),
