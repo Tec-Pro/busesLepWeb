@@ -342,7 +342,7 @@ angular.module('app')
 			display_load_modal();
 	       	wsService.callService(wsdl_url, urn, wsMethod, wsParameters).then(function(response){
 	       		hide_load_modal();
-
+	       		console.log(response);
 	       		splittedResponse = response.split("{\"Cod_Impresion\":\"");
 	       		var codImpresion = -1;
 	       		if(splittedResponse[1] != undefined){
