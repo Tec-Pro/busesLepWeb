@@ -191,6 +191,7 @@ angular.module('app').controller('ScheduleController', ['$scope', '$location', '
 	wsService.callService(wsdl_url, urn, 'ObtenerTarifaTramo', parametersPrice).then(function(tarifas){
 		hide_loading_modal();
  		result = tarifas.split("-");
+ 		console.log(result);
  		$scope.goPrice = Number(result[0].trim().substring(7));
  		$scope.roundTripPrice = Number(result[1].trim().substring(13));
  	}, function(reason){
@@ -220,17 +221,18 @@ angular.module('app').controller('ScheduleController', ['$scope', '$location', '
 		if($scope.departure_trip.round_trip != 0){
 			if(!scheduleService.getIsReturnTrip()){
 				setScheduleGo(index);
+				//tripService.saveTripPrice($scope.schedules[index].precio);
 				scheduleService.setIsReturnTrip(true);
 				location.reload();
 			}
 			else{
 				setScheduleReturn(index);
-				tripService.saveTripPrice($scope.roundTripPrice);
+				//tripService.saveTripPrice($scope.schedules[index].precio);
 				$location.path('/summary');
 			}
 		}
 		else{
-			tripService.saveTripPrice($scope.goPrice);
+			//tripService.saveTripPrice($scope.schedules[index].precio);
 			setScheduleGo(index);
 			$location.path('/summary');
 		} 			
@@ -247,6 +249,7 @@ angular.module('app').controller('ScheduleController', ['$scope', '$location', '
 		scheduleService.setScheduleOriginId($scope.departure_trip.origin_id);
 		scheduleService.setScheduleDestinationName($scope.departure_trip.destination_name);
 		scheduleService.setScheduleOriginName($scope.departure_trip.origin_name);*/
+		console.log(selectedSchedule);
 		scheduleService.saveSchedule(selectedSchedule);		
 	};
 

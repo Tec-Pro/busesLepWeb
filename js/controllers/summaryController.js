@@ -9,7 +9,6 @@ angular.module('app').controller('SummaryController', ['$scope', '$location', 't
   var urn = 'LepWebServiceIntf-ILepWebService';
   $scope.isBuy = false;
   $scope.isRoundTrip = tripService.getDepartureTrip().round_trip === 1;
-  $scope.price = tripService.getTripPrice();
   $scope.trip = tripService.getDepartureTrip();
 
   
@@ -30,6 +29,11 @@ angular.module('app').controller('SummaryController', ['$scope', '$location', 't
 
   $scope.schedule = scheduleService.getSchedule();
   $scope.scheduleReturn = scheduleService.getScheduleReturn();
+  if(tripService.getDepartureTrip().round_trip === 1){
+  	$scope.price = $scope.schedule.precio + $scope.scheduleReturn.precio;
+  } else {
+  	$scope.price = $scope.schedule.precio;
+  }
 
   if($scope.trip == undefined || $scope.schedule == undefined){
         $location.path('/'); 
@@ -38,7 +42,7 @@ angular.module('app').controller('SummaryController', ['$scope', '$location', 't
   $scope.goSeatPicker = function () {
 
     if(localStorageService.get("user-lep") == null || localStorageService.get("user-lep") == undefined){
-      location.path('/login');
+      $location.path('/login');
       return;
     }
 
