@@ -38,12 +38,10 @@ angular.module('app')
 
     wsService.callService(wsdl_url_web, urn, "ImagenesHome",img_home_params).then(function(imgs){
     	$scope.home_images = imgs;
-    	console.log(imgs);
     });
 
     wsService.callService(wsdl_url_web, urn, "Noticias", news_home_params).then(function(news){
     	$scope.home_news = news;
-    	console.log($scope.home_news);
     })
 
     sessionStorage.clear();
