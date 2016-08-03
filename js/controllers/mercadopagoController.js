@@ -347,7 +347,8 @@ angular.module('app')
 	       		if (tripService.getPurchaseOrigin() == "0"){
 	       			splittedResponse = response.split("{\"Cod_Impresion\":\"");
 	       		} else if (tripService.getPurchaseOrigin() == "1") {
-					splittedResponse = response.split("{\"Result\":\"");	       		
+					splittedResponse = response.split("{\"Result\":\"");
+					console.log(splittedResponse);	       		
 				}
 	       		var codImpresion = -1;
 	       		if(splittedResponse[1] != undefined){
