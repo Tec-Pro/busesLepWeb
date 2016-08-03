@@ -19,6 +19,10 @@ angular.module("app", ["ngRoute","ngAnimate","LocalStorageModule","angularSoap",
                     templateUrl: "views/endPurchase.html",
                     controller: 'EndController'
                 })
+                .when("/endDeposit", {
+                    templateUrl: "views/endDeposit.html",
+                    controller: 'EndController'
+                })
                 .when("/endReserve", {
                     templateUrl: "views/endReserve.html"
                 })

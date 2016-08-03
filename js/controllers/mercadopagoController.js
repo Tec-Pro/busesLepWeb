@@ -300,7 +300,6 @@ angular.module('app')
 			cuotas = document.querySelector('#installments').value
 			console.log(tripService.getPurchaseOrigin());
 			if (tripService.getPurchaseOrigin() == "0") {
-				console.log("venta boleto");
 	        	var datosCompra = {description:"boletos", 
 	        				external_reference: "boleto:"+idventa,
 	        				installments: parseInt(cuotas),
@@ -310,7 +309,6 @@ angular.module('app')
 	        				transaction_amount: parseInt($scope.totalAmount)
 	        	}
 	        } else if (tripService.getPurchaseOrigin() == "1") {
-	        	console.log("tarjeta");
 	        	var datosCompra = {description:"precarga tarjeta", 
 	        				external_reference: "recarga:"+idventa,
 	        				installments: parseInt(cuotas),
@@ -320,7 +318,6 @@ angular.module('app')
 	        				transaction_amount: parseInt($scope.totalAmount)
 	        	}
 	        }
-	        console.log(JSON.stringify(datosCompra));
 	        wsParameters = [
 				{
 					name: "UserCobro",
@@ -345,7 +342,7 @@ angular.module('app')
 			display_load_modal();
 	       	wsService.callService(wsdl_url, urn, wsMethod, wsParameters).then(function(response){
 	       		hide_load_modal();
-	       		console.log(response);
+
 	       		splittedResponse = response.split("{\"Cod_Impresion\":\"");
 	       		var codImpresion = -1;
 	       		if(splittedResponse[1] != undefined){
@@ -355,10 +352,14 @@ angular.module('app')
 	       		try {
 				    switch(JSON.parse(splittedResponse[0]).status_detail) {
 				    case "accredited": //Pago aprobado
-                        $location.path('/endPurchase/' + codImpresion);
-                        //doSubmit=true;
-	        			//form.submit();
-                        break;
+				    	if(tripService.getPurchaseOrigin == "0") {
+	                        $location.path('/endPurchase/' + codImpresion);
+	                    } else if (tripService.getPurchaseOrigin == "1")}{
+	                    	$location.path('/endDeposit');
+	                    }
+	                        //doSubmit=true;
+		        			//form.submit();
+	                    break;
                     case "pending_contingency": //Pago pendiente
                         messageError="ERROR: Pago pendiente";
                         break;
