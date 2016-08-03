@@ -352,9 +352,9 @@ angular.module('app')
 	       		try {
 				    switch(JSON.parse(splittedResponse[0]).status_detail) {
 				    case "accredited": //Pago aprobado
-				    	if(tripService.getPurchaseOrigin == "0") {
+				    	if(tripService.getPurchaseOrigin() == "0") {
 	                        $location.path('/endPurchase/' + codImpresion);
-	                    } else if (tripService.getPurchaseOrigin == "1")}{
+	                    } else if (tripService.getPurchaseOrigin() == "1")}{
 	                    	$location.path('/endDeposit');
 	                    }
 	                        //doSubmit=true;
