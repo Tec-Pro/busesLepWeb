@@ -1,127 +1,130 @@
-<div>
-      <div class="row border-bottom border-top">
-        <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
-        	<a href="#/account/reserves">Mis <span><strong>Reservas</strong><span></a></div>
-        <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
-        	<a href="#/account/purchases">Mis <span><strong >Compras</strong><span></a></div>
-        <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
-        	<a href="#/account/lastsearch">Últimas <span><strong >Búsquedas</strong><span></a></div>
-        <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
-        	<a href="#/account/checkbalance">Consultar <span><strong >Saldo</strong><span></a></div>
-        <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
-        	<a href="#/account/buycredits">Recargar <span><strong class="lepBlue-color">Saldo</strong><span></a></div>
-        <div class="col-xs-4 col-sm-2 text-center lep-href lep-margin">
-        	<a href="#/account/update">Modificar <span><strong>Cuenta</strong><span></a></div>
+<div class="acc-container">
+  <div>
+        <div class="row border-bottom border-top">
+          <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
+          	<a href="#/account/reserves">Mis <span><strong>Reservas</strong><span></a></div>
+          <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
+          	<a href="#/account/purchases">Mis <span><strong >Compras</strong><span></a></div>
+          <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
+          	<a href="#/account/lastsearch">Últimas <span><strong >Búsquedas</strong><span></a></div>
+          <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
+          	<a href="#/account/checkbalance">Consultar <span><strong >Saldo</strong><span></a></div>
+          <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
+          	<a href="#/account/buycredits">Recargar <span><strong class="lepBlue-color">Saldo</strong><span></a></div>
+          <div class="col-xs-4 col-sm-2 text-center lep-href lep-margin">
+          	<a href="#/account/update">Modificar <span><strong>Cuenta</strong><span></a></div>
+        </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <div class="row">
+    <div class="lepLightGrey-bg col-xs-12 col-sm-4">
+      <div class="row credits-row">
+        <div class="col-xs-12 col-sm-6">
+          <p><strong>Número de Tarjeta</strong></p>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <input type="text" class="lep-form card-input" id="nroTarjeta" placeholder="Ingresar Nro" name="card-input" ng-model="card.number">
+        </div>
       </div>
-</div>
-<br>
-<br>
-<br>
-<div class="row">
-  <div class="lepLightGrey-bg col-xs-12 col-sm-4">
-    <div class="row credits-row">
-      <div class="col-xs-12 col-sm-6">
-        <p><strong>Número de Tarjeta</strong></p>
+    </div>
+    <div class="lepLightGrey-bg col-xs-12 col-sm-4">
+      <div class="row credits-row">
+        <div class="col-xs-12 col-sm-6">
+          <p><strong>Monto a Recargar</strong></p>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <input type="text" class="lep-form card-input" id="montoRecarga" placeholder="Ingresar Monto" required ng-model="card.amount"/>
+        </div>
       </div>
-      <div class="col-xs-12 col-sm-6">
-        <input type="text" class="lep-form card-input" id="nroTarjeta" placeholder="Ingresar Nro" name="card-input" ng-model="card.number">
+    </div>
+    <div class="lepLightGrey-bg col-xs-12 col-sm-4">
+      <div class="row credits-row">
+        <div class="col-xs-12 col-sm-6">
+          <button ng-disabled="card.amount <= 0" id="depositBtn" class="btn btn-default lepRed-bg lepWhite-color btn-block" type="button">Recargar</button>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+        </div>
       </div>
     </div>
   </div>
-  <div class="lepLightGrey-bg col-xs-12 col-sm-4">
-    <div class="row credits-row">
-      <div class="col-xs-12 col-sm-6">
-        <p><strong>Monto a Recargar</strong></p>
+  <!-- <div class="row">
+      <div class="col-md-4"></div>
+      <div class = "col-xs-9 col-md-4">
+          <ul class="nav lepDarkGrey-color lep-margin">
+              <li class="padding-top10 padding-bottom10">
+                  <div class="row search-item-box">
+                      <div class = "col-xs-4 text-center">
+                          <strong>Número de Tarjeta</strong>
+                      </div>
+                      <div class = "col-xs-5 text-center ">
+                        <input type="text" class="lep-form card-input" id="nroTarjeta" placeholder="Ingresar Nro" required ng-model="card.number"/>
+                      </div>
+                      <div class = "col-xs-12 col-lg-3 padding-top5">
+                        <img ng-src="img/Mi cuenta/Abono Gral.png" style="float:right;width:40px;height:30px">
+                      </div>
+                  </div>
+                  <div class="row search-item-box">
+                      <div class = "col-xs-4 text-center">
+                          <strong>Monto a Recargar</strong>
+                      </div>
+                      <div class = "col-xs-5 text-center">
+                          <input type="text" class="lep-form card-input" id="montoRecarga" placeholder="Ingresar Monto" required ng-model="card.amount"/>
+                      </div>
+                  </div>
+              </li>
+          </ul>
       </div>
-      <div class="col-xs-12 col-sm-6">
-        <input type="text" class="lep-form card-input" id="montoRecarga" placeholder="Ingresar Monto" required ng-model="card.amount"/>
+      <div class="col-xs-5 col-sm-4">
+          <button ng-disabled="card.amount <= 0" id="depositBtn" class="btn btn-default lepRed-bg lepWhite-color margin-top-80" type="button">Recargar</button>
       </div>
-    </div>
+  </div> -->
+
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+
+   <!-- Modal content -->
+      <div class="modal-content acc-modal-content ">
+        <div class="modal-header">
+          <span class="close">×</span>
+          <h4>Confirmación</h4>
+        </div>
+        <div class="modal-body">
+          <p>Usted esta por hacer una recarga en la tarjeta Nro <span><strong>{{card.number}}</strong></span> por un monto de <span><strong>$ {{card.amount}}</strong></span></p>
+          <button class="btn btn-default lepRed-bg lepWhite-color row-top-margin15" type="button"  ng-click="deposit_to_card(card.number,card.amount)">Confirmar</button>
+        </div>
+      </div>
+
   </div>
-  <div class="lepLightGrey-bg col-xs-12 col-sm-4">
-    <div class="row credits-row">
-      <div class="col-xs-12 col-sm-6">
-        <button ng-disabled="card.amount <= 0" id="depositBtn" class="btn btn-default lepRed-bg lepWhite-color btn-block" type="button">Recargar</button>
+
+  <!-- The Modal -->
+  <div id="response-modal" class="modal">
+
+   <!-- Modal content -->
+      <div class="modal-content acc-modal-content ">
+        <div class="modal-header">
+          <span class="close">×</span>
+          <h4>Transacción exitosa</h4>
+        </div>
+        <div class="modal-body">
+          <p>El número de transacción es <span id="sale-id"></span>, usted recibió una bonificación de <span id="sale-bonus"></span></p>
+          <button class="btn btn-default lepRed-bg lepWhite-color row-top-margin15" type="button" ng-click="hide_response()">Cerrar</button>
+        </div>
       </div>
-      <div class="col-xs-12 col-sm-6">
-      </div>
-    </div>
+
   </div>
-</div>
-<!-- <div class="row">
-    <div class="col-md-4"></div>
-    <div class = "col-xs-9 col-md-4">
-        <ul class="nav lepDarkGrey-color lep-margin">
-            <li class="padding-top10 padding-bottom10">
-                <div class="row search-item-box">
-                    <div class = "col-xs-4 text-center">
-                        <strong>Número de Tarjeta</strong>
-                    </div>
-                    <div class = "col-xs-5 text-center ">
-                      <input type="text" class="lep-form card-input" id="nroTarjeta" placeholder="Ingresar Nro" required ng-model="card.number"/>
-                    </div>
-                    <div class = "col-xs-12 col-lg-3 padding-top5">
-                      <img ng-src="img/Mi cuenta/Abono Gral.png" style="float:right;width:40px;height:30px">
-                    </div>
-                </div>
-                <div class="row search-item-box">
-                    <div class = "col-xs-4 text-center">
-                        <strong>Monto a Recargar</strong>
-                    </div>
-                    <div class = "col-xs-5 text-center">
-                        <input type="text" class="lep-form card-input" id="montoRecarga" placeholder="Ingresar Monto" required ng-model="card.amount"/>
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </div>
-    <div class="col-xs-5 col-sm-4">
-        <button ng-disabled="card.amount <= 0" id="depositBtn" class="btn btn-default lepRed-bg lepWhite-color margin-top-80" type="button">Recargar</button>
-    </div>
-</div> -->
 
-<!-- The Modal -->
-<div id="myModal" class="modal">
+  <!-- The Loading Modal -->
+  <div id="acc-dep-loading-modal" class="acc-loading-modal">
 
- <!-- Modal content -->
-    <div class="modal-content acc-modal-content ">
-      <div class="modal-header">
-        <span class="close">×</span>
-        <h4>Confirmación</h4>
-      </div>
-      <div class="modal-body">
-        <p>Usted esta por hacer una recarga en la tarjeta Nro <span><strong>{{card.number}}</strong></span> por un monto de <span><strong>$ {{card.amount}}</strong></span></p>
-        <button class="btn btn-default lepRed-bg lepWhite-color row-top-margin15" type="button"  ng-click="deposit_to_card(card.number,card.amount)">Confirmar</button>
+    <!-- Modal content -->
+    <div class="acc-loading-modal-content">
+      <div>
+          <img src="./img/shared/ajax-loader.gif">
       </div>
     </div>
 
-</div>
-
-<!-- The Modal -->
-<div id="response-modal" class="modal">
-
- <!-- Modal content -->
-    <div class="modal-content acc-modal-content ">
-      <div class="modal-header">
-        <span class="close">×</span>
-        <h4>Transacción exitosa</h4>
-      </div>
-      <div class="modal-body">
-        <p>El número de transacción es <span id="sale-id"></span>, usted recibió una bonificación de <span id="sale-bonus"></span></p>
-        <button class="btn btn-default lepRed-bg lepWhite-color row-top-margin15" type="button" ng-click="hide_response()">Cerrar</button>
-      </div>
-    </div>
-
-</div>
-
-<!-- The Loading Modal -->
-<div id="acc-dep-loading-modal" class="acc-loading-modal">
-
-  <!-- Modal content -->
-  <div class="acc-loading-modal-content">
-    <div>
-        <img src="./img/shared/ajax-loader.gif">
-    </div>
   </div>
 
 </div>

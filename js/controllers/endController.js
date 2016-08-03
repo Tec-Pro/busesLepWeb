@@ -2,7 +2,7 @@ angular.module('app')
 .controller('EndController', ['$scope', '$routeParams', '$location', function($scope, $routeParams, $location) {
     $scope.code = $routeParams.code;
 
-     $scope.go = function ( path ) {
+    $scope.go = function ( path ) {
       $location.path( path );
     };
 

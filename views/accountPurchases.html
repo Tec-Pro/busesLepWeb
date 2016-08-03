@@ -1,43 +1,45 @@
-<div>
-      <div class="row border-bottom border-top">
-        <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
-        	<a href="#/account/reserves">Mis <span><strong>Reservas</strong><span></a></div>
-        <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
-        	<a href="#/account/purchases">Mis <span><strong class="lepBlue-color">Compras</strong><span></a></div>
-        <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
-        	<a href="#/account/lastsearch">Últimas <span><strong>Búsquedas</strong><span></a></div>
-        <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
-        	<a href="#/account/checkbalance">Consultar <span><strong>Saldo</strong><span></a></div>
-        <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
-        	<a href="#/account/buycredits">Recargar <span><strong>Saldo</strong><span></a></div>
-        <div class="col-xs-4 col-sm-2 text-center lep-href lep-margin">
-        	<a href="#/account/update">Modificar <span><strong>Cuenta</strong><span></a></div>
-      </div>
-</br>
-            <br></br>
+<div class="acc-container"> 
+    <div>
+    <div class="row border-bottom border-top">
+    <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
+    <a href="#/account/reserves">Mis <span><strong>Reservas</strong><span></a></div>
+    <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
+    <a href="#/account/purchases">Mis <span><strong class="lepBlue-color">Compras</strong><span></a></div>
+    <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
+    <a href="#/account/lastsearch">Últimas <span><strong>Búsquedas</strong><span></a></div>
+    <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
+    <a href="#/account/checkbalance">Consultar <span><strong>Saldo</strong><span></a></div>
+    <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
+    <a href="#/account/buycredits">Recargar <span><strong>Saldo</strong><span></a></div>
+    <div class="col-xs-4 col-sm-2 text-center lep-href lep-margin">
+    <a href="#/account/update">Modificar <span><strong>Cuenta</strong><span></a></div>
+    </div>
+        </br>
+        <br></br>
         <div class="nav home">
-            <div ng-hide="purchases[0] != null" class="text-center">Usted no ha hecho ninguna compra</div>
-            <div class="home row" ng-repeat = "purchase in purchases">
-                <div class="col-xs-10 col-sm-5 card2">
-                    <div class="row lepGrey-bg">
-                        <div class="col-xs-10"><strong>{{purchase.Destino}}</strong></div>
-                    </div>
-                    <div class="row lepLightGrey-bg">
-                        <div class="col-xs-6">Salida</div>
-                        <div class="col-xs-6"><strong><span class="lepBlue-color">{{purchase.Salida}}</span></strong></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-6">Cod. Impresión</div>
-                        <div class="col-xs-6"><strong>{{purchase.CodImpresion}}</strong></div>
-                    </div>
-                    <div class="row lepLightGrey-bg">
-                        <div class="col-xs-6">Cantidad de pasajes</div>
-                        <div class="col-xs-6"><strong>{{purchase.cantidad}}</strong></div>
-                    </div>
-                </div>
-                <div class="col-xs-1"></div>                      
+        <div ng-hide="purchases[0] != null" class="text-center">Usted no ha hecho ninguna compra</div>
+        <div class="home row" ng-repeat = "purchase in purchases">
+        <div class="col-xs-10 col-sm-5 card2">
+            <div class="row lepGrey-bg">
+                <div class="col-xs-10"><strong>{{purchase.Destino}}</strong></div>
             </div>
+            <div class="row lepLightGrey-bg">
+                <div class="col-xs-6">Salida</div>
+                <div class="col-xs-6"><strong><span class="lepBlue-color">{{purchase.Salida}}</span></strong></div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">Cod. Impresión</div>
+                <div class="col-xs-6"><strong>{{purchase.CodImpresion}}</strong></div>
+            </div>
+            <div class="row lepLightGrey-bg">
+                <div class="col-xs-6">Cantidad de pasajes</div>
+                <div class="col-xs-6"><strong>{{purchase.cantidad}}</strong></div>
+            </div>
+        </div>
+        <div class="col-xs-1"></div>                      
+        </div>
 
 
         </div>
+    </div>
 </div>

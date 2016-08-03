@@ -1,113 +1,115 @@
-<div>
-    <div class="row border-bottom border-top">
-        <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
-        	<a href="#/account/reserves">Mis <span><strong>Reservas</strong></span></a>
-        </div>
-        <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
-        	<a href="#/account/purchases">Mis <span><strong >Compras</strong></span></a>
-        </div>
-        <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
-        	<a href="#/account/lastsearch">Últimas <span><strong >Búsquedas</strong></span></a>
-        </div>
-        <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
-        	<a href="#/account/checkbalance">Consultar <span><strong class="lepBlue-color">Saldo</strong></span></a>
-        </div>
-        <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
-        	<a href="#/account/buycredits">Recargar <span><strong>Saldo</strong></span></a>
-        </div>
-        <div class="col-xs-4 col-sm-2 text-center lep-href lep-margin">
-        	<a href="#/account/update">Modificar <span><strong>Cuenta</strong></span></a>
+<div class="acc-container">
+    <div>
+        <div class="row border-bottom border-top">
+            <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
+            	<a href="#/account/reserves">Mis <span><strong>Reservas</strong></span></a>
+            </div>
+            <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
+            	<a href="#/account/purchases">Mis <span><strong >Compras</strong></span></a>
+            </div>
+            <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
+            	<a href="#/account/lastsearch">Últimas <span><strong >Búsquedas</strong></span></a>
+            </div>
+            <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
+            	<a href="#/account/checkbalance">Consultar <span><strong class="lepBlue-color">Saldo</strong></span></a>
+            </div>
+            <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
+            	<a href="#/account/buycredits">Recargar <span><strong>Saldo</strong></span></a>
+            </div>
+            <div class="col-xs-4 col-sm-2 text-center lep-href lep-margin">
+            	<a href="#/account/update">Modificar <span><strong>Cuenta</strong></span></a>
+            </div>
         </div>
     </div>
-</div>
-<span>
-    <br>
-    <br>
-    <br>
-</span>
-<div class="row acc-balance-row search-item-box">
-		<div class="col-sm-offset-2 col-sm-8">
-			<h4>Ingrese su DNI</h4>
-		</div>
-    <div class="col-sm-offset-2 col-xs-12 col-sm-3">
-      <input type="text" name="dni" placeholder="DNI" ng-model = "dni">
-    </div>
-    <div class="col-xs-8 col-sm-3 col-sm-offset-2">
-        <button class="btn btn-default btn-block" type="button" ng-click = "get_balance(dni)">Obtener Saldo</button>
-    </div>
-</div>
-<div ng-show="show_response" class="row">
-    <div class="col-sm-8 col-sm-offset-2 col-xs-12">
-        <div ng-hide="cards.length != 0" class="lepGrey-bg acc-balance-row row">
-            <p class="lead text-center text-danger">Usted no posee ninguna tarjeta asociada.</p>
+    <span>
+        <br>
+        <br>
+        <br>
+    </span>
+    <div class="row acc-balance-row search-item-box">
+    		<div class="col-sm-offset-2 col-sm-8">
+    			<h4>Ingrese su DNI</h4>
+    		</div>
+        <div class="col-sm-offset-2 col-xs-12 col-sm-3">
+          <input type="text" name="dni" placeholder="DNI" ng-model = "dni">
         </div>
-        <div ng-hide="cards.length === 0"  class="row">
-            <div ng-repeat="card in cards track by $index" class="col-xs-12" ng-class-odd = "'lepLightGrey-bg'" ng-class-even="'lepGrey-bg'">
-                <div class="acc-balance-row row">
-                    <div class="col-xs-12 col-sm-6">
-	                    <p><strong>Número de tarjeta:</strong> {{card.Nro_Tarjeta}}</p>
-	                    <p><strong>Saldo:</strong> $ {{card.Saldo}}</p>
-                      <div ng-show="card.Observacion !== null" class="border-top">
-                        <p><strong>Observaciones:</strong> {{card.Observacion}}</p>
-                      </div>
-                      <p ng-show="card.FechaHoraUltimaActualizacion !== null" class="border-top"><strong>Última consulta: </strong>{{card.FechaHoraUltimaActualizacion | lepDate}}</p>
-                    </div>
-                    <div class="col-xs-12 col-sm-6">
-                    	<img class="img-sm" ng-src="{{card.LinkFoto}}">
+        <div class="col-xs-8 col-sm-3 col-sm-offset-2">
+            <button class="btn btn-default btn-block" type="button" ng-click = "get_balance(dni)">Obtener Saldo</button>
+        </div>
+    </div>
+    <div ng-show="show_response" class="row">
+        <div class="col-sm-8 col-sm-offset-2 col-xs-12">
+            <div ng-hide="cards.length != 0" class="lepGrey-bg acc-balance-row row">
+                <p class="lead text-center text-danger">Usted no posee ninguna tarjeta asociada.</p>
+            </div>
+            <div ng-hide="cards.length === 0"  class="row">
+                <div ng-repeat="card in cards track by $index" class="col-xs-12" ng-class-odd = "'lepLightGrey-bg'" ng-class-even="'lepGrey-bg'">
+                    <div class="acc-balance-row row">
+                        <div class="col-xs-12 col-sm-6">
+    	                    <p><strong>Número de tarjeta:</strong> {{card.Nro_Tarjeta}}</p>
+    	                    <p><strong>Saldo:</strong> $ {{card.Saldo}}</p>
+                          <div ng-show="card.Observacion !== null" class="border-top">
+                            <p><strong>Observaciones:</strong> {{card.Observacion}}</p>
+                          </div>
+                          <p ng-show="card.FechaHoraUltimaActualizacion !== null" class="border-top"><strong>Última consulta: </strong>{{card.FechaHoraUltimaActualizacion | lepDate}}</p>
+                        </div>
+                        <div class="col-xs-12 col-sm-6">
+                        	<img class="img-sm" ng-src="{{card.LinkFoto}}">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <span>
+        <br>
+        <br>
+        <br>
+    </span>
+        <!-- <div class = "col-sm-8 col-sm-offset-2 col-xs-12 search-item-box2">
+            <ul class="nav lepDarkGrey-color lep-margin">
+                <li class="search-item-box padding-top10 padding-bottom10">
+                    <div class="row ">
+                        <div class = "col-xs-4 text-center">
+                            <strong>Tarjeta Nro</strong>
+                        </div>
+                        <div class = "form-group col-xs-3">
+                          <input type="text" name="beg-card" class = "card-input" ng-model="beg_card.number">
+                        </div>
+                        <div class = "col-xs-3">
+                          <img class="img-responsive" ng-src="img/Mi cuenta/Abono BEG.png" style="float:right">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class = "col-xs-4 text-center">
+                            <strong>Saldo Actual</strong>
+                        </div>
+                        <div class = "col-xs-3 text-center">
+                            <strong>$ {{beg_card.balance}}</strong>
+                        </div>
+                    </div>
+                </li>
+                <li class="search-item-box padding-top10 padding-bottom10">
+                    <div class="row ">
+                        <div class = "col-xs-4 text-center">
+                            <strong>Tarjeta Nro</strong>
+                        </div>
+                        <div class = "col-xs-3 text-center">
+                          <input type="text" name="lep-card" class="card-input" ng-model="lep_card.number">
+                        </div>
+                        <div class = "col-xs-3">
+                          <img class="img-responsive" ng-src="img/Mi cuenta/Abono Gral.png" style="float:right">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class = "col-xs-4 text-center">
+                            <strong>Saldo Actual</strong>
+                        </div>
+                        <div class = "col-xs-3 text-center">
+                            <strong>$ {{lep_card.balance}}</strong>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div> -->
 </div>
-<span>
-    <br>
-    <br>
-    <br>
-</span>
-    <!-- <div class = "col-sm-8 col-sm-offset-2 col-xs-12 search-item-box2">
-        <ul class="nav lepDarkGrey-color lep-margin">
-            <li class="search-item-box padding-top10 padding-bottom10">
-                <div class="row ">
-                    <div class = "col-xs-4 text-center">
-                        <strong>Tarjeta Nro</strong>
-                    </div>
-                    <div class = "form-group col-xs-3">
-                      <input type="text" name="beg-card" class = "card-input" ng-model="beg_card.number">
-                    </div>
-                    <div class = "col-xs-3">
-                      <img class="img-responsive" ng-src="img/Mi cuenta/Abono BEG.png" style="float:right">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class = "col-xs-4 text-center">
-                        <strong>Saldo Actual</strong>
-                    </div>
-                    <div class = "col-xs-3 text-center">
-                        <strong>$ {{beg_card.balance}}</strong>
-                    </div>
-                </div>
-            </li>
-            <li class="search-item-box padding-top10 padding-bottom10">
-                <div class="row ">
-                    <div class = "col-xs-4 text-center">
-                        <strong>Tarjeta Nro</strong>
-                    </div>
-                    <div class = "col-xs-3 text-center">
-                      <input type="text" name="lep-card" class="card-input" ng-model="lep_card.number">
-                    </div>
-                    <div class = "col-xs-3">
-                      <img class="img-responsive" ng-src="img/Mi cuenta/Abono Gral.png" style="float:right">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class = "col-xs-4 text-center">
-                        <strong>Saldo Actual</strong>
-                    </div>
-                    <div class = "col-xs-3 text-center">
-                        <strong>$ {{lep_card.balance}}</strong>
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </div> -->

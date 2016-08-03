@@ -1,37 +1,39 @@
-<div>
-      <div class="row border-bottom border-top">
-        <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
-        	<a href="#/account/reserves">Mis <span><strong>Reservas</strong></span></a></div>
-        <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
-        	<a href="#/account/purchases">Mis <span><strong >Compras</strong></span></a></div>
-        <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
-        	<a href="#/account/lastsearch">Últimas <span><strong class="lepBlue-color">Búsquedas</strong></span></a></div>
-        <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
-        	<a href="#/account/checkbalance">Consultar <span><strong>Saldo</strong></span></a></div>
-        <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
-        	<a href="#/account/buycredits">Recargar <span><strong>Saldo</strong></span></a></div>
-        <div class="col-xs-4 col-sm-2 text-center lep-href lep-margin">
-        	<a href="#/account/update">Modificar <span><strong>Cuenta</strong></span></a></div>
-      </div>
+<div class="acc-container">
+    <div>
+          <div class="row border-bottom border-top">
+            <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
+            	<a href="#/account/reserves">Mis <span><strong>Reservas</strong></span></a></div>
+            <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
+            	<a href="#/account/purchases">Mis <span><strong >Compras</strong></span></a></div>
+            <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
+            	<a href="#/account/lastsearch">Últimas <span><strong class="lepBlue-color">Búsquedas</strong></span></a></div>
+            <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
+            	<a href="#/account/checkbalance">Consultar <span><strong>Saldo</strong></span></a></div>
+            <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
+            	<a href="#/account/buycredits">Recargar <span><strong>Saldo</strong></span></a></div>
+            <div class="col-xs-4 col-sm-2 text-center lep-href lep-margin">
+            	<a href="#/account/update">Modificar <span><strong>Cuenta</strong></span></a></div>
+          </div>
 
-      <br>
+          <br>
 
-      <div class="nav home lepDarkGrey-color" ng-controller = "HomeCtrl">
-            <div class = "home schedules-row" ng-repeat = "search in searches">
-                <div class = "row search-item-box2">
-                    <div class = "col-sm-4 col-xs-12 search-item-box text-center">
-                        <strong>{{search.goingCity}}     >     {{search.backCity}}</strong>
-                    </div>
-                    <div class = "col-sm-4 col-xs-12 search-item-box text-center">
-                        <strong>Salida: {{search.goingDate | lepDateMonth}} Regreso: {{search.backDate | lepDateMonth}}</strong>
-                    </div>
-                    <!--<div class = "col-sm-2 col-xs-12 search-item-box text-center">
-                        <strong>-</strong>
-                    </div>-->
-                    <div class = "col-sm-3 col-xs-12 search-item-box text-center">
-                        <a ng-click="goSearch2(search.goingCity_id,search.backCity_id,search.goingCity, search.backCity, search.goingDate, search.backDate)"><img src="img/busqueda2.png" class="img-responsive"style="float:left;height:20px"><strong>Ir a Horario</strong></a>                   
+          <div class="nav home lepDarkGrey-color" ng-controller = "HomeCtrl">
+                <div class = "home schedules-row" ng-repeat = "search in searches">
+                    <div class = "row search-item-box2">
+                        <div class = "col-sm-4 col-xs-12 search-item-box text-center">
+                            <strong>{{search.goingCity}}     >     {{search.backCity}}</strong>
+                        </div>
+                        <div class = "col-sm-4 col-xs-12 search-item-box text-center">
+                            <strong>Salida: {{search.goingDate | lepDateMonth}} Regreso: {{search.backDate | lepDateMonth}}</strong>
+                        </div>
+                        <!--<div class = "col-sm-2 col-xs-12 search-item-box text-center">
+                            <strong>-</strong>
+                        </div>-->
+                        <div class = "col-sm-3 col-xs-12 search-item-box text-center">
+                            <a ng-click="goSearch2(search.goingCity_id,search.backCity_id,search.goingCity, search.backCity, search.goingDate, search.backDate)"><img src="img/busqueda2.png" class="img-responsive"style="float:left;height:20px"><strong>Ir a Horario</strong></a>                   
+                        </div>
                     </div>
                 </div>
-            </div>
-     </div>
+         </div>
+    </div>
 </div>
