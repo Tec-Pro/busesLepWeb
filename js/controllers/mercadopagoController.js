@@ -346,15 +346,16 @@ angular.module('app')
 	       		console.log(response);
 	       		if (tripService.getPurchaseOrigin() == "0"){
 	       			splittedResponse = response.split("{\"Cod_Impresion\":\"");
+	       			var codImpresion = -1;
+		       		if(splittedResponse[1] != undefined){
+		       			codImpresion = splittedResponse[1].replace("\"}","");
+		       		}
+		       		var messageError = "";
 	       		} else if (tripService.getPurchaseOrigin() == "1") {
-					splittedResponse = response.split("{\"Result\":\"");
+					splittedResponse = response.split("{Result\":\"");
 					console.log(splittedResponse);	       		
 				}
-	       		var codImpresion = -1;
-	       		if(splittedResponse[1] != undefined){
-	       			codImpresion = splittedResponse[1].replace("\"}","");
-	       		}
-	       		var messageError = "";
+	       		
 	       		try {
 				    switch(JSON.parse(splittedResponse[0]).status_detail) {
 				    case "accredited": //Pago aprobado
