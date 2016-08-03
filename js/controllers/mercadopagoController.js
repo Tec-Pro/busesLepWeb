@@ -297,8 +297,7 @@ angular.module('app')
 	        idventa = sell_code;
 	        //var form = new FormData(document.getElementById("form"));
 			//var inputValue = form.get("inputTypeName");
-			cuotas = document.querySelector('#installments').value
-			console.log(tripService.getPurchaseOrigin());
+			cuotas = document.querySelector('#installments').value;
 			if (tripService.getPurchaseOrigin() == "0") {
 	        	var datosCompra = {description:"boletos", 
 	        				external_reference: "boleto:"+idventa,
@@ -350,12 +349,11 @@ angular.module('app')
 		       		if(splittedResponse[1] != undefined){
 		       			codImpresion = splittedResponse[1].replace("\"}","");
 		       		}
-		       		var messageError = "";
 	       		} else if (tripService.getPurchaseOrigin() == "1") {
 					splittedResponse = response.split("{Result\":\"");
 					console.log(splittedResponse);	       		
 				}
-	       		
+	       		var messageError = "";
 	       		try {
 				    switch(JSON.parse(splittedResponse[0]).status_detail) {
 				    case "accredited": //Pago aprobado
