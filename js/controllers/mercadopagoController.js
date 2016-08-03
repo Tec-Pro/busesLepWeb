@@ -282,7 +282,7 @@ angular.module('app')
 
 	function sdkResponseHandler(status, response) {
 	    if (status != 200 && status != 201) {
-	    	//console.log(response);
+	    	console.log(response);
 	    	document.getElementById("error-modal-text").innerHTML = "Datos Incorrectos";
 		    error_modal.style.display = "block";
 	    }else{
