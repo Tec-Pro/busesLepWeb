@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('ReservesCtrl', ['$scope', '$location', 'localStorageService', 'wsService', function($scope, $location, localStorageService, wsService){
+.controller('ReservesCtrl', ['$scope', '$location', '$filter', 'localStorageService', 'wsService', function($scope, $location, $filter, localStorageService, wsService){
   
     var wsdl_url = 'https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService';
     var urn = 'LepWebServiceIntf-ILepWebService';
@@ -26,6 +26,7 @@ angular.module('app')
       }
     ];
 
+    $scope.ready = false;
     $scope.reserves = [];
     $scope.purchases = [];
 
@@ -34,6 +35,7 @@ angular.module('app')
     $scope.reserves = response;
   });
   wsService.callService(wsdl_url, urn, "ListarMisCompras",service_parameters).then(function(response){
+    $scope.ready = true;
     $scope.purchases = response;
   });
   

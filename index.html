@@ -327,7 +327,7 @@
 	      <!-- footer-->
 				<div id="footer" class="container-fluid lepStyle2" ng-controller="FooterCtrl">
 	      	<div class = "row">
-			        <div class="col-xs-12 col-sm-3 text-center h4-responsive" style="padding:10px"><strong>Noticias</strong>
+			        <!-- <div class="col-xs-12 col-sm-3 text-center h4-responsive" style="padding:10px"><strong>Noticias</strong>
 			            <div class=" text-center ">
 			                <ul class="unstyled">
 			                  <li style="list-style-type: none;" ng-repeat="noticia in noticias | limitTo:3">
@@ -335,8 +335,17 @@
 			                  </li>
 			              </ul>
 			            </div>
-			        </div>
-			        <div class="col-xs-12 col-sm-3 text-center h4-responsive" style="padding:10px"><strong>Novedades</strong>
+			        </div> -->
+			       <!--  <div class="col-xs-12 col-sm-4 text-center h4-responsive" style="padding:10px"><strong>Novedades</strong>
+			            <div class=" text-center ">
+			                <ul class="unstyled">
+			                  <li style="list-style-type: none;" ng-repeat="novedad in novedades | limitTo:3">
+			                      <p>{{novedad.DescNovedad}}</p><br>
+			                  </li>
+			              </ul>
+			            </div>
+			        </div> -->
+			         <div class="col-xs-12 col-sm-4 text-center h4-responsive" style="padding:10px"><strong>Novedades</strong>
 			            <div class=" text-center ">
 			                <ul class="unstyled">
 			                  <li style="list-style-type: none;" ng-repeat="novedad in novedades | limitTo:3">
@@ -345,7 +354,7 @@
 			              </ul>
 			            </div>
 			        </div>
-			        <div class="col-xs-12 col-sm-3 text-center h4-responsive" style="padding:10px"><strong>Actualidad</strong>
+			        <div class="col-xs-12 col-sm-4 text-center h4-responsive" style="padding:10px"><strong>Actualidad</strong>
 			            <div class=" text-center">
 			                <p>Temperatura en Cordoba Capital <br> Min {{weather.tempMin}}° / Max {{weather.tempMax}}° <br>
 			                    <span class="h1-responsive">{{weather.temp}}°</span></p>
