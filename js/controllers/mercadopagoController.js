@@ -344,7 +344,11 @@ angular.module('app')
 	       	wsService.callService(wsdl_url, urn, wsMethod, wsParameters).then(function(response){
 	       		hide_load_modal();
 	       		console.log(response);
-	       		splittedResponse = response.split("{\"Cod_Impresion\":\"");
+	       		if (tripService.getPurchaseOrigin() == "0"){
+	       			splittedResponse = response.split("{\"Cod_Impresion\":\"");
+	       		} else if (tripService.getPurchaseOrigin() == "1") {
+					splittedResponse = response.split("{\"Result\":\"");	       		
+				}
 	       		var codImpresion = -1;
 	       		if(splittedResponse[1] != undefined){
 	       			codImpresion = splittedResponse[1].replace("\"}","");
