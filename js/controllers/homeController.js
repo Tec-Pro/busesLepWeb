@@ -366,9 +366,10 @@ angular.module('app')
             value: "3"
           }          
         ];
+        console.log(dDate);
         tripService.saveDepartureTrip();
         //alert(JSON.stringify(tripService.getDepartureTrip()));
-        wsService.callService(wsdl_url, urn, "ListarHorarios", listarHorarios_parameters).then(function(schedules){
+        wsService.callService(wsdl_url_wsConGps, urn, "ListarHorarioscGPS", listarHorarios_parameters).then(function(schedules){
             if (schedules.length > 0){
               //guardar aca departure-trip
               //tripService.saveDepartureTrip();
