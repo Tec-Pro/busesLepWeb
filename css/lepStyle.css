@@ -403,6 +403,9 @@ div.card5{
 .navbar.navbar-default .navbar-nav li a {
     background: #e6e6e6;
     color: #666666;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    border-bottom: 1px solid #a49b9b;
 }
 
 .navbar.navbar-default .navbar-nav li a:hover {
@@ -410,7 +413,40 @@ div.card5{
     color: #444444;
 }
 
+.lep-navbar {
+  width: 50%;
+  z-index: 20;
+}
 
+.lep-navbar .navbar-header {
+  width: 250%;
+  background-color: inherit;
+}
+
+@media (min-width: 768px) {
+  .navbar.navbar-default .navbar-nav li a {
+    padding-top: 2%;
+    padding-bottom: 2%;
+  }
+}
+
+@media (min-width: 800px) {
+  .navbar.navbar-default .navbar-nav li a {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    line-height: 10px;
+    border-bottom: none;
+  }
+
+  .lep-navbar {
+    width: 100%;
+  }
+
+  .lep-navbar .navbar-header {
+    width: 100%;
+    background-color: inherit;
+  }
+}
 
 .user-reserve{
   border-bottom: 1px solid gray;
