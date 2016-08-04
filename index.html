@@ -200,29 +200,7 @@
 	            </div>
 	        </div>
 	    </div>
-	    <!--info bar xs-->
-	    <div class="container visible-xs lepStyle navbar-fixed-top" >
-	        <div ng-controller="LoginCtrl" style="margin-bottom:10px" ng-show = "user.email == ''" href="">
-	            <form class="row" ng-submit="login()">
-	                <input type="text" class="lep-form col-xs-2" id="DNI" placeholder="DNI" required ng-model="user.dni"/>
-	                <input type="password" class="lep-form col-xs-2" id="Password" placeholder="Contraseña" required ng-model="user.pass"/>
-	                <div class="col-xs-4"style="margin-top:8px;">
-	                     <button class="button-link" href="#/" type="submit" style="font-size:0.7em"><strong>Ingr.</strong></button> /
-	                     <button class="button-link" ng-click="go('/signin')" type="button" style="font-size:0.7em"><strong>Regist.</strong></button>
-	                </div>
-	            </form>
-	        </div>
-	        <div class="text-center" ng-controller="LoginCtrl" ng-show="user.email != '' " style="margin-top:10px">
-	            <div class="row">
-	                <div class="col-xs-6" style="font-size:0.9em">
-	                    <p>Bienvenido, <span class="lepRed-color" ><strong>{{user.name}}</strong></span></p>
-	                </div>
-	                <div class="col-xs-6">
-	                    <a href="#/" ng-click="logout()"  style="font-size:0.9em"><strong>Cerrar sesión</strong></a>
-	                </div>
-	            </div>
-	        </div>
-	    </div>
+
 	    <!-- Cover Image-->
 	   	<div id="cover" class="row no-mar-pad-bor row-top-margin15 lepStyle background-white hidden-xs" >
 	      <div>
@@ -238,7 +216,7 @@
 	    <nav id="sticky-element" class="lep-navbar navbar navbar-default on-top">
 	      <!-- Main bar-->
 	      <div class="container-fluid lepStyle ">
-	        <div class="navbar-header">
+	        <div class="navbar-header navbar-fixed-top">
 	          <p class="navbar-brand-2 text-center sr-only">buses Lep</p>
 	          <button type="button" class="navbar-toggle collapsed pull-left nav-style" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
 	            <span class="sr-only">Toggle navigation</span>
@@ -246,6 +224,26 @@
 	            <span class="icon-bar"></span>
 	            <span class="icon-bar"></span>
 	          </button>
+	          <div ng-controller="LoginCtrl" style="margin-bottom:10px" ng-show = "user.email == ''" href="">
+	            <form class="row" ng-submit="login()">
+	                <input type="text" class="lep-form col-xs-2" id="DNI" placeholder="DNI" required ng-model="user.dni"/>
+	                <input type="password" class="lep-form col-xs-2" id="Password" placeholder="Contraseña" required ng-model="user.pass"/>
+	                <div class="col-xs-4"style="margin-top:8px;">
+	                     <button class="button-link" href="#/" type="submit" style="font-size:0.7em"><strong>Ingr.</strong></button> /
+	                     <button class="button-link" ng-click="go('/signin')" type="button" style="font-size:0.7em"><strong>Regist.</strong></button>
+	                </div>
+	            </form>
+	          </div>
+		      <div class="text-center" ng-controller="LoginCtrl" ng-show="user.email != '' " style="padding-top:13px; margin-bottom:5px">
+		            <div class="row">
+		                <div class="col-xs-2" style="font-size:0.9em">
+		                    <p>Bienvenido, <span class="lepRed-color" ><strong>{{user.name}}</strong></span></p>
+		                </div>
+		                <div class="col-xs-2">
+		                    <a href="#/" ng-click="logout()"  style="font-size:0.9em"><strong><p>Cerrar sesión</strong></p></a>
+		                </div>
+		            </div>
+		       </div>
 	        </div>
 	        <div id="navbar" class="navbar-collapse collapse navbar-left" data-toggle="collapse" ng-controller="LoginCtrl">
 	            <!-- xs,sm -->
