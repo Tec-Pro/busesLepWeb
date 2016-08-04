@@ -348,11 +348,11 @@
 			        </div> -->
 			         <div class="col-xs-12 col-sm-4 text-center h4-responsive" style="padding:10px"><strong>Novedades</strong>
 			            <div class=" text-center ">
-			                <ul class="unstyled">
-			                  <li style="list-style-type: none;" ng-repeat="novedad in novedades | limitTo:3">
+			                <div class="unstyled">
+			                  <div style="list-style-type: none;" ng-repeat="novedad in novedades | limitTo:3">
 			                      <p>{{novedad.DescNovedad}}</p><br>
-			                  </li>
-			              </ul>
+			                  </div>
+			              </div>
 			            </div>
 			        </div>
 			        <div class="col-xs-12 col-sm-4 text-center h4-responsive" style="padding:10px"><strong>Actualidad</strong>
@@ -369,7 +369,7 @@
 			            </div>
 			        </div>
 			        <div class="hidden-xs col-sm-3 text-center h4-responsive" style="padding:10px"><strong>Tu opinión nos interesa...</strong>
-			           <textarea class="lep-form textarea" name="Opinion"></textarea>
+			           <textarea class="lep-form textarea" style="margin-left:10px"name="Opinion"></textarea>
 			           <button class="btn btn-default lepStyle2"type="submit" style="font-size:0.7em;margin-top:10px;margin-bottom:10px">Enviar</button>
 			        </div>
 			      </div>
