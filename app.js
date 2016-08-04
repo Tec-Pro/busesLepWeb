@@ -87,6 +87,7 @@ angular.module("app", ["ngRoute","ngAnimate","LocalStorageModule","angularSoap",
                     templateUrl: "views/tours.html"
                 })
                 .when("/encomiendas", {
+                    controller: "EncomController",
                     templateUrl: "views/encomiendas.html"
                 })
                 .when("/account/reserves", {

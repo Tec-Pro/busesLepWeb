@@ -1,121 +1,151 @@
 <div ng-init = "tab = 1" style="height:500px">
     
     <!-- options tabs -->
-    <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6 border-bottom border-top">
-        <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3 border-right text-center lep-href lep-margin">
-        	<a href ng-click="tab = 1" ng-hide = "tab === 1"> <strong><span class="lepRed-color">Red</span>Pack</strong></a>
-        	<a href ng-click="tab = 1" ng-show = "tab === 1"> <strong><span class="lepRed-color">Red</span><span class="lepBlue-color">Pack</span></strong></a>
-        </div>
-        <div ng-click="tab = 2" class="col-xs-4 col-sm-3 col-md-3 col-lg-3 border-right text-center lep-href lep-margin">
-        	<a href ng-show = "tab === 2" ><span class="lepBlue-color"><strong >Servicios</strong></span></a>
-        	<a href ng-hide = "tab === 2"><strong >Servicios</strong></a>
-        </div>
-        <div ng-click="tab = 3" class="col-xs-4 col-sm-3 col-md-3 col-lg-3  text-center lep-href lep-margin">
-        	<a href ng-show = "tab === 3" ><span class="lepBlue-color"><strong >Seguimiento</strong></span></a>
-        	<a href ng-hide = "tab === 3"><strong >Seguimiento</strong></a>
+    <div class="enc-options row">
+        <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6 border-bottom border-top">
+            <div class="row">
+                <div ng-click="tab = 1" class="col-xs-4 col-sm-3 col-md-3 col-lg-3 border-right text-center lep-href lep-margin">
+                	<a href ng-hide = "tab === 1"> <strong><span class="lepRed-color">Red</span>Pack</strong></a>
+                	<a href ng-show = "tab === 1"> <strong><span class="lepRed-color">Red</span><span class="lepBlue-color">Pack</span></strong></a>
+                </div>
+                <div ng-click="tab = 2" class="col-xs-4 col-sm-3 col-md-3 col-lg-3 border-right text-center lep-href lep-margin">
+                	<a href ng-show = "tab === 2" ><span class="lepBlue-color"><strong >Servicios</strong></span></a>
+                	<a href ng-hide = "tab === 2"><strong >Servicios</strong></a>
+                </div>
+                <div ng-click="tab = 3" class="col-xs-4 col-sm-3 col-md-3 col-lg-3  text-center lep-href lep-margin">
+                	<a href ng-show = "tab === 3" ><span class="lepBlue-color"><strong >Seguimiento</strong></span></a>
+                	<a href ng-hide = "tab === 3"><strong >Seguimiento</strong></a>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="col-sm-4 col-md-6 col-lg-6 hidden-xs"></div>
-    <div  class = "col-xs-12"> <br></div>
     <!-- end options tabs -->
 
     <!-- RedPack tab -->
-    <div class = "col-xs-12 col-sm-8 col-md-6 col-lg-6 card2" ng-show = "tab === 1">
-    	<p> <strong><span class = "lepRed-color">Red</span> Pack</strong> es nuestra línea de traslado de encomiendas que logra que tus envíos lleguen a destino en cortos períodos de tiempo. Esto es posible a partir de nuestra amplia frecuencia de horarios generando mayor comodidad y opciones para nuestros usuarios.</p>
-    	<br>
-    	<p>Proximamente servicio de encomiendas <strong>Cordoba - Buenos Aires</strong></p>
-    </div> <!--end RedPack tab -->
-    
+    <div class="row">
+        <div class = "col-xs-12 col-sm-8 col-md-6 col-lg-6 card2" ng-show = "tab === 1">
+        	<p> <strong><span class = "lepRed-color">Red</span> Pack</strong> es nuestra línea de traslado de encomiendas que logra que tus envíos lleguen a destino en cortos períodos de tiempo. Esto es posible a partir de nuestra amplia frecuencia de horarios generando mayor comodidad y opciones para nuestros usuarios.</p>
+        	<br>
+        	<p>Proximamente servicio de encomiendas <strong>Cordoba - Buenos Aires</strong></p>
+        </div> <!--end RedPack tab -->
+        
 
-    <!-- Servicios tab -->
-    <div class = "col-xs-12 col-sm-8 col-md-6 col-lg-6 card2" ng-show = "tab === 2">
-        <div class = "encomiendas-row">
-            <h4>SERVICIO DE ENCOMIENDA </h4>
-        <p>Para el envío de bultos de parte de un Remitente a un Destinatario.
-            Es importante resaltar que en algunos de nuestros destinos ofrecemos servicio a domicilio y que, al momento de despachar tu encomienda, te informaremos el horario de llegada aproximado.</p>
-        </div>
-    	
-    	<br>
-        <div class = "encomiendas-row">
-        	<h4>SERVICIO DE CONTRAREMBOLSO</h4>
-        	<p>Se trata el envío de un bulto por un Remitente, que se entrega a un Destinatario, contra el pago del importe del valor estipulado por el Remitente, este servicio genera un bulto/sobre retorno, con el importe en su interior que se entrega al Remitente.</p>
-    	</div>
-    	<br>
-        <div class = "encomiendas-row">
-        	<h4>SERVICIO CONTROLAR</h4>
-        	<p>Este servicio se utiliza para el envío de dinero en efectivo por parte de un Remitente a un Destinatario, en cualquiera de nuestros destinos.</p>
-        </div>
-    	<br>
-        <div class = "encomiendas-row">
-        	<h4>SERVICIO DE TRAMITES</h4>
-        	<p>En este caso se envía un sobre con las instrucciones necesarias para realizar un trámite, en un formulario modelo impreso por nuestro sistema de encomiendas, en la sucursal de destino gestionan el pedido, realizan los trámites indicados por el cliente/usuario y envían el resultado del mismo nuevamente al Remitente. Por ejemplo: retiro de resultado de estudios médicos.</p>
-        </div>
-    	<br>
-    	<br>
-    	<br>
-    </div><!--end Servicios tab -->
-    
-
-    <!-- Seguimientos tab -->
-    <div class = "col-xs-12 col-sm-8 col-md-6 col-lg-6" ng-show = "tab === 3">
-        <!-- sm-md-lg -->
-        <div class = "card2 center-block hidden-xs" style = "width:80%;">
-        	<h4 class="title">Seguimiento de <span class="lepBlue-color">Encomiendas</span></h4>
- 
-            <hr style = "width:80%;">
-            <br>
-            <div class="form-group">
-                <label class="sr-only"  for="Password">Ej: 2016-000222</label>
-                <input type="text" class="form-control text-center center-block" style = "width:80%;" id="Password" placeholder="Ej: 2016-000222"/>
+        <!-- Servicios tab -->
+        <div class = "col-xs-12 col-sm-8 col-md-6 col-lg-6 card2" ng-show = "tab === 2">
+            <div class = "encomiendas-row">
+                <h4>SERVICIO DE ENCOMIENDA </h4>
+            <p>Para el envío de bultos de parte de un Remitente a un Destinatario.
+                Es importante resaltar que en algunos de nuestros destinos ofrecemos servicio a domicilio y que, al momento de despachar tu encomienda, te informaremos el horario de llegada aproximado.</p>
             </div>
-            <p class = "text-center">Introduzca el numero de guia</p>
-            <button type="submit" class="btn btn-danger lepRed-bg center-block">Consultar</button>
-            <br>
-            <br>
-            <!-- <h4 class = "text-center">Simulador de Costos Encomiendas</h4>
-            <hr style = "width:80%;">
-            <br>
-            <button type="submit" class="btn btn-default background-lightgrey center-block">Ingresar</button>
-            <br><br> -->
-        </div>
-
-        <!-- xs -->
-        <div class = "card2 no-mar-pad-bor center-block visible-xs ">
-            <h4 class="title">Seguimiento de <span class="lepBlue-color">Encomiendas</span></h4>
-            <br>
-            <hr style = "width:80%;">
-            <br>
-            <div class="form-group">
-                <label class="sr-only"  for="Password">Ej: 2016-000222</label>
-                <input type="text" class="form-control text-center center-block" style = "width:80%;" id="Password" placeholder="Ej: 2016-000222"/>
+        	
+        	<br>
+            <div class = "encomiendas-row">
+            	<h4>SERVICIO DE CONTRAREMBOLSO</h4>
+            	<p>Se trata el envío de un bulto por un Remitente, que se entrega a un Destinatario, contra el pago del importe del valor estipulado por el Remitente, este servicio genera un bulto/sobre retorno, con el importe en su interior que se entrega al Remitente.</p>
+        	</div>
+        	<br>
+            <div class = "encomiendas-row">
+            	<h4>SERVICIO CONTROLAR</h4>
+            	<p>Este servicio se utiliza para el envío de dinero en efectivo por parte de un Remitente a un Destinatario, en cualquiera de nuestros destinos.</p>
             </div>
-            <p class = "text-center">Introduzca el numero de guia</p>
-            <button type="submit" class="btn btn-danger lepRed-bg center-block">Consultar</button>
-            <br>
-            <br>
-            <h4 class = "text-center">Sumulador de Costos Encomiendas</h4>
-            <hr style = "width:80%;">
-            <br>
-            <button type="submit" class="btn btn-default background-lightgrey center-block">Ingresar</button>
-            <br><br>
-        </div>
-    </div><!--end Seguimientos tab -->
+        	<br>
+            <div class = "encomiendas-row">
+            	<h4>SERVICIO DE TRAMITES</h4>
+            	<p>En este caso se envía un sobre con las instrucciones necesarias para realizar un trámite, en un formulario modelo impreso por nuestro sistema de encomiendas, en la sucursal de destino gestionan el pedido, realizan los trámites indicados por el cliente/usuario y envían el resultado del mismo nuevamente al Remitente. Por ejemplo: retiro de resultado de estudios médicos.</p>
+            </div>
+        	<br>
+        	<br>
+        	<br>
+        </div><!--end Servicios tab -->
+        
+
+        <!-- Seguimientos tab -->
+        <div class = "col-xs-12 col-sm-8 col-md-6 col-lg-6" ng-show = "tab === 3">
+            <!-- sm-md-lg -->
+            <div class = "card2 center-block hidden-xs" style = "width:80%;">
+            	<h4 class="title">Seguimiento de <span class="lepBlue-color">Encomiendas</span></h4>
      
-    
-    <div class="col-sm-4 col-md-6 col-lg-6 hidden-xs">
-    	<div class = "col-sm-12 col-md-5 col-lg-5">
-    		<img class = "center-block img-responsive" style = "height:90%; width:90%;" ng-src="img/Encomiendas/CajasRedPack.png" alt="">
-    	</div>
-        <div class = "col-xs-12 visible-sm"> <br> <hr></div>
-    	<div class = "col-sm-12 col-md-7 col-lg-7 hidden-sm card5">
-    		<h2><span class="lepRed-color">Red</span> Pack.com</h2>
-    		<p> Ingresa en nuestra pagina exlusiva para hacer seguimientos y consultas especificas.</p>
-    	</div>
-        <div class = "col-sm-12 col-md-7 col-lg-7 visible-sm">
-            <h2><span class="lepRed-color">Red</span> Pack.com</h2>
-            <p> Ingresa en nuestra pagina exlusiva para hacer seguimientos y consultas especificas.</p>
-        </div>
-    	<div class = "col-xs-12 hidden-sm"> <br> <hr></div>
-    </div>
+                <hr style = "width:80%;">
+                <br>
+                <div class="form-group">
+                    <label class="sr-only"  for="Password">Ej: 2016-000222</label>
+                    <input type="text" class="form-control text-center center-block" style = "width:80%;" ng-model="tracking_code" id="Password" placeholder="Ej: 2016-000222"/>
+                </div>
+                <p class = "text-center">Introduzca el numero de guia</p>
+                <button type="button" class="btn btn-danger lepRed-bg center-block" ng-click = "load_data(tracking_code)">Consultar</button>
+                <br>
+                <br>
+                <div ng-show="result_ready" class="card2 text-center">
+                	<p class="lead">Tipo de paquete</p>
+                  <p>{{package[0].TipoBulto}}</p>
+                </div>
+                <!-- <h4 class = "text-center">Simulador de Costos Encomiendas</h4>
+                <hr style = "width:80%;">
+                <br>
+                <button type="submit" class="btn btn-default background-lightgrey center-block">Ingresar</button>
+                <br><br> -->
+            </div>
 
+            <!-- xs -->
+            <div class = "card2 no-mar-pad-bor center-block visible-xs ">
+                <h4 class="title">Seguimiento de <span class="lepBlue-color">Encomiendas</span></h4>
+                <br>
+                <hr style = "width:80%;">
+                <br>
+                <div class="form-group">
+                    <label class="sr-only"  for="Password">Ej: 2016-000222</label>
+                    <input type="text" class="form-control text-center center-block" ng-model="tracking_code" style = "width:80%;" id="Password" placeholder="Ej: 2016-000222"/>
+                </div>
+                <p class = "text-center">Introduzca el numero de guia</p>
+                <button type="button" class="btn btn-danger lepRed-bg center-block" ng-click = "load_data(tracking_code)">Consultar</button>
+                <br>
+                <br>
+                <div ng-show="result_ready" class="card2">
+                    <p>{{package[0].TipoBulto}}</p>
+                </div>
+                <!-- <h4 class = "text-center">Sumulador de Costos Encomiendas</h4>
+                <hr style = "width:80%;">
+                <br>
+                <button type="submit" class="btn btn-default background-lightgrey center-block">Ingresar</button> -->
+                <br><br>
+            </div>
+        </div><!--end Seguimientos tab -->
+         
+        
+        <div class="col-xs-12 col-sm-4 col-md-6 col-lg-6">
+            <div ng-show="result_ready" class="row">
+                <div class="col-xs-12 enc-result-container">
+                    <div class="table-responsive">
+                        <table class="table enc-result-table">
+                            <tr>
+                              <th>Estado</th>
+                              <th>Fecha</th>
+                            </tr>
+                            <tr ng-repeat="p in package">
+                              <td>{{p.Estado}}</td>
+                              <td>{{p.Fechaestado}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <a ng-click="result_ready = false;">Cerrar</a>
+                </div>
+            </div>
+
+            <div class="row hidden-xs">
+            	<div class = "col-sm-12 col-md-5 col-lg-5">
+            		<img class = "center-block img-responsive" style = "height:90%; width:90%;" ng-src="img/Encomiendas/CajasRedPack.png" alt="">
+            	</div>
+                <div class = "col-xs-12 visible-sm"> <br> <hr></div>
+            	<div class = "col-sm-12 col-md-7 col-lg-7 hidden-sm card5">
+            		<h2><span class="lepRed-color">Red</span> Pack.com</h2>
+            		<p> Ingresa en nuestra pagina exclusiva para hacer seguimientos y consultas especificas.</p>
+            	</div>
+                <div class = "col-sm-12 col-md-7 col-lg-7 visible-sm">
+                    <h2><span class="lepRed-color">Red</span> Pack.com</h2>
+                    <p> Ingresa en nuestra pagina exlusiva para hacer seguimientos y consultas especificas.</p>
+                </div>
+            	<div class = "col-xs-12 hidden-sm"> <br> <hr></div>
+            </div>
+        </div>
+    </div>
 </div>

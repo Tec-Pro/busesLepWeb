@@ -1,0 +1,36 @@
+.enc-options {
+	margin-bottom: 2%;
+}
+
+.enc-result-container {
+	z-index: 1;
+	position: relative;
+}
+.enc-result-table {
+	background-color:  #87898A;
+}
+
+.enc-result-table td {
+	text-align: center;
+	border-bottom: 3px solid #C4C4C4;
+	background-color: #ffffff;
+}
+
+.enc-result-table th {
+	text-align: center;
+	border-bottom: 2px solid #DEDEDE;
+}
+
+.enc-result-table th:nth-child(even){
+	background-color: #C4C4C4;
+}
+
+.enc-result-table th:nth-child(odd){
+	background-color: #87898A;
+}
+
+@media only screen and (min-width: 768px){
+	.enc-result-container {
+		position: absolute;
+	}
+}
