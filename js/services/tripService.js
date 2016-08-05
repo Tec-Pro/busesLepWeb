@@ -21,6 +21,8 @@ angular.module('app')
 		ticket_amount: 0
 	};
 
+	var origin_office = 0;
+	var destination_office = 0;
 	var trip_price = 0;
 	var sell_code = -1;
 	var passengers = 1;
@@ -86,7 +88,6 @@ angular.module('app')
 	return {
 		savePurchaseOrigin: function(obj){
 			purchase_origin = obj;
-			console.log(obj);
 			sessionStorage.setItem('purchase_origin', purchase_origin);
 		},
 		savePassengers: function(obj){
@@ -141,12 +142,18 @@ angular.module('app')
 				return departure_trip;
 			}else{
 				departure_trip = JSON.parse(sessionStorage.departure_trip);
-				departure_trip.departure_date = moment(departure_trip.departure_date);
+				departure_trip.departure_date = moment(departure_trip.departure_date, "YYYY-MM-DD");
 				if(departure_trip.round_trip == 1){
-					departure_trip.return_date = moment(departure_trip.return_date);
+					departure_trip.return_date = moment(departure_trip.return_date, "YYYY-MM-DD");
 				}
 				return departure_trip;
 			}
+		},
+		getOriginOffice: function(){
+			return origin_office;
+		},
+		getDestinationOffice: function(){
+			return destination_office;
 		},
 		getReturnTrip: function(){
 			return return_trip;
@@ -203,6 +210,12 @@ angular.module('app')
 		},
 		setTripOriginId: function(val){
 			departure_trip.origin_id = val;
+		},
+		setOriginOffice: function(val){
+			origin_office = val;
+		},
+		setDestinationOffice: function(val){
+			destination_office = val;
 		},
 		setTripDestinationId: function(val){
 			departure_trip.destination_id = val;

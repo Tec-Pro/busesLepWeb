@@ -10,6 +10,7 @@ angular.module('app').controller('SummaryController', ['$scope', '$location', 't
   $scope.isBuy = false;
   $scope.isRoundTrip = tripService.getDepartureTrip().round_trip === 1;
   $scope.trip = tripService.getDepartureTrip();
+  $scope.origin_office = tripService.getOriginOffice();
 
   
   $scope.passengers = 1; 

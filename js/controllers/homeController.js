@@ -60,6 +60,7 @@ angular.module('app')
     var lastSearches = localStorageService.get("last-searches");
     if (lastSearches != null){ // it isn't the first search
       $scope.searches = JSON.parse(lastSearches); 
+      console.log($scope.searches);
     }
     else{
       $scope.searches = [];
@@ -114,7 +115,7 @@ angular.module('app')
     //Call the web service and update the origins from the scope.
     if ($scope.origins.length == 0){
       display_modal();
-      wsService.callService(wsdl_url, urn, "LocalidadesDesde",localidadesDesde_parameters).then(function(origins){
+      wsService.callService(wsdl_url_wsConGps, urn, "LocalidadesDesdeWeb",localidadesDesde_parameters).then(function(origins){
         hide_modal();
         $scope.origins = origins;
       }, function(reason){
@@ -241,6 +242,8 @@ angular.module('app')
   				tripService.setTripOriginName($scope.params.origin.Localidad);
   				tripService.setTripDestinationId($scope.params.destination.id_localidad_destino);
   				tripService.setTripDestinationName($scope.params.destination.hasta);
+          tripService.setOriginOffice($scope.params.origin.TieneBoleteria);
+          tripService.setDestinationOffice($scope.params.destination.TieneBoleteria);
           //console.log($scope.params.departureDate);
   				tripService.setTripDeparture($scope.params.departureDate);
   				// tripService.searchTrips($scope.params.origin.ID_Localidad, $scope.params.destination.id_localidad_destino, $scope.params.departureDate.format("YYYYMMDD")).then(function(schedules)
@@ -287,7 +290,7 @@ angular.module('app')
   						hide_modal();
               if (schedules.length > 0){
                 var trip = tripService.getDepartureTrip();
-                $scope.searches.unshift({ goingDate: trip.departure_date, backDate: trip.return_date, goingCity_id:trip.origin_id, goingCity:trip.origin_name, backCity_id:trip.destination_id, backCity:trip.destination_name, status: false});
+                $scope.searches.unshift({ goingDate: trip.departure_date, backDate: trip.return_date, goingCity_id:trip.origin_id, goingCity:trip.origin_name, goingCityOffice: $scope.params.origin.TieneBoleteria, backCity_id:trip.destination_id, backCity:trip.destination_name, status: false});
                 localStorageService.set("last-searches",JSON.stringify($scope.searches));
                 //guardar aca departure-trip
                 //tripService.saveDepartureTrip();
@@ -308,15 +311,16 @@ angular.module('app')
       }
     };
 
-    $scope.goSearch2 = function(orig_id,dest_id,orig,dest,dDate,rDate){
-      if(moment().isAfter(moment(dDate),'day')){
+    $scope.goSearch2 = function(orig_id,dest_id,orig, orig_office, dest, dDate, rDate){
+      if(moment().isAfter(moment(dDate, moment.ISO_8601),'day')){
         alert("Este viaje ya caducó");
       }
       else{
-        dDate = moment(dDate).toString();
-        rDate = moment(rDate).toString();
+        dDate = moment(dDate, moment.ISO_8601).format("YYYY-MM-DD");
+        console.log(rDate);
         if (rDate != ''){
           tripService.setRoundTrip(1);
+          rDate = moment(rDate, moment.ISO_8601).format("YYYY-MM-DD");
           tripService.setTripReturn(rDate);
         } else {
           tripService.setRoundTrip(0);
@@ -326,6 +330,7 @@ angular.module('app')
         tripService.setTripOriginName(orig);
         tripService.setTripDestinationId(dest_id.toString());
         tripService.setTripDestinationName(dest);
+        tripService.setOriginOffice(orig_office);
         //console.log($scope.params.departureDate);
         tripService.setTripDeparture(dDate);
         // tripService.searchTrips($scope.params.origin.ID_Localidad, $scope.params.destination.id_localidad_destino, $scope.params.departureDate.format("YYYYMMDD")).then(function(schedules)
@@ -353,7 +358,7 @@ angular.module('app')
           {
             name: "Fecha",
             type: "string",
-            value: moment(dDate).format("YYYYMMDD")
+            value: moment(dDate, moment.ISO_8601).format("YYYYMMDD")
           },
           {
             name: "DNI",
@@ -366,13 +371,13 @@ angular.module('app')
             value: "3"
           }          
         ];
-        console.log(dDate);
         tripService.saveDepartureTrip();
         //alert(JSON.stringify(tripService.getDepartureTrip()));
         wsService.callService(wsdl_url_wsConGps, urn, "ListarHorarioscGPS", listarHorarios_parameters).then(function(schedules){
             if (schedules.length > 0){
               //guardar aca departure-trip
               //tripService.saveDepartureTrip();
+              console.log(schedules);
               tripService.setSchedules(schedules);
               $location.path('/schedules');
             } else {

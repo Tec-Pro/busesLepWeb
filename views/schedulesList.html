@@ -142,9 +142,9 @@
                   </div>
                 
               </div>
-              <div class= "title col-xs-3" data-ng-show="sched.ServicioPrestado == 'disponible'">
-                <button type="submit" class="center-block btn btn-danger col-xs-12 lepStyleRed btn-sm visible-lg" style="margin-top:10px;"ng-click="goSummary($index)">Seleccionar</button>
-                <button type="submit" class="center-block btn btn-danger col-xs-12 lepStyleRed btn-sm hidden-lg" style="margin-top:10px;"ng-click="goSummary($index)">Elegir</button>
+              <div class= "title col-xs-3" data-ng-show="check_available(sched)">
+                <button type="submit" class="center-block btn btn-danger col-xs-12 lepStyleRed btn-sm visible-lg" style="margin-top:10px;" ng-click="goSummary($index)">Seleccionar</button>
+                <button type="submit" class="center-block btn btn-danger col-xs-12 lepStyleRed btn-sm hidden-lg" style="margin-top:10px;" ng-click="goSummary($index)">Elegir</button>
               </div>
             </div>
           </div>   

@@ -15,7 +15,7 @@ angular.module('app').controller('ScheduleController', ['$scope', '$location', '
 
     
 
-     getReturnSchedules = function(){
+    getReturnSchedules = function(){
 		var listarHorarios_parameters2 = [
           {
             name: "userWS",
@@ -101,7 +101,7 @@ angular.module('app').controller('ScheduleController', ['$scope', '$location', '
 	$scope.params = {
       today: moment(),
       departureDate: $scope.departure_date,
-      returnDate: moment(),
+      returnDate: moment()
     };
 
 	$scope.$watch('params.departureDate', function(date){
@@ -188,10 +188,9 @@ angular.module('app').controller('ScheduleController', ['$scope', '$location', '
 		}
 	]
 	display_loading_modal();
-	wsService.callService(wsdl_url, urn, 'ObtenerTarifaTramo', parametersPrice).then(function(tarifas){
+	wsService.callService(wsdl_url_wsConGps, urn, 'ObtenerTarifaTramo', parametersPrice).then(function(tarifas){
 		hide_loading_modal();
  		result = tarifas.split("-");
- 		console.log(result);
  		$scope.goPrice = Number(result[0].trim().substring(7));
  		$scope.roundTripPrice = Number(result[1].trim().substring(13));
  	}, function(reason){
@@ -249,7 +248,6 @@ angular.module('app').controller('ScheduleController', ['$scope', '$location', '
 		scheduleService.setScheduleOriginId($scope.departure_trip.origin_id);
 		scheduleService.setScheduleDestinationName($scope.departure_trip.destination_name);
 		scheduleService.setScheduleOriginName($scope.departure_trip.origin_name);*/
-		console.log(selectedSchedule);
 		scheduleService.saveSchedule(selectedSchedule);		
 	};
 
@@ -258,7 +256,9 @@ angular.module('app').controller('ScheduleController', ['$scope', '$location', '
 		scheduleService.saveScheduleReturn(selectedSchedule);
 	};
 
-	
+	$scope.check_available = function(schedule){
+		return $scope.params.today.isBefore(schedule.fechahora);
+	}
 
 	$scope.range = function(min, max, step){
 		    step = step || 1;
