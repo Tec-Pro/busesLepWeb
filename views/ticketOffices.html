@@ -49,7 +49,7 @@
                           <h5 class = "title" ng-class="{'lepBlue-color':$index == selectedRow}">{{office.Boleteria_Ubicacion}}</h5>
                         </div>
                         <div class = "col-xs-4">
-                          <h5 class = "title">{{office.Boleteria_Telefono}}</h5>
+                          <h5 class = "title"><a ng-href="tel:{{office.Boleteria_Telefono}}">{{office.Boleteria_Telefono}}</a></h5>
                         </div>
                     </div>
                 </div>
@@ -68,7 +68,7 @@
                       <h5 class = "text-left"> Dir: {{office.Boleteria_Ubicacion}}</h5>
                     </div>
                     <div class = "col-xs-12">   
-                        <h5 class = "text-left"> Tel: {{office.Boleteria_Telefono}}</h5>
+                        <h5 class = "text-left"> <a ng-href="tel:{{office.Boleteria_Telefono}}">Tel: {{office.Boleteria_Telefono}}</a></h5>
                     </div>
                 </div> 
                 <div class = "col-xs-2 no-mar-pad-bor">
