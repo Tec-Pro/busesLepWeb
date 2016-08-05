@@ -108,6 +108,14 @@ angular.module('app')
   ]
   $scope.origins = [];
 
+  $scope.clear_search = function(){
+    $scope.params.origin = '';
+    $scope.params.destination= '';
+    $scope.params.departureDate= '';
+    $scope.params.returnDate= '';
+    console.log($scope.params);
+  }
+
   $scope.load_origins = function(){
     $scope.origin_search = '';
     $scope.destination_search = '';
