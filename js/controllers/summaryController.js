@@ -15,7 +15,7 @@ angular.module('app').controller('SummaryController', ['$scope', '$location', 't
   
   $scope.passengers = 1; 
   //console.log(localStorageService.get("user-lep").dni);                               
-  window.scrollTo(0,140);
+  window.scrollTo(0,120);
   
   /*$scope.trip = {
     // origin: tripService.getTrip().origin_name,

@@ -6,6 +6,7 @@ angular.module('app').controller('SeatsController', ['$scope', '$location', 'wsS
     var trip = tripService.getDepartureTrip();
     var schedule = scheduleService.getSchedule();
     var scheduleReturn = scheduleService.getScheduleReturn();
+    window.scrollTo(0,1);
     if(sell_code == undefined || schedule==undefined){
         $location.path('/'); 
     }

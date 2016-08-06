@@ -45,7 +45,7 @@ angular.module('app').controller('TicketOfficesController', ['$scope', '$locatio
   		var mapCenter = new google.maps.LatLng(latitude, longitude);
 	    map_modal.style.display = "block";
 	    var mapOptions = {
-	        zoom: 8,
+	        zoom: 10,
 	        center: mapCenter,
 	        mapTypeId: google.maps.MapTypeId.ROADMAP
 	    };

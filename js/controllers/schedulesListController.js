@@ -12,7 +12,7 @@ angular.module('app').controller('ScheduleController', ['$scope', '$location', '
 	var hide_loading_modal = function() {
 		loading_modal.style.display = "none";
 	}
-
+	window.scrollTo(0,140);
     
 
     getReturnSchedules = function(){

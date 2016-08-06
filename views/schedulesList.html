@@ -208,7 +208,7 @@
               </div>
               <div class= "title col-xs-4">
                  <div ng-hide="sched.latitud == 'Sin GPS'">
-                    <img class = "map-img center-block" style="cursor: pointer;" ng-src="img/Posicionamiento.png" alt="">
+                    <img ng-click = "showMap(sched.latitud,sched.longitud)" class = "map-img center-block" style="cursor: pointer;" ng-src="img/Posicionamiento.png" alt="">
                   </div>
               </div>
             </div> 

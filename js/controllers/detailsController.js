@@ -13,7 +13,7 @@ angular.module('app').controller('DetailsController', ['$scope', '$location', 't
 	$scope.scheduleReturn = scheduleService.getScheduleReturn();
 	$scope.seatsSelectedGo = tripService.getSelectedSeatsGo();
 	$scope.seatsSelectedReturn = tripService.getSelectedSeatsReturn();
-	
+	window.scrollTo(0,20);
 	$scope.goMercadopagoBuy = function() {
 		tripService.savePurchaseOrigin(0);
 	    $location.path('/buy');	 
