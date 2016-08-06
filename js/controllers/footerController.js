@@ -3,7 +3,7 @@ angular.module('app')
 	//CLIMA
 	$http.get("http://api.openweathermap.org/data/2.5/weather?id=3860259&units=metric&APPID=6b10444e5758a2d047de8e60b9fd368d")
 	.then(function (response){
-		$scope.weather = {temp: response.data.main.temp,
+		$scope.weather = {temp: Math.floor(response.data.main.temp),
 						  tempMin: response.data.main.temp_min,
 						  tempMax: response.data.main.temp_max};
 	});
