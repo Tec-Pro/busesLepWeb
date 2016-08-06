@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('MercadopagoController', ['$scope', '$http', '$location', 'wsService', 'localStorageService', 'tripService', function($scope,$http, $location, wsService, localStorageService, tripService){
+.controller('MercadopagoController', ['$scope', '$http', '$location', '$anchorScroll', 'wsService', 'localStorageService', 'tripService', function($scope,$http, $location, $anchorScroll, wsService, localStorageService, tripService){
 //https://webservices.buseslep.com.ar:443/WebServices/WSCobroMercadoPagoTest.dll/soap/IWSCobroMercadoPago	
 //http://webservices.buseslep.com.ar:8080/WebServices/WSCobroMercadoPagoTest.dll/soap/IWSCobroMercadoPago
 	//https://webservices.buseslep.com.ar/WebServices/WSCobroMercadoPago.dll/wsdl/IWSCobroMercadoPago para poner en el soap client
@@ -7,6 +7,7 @@ angular.module('app')
 	var wsdl_url ="https://webservices.buseslep.com.ar:443/WebServices/WSCobroMercadoPago.dll/soap/IWSCobroMercadoPago"; //"https://webservices.buseslep.com.ar:443/WebServices/WSCobroMercadoPagocTestyEnc.dll/soap/IWSCobroMercadoPago";
 	var urn = "";
 	wsMethod = "RealizarCobroMercadoPago";
+	$anchorScroll();
 	Mercadopago.setPublishableKey("APP_USR-3f8dc194-8894-4d07-bb6c-b4a786a19c6c"); //TEST-2e5d7d95-7cb8-48d3-8bd6-cfde1bc34254
 	$scope.paymentMethods = [];													//APP_USR-3f8dc194-8894-4d07-bb6c-b4a786a19c6c
 	$http.get("https://api.mercadolibre.com/sites/MLA/payment_methods").success(function(response){ //llama a la api nuestra y ahi se obtiene los medios de pago

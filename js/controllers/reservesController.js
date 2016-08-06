@@ -1,6 +1,6 @@
 angular.module('app')
-.controller('ReservesCtrl', ['$scope', '$location', '$filter', 'localStorageService', 'wsService', function($scope, $location, $filter, localStorageService, wsService){
-  
+.controller('ReservesCtrl', ['$scope', '$location', '$filter', '$anchorScroll', 'localStorageService', 'wsService', function($scope, $location, $filter, $anchorScroll, localStorageService, wsService){
+    $anchorScroll();
     var wsdl_url = 'https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService';
     var urn = 'LepWebServiceIntf-ILepWebService';
     var service_parameters = [

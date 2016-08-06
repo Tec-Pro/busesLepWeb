@@ -1,4 +1,4 @@
-angular.module('app').controller('ScheduleController', ['$scope', '$location', 'tripService', 'scheduleService', '$filter', 'wsService', function ($scope, $location, tripService, scheduleService, $filter, wsService){
+angular.module('app').controller('ScheduleController', ['$scope', '$location', '$anchorScroll', 'tripService', 'scheduleService', '$filter', 'wsService', function ($scope, $location, $anchorScroll, tripService, scheduleService, $filter, wsService){
 	var wsdl_url = 'https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService';
 	var wsdl_url_wsConGps = "https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepcGPS.dll/soap/ILepWebService";
     var urn = 'LepWebServiceIntf-ILepWebService';
@@ -12,7 +12,7 @@ angular.module('app').controller('ScheduleController', ['$scope', '$location', '
 	var hide_loading_modal = function() {
 		loading_modal.style.display = "none";
 	}
-	window.scrollTo(0,140);
+	$anchorScroll();
     
 
     getReturnSchedules = function(){
@@ -257,7 +257,7 @@ angular.module('app').controller('ScheduleController', ['$scope', '$location', '
 	};
 
 	$scope.check_available = function(schedule){
-		return $scope.params.today.isBefore(schedule.fechahora);
+		return schedule.ServicioPrestado === 'disponible';
 	}
 
 	$scope.range = function(min, max, step){

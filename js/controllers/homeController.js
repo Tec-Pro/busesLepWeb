@@ -1,6 +1,6 @@
 angular.module('app')
-.controller('HomeCtrl', ['$scope', '$sce', '$location', '$window', 'localStorageService', 'wsService', 'tripService', 'companyService', function($scope, $sce, $location, $window,localStorageService, wsService, tripService, companyService){
-  
+.controller('HomeCtrl', ['$scope', '$sce', '$location', '$window', '$anchorScroll', 'localStorageService', 'wsService', 'tripService', 'companyService', function($scope, $sce, $location, $window, $anchorScroll, localStorageService, wsService, tripService, companyService){
+    $anchorScroll();
     var wsdl_url = 'https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService'//https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService';
     var wsdl_url_wsConGps = "https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepcGPS.dll/soap/ILepWebService";
     var wsdl_url_web = "https://webservices.buseslep.com.ar:443/WebServices/WSLepPaginaWeb.dll/soap/IWSLepPaginaWeb";
@@ -60,7 +60,6 @@ angular.module('app')
     var lastSearches = localStorageService.get("last-searches");
     if (lastSearches != null){ // it isn't the first search
       $scope.searches = JSON.parse(lastSearches); 
-      console.log($scope.searches);
     }
     else{
       $scope.searches = [];
@@ -113,7 +112,6 @@ angular.module('app')
     $scope.params.destination= '';
     $scope.params.departureDate= '';
     $scope.params.returnDate= '';
-    console.log($scope.params);
   }
 
   $scope.load_origins = function(){

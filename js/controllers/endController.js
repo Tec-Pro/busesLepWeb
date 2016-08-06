@@ -1,7 +1,7 @@
 angular.module('app')
-.controller('EndController', ['$scope', '$routeParams', '$location', function($scope, $routeParams, $location) {
+.controller('EndController', ['$scope', '$routeParams', '$anchorScroll', '$location', function($scope, $routeParams, $anchorScroll, $location) {
     $scope.code = $routeParams.code;
-
+    $anchorScroll();
     $scope.go = function ( path ) {
       $location.path( path );
     };

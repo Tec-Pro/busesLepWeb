@@ -1,6 +1,6 @@
 angular.module('app')
-.controller('SpecialTravelCtrl', ['$scope', '$location', function($scope, $location){
-
+.controller('SpecialTravelCtrl', ['$scope', '$location', '$anchorScroll', function($scope, $location, $anchorScroll){
+  $anchorScroll();
   $scope.active_gall_img = 2;
   $scope.active_gall_thmb = $scope.active_gall_img;
   $scope.is_fullscreen = false;

@@ -1,5 +1,5 @@
-angular.module('app').controller('ToursController', ['$scope', '$location','wsService', function ($scope, $location, wsService){
-
+angular.module('app').controller('ToursController', ['$scope', '$location', '$anchorScroll', 'wsService', function ($scope, $location, $anchorScroll, wsService){
+	$anchorScroll();
 	var wsdl_url = "https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepcGPS.dll/soap/ILepWebService";
 
 	var toursParams = [

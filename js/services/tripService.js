@@ -150,7 +150,11 @@ angular.module('app')
 			}
 		},
 		getOriginOffice: function(){
-			return origin_office;
+			var result = sessionStorage.origin_office;
+			if (result == undefined){
+				return 0;
+			}
+			return JSON.parse(result);
 		},
 		getDestinationOffice: function(){
 			return destination_office;
@@ -212,6 +216,8 @@ angular.module('app')
 			departure_trip.origin_id = val;
 		},
 		setOriginOffice: function(val){
+			var org_off = {origin_office: val}
+			sessionStorage.setItem('origin_office', JSON.stringify(org_off));
 			origin_office = val;
 		},
 		setDestinationOffice: function(val){

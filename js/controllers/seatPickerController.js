@@ -1,5 +1,5 @@
-angular.module('app').controller('SeatsController', ['$scope', '$location', 'wsService', 'tripService', 'scheduleService', function ($scope, $location, wsService, tripService, scheduleService){
-    
+angular.module('app').controller('SeatsController', ['$scope', '$location', '$anchorScroll', 'wsService', 'tripService', 'scheduleService', function ($scope, $location, $anchorScroll, wsService, tripService, scheduleService){
+    $anchorScroll();  
     wsdl_url = 'https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService';
     urn = 'LepWebServiceIntf-ILepWebService';
     var sell_code = tripService.getSellCode();

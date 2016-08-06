@@ -1,15 +1,16 @@
 angular.module('app')
-.controller('EncomController', ['$scope', 'wsService', function($scope, wsService) {
+.controller('EncomController', ['$scope', '$anchorScroll', 'wsService', function($scope, $anchorScroll, wsService) {
 
-  var wsdl_url = "https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepcGPS.dll/soap/ILepWebService";
-  var urn = "LepWebServiceIntf-ILepWebService";
+	$anchorScroll();
+	var wsdl_url = "https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepcGPS.dll/soap/ILepWebService";
+	var urn = "LepWebServiceIntf-ILepWebService";
 
-  $scope.result_ready = false;
-  $scope.tracking_code = '';
+	$scope.result_ready = false;
+	$scope.tracking_code = '';
 
-  $scope.package = [];
+	$scope.package = [];
 
-  $scope.load_data = function(id){
+	$scope.load_data = function(id){
   	console.log(id);
 	 	var service_parameters = [
 	    {
@@ -30,7 +31,6 @@ angular.module('app')
     ]
 
     wsService.callService(wsdl_url, urn, "BuscarEncomienda", service_parameters).then(function(data){
-    	console.log(data);
     	$scope.result_ready = true;
     	$scope.package = data;
     })

@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('CompCtrl', ['$scope', '$location', 'wsService', 'companyService', function($scope, $location, wsService, companyService){
+.controller('CompCtrl', ['$scope', '$location', '$anchorScroll', 'wsService', 'companyService', function($scope, $location, $anchorScroll, wsService, companyService){
 
 	$scope.active = companyService.getActiveTab();
 	$scope.active_unit_tab = companyService.getActiveUnitTab();
@@ -7,7 +7,7 @@ angular.module('app')
 	$scope.active_gall_thmb = 2;
 
 	$scope.contact = {};
-
+	$anchorScroll();
 	$scope.submit_contact = function(){
 		var wsdl_url_web = "https://webservices.buseslep.com.ar:443/WebServices/WSLepPaginaWeb.dll/soap/IWSLepPaginaWeb";
 		var urn = "WSLepPaginaWebIntf-IWSLepPaginaWeb";

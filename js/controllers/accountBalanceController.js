@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('AccBalCtrl', ['$scope', '$location', '$window', '$filter', 'wsService', function($scope, $location, $window, $filter, wsService){
+.controller('AccBalCtrl', ['$scope', '$location', '$window', '$filter', '$anchorScroll','wsService', function($scope, $location, $window, $filter, $anchorScroll, wsService){
 	wsdl_url = "https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepcGPS.dll/soap/ILepWebService";
 	urn = "LepWebServiceIntf-ILepWebService";
 	method = "ConsultaSaldoTarjeta";
@@ -7,6 +7,7 @@ angular.module('app')
 	$scope.dni = '';
 	$scope.cards = [];
 	$scope.show_response = false;
+	$anchorScroll();
 
 	$scope.get_balance = function(dni){
 		if (dni === '' || dni != parseInt(dni)|| isNaN(parseInt(dni))){

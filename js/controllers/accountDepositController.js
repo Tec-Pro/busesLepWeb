@@ -1,9 +1,9 @@
 angular.module('app')
-.controller('AccDepCtrl', ['$scope', '$location', '$window', 'wsService', 'tripService', function($scope, $location, $window, wsService, tripService){
+.controller('AccDepCtrl', ['$scope', '$location', '$window', '$anchorScroll', 'wsService', 'tripService', function($scope, $location, $window, $anchorScroll, wsService, tripService){
 	wsdl_url = "https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepcGPS.dll/soap/ILepWebService";
 	urn = "LepWebServiceIntf-ILepWebService";
 	method = "PrecargaTarjeta";
-
+	$anchorScroll();
 	$scope.card = {
 		number: '',
 		amount: 0.00

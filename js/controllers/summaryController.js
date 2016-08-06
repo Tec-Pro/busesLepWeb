@@ -3,20 +3,19 @@
 *
 * Description
 */
-angular.module('app').controller('SummaryController', ['$scope', '$location', 'tripService', 'scheduleService', 'localStorageService', 'wsService', function($scope, $location, tripService, scheduleService, localStorageService, wsService){
-  
+angular.module('app').controller('SummaryController', ['$scope', '$location', '$anchorScroll', 'tripService', 'scheduleService', 'localStorageService', 'wsService', function($scope, $location, $anchorScroll, tripService, scheduleService, localStorageService, wsService){
   var wsdl_url = 'https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService';
   var urn = 'LepWebServiceIntf-ILepWebService';
   $scope.isBuy = false;
   $scope.isRoundTrip = tripService.getDepartureTrip().round_trip === 1;
   $scope.trip = tripService.getDepartureTrip();
-  $scope.origin_office = tripService.getOriginOffice();
+  $scope.origin_office = tripService.getOriginOffice().origin_office;
 
   
   $scope.passengers = 1; 
   //console.log(localStorageService.get("user-lep").dni);                               
-  window.scrollTo(0,120);
-  
+  //
+  $anchorScroll();
   /*$scope.trip = {
     // origin: tripService.getTrip().origin_name,
     // destination: tripService.getTrip().destination_name,
@@ -29,6 +28,9 @@ angular.module('app').controller('SummaryController', ['$scope', '$location', 't
 
 
   $scope.schedule = scheduleService.getSchedule();
+  if ($scope.schedule === null){
+    $location.path('/');
+  }
   $scope.scheduleReturn = scheduleService.getScheduleReturn();
   if(tripService.getDepartureTrip().round_trip === 1){
   	$scope.price = $scope.schedule.precio + $scope.scheduleReturn.precio;
