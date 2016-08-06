@@ -272,7 +272,7 @@
 	                    <a ng-hide="tab === 6" data-toggle="collapse" data-target=".navbar-collapse" href="#/account/reserves"><strong>Mi Cuenta</strong></a>
 	                    <a ng-show="tab === 6" data-toggle="collapse" data-target=".navbar-collapse" href="#/account/reserves"><span class="lepBlue-color"><strong>Mi Cuenta</strong></span></a>
 	                </li>
-	                <li ng-click="tab = 6" ng-show = "user.dni == ''">
+	                <li ng-click="tab = 6;BackTo('/account/reserves');" ng-show = "user.dni == ''">
 	                    <a ng-hide="tab === 6" data-toggle="collapse" data-target=".navbar-collapse" href="#/login"><strong>Mi Cuenta</strong></a>
 	                    <a ng-show="tab === 6" data-toggle="collapse" data-target=".navbar-collapse" href="#/login"><span class="lepBlue-color"><strong>Mi Cuenta</strong></span></a>
 	                </li>
@@ -308,7 +308,7 @@
 	                    <a  ng-hide="tab === 6" href="#/account/reserves"><strong>Mi Cuenta</strong></a>
 	                    <a  ng-show="tab === 6" href="#/account/reserves"><span class="lepBlue-color"><strong>Mi Cuenta</strong></span></a>
 	                </li>
-	                <li ng-click="tab = 6" ng-show = "user.dni == ''">
+	                <li ng-click="tab = 6;BackTo('/account/reserves');" ng-show = "user.dni == ''">
 	                    <a  ng-hide="tab === 6" href="#/login"><strong>Mi Cuenta</strong></a>
 	                    <a  ng-show="tab === 6" href="#/login"><span class="lepBlue-color"><strong>Mi Cuenta</strong></span></a>
 	                </li>

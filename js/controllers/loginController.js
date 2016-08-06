@@ -26,23 +26,27 @@ angular.module('app')
         $scope.user = {dni: "", pass: "", name: "", lastname: "", email: ""};
     };
 
+  //localStorageService.set("BackTo","/");
 
-     
-   if(localStorageService.get("rld")){
+  if(localStorageService.get("rld")){
       var y = localStorageService.get("rld");
       if (y == "yes"){
         localStorageService.set("rld", "");
-        $location.path("/");
+        $location.path(localStorageService.get("BackTo"));
       }
    };
 
-   
+
+   $scope.BackTo = function( path ){
+      localStorageService.set("BackTo", path);
+      //alert(localStorageService.get("BackTo"));
+   }; 
 
     $scope.go = function ( path ) {
       $location.path( path );
     };
 
-    $scope.login = function ( ) {
+    $scope.login = function () {
         parameters.splice(2,0, {name: "DNI",type: "int",value: $scope.user.dni.toString()},
                                {name: "Pass",type: "string",value: $scope.user.pass}); //meto los parametros
         wsService.callService(wsdl_url, urn, "login", parameters).then(function(origins){
@@ -52,8 +56,10 @@ angular.module('app')
             $scope.user.lastname = origins[0].Apellido;
             $scope.user.email = origins[0].Email;
             localStorageService.set("user-lep", $scope.user);
+            //$location.path(localStorageService.get("BackTo"));
             localStorageService.set("rld", "yes");
             location.reload();
+            //localStorageService.set("BackTo","/");
           } else {
                 alert("DNI y/o contraseña incorrectos");
           }
@@ -64,6 +70,7 @@ angular.module('app')
     $scope.logout = function ( ) {
         $scope.user = {dni: "", pass: "", name: "", lastname: "", email: ""};
         localStorageService.set("user-lep", $scope.user);
+        localStorageService.set("BackTo", "/");
         localStorageService.set("rld", "yes");
         location.reload();
     };
@@ -79,6 +86,7 @@ angular.module('app')
             //alert(JSON.stringify(origins));
             if (origins != null && origins[0] != null){
               localStorageService.set("user-lep", $scope.user);
+              localStorageService.set("BackTo", "/account/reserves");
               localStorageService.set("rld", "yes");
               location.reload();
             } else {
@@ -102,7 +110,9 @@ angular.module('app')
           wsService.callService(wsdl_url, urn, "ModificarContraseña", parameters).then(function(origins){
             if (origins == 1) {
                 localStorageService.set("user-lep", $scope.user);
-                $location.path("/");
+                localStorageService.set("BackTo", "/account/update");
+                localStorageService.set("rld", "yes");
+                location.reload();
               } else {
                 alert("No se ha podido editar la contraseña");
               }
@@ -122,7 +132,9 @@ angular.module('app')
             //alert(JSON.stringify(origins));
             if (origins != null && origins[0] != null){
               localStorageService.set("user-lep", $scope.user);
-              $location.path("/");
+              localStorageService.set("BackTo", "/account/update");
+              localStorageService.set("rld", "yes");
+              location.reload();
             } else {
               alert("No se ha podido editar el perfil");
             }
@@ -138,7 +150,9 @@ angular.module('app')
         console.log(origins);
         if (origins == 1) {
           alert("Se ha enviado a su email la contraseña");
-          $location.path("/");
+          localStorageService.set("BackTo", "/login");
+          localStorageService.set("rld", "yes");
+          location.reload();
         } else {
           alert("La cuenta no existe o no está activada");
         }
