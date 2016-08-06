@@ -181,6 +181,7 @@ p.home-news {
 }
 
 .img-wrapper {
+	position: relative;
 	width: 109.9%;
 	margin-left: -5.2%;
 	display: inline-block;
@@ -194,12 +195,31 @@ p.home-news {
 	}
 }
 
+.img-wrapper a {
+	display: block;      
+  	position: absolute;
+  	z-index: 1;
+  	top: 33%;
+	width: 18%;
+	height: 9%;
+}
+
+.home-link-and {
+	left: 59%;
+}
+
+
+.home-link-ios {
+	left: 78%;
+}
+
 
  .btn-home {
-	position: relative;
+	position: absolute;
 	z-index: +1;
 	color: white;
 	width: 100%;
+	bottom: 0.0%;
 	background-color: #191919;
 	border-radius: 0;
 }
