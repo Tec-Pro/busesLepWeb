@@ -62,31 +62,41 @@
 						</div>
 						<div class="row">
 								<div class="col-xs-12">
+									<div class="form-group">
 										<div class="row">
 												<div class="col-xs-12">
-														<div class="form-group">
+														<!-- <div class="form-group"> -->
 																<div class="input-group date">
-																		<input date-range-picker name="returnDate" id="returnDate" class="search-date form-control date-picker ng-valid ng-dirty" type="text" min="params.today" data-ng-disabled="returnDateDisabled" ng-model="params.returnDate" placeholder="Fecha Vuelta (Opcional)" options="dpOpts" readonly/>
+																		<input date-range-picker name="returnDate" id="returnDate" class="search-date form-control date-picker ng-valid ng-dirty" type="text" min="params.today" data-ng-disabled="returnDateDisabled" ng-model="params.returnDate" placeholder="Fecha Vuelta" options="dpOpts" readonly/>
 																		<span class="input-group-addon">
 																				<span class="glyphicon glyphicon-calendar">
 																				</span>
 																		</span>
 																</div>
-														</div>
+														<!-- </div> -->
 												</div>
 										</div>
+										<div class="row">
+											<div class="col-xs-offset-6 col-xs-6 col-sm-offset-7 col-sm-5">
+												<small>(OPCIONAL)</small>
+												<button type="button" ng-click="clear_return()" class="btn btn-default btn-sm btn-home-clear">
+													 <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+												</button>
+											</div>
+										</div>
+									</div>
 								</div>
 						</div>
 						<div class="row">
 								<div class="col-xs-10 col-xs-offset-1">
-										<button type="submit" class="btn btn-default btn-block">Buscar</button>
+										<button type="submit" ng-disabled="searchForm.$invalid" class="btn btn-default btn-block search-menu-button">Buscar</button>
 								</div>
 						</div>
-						<div class="row">
+						<!-- <div class="row">
 							<div class="col-xs-10 col-xs-offset-1">
 								<button class="btn btn-danger btn-block clear-search-btn" ng-click="clear_search()" type="reset" value="Borrar búsqueda">Limpiar Búsqueda</button>
 							</div>
-						</div>
+						</div> -->
 				</form>
 		</div>
 </div>
