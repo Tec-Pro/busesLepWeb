@@ -1,18 +1,18 @@
-<div ng-init = "tab = 1" style="height:500px">
+<div style="height:500px">
     
     <!-- options tabs -->
-    <div class="enc-options row">
+    <div id="enc-options" class="enc-options row">
         <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6 border-bottom border-top">
             <div class="row">
-                <div ng-click="tab = 1" class="col-xs-4 col-sm-3 col-md-3 col-lg-3 border-right text-center lep-href lep-margin">
+                <div ng-click="tab = 1; result_ready = false;" class="col-xs-4 col-sm-3 col-md-3 col-lg-3 border-right text-center lep-href lep-margin">
                 	<a href ng-hide = "tab === 1"> <strong><span class="lepRed-color">Red</span>Pack</strong></a>
                 	<a href ng-show = "tab === 1"> <strong><span class="lepRed-color">Red</span><span class="lepBlue-color">Pack</span></strong></a>
                 </div>
-                <div ng-click="tab = 2" class="col-xs-4 col-sm-3 col-md-3 col-lg-3 border-right text-center lep-href lep-margin">
+                <div ng-click="tab = 2; result_ready = false;" class="col-xs-4 col-sm-3 col-md-3 col-lg-3 border-right text-center lep-href lep-margin">
                 	<a href ng-show = "tab === 2" ><span class="lepBlue-color"><strong >Servicios</strong></span></a>
                 	<a href ng-hide = "tab === 2"><strong >Servicios</strong></a>
                 </div>
-                <div ng-click="tab = 3" class="col-xs-4 col-sm-3 col-md-3 col-lg-3  text-center lep-href lep-margin">
+                <div ng-click="tab = 3;" class="col-xs-4 col-sm-3 col-md-3 col-lg-3  text-center lep-href lep-margin">
                 	<a href ng-show = "tab === 3" ><span class="lepBlue-color"><strong >Seguimiento</strong></span></a>
                 	<a href ng-hide = "tab === 3"><strong >Seguimiento</strong></a>
                 </div>
@@ -22,7 +22,7 @@
     <!-- end options tabs -->
 
     <!-- RedPack tab -->
-    <div class="row">
+    <div id="content" class="row">
         <div class = "col-xs-12 col-sm-8 col-md-6 col-lg-6 card2" ng-show = "tab === 1">
         	<p> <strong><span class = "lepRed-color">Red</span> Pack</strong> es nuestra línea de traslado de encomiendas que logra que tus envíos lleguen a destino en cortos períodos de tiempo. Esto es posible a partir de nuestra amplia frecuencia de horarios generando mayor comodidad y opciones para nuestros usuarios.</p>
         	<br>
@@ -67,12 +67,14 @@
      
                 <hr style = "width:80%;">
                 <br>
+                <form name="tracking" ng-submit = "update_route(tracking_code)">
                 <div class="form-group">
                     <label class="sr-only"  for="Password">Ej: 2016-000222</label>
-                    <input type="text" class="form-control text-center center-block" style = "width:80%;" ng-model="tracking_code" id="Password" placeholder="Ej: 2016-000222"/>
+                    <input type="text" name="input" class="form-control text-center center-block" style = "width:80%;" ng-model="tracking_code" id="Password" placeholder="Ej: 2016-000222" required />
                 </div>
                 <p class = "text-center">Introduzca el numero de guia</p>
-                <button type="button" class="btn btn-danger lepRed-bg center-block" ng-click = "load_data(tracking_code)">Consultar</button>
+                <button type="submit" ng-disabled="tracking.$pristine || tracking.$invalid" class="btn btn-danger lepRed-bg center-block">Consultar</button>
+                </form>
                 <br>
                 <br>
                 <div ng-show="result_ready" class="card2 text-center">
@@ -92,12 +94,14 @@
                 <br>
                 <hr style = "width:80%;">
                 <br>
-                <div class="form-group">
-                    <label class="sr-only"  for="Password">Ej: 2016-000222</label>
-                    <input type="text" class="form-control text-center center-block" ng-model="tracking_code" style = "width:80%;" id="Password" placeholder="Ej: 2016-000222"/>
-                </div>
+                <form name="tracking-xs" ng-submit = "update_route(tracking_code)">
+                    <div class="form-group">
+                        <label class="sr-only"  for="Password">Ej: 2016-000222</label>
+                        <input type="text" name="input" class="form-control text-center center-block" style = "width:80%;" ng-model="tracking_code" id="Password"  placeholder="Ej: 2016-000222" required />
+                    </div>
                 <p class = "text-center">Introduzca el numero de guia</p>
-                <button type="button" class="btn btn-danger lepRed-bg center-block" ng-click = "load_data(tracking_code)">Consultar</button>
+                <button type="submit" ng-disabled="tracking-xs.$pristine || tracking-xs.$invalid" class="btn btn-danger lepRed-bg center-block">Consultar</button>
+                </form>
                 <br>
                 <br>
                 <div ng-show="result_ready" class="card2">
@@ -127,7 +131,7 @@
                             </tr>
                         </table>
                     </div>
-                    <a ng-click="result_ready = false;">Cerrar</a>
+                    <a id="hide_result" ng-click="result_ready = false;">Cerrar</a>
                 </div>
             </div>
 

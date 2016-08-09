@@ -90,6 +90,10 @@ angular.module("app", ["ngRoute","ngAnimate","LocalStorageModule","angularSoap",
                     controller: "EncomController",
                     templateUrl: "views/encomiendas.html"
                 })
+                .when("/encomiendas/:packid", {
+                    controller: "EncomController",
+                    templateUrl:"views/encomiendas.html"
+                })
                 .when("/account/reserves", {
                     controller: "ReservesCtrl",
                     templateUrl: "views/accountReserves.html"

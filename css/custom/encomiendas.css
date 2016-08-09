@@ -29,6 +29,10 @@
 	background-color: #87898A;
 }
 
+#hide_result {
+	cursor: pointer;
+}
+
 @media only screen and (min-width: 768px){
 	.enc-result-container {
 		position: absolute;
