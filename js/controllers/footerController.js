@@ -38,6 +38,35 @@ angular.module('app')
       $window.scrollTo(0,0);
       $location.path('/company');
     }
+
+    $scope.opinion = "";
+    $scope.sendOpinion = function(){
+    	var params = [
+	    {
+	      name: "userWS",
+	      type: "string",
+	      value: "UsuarioLep"
+	    },
+	    {
+	      name: "passWS",
+	      type: "string",
+	      value: "Lep1234"
+	    },
+	    {
+	      name: "TextoOpinion",
+	      type: "string",
+	      value: $scope.opinion
+	    }];
+	    wsService.callService(wsdl_url, urn, "AgregarOpinion", params).then(function(response){
+        	if (response[0].Resul == 0){
+        		alert("Su opinión se ha enviado exitosamente");
+        	}
+        	else{
+        		alert("Su opinión no se pudo enviar");
+        	}
+   		 });
+
+    }
 }]);
 
 
