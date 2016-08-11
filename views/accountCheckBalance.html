@@ -63,10 +63,10 @@
                         <div class="col-xs-12 col-sm-6">
     	                    <p><strong>Número de tarjeta:</strong> {{card.Nro_Tarjeta}}</p>
     	                    <p><strong>Saldo:</strong> $ {{card.Saldo}}</p>
-                          <div ng-show="card.Observacion !== null" class="border-top border-bottom">
+                          <div ng-show="card.Observacion !== null">
                             <p><strong>Observaciones:</strong> {{card.Observacion}}</p>
                           </div>
-                          <p ng-show="card.FechaHoraUltimaActualizacion !== null" class="border-top border-bottom"><strong>Última actualización: </strong>{{card.FechaHoraUltimaActualizacion | lepDate}}</p>
+                          <p ng-show="card.FechaHoraUltimaActualizacion !== null"><strong>Última actualización: </strong>{{card.FechaHoraUltimaActualizacion | lepDate}}</p>
                         </div>
                         <div class="col-xs-12 col-sm-6">
                         	<img class="img-sm" ng-src="{{card.LinkFoto}}">
