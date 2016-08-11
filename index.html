@@ -149,9 +149,9 @@
             if (location.pathname == "#/account/reserves"){
                navbar_tab_id = 6;
             }
-            if (location.pathname == "#/"){
-               navbar_tab_id = 7;
-            }
+            // if (location.pathname == "#/"){
+            //    navbar_tab_id = 7;
+            // }
       </script>
 	</head>
 	<body ng-app="app" ng-init="tab = 23">
@@ -276,9 +276,13 @@
 	                    <a ng-hide="tab === 6" data-toggle="collapse" data-target=".navbar-collapse" href="#/login"><strong>Mi Cuenta</strong></a>
 	                    <a ng-show="tab === 6" data-toggle="collapse" data-target=".navbar-collapse" href="#/login"><span class="lepBlue-color"><strong>Mi Cuenta</strong></span></a>
 	                </li>
-	                <li ng-click="tab = 7">
+	                <!-- <li ng-click="tab = 7">
 	                    <a ng-hide="tab === 7" data-toggle="collapse" data-target=".navbar-collapse" href="#/"><strong>Inicio</strong></a>
 	                    <a ng-show="tab === 7" data-toggle="collapse" data-target=".navbar-collapse" href="#/"><span class="lepBlue-color"><strong>Inicio</strong></span></a>
+	                </li> -->
+									<li ng-click="tab = 7; go('/company')">
+	                    <a ng-hide="tab === 7" data-toggle="collapse" data-target=".navbar-collapse" href="#/"><strong>Contacto</strong></a>
+	                    <a ng-show="tab === 7" data-toggle="collapse" data-target=".navbar-collapse" href="#/"><span class="lepBlue-color"><strong>Contacto</strong></span></a>
 	                </li>
 	            </ul>
 
@@ -312,9 +316,13 @@
 	                    <a  ng-hide="tab === 6" href="#/login"><strong>Mi Cuenta</strong></a>
 	                    <a  ng-show="tab === 6" href="#/login"><span class="lepBlue-color"><strong>Mi Cuenta</strong></span></a>
 	                </li>
-	                <li ng-click="tab = 7">
+	                <!-- <li ng-click="tab = 7">
 	                    <a  ng-hide="tab === 7" href="#/"><strong>Inicio</strong></a>
 	                    <a  ng-show="tab === 7" href="#/"><span class="lepBlue-color"><strong>Inicio</strong></span></a>
+	                </li> -->
+									<li ng-click="tab = 7; go('/company')">
+	                    <a  ng-hide="tab === 7" href="#/company"><strong>Contacto</strong></a>
+	                    <a  ng-show="tab === 7" href="#/company"><span class="lepBlue-color"><strong>Contacto</strong></span></a>
 	                </li>
 	           </ul>
 
@@ -416,7 +424,7 @@
 				    </div>
 	  			</div> <!--end footer-->
 
-	  			
+
 				</div> <!--end movida-->
 			</div> <!-- end maxwidth 1300 -->
 		</div> <!-- end background gray-->

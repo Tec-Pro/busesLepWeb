@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('LoginCtrl', ['$scope', '$location', '$anchorScroll', 'localStorageService', 'wsService', function ($scope, $location, $anchorScroll, localStorageService, wsService) {
+.controller('LoginCtrl', ['$scope', '$location', '$anchorScroll', 'localStorageService', 'companyService', 'wsService', function ($scope, $location, $anchorScroll, localStorageService, companyService, wsService) {
 
    var wsdl_url = 'https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService';
    var urn = 'LepWebServiceIntf-ILepWebService';
@@ -36,13 +36,15 @@ angular.module('app')
       }
    };
 
-
    $scope.BackTo = function( path ){
       localStorageService.set("BackTo", path);
       //alert(localStorageService.get("BackTo"));
-   }; 
+   };
 
     $scope.go = function ( path ) {
+      if (path === '/company') {
+        companyService.setActiveTab(2);
+      }
       $location.path( path );
     };
 
@@ -77,7 +79,7 @@ angular.module('app')
 
     $scope.signin = function ( ) {
         if ($scope.user.pass.localeCompare($scope.user.pass2) == 0){
-          parameters.splice(2,0, {name: "PDni",type: "int",value: $scope.user.dni.toString()}, 
+          parameters.splice(2,0, {name: "PDni",type: "int",value: $scope.user.dni.toString()},
                                  {name: "pass",type: "string",value: $scope.user.pass},
                                  {name: "Nombre",type: "string",value: $scope.user.name},
                                  {name: "Apellido",type: "string",value: $scope.user.lastname},
@@ -117,14 +119,14 @@ angular.module('app')
                 alert("No se ha podido editar la contraseña");
               }
           });
-          parameters.splice(2,4); //saco los parametros 
+          parameters.splice(2,4); //saco los parametros
         } else {
           alert('Las contraseñas no coinciden');
         }
     };
 
     $scope.editProfile = function ( ) {
-          parameters.splice(2,0, {name: "DNI",type: "int",value: $scope.user.dni.toString()}, 
+          parameters.splice(2,0, {name: "DNI",type: "int",value: $scope.user.dni.toString()},
                                  {name: "Nombre",type: "string",value: $scope.user.name},
                                  {name: "Apellido",type: "string",value: $scope.user.lastname},
                                  {name: "Email",type: "string",value: $scope.user.email}); //meto los parametros
@@ -142,9 +144,9 @@ angular.module('app')
           parameters.splice(2,4); //saco los parametros
     };
 
-    
+
     $scope.recoverPass = function ( ) {
-        parameters.splice(2,0, {name: "Dni",type: "int",value: $scope.user.dni.toString()}, 
+        parameters.splice(2,0, {name: "Dni",type: "int",value: $scope.user.dni.toString()},
                               {name: "Email",type: "string",value: $scope.user.email}); //meto los parametros
         wsService.callService(wsdl_url, urn, "RecuperarContrasena", parameters).then(function(origins){
         console.log(origins);
@@ -157,7 +159,7 @@ angular.module('app')
           alert("La cuenta no existe o no está activada");
         }
       });
-      parameters.splice(2,2); //saco los parametros 
+      parameters.splice(2,2); //saco los parametros
     };
 
 }]);
