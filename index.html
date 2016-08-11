@@ -249,8 +249,8 @@
 	            <!-- xs,sm -->
 	            <ul class=" selected nav navbar-nav visible-xs visible-sm">
 	                <li ng-click="tab = 1">
-	                    <a ng-hide="tab === 1" data-toggle="collapse" data-target=".navbar-collapse" ng-href="/company"><strong>Empresa</strong></a>
-	                    <a ng-show="tab === 1" data-toggle="collapse" data-target=".navbar-collapse" ng-href="/company"><span class="lepBlue-color"><strong>Empresa</strong></span></a>
+	                    <a ng-hide="tab === 1" data-toggle="collapse" data-target=".navbar-collapse" ng-href="{{location.path('/company')}}"><strong>Empresa</strong></a>
+	                    <a ng-show="tab === 1" data-toggle="collapse" data-target=".navbar-collapse" ng-href="{{location.path('/company')}}"><span class="lepBlue-color"><strong>Empresa</strong></span></a>
 	                </li>
 	                <li ng-click="tab = 2">
 	                    <a ng-hide="tab === 2" data-toggle="collapse" data-target=".navbar-collapse" href="tours"><strong>Recorridos</strong></a>
