@@ -59,14 +59,24 @@ angular.module('app')
 	    }];
 	    wsService.callService(wsdl_url, urn, "AgregarOpinion", params).then(function(response){
         	if (response[0].Resul == 0){
-        		alert("Su opinión se ha enviado exitosamente");
+			        modal.style.display = "block";			     
         	}
         	else{
         		alert("Su opinión no se pudo enviar");
         	}
    		 });
-
     }
+    var modal = document.getElementById('opinionExito');
+    var btn = document.getElementById("enviarBtn");
+    var span = document.getElementsByClassName("close")[0];
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+     }
 }]);
 
 

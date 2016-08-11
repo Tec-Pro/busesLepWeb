@@ -373,7 +373,7 @@
 			        <div class="hidden-xs col-sm-3 text-center h4-responsive" style="padding:10px"><strong>Tu opinión nos interesa...</strong>
 			        	<form ng-submit="sendOpinion()">
 				           <textarea required ng-model="opinion" class="lep-form textarea" style="margin-left:10px"name="Opinion"></textarea>
-				           <button class="btn btn-default lepStyle2"type="submit" style="font-size:0.7em;margin-top:10px;margin-bottom:10px">Enviar</button>
+				           <button id="enviarBtn"class="btn btn-default lepStyle2"type="submit" style="font-size:0.7em;margin-top:10px;margin-bottom:10px">Enviar</button>
 				       </form>
 			        </div>
 			      </div>
@@ -401,8 +401,22 @@
 			      <div class="row lepDarkestGrey-bg lepWhite-color">
 			        <p class="text-center padding-top5"> Copyright <strong>buses Lep 2016</strong> - Todos los derechos reservados</p>
 			      </div>
-
+			      <!-- The Modal -->
+				    <div id="opinionExito" class="modal">
+				     <!-- Modal content -->
+				        <div class="modal-content ">
+				          <div class="modal-header">
+				            <span class="close">×</span>
+				            <h4>Éxito</h4>
+				          </div>
+				          <div class="modal-body">
+				              <p>Su opinión ha sido enviada con éxito</p>
+				          </div>
+				        </div>
+				    </div>
 	  			</div> <!--end footer-->
+
+	  			
 				</div> <!--end movida-->
 			</div> <!-- end maxwidth 1300 -->
 		</div> <!-- end background gray-->
