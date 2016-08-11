@@ -12,8 +12,27 @@
 	margin-top: 40px;
 }
 
+.comp-ref strong:hover {
+	color: #000B82;
+	text-decoration: none;
+}
+
+.comp-ref strong:active {
+	color: #000B82;
+	text-decoration: none;
+}
+
 .comp-gall-img {
 	transition:all cubic-bezier(1, 1, 0, 0) 0.5s;
+}
+
+.comp-gp-img {
+  height:45px;
+}
+
+.comp-ios-img {
+	border: 6px solid transparent;
+  height: 45px;
 }
 
 .comp-gall-wrap {
