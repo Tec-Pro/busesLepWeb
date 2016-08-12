@@ -1,6 +1,6 @@
 angular.module('app')
 	.factory('scheduleService',[function(){
-		
+
 		var schedule = {
 			origin_id :'',
 			origin_name : '',
@@ -17,10 +17,11 @@ angular.module('app')
 			round_trip : false
 		};
 
+		var round_trip_price = 0;
 		var schedule_go = null;
 		var schedule_return = null;
-		
-		var is_return_trip = false; 
+
+		var is_return_trip = false;
 
 		return {
 			saveSchedule: function(obj){
@@ -33,11 +34,11 @@ angular.module('app')
 			},
 			getSchedule: function(){
 				if(sessionStorage.schedule_go == undefined){
-					
+
 					return null;
 				}else{
 					schedule_go = JSON.parse(sessionStorage.schedule_go);
-					
+
 					return schedule_go;
 				}
 				//return schedule;
@@ -48,14 +49,14 @@ angular.module('app')
 					return schedule_return;
 				}else{
 					schedule_return = JSON.parse(sessionStorage.schedule_return);
-					
+
 					return schedule_return;
 				}
 				//return schedule;
 			},
 			setIsReturnTrip: function(val){
 				is_return_trip = val;
-				sessionStorage.setItem('is_return_trip', is_return_trip);		
+				sessionStorage.setItem('is_return_trip', is_return_trip);
 			},
 			getIsReturnTrip: function(){
 				if(sessionStorage.is_return_trip == undefined){
@@ -63,8 +64,21 @@ angular.module('app')
 					return is_return_trip;
 				}else{
 					is_return_trip = sessionStorage.is_return_trip;
-					
+
 					return is_return_trip;
+				}
+			},
+			setRoundTripPrice: function(val){
+				round_trip_price = val;
+				sessionStorage.setItem('round_trip_price', round_trip_price);
+			},
+			getRoundTripPrice: function(){
+				if (sessionStorage.round_trip_price == undefined) {
+					round_trip_price = -1;
+					return round_trip_price;
+				} else {
+					round_trip_price = sessionStorage.round_trip_price;
+					return round_trip_price;
 				}
 			},
 			/*getScheduleOriginId : function(){
@@ -85,7 +99,7 @@ angular.module('app')
 			{return schedule.departure_time_2;},
 			{return schedule.amount;},
 			{return schedule.round_trip;},*/
-			
+
 			setScheduleOriginId : function(val){
 				schedule.origin_id = val;
 			},
@@ -123,5 +137,5 @@ angular.module('app')
 				schedule.round_trip = val;
 			}
 		};
-		
+
 	}]);

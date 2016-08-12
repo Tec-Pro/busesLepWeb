@@ -13,7 +13,6 @@ angular.module('app').controller('ScheduleController', ['$scope', '$location', '
 		loading_modal.style.display = "none";
 	}
 	$anchorScroll();
-    
 
     getReturnSchedules = function(){
 		var listarHorarios_parameters2 = [
@@ -51,7 +50,7 @@ angular.module('app').controller('ScheduleController', ['$scope', '$location', '
             name: "id_plataforma",
             type: "int",
             value: "3"
-          }          
+          }
         ];
         display_loading_modal();
         wsService.callService(wsdl_url_wsConGps, urn, "ListarHorarioscGPS", listarHorarios_parameters2).then(function(schedules){ //"ListarHorarioscGPS"
@@ -70,20 +69,24 @@ angular.module('app').controller('ScheduleController', ['$scope', '$location', '
 		    hide_loading_modal();
     	});
 	};
-    
+
 	$scope.departure_trip = tripService.getDepartureTrip();
 	$scope.schedules = tripService.getSchedules();
+
+
+  $scope.isRoundTrip = $scope.departure_trip.round_trip === 1;
+
 	if($scope.schedules == undefined || $scope.departure_trip == undefined){
-        $location.path('/'); 
+        $location.path('/');
     }
 	$scope.origin = $scope.departure_trip.origin_name;
 	$scope.destination = $scope.departure_trip.destination_name;
 	$scope.origin_id = $scope.departure_trip.origin_id;
 	$scope.destination_id = $scope.departure_trip.destination_id;
 	$scope.departure_date = $scope.departure_trip.departure_date;
-	
+
 	$scope.titleLabel = "Ida";
-	
+
 	if(scheduleService.getIsReturnTrip()){
 		$scope.origin = $scope.departure_trip.destination_name;
 		$scope.destination = $scope.departure_trip.origin_name;
@@ -93,10 +96,10 @@ angular.module('app').controller('ScheduleController', ['$scope', '$location', '
 		$scope.titleLabel = "Vuelta";
 		getReturnSchedules();
 	}
-	
-   
 
-	
+
+
+
 
 	$scope.params = {
       today: moment(),
@@ -143,7 +146,7 @@ angular.module('app').controller('ScheduleController', ['$scope', '$location', '
 		            name: "id_plataforma",
 		            type: "int",
 		            value: "3"
-				}          
+				}
         	];
         	display_loading_modal();
 	        wsService.callService(wsdl_url_wsConGps, urn, "ListarHorarioscGPS", listarHorarios_parameters).then(function(schedules){
@@ -201,7 +204,7 @@ angular.module('app').controller('ScheduleController', ['$scope', '$location', '
 	    }
 	    hide_loading_modal();
     });
- 	
+
 	//riocuarto es id=10 cordoba plaza es id=1
 	//Date picker options
     $scope.dpOpts = {
@@ -215,8 +218,8 @@ angular.module('app').controller('ScheduleController', ['$scope', '$location', '
         //If month dropdowns should be shown.
         showDropdowns: true
     };
-	
-  	$scope.goSummary = function(index) {		
+
+  	$scope.goSummary = function(index) {
 		if($scope.departure_trip.round_trip != 0){
 			if(!scheduleService.getIsReturnTrip()){
 				setScheduleGo(index);
@@ -226,6 +229,7 @@ angular.module('app').controller('ScheduleController', ['$scope', '$location', '
 			}
 			else{
 				setScheduleReturn(index);
+        scheduleService.setRoundTripPrice($scope.roundTripPrice);
 				//tripService.saveTripPrice($scope.schedules[index].precio);
 				$location.path('/summary');
 			}
@@ -234,7 +238,7 @@ angular.module('app').controller('ScheduleController', ['$scope', '$location', '
 			//tripService.saveTripPrice($scope.schedules[index].precio);
 			setScheduleGo(index);
 			$location.path('/summary');
-		} 			
+		}
 	};
 
 	setScheduleGo = function(index){
@@ -248,7 +252,7 @@ angular.module('app').controller('ScheduleController', ['$scope', '$location', '
 		scheduleService.setScheduleOriginId($scope.departure_trip.origin_id);
 		scheduleService.setScheduleDestinationName($scope.departure_trip.destination_name);
 		scheduleService.setScheduleOriginName($scope.departure_trip.origin_name);*/
-		scheduleService.saveSchedule(selectedSchedule);		
+		scheduleService.saveSchedule(selectedSchedule);
 	};
 
 	setScheduleReturn = function(index){
@@ -272,7 +276,7 @@ angular.module('app').controller('ScheduleController', ['$scope', '$location', '
   	var map_modal = document.getElementById('map-modal');
   	$scope.showMap =  function(lat,lon){
   		latitude = Number(lat);
-  		longitude = Number(lon);   
+  		longitude = Number(lon);
   		var mapCenter = new google.maps.LatLng(latitude, longitude);
 	    map_modal.style.display = "block";
 	    var mapOptions = {

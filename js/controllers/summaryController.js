@@ -11,9 +11,9 @@ angular.module('app').controller('SummaryController', ['$scope', '$location', '$
   $scope.trip = tripService.getDepartureTrip();
   $scope.origin_office = tripService.getOriginOffice().origin_office;
 
-  
-  $scope.passengers = 1; 
-  //console.log(localStorageService.get("user-lep").dni);                               
+
+  $scope.passengers = 1;
+  //console.log(localStorageService.get("user-lep").dni);
   //
   $anchorScroll();
   /*$scope.trip = {
@@ -33,13 +33,13 @@ angular.module('app').controller('SummaryController', ['$scope', '$location', '$
   }
   $scope.scheduleReturn = scheduleService.getScheduleReturn();
   if(tripService.getDepartureTrip().round_trip === 1){
-  	$scope.price = $scope.schedule.precio + $scope.scheduleReturn.precio;
+  	$scope.price = scheduleService.getRoundTripPrice();
   } else {
   	$scope.price = $scope.schedule.precio;
   }
 
   if($scope.trip == undefined || $scope.schedule == undefined){
-        $location.path('/'); 
+        $location.path('/');
   }
 
   $scope.goSeatPicker = function () {
@@ -57,10 +57,10 @@ angular.module('app').controller('SummaryController', ['$scope', '$location', '$
     else{
       addReserve("1");
     }
-   
+
     //console.log($scope.passengers);
   }
-  
+
   $scope.goBack = function () {
     window.history.back();
   }
@@ -76,7 +76,7 @@ angular.module('app').controller('SummaryController', ['$scope', '$location', '$
       localStorageService.set('BackTo','/summary');
       $location.path('/login');
     }
-    else{    
+    else{
       $location.path('/reserveDetails');
     }
   }
@@ -183,11 +183,11 @@ angular.module('app').controller('SummaryController', ['$scope', '$location', '$
             name: "id_plataforma",
             type: "int",
             value: "3"
-          }          
+          }
         ];
         wsService.callService(wsdl_url, urn, "AgregarReserva", add_reserve_parameters).then(function(response){
            if(response > 0){
-               
+
                tripService.saveSellCode(response);
                tripService.saveTripPrice($scope.price * $scope.passengers);
                tripService.savePassengers($scope.passengers);
