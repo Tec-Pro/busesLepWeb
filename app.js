@@ -121,7 +121,7 @@ angular.module("app", ["ngRoute","ngAnimate","LocalStorageModule","angularSoap",
                 .otherwise({
                     redirectTo: "/"
                 });
-                $locationProvider.html5Mode(true);            
+                //$locationProvider.html5Mode(true);            
         }])
     .directive('numbersOnly', function() {
       return {
