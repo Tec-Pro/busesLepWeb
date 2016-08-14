@@ -24,7 +24,8 @@ angular.module("app", ["ngRoute","ngAnimate","LocalStorageModule","angularSoap",
                     controller: 'EndController'
                 })
                 .when("/endReserve", {
-                    templateUrl: "views/endReserve.html"
+                    templateUrl: "views/endReserve.html",
+                    controller: 'EndController'
                 })
                 .when("/signin", {
                     templateUrl: "views/signin.html"

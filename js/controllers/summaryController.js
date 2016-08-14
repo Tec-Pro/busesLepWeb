@@ -57,8 +57,6 @@ angular.module('app').controller('SummaryController', ['$scope', '$location', '$
     else{
       addReserve("1");
     }
-
-    //console.log($scope.passengers);
   }
 
   $scope.goBack = function () {
@@ -77,7 +75,8 @@ angular.module('app').controller('SummaryController', ['$scope', '$location', '$
       $location.path('/login');
     }
     else{
-      $location.path('/reserveDetails');
+      addReserve("0");
+      //$location.path('/reserveDetails');
     }
   }
 
@@ -88,7 +87,6 @@ angular.module('app').controller('SummaryController', ['$scope', '$location', '$
     var idLocDesdeVuelta = '0';
     var idLocHastaVuelta = '0';
     var cantVuelta = '0';
-
     if($scope.isRoundTrip){
       idEmprVuelta = $scope.scheduleReturn.Id_Empresa;
       idDestVuelta = $scope.scheduleReturn.id_destino;
@@ -185,15 +183,23 @@ angular.module('app').controller('SummaryController', ['$scope', '$location', '$
             value: "3"
           }
         ];
-        wsService.callService(wsdl_url, urn, "AgregarReserva", add_reserve_parameters).then(function(response){
-           if(response > 0){
-
-               tripService.saveSellCode(response);
-               tripService.saveTripPrice($scope.price * $scope.passengers);
-               tripService.savePassengers($scope.passengers);
-               $location.path('/seatPicker');
-           }
-        });
+      wsService.callService(wsdl_url, urn, "AgregarReserva", add_reserve_parameters).then(function(response){
+          if(response > 0){
+              tripService.saveSellCode(response);
+              tripService.saveTripPrice($scope.price * $scope.passengers);
+              tripService.savePassengers($scope.passengers);
+              if(isBuy){
+                $location.path('/seatPicker');
+              }
+          }
+          if(response == 0){
+            tripService.setBuy(0);
+            $location.path('/endReserve'); 
+          }
+          if(response < 0){
+            console.log("problema al reservar");
+          }
+      });
   }
 
 }]);
