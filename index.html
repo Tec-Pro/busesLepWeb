@@ -6,7 +6,7 @@
 	  <meta name="viewport" content="width=device-width, initial-scale=1">
 	  <meta name="description" content="">
 	  <meta name="author" content="">
-     <!-- <base href="http://tec-pro.github.io/busesLepWeb/"> -->
+      <!-- <base href="https://www.buseslep.com.ar/"> -->
 	  <title>Buses Lep</title>
 
 	  <!-- Bootstrap Core CSS -->
@@ -229,7 +229,7 @@
 	                <input type="text" class="lep-form col-xs-2" id="DNI" placeholder="DNI" required ng-model="user.dni"/>
 	                <input type="password" class="lep-form col-xs-2" id="Password" placeholder="Contraseña" required ng-model="user.pass"/>
 	                <div class="col-xs-4"style="margin-top:8px;">
-	                     <button class="button-link" href="#/" type="submit" style="font-size:0.7em"><strong>Ingr.</strong></button> /
+	                     <button class="button-link" ng-click="go('/signin')" type="submit" style="font-size:0.7em"><strong>Ingr.</strong></button> /
 	                     <button class="button-link" ng-click="go('/signin')" type="button" style="font-size:0.7em"><strong>Regist.</strong></button>
 	                </div>
 	            </form>
@@ -249,80 +249,80 @@
 	            <!-- xs,sm -->
 	            <ul class=" selected nav navbar-nav visible-xs visible-sm">
 	                <li ng-click="tab = 1">
-	                    <a ng-hide="tab === 1" data-toggle="collapse" data-target=".navbar-collapse" href="#/company"><strong>Empresa</strong></a>
-	                    <a ng-show="tab === 1" data-toggle="collapse" data-target=".navbar-collapse" href="#/company"><span class="lepBlue-color"><strong>Empresa</strong></span></a>
+	                    <a ng-hide="tab === 1" data-toggle="collapse" data-target=".navbar-collapse" href = "" ng-click="go('/company')"><strong>Empresa</strong></a>
+	                    <a ng-show="tab === 1" data-toggle="collapse" data-target=".navbar-collapse" href = "" ng-click="go('/company')"><span class="lepBlue-color"><strong>Empresa</strong></span></a>
 	                </li>
 	                <li ng-click="tab = 2">
-	                    <a ng-hide="tab === 2" data-toggle="collapse" data-target=".navbar-collapse" href="#/tours"><strong>Recorridos</strong></a>
-	                    <a ng-show="tab === 2" data-toggle="collapse" data-target=".navbar-collapse" href="#/tours"><span class="lepBlue-color"><strong>Recorridos</strong></span></a>
+	                    <a ng-hide="tab === 2" data-toggle="collapse" data-target=".navbar-collapse" href = "" ng-click="go('/tours')"><strong>Recorridos</strong></a>
+	                    <a ng-show="tab === 2" data-toggle="collapse" data-target=".navbar-collapse" href = "" ng-click="go('/tours')"><span class="lepBlue-color"><strong>Recorridos</strong></span></a>
 	                </li>
 	                <li ng-click="tab = 3">
-	                    <a ng-hide="tab === 3" data-toggle="collapse" data-target=".navbar-collapse" href="#/ticketOffices"><strong>Boleterías</strong></a>
-	                    <a ng-show="tab === 3" data-toggle="collapse" data-target=".navbar-collapse" href="#/ticketOffices"><span class="lepBlue-color"><strong>Boleterías</strong></span></a>
+	                    <a ng-hide="tab === 3" data-toggle="collapse" data-target=".navbar-collapse" href = "" ng-click="go('/ticketOffices')"><strong>Boleterías</strong></a>
+	                    <a ng-show="tab === 3" data-toggle="collapse" data-target=".navbar-collapse" href = "" ng-click="go('/ticketOffices')"><span class="lepBlue-color"><strong>Boleterías</strong></span></a>
 	                </li>
 	                <li ng-click="tab = 4">
-	                    <a ng-hide="tab === 4" data-toggle="collapse" data-target=".navbar-collapse" href="#/encomiendas"><strong>Encomiendas</strong></a>
-	                    <a ng-show="tab === 4" data-toggle="collapse" data-target=".navbar-collapse" href="#/encomiendas"><span class="lepBlue-color"><strong>Encomiendas</strong></span></a>
+	                    <a ng-hide="tab === 4" data-toggle="collapse" data-target=".navbar-collapse" href = "" ng-click="go('/encomiendas')"><strong>Encomiendas</strong></a>
+	                    <a ng-show="tab === 4" data-toggle="collapse" data-target=".navbar-collapse" href = "" ng-click="go('/encomiendas')"><span class="lepBlue-color"><strong>Encomiendas</strong></span></a>
 	                </li>
 	                <li ng-click="tab = 5">
-	                    <a ng-hide="tab === 5" data-toggle="collapse" data-target=".navbar-collapse" href="#/special"><strong>Viajes Especiales</strong></a>
-	                    <a ng-show="tab === 5" data-toggle="collapse" data-target=".navbar-collapse" href="#/special"><span class="lepBlue-color"><strong>Viajes Especiales</strong></span></a>
+	                    <a ng-hide="tab === 5" data-toggle="collapse" data-target=".navbar-collapse" href = "" ng-click="go('/special')"><strong>Viajes Especiales</strong></a>
+	                    <a ng-show="tab === 5" data-toggle="collapse" data-target=".navbar-collapse" href = "" ng-click="go('/special')"><span class="lepBlue-color"><strong>Viajes Especiales</strong></span></a>
 	                </li>
 	                <li ng-click="tab = 6" ng-show = "user.dni != ''">
-	                    <a ng-hide="tab === 6" data-toggle="collapse" data-target=".navbar-collapse" href="#/account/reserves"><strong>Mi Cuenta</strong></a>
-	                    <a ng-show="tab === 6" data-toggle="collapse" data-target=".navbar-collapse" href="#/account/reserves"><span class="lepBlue-color"><strong>Mi Cuenta</strong></span></a>
+	                    <a ng-hide="tab === 6" data-toggle="collapse" data-target=".navbar-collapse" href = "" ng-click="go('/account/reserves')"><strong>Mi Cuenta</strong></a>
+	                    <a ng-show="tab === 6" data-toggle="collapse" data-target=".navbar-collapse" href = "" ng-click="go('/account/reserves')"><span class="lepBlue-color"><strong>Mi Cuenta</strong></span></a>
 	                </li>
 	                <li ng-click="tab = 6;BackTo('/account/reserves');" ng-show = "user.dni == ''">
-	                    <a ng-hide="tab === 6" data-toggle="collapse" data-target=".navbar-collapse" href="#/login"><strong>Mi Cuenta</strong></a>
-	                    <a ng-show="tab === 6" data-toggle="collapse" data-target=".navbar-collapse" href="#/login"><span class="lepBlue-color"><strong>Mi Cuenta</strong></span></a>
+	                    <a ng-hide="tab === 6" data-toggle="collapse" data-target=".navbar-collapse" href = "" ng-click="go('/login')"><strong>Mi Cuenta</strong></a>
+	                    <a ng-show="tab === 6" data-toggle="collapse" data-target=".navbar-collapse" href = "" ng-click="go('/login')"><span class="lepBlue-color"><strong>Mi Cuenta</strong></span></a>
 	                </li>
 	                <!-- <li ng-click="tab = 7">
 	                    <a ng-hide="tab === 7" data-toggle="collapse" data-target=".navbar-collapse" href="#/"><strong>Inicio</strong></a>
 	                    <a ng-show="tab === 7" data-toggle="collapse" data-target=".navbar-collapse" href="#/"><span class="lepBlue-color"><strong>Inicio</strong></span></a>
 	                </li> -->
 									<li ng-click="tab = 7; go('/company')">
-	                    <a ng-hide="tab === 7" data-toggle="collapse" data-target=".navbar-collapse" href="#/"><strong>Contacto</strong></a>
-	                    <a ng-show="tab === 7" data-toggle="collapse" data-target=".navbar-collapse" href="#/"><span class="lepBlue-color"><strong>Contacto</strong></span></a>
+	                    <a ng-hide="tab === 7" data-toggle="collapse" data-target=".navbar-collapse" href = "" ng-click="go('/')"><strong>Contacto</strong></a>
+	                    <a ng-show="tab === 7" data-toggle="collapse" data-target=".navbar-collapse" href = "" ng-click="go('/')"><span class="lepBlue-color"><strong>Contacto</strong></span></a>
 	                </li>
 	            </ul>
 
 	            <!-- md,lg -->
 	           <ul class="selected nav navbar-nav hidden-xs hidden-sm" >
 	                <li ng-click="tab = 1" >
-	                    <a  ng-hide="tab === 1" href="#/company"><strong>Empresa</strong></a>
-	                    <a  ng-show="tab === 1" href="#/company"><span class="lepBlue-color"><strong>Empresa</strong></span></a>
+	                    <a  ng-hide="tab === 1" href = "" ng-click="go('/company')"><strong>Empresa</strong></a>
+	                    <a  ng-show="tab === 1" href = "" ng-click="go('/company')"><span class="lepBlue-color"><strong>Empresa</strong></span></a>
 	                </li>
 	                <li ng-click="tab = 2">
-	                    <a  ng-hide="tab === 2" href="#/tours"><strong>Recorridos</strong></a>
-	                    <a  ng-show="tab === 2" href="#/tours"><span class="lepBlue-color"><strong>Recorridos</strong></span></a>
+	                    <a  ng-hide="tab === 2" href="" ng-click="go('/tours')"><strong>Recorridos</strong></a>
+	                    <a  ng-show="tab === 2" href="" ng-click="go('/tours')"><span class="lepBlue-color"><strong>Recorridos</strong></span></a>
 	                </li>
 	                <li ng-click="tab = 3">
-	                    <a  ng-hide="tab === 3" href="#/ticketOffices"><strong>Boleterías</strong></a>
-	                    <a  ng-show="tab === 3" href="#/ticketOffices"><span class="lepBlue-color"><strong>Boleterías</strong></span></a>
+	                    <a  ng-hide="tab === 3" href="" ng-click="go('/ticketOffices')"><strong>Boleterías</strong></a>
+	                    <a  ng-show="tab === 3" href="" ng-click="go('/ticketOffices')"><span class="lepBlue-color"><strong>Boleterías</strong></span></a>
 	                </li>
 	                <li ng-click="tab = 4">
-	                    <a  ng-hide="tab === 4" href="#/encomiendas"><strong>Encomiendas</strong></a>
-	                    <a  ng-show="tab === 4" href="#/encomiendas"><span class="lepBlue-color"><strong>Encomiendas</strong></span></a>
+	                    <a  ng-hide="tab === 4" href="" ng-click="go('/encomiendas')"><strong>Encomiendas</strong></a>
+	                    <a  ng-show="tab === 4" href="" ng-click="go('/encomiendas')"><span class="lepBlue-color"><strong>Encomiendas</strong></span></a>
 	                </li>
 	                <li ng-click="tab = 5">
-	                    <a  ng-hide="tab === 5" href="#/special"><strong>Viajes Especiales</strong></a>
-	                    <a  ng-show="tab === 5" href="#/special"><span class="lepBlue-color"><strong>Viajes Especiales</strong></span></a>
+	                    <a  ng-hide="tab === 5" href="" ng-click="go('/special')"><strong>Viajes Especiales</strong></a>
+	                    <a  ng-show="tab === 5" href="" ng-click="go('/special')"><span class="lepBlue-color"><strong>Viajes Especiales</strong></span></a>
 	                </li>
 	                <li ng-click="tab = 6" ng-show = "user.dni != ''">
-	                    <a  ng-hide="tab === 6" href="#/account/reserves"><strong>Mi Cuenta</strong></a>
-	                    <a  ng-show="tab === 6" href="#/account/reserves"><span class="lepBlue-color"><strong>Mi Cuenta</strong></span></a>
+	                    <a  ng-hide="tab === 6" href="" ng-click="go('/account/reserves')"><strong>Mi Cuenta</strong></a>
+	                    <a  ng-show="tab === 6" href="" ng-click="go('/account/reserves')"><span class="lepBlue-color"><strong>Mi Cuenta</strong></span></a>
 	                </li>
 	                <li ng-click="tab = 6;BackTo('/account/reserves');" ng-show = "user.dni == ''">
-	                    <a  ng-hide="tab === 6" href="#/login"><strong>Mi Cuenta</strong></a>
-	                    <a  ng-show="tab === 6" href="#/login"><span class="lepBlue-color"><strong>Mi Cuenta</strong></span></a>
+	                    <a  ng-hide="tab === 6" href="" ng-click="go('/login')"><strong>Mi Cuenta</strong></a>
+	                    <a  ng-show="tab === 6" href="" ng-click="go('/login')"><span class="lepBlue-color"><strong>Mi Cuenta</strong></span></a>
 	                </li>
 	                <!-- <li ng-click="tab = 7">
 	                    <a  ng-hide="tab === 7" href="#/"><strong>Inicio</strong></a>
 	                    <a  ng-show="tab === 7" href="#/"><span class="lepBlue-color"><strong>Inicio</strong></span></a>
 	                </li> -->
 									<li ng-click="tab = 7; go('/company')">
-	                    <a  ng-hide="tab === 7" href="#/company"><strong>Contacto</strong></a>
-	                    <a  ng-show="tab === 7" href="#/company"><span class="lepBlue-color"><strong>Contacto</strong></span></a>
+	                    <a  ng-hide="tab === 7" href="" ng-click="go('/company')"><strong>Contacto</strong></a>
+	                    <a  ng-show="tab === 7" href="" ng-click="go('/company')"><span class="lepBlue-color"><strong>Contacto</strong></span></a>
 	                </li>
 	           </ul>
 
