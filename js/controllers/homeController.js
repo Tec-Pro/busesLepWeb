@@ -201,6 +201,9 @@ angular.module('app')
       }
     };
 
+    $scope.go = function ( path ) {
+      $location.path( path );
+    };
     // tripService.getOriginsAngularWSDL().then(function(response){
     //     console.log("Angular WSDL");
     //     console.log(response);

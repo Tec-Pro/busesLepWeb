@@ -6,7 +6,7 @@
 	  <meta name="viewport" content="width=device-width, initial-scale=1">
 	  <meta name="description" content="">
 	  <meta name="author" content="">
-      <!-- <base href="https://www.buseslep.com.ar/"> -->
+       <!-- <base href="">  /Users/agustin/Documents/GithubProjects/busesLepWeb/ -->
 	  <title>Buses Lep</title>
 
 	  <!-- Bootstrap Core CSS -->
@@ -131,22 +131,22 @@
 	  </script>
       <script ng-init = "navbar_tab_id = 0;">
 
-            if (location.pathname == "#/company"){
+            if (location.pathname == "/company"){
                navbar_tab_id = 1;
             }
-            if (location.pathname == "#/tours"){
+            if (location.pathname == "/tours"){
                navbar_tab_id = 2;
             }
-            if (location.pathname == "#/ticketOffices"){
+            if (location.pathname == "/ticketOffices"){
                navbar_tab_id = 3;
             }
-            if (location.pathname == "#/encomiendas"){
+            if (location.pathname == "/encomiendas"){
                navbar_tab_id = 4;
             }
-            if (location.pathname == "#/special"){
+            if (location.pathname == "/special"){
                navbar_tab_id = 5;
             }
-            if (location.pathname == "#/account/reserves"){
+            if (location.pathname == "/account/reserves"){
                navbar_tab_id = 6;
             }
             // if (location.pathname == "#/"){
@@ -182,7 +182,7 @@
 	                        <input type="text" class="lep-form col-sm-3" id="DNI" placeholder="DNI" required ng-model="user.dni"/>
 	                        <input type="password" class="lep-form col-sm-3" id="Password" placeholder="Contraseña" required ng-model="user.pass"/>
 	                        <div class="col-sm-4"style="margin-top:8px;">
-	                             <button class="button-link" href="#/" type="submit" style="margin-left:3px;font-size:0.9em"><strong>Ingresar </strong></button> /
+	                             <button class="button-link" href="" ng-click="go('/')" type="submit" style="margin-left:3px;font-size:0.9em"><strong>Ingresar </strong></button> /
 	                             <button class="button-link" ng-click="go('/signin')" type="button" style="font-size:0.9em"><strong>Registrarse</strong></button>
 	                        </div>
 	                    </form>
@@ -194,7 +194,7 @@
 	                        <p>Bienvenido, <span class="lepRed-color"><strong>{{user.name}}</strong></span></p>
 	                    </div>
 	                    <div class="col-sm-6 col-md-6">
-	                        <a href="#/" ng-click="logout()" style="font-size:0.9em"><strong>Cerrar sesión</strong></a>
+	                        <a href="" ng-click="logout()" style="font-size:0.9em"><strong>Cerrar sesión</strong></a>
 	                    </div>
 	                </div>
 	            </div>
@@ -204,7 +204,7 @@
 	    <!-- Cover Image-->
 	   	<div id="cover" class="row no-mar-pad-bor row-top-margin15 lepStyle background-white hidden-xs" >
 	      <div>
-	        <a ng-click="tab = 7" href="#/" class="col-xs-6 "><img class="padding-top50  size-logo img-responsive left" ng-src="img/Iconos comunes/Isologo.png" alt="Buses Lep" ></a>
+	        <a ng-click="tab = 7" href="" ng-click="go('/')" class="col-xs-6 "><img class="padding-top50  size-logo img-responsive left" ng-src="img/Iconos comunes/Isologo.png" alt="Buses Lep" ></a>
 	        <img class="padding-top45 col-xs-6 img-responsive no-margin" ng-src="img/Buses-Head.jpg" >
 	        <!--<p class="col-xs-6 font-arial" style="padding-top:5%;text-align:center;font-size:180%;">
 	            Preocupate por otras cosas, <b> buses Lep </b> te lleva.
@@ -240,7 +240,7 @@
 		                    <p>Bienvenido, <span class="lepRed-color" ><strong>{{user.name}}</strong></span></p>
 		                </div>
 		                <div class="col-xs-2">
-		                    <a href="#/" ng-click="logout()"  style="font-size:0.7em"><p><strong>Cerrar sesión</strong></p></a>
+		                    <a href="" ng-click="logout()"  style="font-size:0.7em"><p><strong>Cerrar sesión</strong></p></a>
 		                </div>
 		            </div>
 		       </div>
