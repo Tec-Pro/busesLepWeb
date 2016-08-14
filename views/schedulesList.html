@@ -1,251 +1,249 @@
-
-
-    <div>
+<div>
+    <br>
+    <hr>
+    <div class= "col-md-4 col-sm-12 col-xs-12">
+      <h3 class="title lepStyleRed no-mar-pad-bor">Busqueda de horarios</h3>
+    </div>
+    <div class="col-md-8 col-sm-12 col-xs-12">
       <br>
-      <hr>
-      <div class= "col-md-4 col-sm-12 col-xs-12">
-        <h3 class="title lepStyleRed no-mar-pad-bor">Busqueda de horarios</h3>
-      </div>
-      <div class="col-md-8 col-sm-12 col-xs-12">
-        <br>
-        <h2 class="title no-mar-pad-bor no-bold lepStyle background-white">Horarios de <strong>{{titleLabel}}</strong></h2>
-        <br>
-        <br>
-      </div>
+      <h2 class="title no-mar-pad-bor no-bold lepStyle background-white">Horarios de <strong>{{titleLabel}}</strong></h2>
+      <br>
+      <br>
+    </div>
 
-      <!-- origen, destino y fecha-->
-      <div class="col-lg-2 hidden-xs"></div>
-      <div class="col-lg-10 col-md-12 hidden-xs">
-          <div class="col-lg-4 col-md-4 col-sm-6 card2">
-            <h4 class="title  lepStyle background-white">{{origin}}</h4>
-          </div>
-          <div class="col-lg-1 col-md-1 hidden-sm">
-          </div>
-          <div class="col-lg-4 col-md-4 col-sm-6 card2">
-            <h4 class="title lepStyle background-white">{{destination}}</h4>
-          </div>
-           <div class="col-lg-1 col-md-1 hidden-sm">
+    <!-- origen, destino y fecha-->
+    <div class="col-lg-2 hidden-xs"></div>
+    <div class="col-lg-10 col-md-12 hidden-xs">
+        <div class="col-lg-4 col-md-4 col-sm-6 card2">
+          <h4 class="title  lepStyle background-white">{{origin}}</h4>
+        </div>
+        <div class="col-lg-1 col-md-1 hidden-sm">
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-6 card2">
+          <h4 class="title lepStyle background-white">{{destination}}</h4>
+        </div>
+         <div class="col-lg-1 col-md-1 hidden-sm">
 
-          </div>
-          <div class="visible-sm col-sm-12"> <br> </div>
-          <div class="col-lg-2 col-md-2 col-sm-6 col-sm-offset-3 col-md-offset-0 col-lg-offset-0">
-            <div class="form-group">
-            <!-- Departure date input -->
-              <div class="input-group date">
-                <input date-range-picker name="departureDate" id="departureDate" class="form-control date-picker lepRed-color bold title" style="font-size: 1.4em;" type="text" min="params.today" ng-model="params.departureDate" options="dpOpts" readonly/>
-                <span class="input-group-addon">
-                  <span class="glyphicon glyphicon-calendar">
-                  </span>
+        </div>
+        <div class="visible-sm col-sm-12"> <br> </div>
+        <div class="col-lg-2 col-md-2 col-sm-6 col-sm-offset-3 col-md-offset-0 col-lg-offset-0">
+          <div class="form-group">
+          <!-- Departure date input -->
+            <div class="input-group date">
+              <input date-range-picker name="departureDate" id="departureDate" class="form-control date-picker lepRed-color bold title" style="font-size: 1.4em;" type="text" min="params.today" ng-model="params.departureDate" options="dpOpts" readonly/>
+              <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar">
                 </span>
-              </div>
+              </span>
             </div>
           </div>
-      </div>
+        </div>
+    </div>
 
-      <!-- precio ida  -->
-      <div class= "hidden-xs col-xs-12 no-mar-pad-bor">
-        <div class = "col-sm-12 hidden-sm"> <br></div>
-        <br>
-        <div ng-if="!isRoundTrip" class= "col-xs-2 no-mar-pad-bor hidden-sm">
-          <h4 class = "no-mar-pad-bor no-bold lepStyle background-white">Precio Ida: <strong>${{goPrice}}</strong></h4>
-        </div>
-        <div ng-if="!isRoundTrip" class= "col-xs-2 col-sm-6 visible-sm no-mar-pad-bor">
-          <h4 class = "no-mar-pad-bor title no-bold lepStyle background-white">Precio Ida: <strong>${{goPrice}}</strong></h4>
-        </div>
-        <div ng-if="isRoundTrip" class= "col-sm-6 no-mar-pad-bor visible-sm">
-          <h4 class = "no-mar-pad-bor title no-bold lepStyle background-white">Precio Ida y vuelta: <strong>${{goPrice}}</strong></h4>
-        </div>
-        <div class = "col-sm-12 visible-sm"> <br></div>
+    <!-- precio ida  -->
+    <div class= "hidden-xs col-xs-12 no-mar-pad-bor">
+      <div class = "col-sm-12 hidden-sm"> <br></div>
+      <br>
+      <div ng-if="!isRoundTrip" class= "col-xs-2 no-mar-pad-bor hidden-sm">
+        <h4 class = "no-mar-pad-bor no-bold lepStyle background-white">Precio Ida: <strong>${{goPrice}}</strong></h4>
       </div>
+      <div ng-if="!isRoundTrip" class= "col-xs-2 col-sm-6 visible-sm no-mar-pad-bor">
+        <h4 class = "no-mar-pad-bor title no-bold lepStyle background-white">Precio Ida: <strong>${{goPrice}}</strong></h4>
+      </div>
+      <div ng-if="isRoundTrip" class= "col-sm-6 no-mar-pad-bor visible-sm">
+        <h4 class = "no-mar-pad-bor title no-bold lepStyle background-white">Precio Ida y vuelta: <strong>${{goPrice}}</strong></h4>
+      </div>
+      <div class = "col-sm-12 visible-sm"> <br></div>
+    </div>
 
-      <!-- precio idavueta y header de la lista de horarios-->
-      <div class= "hidden-xs col-xs-12 no-mar-pad-bor">
-        <div ng-if="isRoundTrip" class= "col-xs-2 no-mar-pad-bor hidden-sm">
-          <h4 class = "no-bold no-mar-pad-bor lepStyle background-white">Ida y vuelta: <strong>${{roundTripPrice}}</strong></h4>
+    <!-- precio idavueta y header de la lista de horarios-->
+    <div class= "hidden-xs col-xs-12 no-mar-pad-bor">
+    <!--ng-if="isRoundTrip"-->
+      <div  class= "col-xs-2 no-mar-pad-bor hidden-sm">
+        <h4 class = "no-bold no-mar-pad-bor lepStyle background-white">Ida y vuelta: <strong>${{roundTripPrice}}</strong></h4>
+      </div>
+      <div class= "col-md-10 col-lg-10 col-sm-12 no-mar-pad-bor">
+        <div class= "col-xs-6 no-mar-pad-bor">
+          <div class= "background-lightgrey title col-xs-3">
+          <h5>Salida</h5>
+          </div>
+          <div class= "background-lightgrey title col-xs-3">
+            <h5>Llegada</h5>
+          </div>
+          <div class= "background-lightgrey title col-xs-3">
+            <h5 class= "visible-lg">Duracion</h5>
+            <h5 class= "hidden-lg">Durac.</h5>
+          </div>
+          <div class= "background-lightgrey title col-xs-3">
+          <h5>Estado</h5>
+          </div>
         </div>
-        <div class= "col-md-10 col-lg-10 col-sm-12 no-mar-pad-bor">
+        <div class= "col-xs-6 no-mar-pad-bor">
+          <div class= "background-lightgrey title col-xs-3">
+            <h5 class= "visible-lg">Servicio</h5>
+            <h5 class= "hidden-lg">Serv.</h5>
+          </div>
+          <div class= "background-lightgrey title col-xs-3">
+            <h5>Precio</h5>
+          </div>
+          <div class= "background-lightgrey title col-xs-3">
+            <h5>Mapa</h5>
+          </div>
+          <div class= "background-lightgrey2 title col-xs-3">
+            <h5 class = "lightgrey2">.</h5>
+          </div>
+        </div>
+      </div>
+      <div><hr></div>
+    </div>
+
+    <!-- lista horarios mayor que 750px -->
+    <div class="hidden-xs" ng-repeat="sched in schedules track by $index">
+      <!-- separador entre header y lista-->
+      <div class= "col-xs-2 hidden-sm">
+      </div>
+      <div class= "col-md-10 col-lg-10 col-sm-12 background-lightgrey2 lightgrey2"><h6 class = "lightgrey2 no-mar-pad-bor">.</h6> </div>
+
+      <!-- un horario -->
+      <div class= "no-mar-pad-bor col-xs-12 ">
+        <div class= "title col-xs-2 hidden-sm no-mar-pad-bor">
+
+        </div>
+        <div class= "col-md-10 col-lg-10 col-sm-12 no-mar-pad-bor card">
           <div class= "col-xs-6 no-mar-pad-bor">
-            <div class= "background-lightgrey title col-xs-3">
-            <h5>Salida</h5>
+            <div class= "title col-xs-3">
+              <h5 class="no-bold">{{sched.fechahora | lepDateMonth}}</h5>
+              <h5 class = "no-mar-pad-bor"><strong><span class = "bold-blue">{{sched.fechahora | lepHour}} </span>Hs</strong></h5>
             </div>
-            <div class= "background-lightgrey title col-xs-3">
-              <h5>Llegada</h5>
+            <div class= "title col-xs-3">
+              <h5 class="no-bold">{{sched.FechaHoraLlegada | lepDateMonth}}</h5>
+              <h5 class = "no-mar-pad-bor"><strong>{{sched.FechaHoraLlegada | lepHour}} Hs</strong></h5>
             </div>
-            <div class= "background-lightgrey title col-xs-3">
-              <h5 class= "visible-lg">Duracion</h5>
-              <h5 class= "hidden-lg">Durac.</h5>
+            <div class= "title col-xs-3">
+              <h5 class = "no-bold ">{{sched.DemoraViaje | limitTo: 5}} hs</h5>
+              <h5 class="no-bold blue hidden-sm">Recorrido</h5>
             </div>
-            <div class= "background-lightgrey title col-xs-3">
-            <h5>Estado</h5>
+            <div class= "title col-xs-3">
+              <h5 class = "no-bold" data-ng-class="{'red': sched.ServicioPrestado == 'en viaje' || sched.ServicioPrestado == 'completo', 'green': sched.ServicioPrestado == 'disponible', 'blue': sched.ServicioPrestado == 'en destino'}">{{sched.ServicioPrestado | capitalize}}</h5>
             </div>
           </div>
           <div class= "col-xs-6 no-mar-pad-bor">
-            <div class= "background-lightgrey title col-xs-3">
-              <h5 class= "visible-lg">Servicio</h5>
-              <h5 class= "hidden-lg">Serv.</h5>
+            <div class= "title col-xs-3">
+              <h5 class= "visible-md visible-lg no-bold">{{sched.Servicio}}</h5>
+              <h5 class= "hidden-md hidden-lg no-bold">Reg.</h5>
             </div>
-            <div class= "background-lightgrey title col-xs-3">
-              <h5>Precio</h5>
+            <div class= "title col-xs-3">
+              <!-- <h5 ng-if="isRoundTrip">${{roundTripPrice}}</h5> -->
+              <h5 ng-if="!isRoundTrip">${{sched.precio}}</h5>
             </div>
-            <div class= "background-lightgrey title col-xs-3">
-              <h5>Mapa</h5>
-            </div>
-            <div class= "background-lightgrey2 title col-xs-3">
-              <h5 class = "lightgrey2">.</h5>
-            </div>
-          </div>
-        </div>
-        <div><hr></div>
-      </div>
+            <div class= "title col-xs-3">
+                <div ng-hide="sched.latitud == 'Sin GPS'">
+                   <img ng-click = "showMap(sched.latitud,sched.longitud)"class = "map-img center-block" style="cursor: pointer;" ng-src="img/Posicionamiento.png" alt="">
+                </div>
 
-      <!-- lista horarios mayor que 750px -->
-      <div class="hidden-xs" ng-repeat="sched in schedules track by $index">
-        <!-- separador entre header y lista-->
-        <div class= "col-xs-2 hidden-sm">
-        </div>
-        <div class= "col-md-10 col-lg-10 col-sm-12 background-lightgrey2 lightgrey2"><h6 class = "lightgrey2 no-mar-pad-bor">.</h6> </div>
-
-        <!-- un horario -->
-        <div class= "no-mar-pad-bor col-xs-12 ">
-          <div class= "title col-xs-2 hidden-sm no-mar-pad-bor">
-
-          </div>
-          <div class= "col-md-10 col-lg-10 col-sm-12 no-mar-pad-bor card">
-            <div class= "col-xs-6 no-mar-pad-bor">
-              <div class= "title col-xs-3">
-                <h5 class="no-bold">{{sched.fechahora | lepDateMonth}}</h5>
-                <h5 class = "no-mar-pad-bor"><strong><span class = "bold-blue">{{sched.fechahora | lepHour}} </span>Hs</strong></h5>
-              </div>
-              <div class= "title col-xs-3">
-                <h5 class="no-bold">{{sched.FechaHoraLlegada | lepDateMonth}}</h5>
-                <h5 class = "no-mar-pad-bor"><strong>{{sched.FechaHoraLlegada | lepHour}} Hs</strong></h5>
-              </div>
-              <div class= "title col-xs-3">
-                <h5 class = "no-bold ">{{sched.DemoraViaje | limitTo: 5}} hs</h5>
-                <h5 class="no-bold blue hidden-sm">Recorrido</h5>
-              </div>
-              <div class= "title col-xs-3">
-                <h5 class = "no-bold" data-ng-class="{'red': sched.ServicioPrestado == 'en viaje' || sched.ServicioPrestado == 'completo', 'green': sched.ServicioPrestado == 'disponible', 'blue': sched.ServicioPrestado == 'en destino'}">{{sched.ServicioPrestado | capitalize}}</h5>
-              </div>
             </div>
-            <div class= "col-xs-6 no-mar-pad-bor">
-              <div class= "title col-xs-3">
-                <h5 class= "visible-md visible-lg no-bold">{{sched.Servicio}}</h5>
-                <h5 class= "hidden-md hidden-lg no-bold">Reg.</h5>
-              </div>
-              <div class= "title col-xs-3">
-                <!-- <h5 ng-if="isRoundTrip">${{roundTripPrice}}</h5> -->
-                <h5 ng-if="!isRoundTrip">${{sched.precio}}</h5>
-              </div>
-              <div class= "title col-xs-3">
-                  <div ng-hide="sched.latitud == 'Sin GPS'">
-                     <img ng-click = "showMap(sched.latitud,sched.longitud)"class = "map-img center-block" style="cursor: pointer;" ng-src="img/Posicionamiento.png" alt="">
-                  </div>
-
-              </div>
-              <div class= "title col-xs-3" data-ng-show="check_available(sched)">
-                <button type="submit" class="center-block btn btn-danger col-xs-12 lepStyleRed btn-sm visible-lg" style="margin-top:10px;" ng-click="goSummary($index)">Seleccionar</button>
-                <button type="submit" class="center-block btn btn-danger col-xs-12 lepStyleRed btn-sm hidden-lg" style="margin-top:10px;" ng-click="goSummary($index)">Elegir</button>
-              </div>
+            <div class= "title col-xs-3" data-ng-show="check_available(sched)">
+              <button type="submit" class="center-block btn btn-danger col-xs-12 lepStyleRed btn-sm visible-lg" style="margin-top:10px;" ng-click="goSummary($index)">Seleccionar</button>
+              <button type="submit" class="center-block btn btn-danger col-xs-12 lepStyleRed btn-sm hidden-lg" style="margin-top:10px;" ng-click="goSummary($index)">Elegir</button>
             </div>
           </div>
         </div>
       </div>
-      <!-- fin lista horarios mayor que 750px-->
+    </div>
+    <!-- fin lista horarios mayor que 750px-->
 
-      <!-- menor que 750px -->
+    <!-- menor que 750px -->
 
-      <div class="col-xs-12 visible-xs">
-         <div class="col-xs-12 card2">
-            <h5 class = "title lepStyle background-white">{{origin}} <span class = "bold-blue"> > </span>{{destination}}</h5>
-          </div>
-          <div class = "col-xs-12"> <br></div>
-          <div class="col-xs-8 col-xs-offset-2">
-            <div class="form-group">
-            <!-- Departure date input -->
-              <div class="input-group date">
-                <input date-range-picker name="departureDate" id="departureDate" class="form-control date-picker lepRed-color bold title" style="font-size: 1.4em;" type="text" min="params.today" ng-model="params.departureDate" options="dpOpts" required readonly/>
-                <span class="input-group-addon">
-                  <span class="glyphicon glyphicon-calendar">
-                  </span>
+    <div class="col-xs-12 visible-xs">
+       <div class="col-xs-12 card2">
+          <h5 class = "title lepStyle background-white">{{origin}} <span class = "bold-blue"> > </span>{{destination}}</h5>
+        </div>
+        <div class = "col-xs-12"> <br></div>
+        <div class="col-xs-8 col-xs-offset-2">
+          <div class="form-group">
+          <!-- Departure date input -->
+            <div class="input-group date">
+              <input date-range-picker name="departureDate" id="departureDate" class="form-control date-picker lepRed-color bold title" style="font-size: 1.4em;" type="text" min="params.today" ng-model="params.departureDate" options="dpOpts" required readonly/>
+              <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar">
                 </span>
-              </div>
+              </span>
             </div>
           </div>
-          <div class = "col-xs-12"> <br></div>
+        </div>
+        <div class = "col-xs-12"> <br></div>
+    </div>
+
+    <!-- lista de horarios -->
+    <div class="visible-xs" ng-repeat="sched in schedules track by $index">
+      <!-- separador entre header y lista-->
+      <div class= "col-xs-12 background-lightgrey2 lightgrey2"><h6 class = "lightgrey2 no-mar-pad-bor">.</h6> </div>
+
+      <!-- un horario -->
+      <div class= "no-mar-pad-bor col-xs-12 card2">
+          <div class= "col-xs-12 no-mar-pad-bor">
+            <div class= "title col-xs-4">
+              <h5>Salida:</h5>
+              <h5 class="no-bold">{{sched.fechahora | lepDateMonth}}</h5>
+              <h5 class = "no-mar-pad-bor"><strong><span class = "bold-blue">{{sched.fechahora | lepHour }} </span>Hs</strong></h5>
+            </div>
+            <div class= "title col-xs-4">
+              <h5>Llegada:</h5>
+              <h5 class="no-bold">{{sched.FechaHoraLlegada | lepDateMonth}}</h5>
+              <h5 class = "no-mar-pad-bor"><strong>{{sched.FechaHoraLlegada | lepHour}} Hs</strong></h5>
+            </div>
+            <div class= "title col-xs-4">
+              <h5>Duracion:</h5>
+              <h5 class = "no-bold ">{{sched.DemoraViaje | limitTo: 5}} hs</h5>
+              <h5 class="no-bold blue hidden-sm">Recorrido</h5>
+            </div>
+          </div>
+          <hr>
+          <div class= "col-xs-12 no-mar-pad-bor">
+            <div class= "title col-xs-4">
+              <h5 class = "no-bold" data-ng-class="{'red': sched.ServicioPrestado == 'en viaje' || sched.ServicioPrestado == 'completo', 'green': sched.ServicioPrestado == 'disponible', 'blue': sched.ServicioPrestado == 'en destino'}">{{sched.ServicioPrestado | capitalize}}</h5>
+            </div>
+            <div class= "title col-xs-4">
+              <h5 class= "no-bold">{{sched.Servicio}}</h5>
+            </div>
+            <div class= "title col-xs-4">
+               <div ng-hide="sched.latitud == 'Sin GPS'">
+                  <img ng-click = "showMap(sched.latitud,sched.longitud)" class = "map-img center-block" style="cursor: pointer;" ng-src="img/Posicionamiento.png" alt="">
+                </div>
+            </div>
+          </div>
+          <hr>
+          <div class= "col-xs-12 no-mar-pad-bor">
+            <div class= "title col-xs-6">
+              <h4>Precio: ${{sched.precio}}</h4>
+            </div>
+            <div class= "title col-xs-6 center-block" data-ng-show="sched.ServicioPrestado == 'disponible'">
+              <button type="submit" class="center-block btn btn-danger col-xs-12 lepStyleRed btn-sm" style="margin-top:5px;" ng-click="goSummary($index)">Seleccionar</button>
+            </div>
+          </div>
       </div>
+    </div>
+    <!-- fin lista horarios menor que 750px-->
 
-      <!-- lista de horarios -->
-      <div class="visible-xs" ng-repeat="sched in schedules track by $index">
-        <!-- separador entre header y lista-->
-        <div class= "col-xs-12 background-lightgrey2 lightgrey2"><h6 class = "lightgrey2 no-mar-pad-bor">.</h6> </div>
+    <!-- Loading modal -->
+    <div id="sched-modal" class="sched-modal">
 
-        <!-- un horario -->
-        <div class= "no-mar-pad-bor col-xs-12 card2">
-            <div class= "col-xs-12 no-mar-pad-bor">
-              <div class= "title col-xs-4">
-                <h5>Salida:</h5>
-                <h5 class="no-bold">{{sched.fechahora | lepDateMonth}}</h5>
-                <h5 class = "no-mar-pad-bor"><strong><span class = "bold-blue">{{sched.fechahora | lepHour }} </span>Hs</strong></h5>
-              </div>
-              <div class= "title col-xs-4">
-                <h5>Llegada:</h5>
-                <h5 class="no-bold">{{sched.FechaHoraLlegada | lepDateMonth}}</h5>
-                <h5 class = "no-mar-pad-bor"><strong>{{sched.FechaHoraLlegada | lepHour}} Hs</strong></h5>
-              </div>
-              <div class= "title col-xs-4">
-                <h5>Duracion:</h5>
-                <h5 class = "no-bold ">{{sched.DemoraViaje | limitTo: 5}} hs</h5>
-                <h5 class="no-bold blue hidden-sm">Recorrido</h5>
-              </div>
-            </div>
-            <hr>
-            <div class= "col-xs-12 no-mar-pad-bor">
-              <div class= "title col-xs-4">
-                <h5 class = "no-bold" data-ng-class="{'red': sched.ServicioPrestado == 'en viaje' || sched.ServicioPrestado == 'completo', 'green': sched.ServicioPrestado == 'disponible', 'blue': sched.ServicioPrestado == 'en destino'}">{{sched.ServicioPrestado | capitalize}}</h5>
-              </div>
-              <div class= "title col-xs-4">
-                <h5 class= "no-bold">{{sched.Servicio}}</h5>
-              </div>
-              <div class= "title col-xs-4">
-                 <div ng-hide="sched.latitud == 'Sin GPS'">
-                    <img ng-click = "showMap(sched.latitud,sched.longitud)" class = "map-img center-block" style="cursor: pointer;" ng-src="img/Posicionamiento.png" alt="">
-                  </div>
-              </div>
-            </div>
-            <hr>
-            <div class= "col-xs-12 no-mar-pad-bor">
-              <div class= "title col-xs-6">
-                <h4>Precio: ${{sched.precio}}</h4>
-              </div>
-              <div class= "title col-xs-6 center-block" data-ng-show="sched.ServicioPrestado == 'disponible'">
-                <button type="submit" class="center-block btn btn-danger col-xs-12 lepStyleRed btn-sm" style="margin-top:5px;" ng-click="goSummary($index)">Seleccionar</button>
-              </div>
-            </div>
+    <!-- Modal content -->
+      <div class="sched-modal-content">
+        <div class="sched-modal-body">
+          <img src="./img/shared/ajax-loader.gif">
         </div>
       </div>
-      <!-- fin lista horarios menor que 750px-->
 
-      <!-- Loading modal -->
-      <div id="sched-modal" class="sched-modal">
+    </div>
 
+    <!-- Map Modal -->
+    <div id="map-modal" class="mercadopago-modal">
       <!-- Modal content -->
-        <div class="sched-modal-content">
-          <div class="sched-modal-body">
-            <img src="./img/shared/ajax-loader.gif">
-          </div>
-        </div>
-
+      <div class="mercadopago-modal-content">
+          <div id="googleMap" style="width:100%;height:300px;"></div>
+          <br>
+           <button type="submit" class="btn btn-large btn-danger lepStyleRed center-block" ng-click="hide_modal()">Cerrar</button>
       </div>
-
-      <!-- Map Modal -->
-      <div id="map-modal" class="mercadopago-modal">
-        <!-- Modal content -->
-        <div class="mercadopago-modal-content">
-            <div id="googleMap" style="width:100%;height:300px;"></div>
-            <br>
-             <button type="submit" class="btn btn-large btn-danger lepStyleRed center-block" ng-click="hide_modal()">Cerrar</button>
-        </div>
-      </div>
-
-  </div>
+    </div>
+</div>
