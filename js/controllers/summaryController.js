@@ -67,7 +67,7 @@ angular.module('app').controller('SummaryController', ['$scope', '$location', '$
     tripService.savePassengers($scope.passengers);
     if(localStorageService.get("user-lep") == null || localStorageService.get("user-lep") == undefined){
       localStorageService.set('BackTo','/summary');
-      location.path('/login');
+      $location.path('/login');
       return;
     }
     if(localStorageService.get("user-lep").email == ""){
