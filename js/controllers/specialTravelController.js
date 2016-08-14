@@ -25,6 +25,10 @@ angular.module('app')
     returnDate: ''
   }
 
+  $scope.go = function ( path ) {
+      $location.path( path );
+    };
+
   $scope.$watch('params.departureDate', function(date){
     if ($scope.params.returnDate !== ''){
       var a = $scope.params.returnDate;

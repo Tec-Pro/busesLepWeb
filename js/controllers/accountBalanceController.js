@@ -9,6 +9,10 @@ angular.module('app')
 	$scope.show_response = false;
 	$anchorScroll();
 
+	$scope.go = function ( path ) {
+      $location.path( path );
+    };
+	
 	$scope.get_balance = function(dni){
 		if (dni === '' || dni != parseInt(dni)|| isNaN(parseInt(dni))){
 			alert("Ingrese un DNI válido");

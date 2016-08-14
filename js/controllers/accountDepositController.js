@@ -9,6 +9,10 @@ angular.module('app')
 		amount: 0.00
 	}
 
+	$scope.go = function ( path ) {
+      $location.path( path );
+    };
+
 	$scope.deposit_to_card = function(card, amount){
 		if (amount > 0){
 			var deposit_params = [

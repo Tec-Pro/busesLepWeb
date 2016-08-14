@@ -39,6 +39,10 @@ angular.module('app')
     $scope.purchases = response;
   });
   
+  $scope.go = function ( path ) {
+      $location.path( path );
+  };
+
   $scope.cancelReserve = function (fecha) {
         var cancel_parameters = [
           {

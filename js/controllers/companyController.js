@@ -8,6 +8,11 @@ angular.module('app')
 
 	$scope.contact = {};
 	$anchorScroll();
+
+	$scope.go = function ( path ) {
+      $location.path( path );
+    };
+
 	$scope.submit_contact = function(){
 		var wsdl_url_web = "https://webservices.buseslep.com.ar:443/WebServices/WSLepPaginaWeb.dll/soap/IWSLepPaginaWeb";
 		var urn = "WSLepPaginaWebIntf-IWSLepPaginaWeb";
