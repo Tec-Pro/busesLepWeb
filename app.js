@@ -61,10 +61,6 @@ angular.module("app", ["ngRoute","ngAnimate","LocalStorageModule","angularSoap",
                     controller: "CompCtrl",
                     templateUrl: "views/company.html"
                 })
-                .when("/reserveDetails", {
-                    controller: "DetailsController",
-                    templateUrl: "views/reserveDetails.html"
-                })
                 .when("/summary", {
                     controller: "SummaryController",
                     templateUrl: "views/summary.html"
