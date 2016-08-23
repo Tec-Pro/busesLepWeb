@@ -41,6 +41,7 @@ angular.module('app')
 
     $scope.opinion = "";
     $scope.sendOpinion = function(){
+      var dni = localStorageService.get("user-lep") ? localStorageService.get("user-lep").dni : "";
     	var params = [
 	    {
 	      name: "userWS",
@@ -56,7 +57,13 @@ angular.module('app')
 	      name: "TextoOpinion",
 	      type: "string",
 	      value: $scope.opinion
-	    }];
+	    },
+      {
+        name: "Dni",
+        type: "string",
+        value: dni
+      }];
+      console.log(params);
 	    wsService.callService(wsdl_url, urn, "AgregarOpinion", params).then(function(response){
         	if (response[0].Resul == 0){
 			        modal.style.display = "block";			     
