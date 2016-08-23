@@ -19,14 +19,13 @@ angular.module('app').controller('ToursController', ['$scope', '$location', '$an
 	wsService.callService(wsdl_url, "", "Destinos", toursParams).then(function(response){
 
 		for (var i = 0; i < response.length; i++) {
-			splittedOrigAndDest = response[i].DestinoWeb.split("-");
 			splittedCities2 = response[i].Recorridos.split(" . ");
 			citiesArray = [];
 			for (var j = 0 ; j < splittedCities2.length; j++) {
 				citiesArray.push({name: splittedCities2[j]});
 			};
 			
-			$scope.tours.push({origin: splittedOrigAndDest[0],destination: splittedOrigAndDest[splittedOrigAndDest.length-1], 'cities': citiesArray, picture: response[i].LinkFoto});
+			$scope.tours.push({name: response[i].DestinoWeb, 'cities': citiesArray, picture: response[i].LinkFoto});
 		};
 	});
 
