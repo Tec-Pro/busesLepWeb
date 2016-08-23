@@ -1,4 +1,4 @@
-<div ng-controller="TicketOfficesController">
+<div>
     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 border-bottom border-top">
         <div class="col-xs-4 col-sm-3 border-right text-center lep-href lep-margin">
         	<a href=""><span class="lepBlue-color"><strong>Informacion</strong><span></a>
@@ -8,7 +8,7 @@
     <div class = "col-xs-12"> <br></div>
 
     <!-- information card -->
-    <div class = "card2 col-xs-12 col-sm-8 col-md-8 col-lg-8">
+    <div class = "card2 col-xs-12 col-sm-8 col-md-8 col-lg-8 to-info-container">
         <div class = "col-xs-12"> <br></div>
 
         <div class = "col-xs-12 no-mar-pad-bor">
@@ -81,9 +81,9 @@
     <!-- End information card -->
     <div class="col-sm-1 col-md-1 col-lg-1 hidden-xs"></div>
     <!-- ticket office image -->
-    <div class="hidden-xs col-sm-3 col-md-3 col-lg-3" style = "margin-top:5%; height:350px;">
+    <div class="hidden-xs col-sm-3 col-md-3 col-lg-3 to-img-container" >
         
-        <img class = "center-block img-responsive center-vertically" style = "width:100%;" ng-src="{{selectedImg}}" alt="">
+        <img class = "center-block img-responsive center-vertically" style = "width:100%;" ng-src="{{selectedImg}}" alt="" ng-cloak>
         
     </div>
 

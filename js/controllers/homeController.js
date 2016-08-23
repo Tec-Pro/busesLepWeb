@@ -301,6 +301,7 @@ angular.module('app')
                 //guardar aca departure-trip
                 //tripService.saveDepartureTrip();
   							tripService.setSchedules(schedules);
+                console.log(schedules);
   							$location.path('/schedules');
   						} else {
   							window.alert("No existen viajes para esa fecha");

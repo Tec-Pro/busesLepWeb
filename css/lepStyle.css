@@ -593,7 +593,7 @@ p.small{
   resize: none;
   color:white;
   background:#565656;
-  width:280px;
+  width: 400px;
   height:145px;
 }
 
@@ -780,7 +780,7 @@ color:#ff0008;
 
 @media screen and (min-width: 650px) and (max-width: 895px) {
     .textarea{
-    width:140px;
+    width:210px;
     height:120px;
   }
 
@@ -794,7 +794,7 @@ color:#ff0008;
 
 @media screen and (min-width: 895px) and (max-width: 1200px) {
     .textarea{
-    width:200px;
+    width:300px;
     height:120px;
   }
 }

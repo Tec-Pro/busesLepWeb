@@ -27,6 +27,8 @@
 	  <link rel="stylesheet" type="text/css" href="css/custom/account.css">
 
 	  <link rel="stylesheet" type="text/css" href="css/custom/encomiendas.css">
+
+	  <link rel="stylesheet" type="text/css" href="css/custom/ticketOffices.css">
 	  <!-- jQuery -->
 	  <script src="js/jquery.js"></script>
 	  <script src="js/jquery.soap.js"></script>
@@ -354,7 +356,7 @@
 			              </ul>
 			            </div>
 			        </div> -->
-			         <div class="col-xs-12 col-sm-3 text-center h4-responsive" style="padding:10px"><strong>Novedades</strong>
+			         <div class="col-xs-12 col-sm-4 text-center h4-responsive" style="padding:10px"><strong>Novedades</strong>
 			            <div class=" text-center ">
 			                <div class="unstyled">
 			                  <div style="list-style-type: none;" ng-repeat="novedad in novedades | limitTo:3">
@@ -363,7 +365,7 @@
 			              </div>
 			            </div>
 			        </div>
-			        <div class="col-xs-12 col-sm-3 text-center h4-responsive" style="padding:10px"><strong>Actualidad</strong>
+			        <div class="col-xs-12 col-sm-4 text-center h4-responsive" style="padding:10px"><strong>Actualidad</strong>
 			            <div class=" text-center">
 			                <div class="unstyled">
 			                  <div style="list-style-type: none;" ng-repeat="feed in feeds | limitTo:3">
@@ -372,13 +374,13 @@
 			              </div>
 			            </div>
 			        </div>
-			        <div class="col-xs-12 col-sm-3 text-center h4-responsive" style="padding:10px">
+			        <!-- <div class="col-xs-12 col-sm-3 text-center h4-responsive" style="padding:10px">
 			            <div class=" text-center"><br><br>
 			                <p>Temperatura en Cordoba Capital <br>
 			                    <span class="h1-responsive">{{weather.temp}}°</span></p>
 			            </div>
-			        </div>
-			        <div class="hidden-xs col-sm-3 text-center h4-responsive" style="padding:10px"><strong>Tu opinión nos interesa...</strong>
+			        </div> -->
+			        <div class="hidden-xs col-sm-4 text-center h4-responsive" style="padding:10px"><strong>Tu opinión nos interesa...</strong>
 			        	<form ng-submit="sendOpinion()">
 				           <textarea required ng-model="opinion" class="lep-form textarea" style="margin-left:10px"name="Opinion"></textarea>
 				           <button id="enviarBtn"class="btn btn-default lepStyle2"type="submit" style="font-size:0.7em;margin-top:10px;margin-bottom:10px">Enviar</button>

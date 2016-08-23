@@ -134,7 +134,8 @@
             </div>
             <div class= "title col-xs-3">
               <!-- <h5 ng-if="isRoundTrip">${{roundTripPrice}}</h5> -->
-              <h5 ng-if="!isRoundTrip">${{sched.precio}}</h5>
+              <h5 ng-if="titleLabel == 'Ida'">${{sched.precio}}</h5>
+              <h5 ng-if="titleLabel == 'Vuelta'">{{sched.precioVuelta}}</h5>
             </div>
             <div class= "title col-xs-3">
                 <div ng-hide="sched.latitud == 'Sin GPS'">
@@ -215,7 +216,8 @@
           <hr>
           <div class= "col-xs-12 no-mar-pad-bor">
             <div class= "title col-xs-6">
-              <h4>Precio: ${{sched.precio}}</h4>
+              <h4 ng-if="titleLabel == 'Ida'">${{sched.precio}}</h4>
+              <h4 ng-if="titleLabel == 'Vuelta'">{{sched.precioVuelta}}</h4>
             </div>
             <div class= "title col-xs-6 center-block" data-ng-show="sched.ServicioPrestado == 'disponible'">
               <button type="submit" class="center-block btn btn-danger col-xs-12 lepStyleRed btn-sm" style="margin-top:5px;" ng-click="goSummary($index)">Seleccionar</button>
