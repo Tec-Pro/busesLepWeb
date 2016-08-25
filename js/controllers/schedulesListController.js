@@ -57,6 +57,8 @@ angular.module('app').controller('ScheduleController', ['$scope', '$location', '
         	hide_loading_modal();
 			if (schedules.length > 0){
 				$scope.schedules = schedules;
+				$scope.min_return_price = Math.min.apply(Math, schedules.map(function(s){return s.precioVuelta}));
+				$scope.max_return_price = Math.max.apply(Math, schedules.map(function(s){return s.precioVuelta}));
 			} else {
 				window.alert("No existen viajes para esa fecha");
 			}
@@ -72,9 +74,16 @@ angular.module('app').controller('ScheduleController', ['$scope', '$location', '
 
 	$scope.departure_trip = tripService.getDepartureTrip();
 	$scope.schedules = tripService.getSchedules();
+	$scope.min_go_price = Math.min.apply(Math, $scope.schedules.map(function(s){return s.precio}));
+	$scope.max_go_price = Math.max.apply(Math, $scope.schedules.map(function(s){return s.precio}));
 
 
-  $scope.isRoundTrip = $scope.departure_trip.round_trip === 1;
+  	$scope.isRoundTrip = $scope.departure_trip.round_trip === 1;
+
+  	if ($scope.isRoundTrip){
+  		$scope.min_return_price = Math.min.apply(Math, $scope.schedules.map(function(s){return s.precioVuelta}));
+		$scope.max_return_price = Math.max.apply(Math, $scope.schedules.map(function(s){return s.precioVuelta}));
+  	}
 
 	if($scope.schedules == undefined || $scope.departure_trip == undefined){
         $location.path('/');
@@ -129,7 +138,6 @@ angular.module('app').controller('ScheduleController', ['$scope', '$location', '
 		display_loading_modal();
 		$scope.travels = [];
 	    wsService.callService(wsdl_url_wsConGps, urn, "ConsultarRecorridoServicio", parameters).then(function(response){
-			console.log(response);
 			$scope.travels = response;
 			display_travel_modal();
 			hide_loading_modal();
@@ -189,6 +197,8 @@ angular.module('app').controller('ScheduleController', ['$scope', '$location', '
 				hide_loading_modal();
 				if (schedules.length > 0){
 					$scope.schedules = schedules;
+					$scope.min_go_price = Math.min.apply(Math, $scope.schedules.map(function(s){return s.precio}));
+					$scope.max_go_price = Math.max.apply(Math, $scope.schedules.map(function(s){return s.precio}));
 				} else {
 					window.alert("No existen viajes para esa fecha");
 				}
@@ -204,42 +214,43 @@ angular.module('app').controller('ScheduleController', ['$scope', '$location', '
     	}
     });
 
-	parametersPrice = [
-		{
-			name: "userWS",
-			type: "string",
-			value: "UsuarioLep"
-		},
-		{
-			name: "passWS",
-			type: "string",
-			value: "Lep1234"
-		},
-		{
-			name: "ID_LocalidadOrigen",
-			type: "int",
-			value: $scope.origin_id
-		},
-		{
-			name: "ID_LocalidadDestino",
-			type: "int",
-			value: $scope.destination_id
-		}
-	]
-	display_loading_modal();
-	wsService.callService(wsdl_url_wsConGps, urn, 'ObtenerTarifaTramo', parametersPrice).then(function(tarifas){
-		hide_loading_modal();
- 		result = tarifas.split("-");
- 		$scope.goPrice = Number(result[0].trim().substring(7));
- 		$scope.roundTripPrice = Number(result[1].trim().substring(13));
- 	}, function(reason){
-	    if (reason == "timeout"){
-	        alert("Tiempo de respuesta agotado, verifique su conexión o intente más tarde.");
-	    } else {
-	    	alert("Error: "+reason+". Por favor, intente más tarde.");
-	    }
-	    hide_loading_modal();
-    });
+	// parametersPrice = [
+	// 	{
+	// 		name: "userWS",
+	// 		type: "string",
+	// 		value: "UsuarioLep"
+	// 	},
+	// 	{
+	// 		name: "passWS",
+	// 		type: "string",
+	// 		value: "Lep1234"
+	// 	},
+	// 	{
+	// 		name: "ID_LocalidadOrigen",
+	// 		type: "int",
+	// 		value: $scope.origin_id
+	// 	},
+	// 	{
+	// 		name: "ID_LocalidadDestino",
+	// 		type: "int",
+	// 		value: $scope.destination_id
+	// 	}
+	// ]
+	// display_loading_modal();
+	// wsService.callService(wsdl_url_wsConGps, urn, 'ObtenerTarifaTramo', parametersPrice).then(function(tarifas){
+	// 	hide_loading_modal();
+	// 	console.log(tarifas);
+ // 		result = tarifas.split("-");
+ // 		$scope.goPrice = Number(result[0].trim().substring(7));
+ // 		$scope.roundTripPrice = Number(result[1].trim().substring(13));
+ // 	}, function(reason){
+	//     if (reason == "timeout"){
+	//         alert("Tiempo de respuesta agotado, verifique su conexión o intente más tarde.");
+	//     } else {
+	//     	alert("Error: "+reason+". Por favor, intente más tarde.");
+	//     }
+	//     hide_loading_modal();
+ //    });
 
 	//riocuarto es id=10 cordoba plaza es id=1
 	//Date picker options
@@ -265,7 +276,7 @@ angular.module('app').controller('ScheduleController', ['$scope', '$location', '
 			}
 			else{
 				setScheduleReturn(index);
-        		scheduleService.setRoundTripPrice($scope.roundTripPrice);
+        		//scheduleService.setRoundTripPrice($scope);
 				//tripService.saveTripPrice($scope.schedules[index].precio);
 				$location.path('/summary');
 			}

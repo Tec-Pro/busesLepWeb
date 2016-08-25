@@ -33,7 +33,7 @@ angular.module('app').controller('SummaryController', ['$scope', '$location', '$
   }
   $scope.scheduleReturn = scheduleService.getScheduleReturn();
   if(tripService.getDepartureTrip().round_trip === 1){
-  	$scope.price = scheduleService.getRoundTripPrice();
+  	$scope.price = $scope.schedule.precio + $scope.scheduleReturn.precioVuelta;
   } else {
   	$scope.price = $scope.schedule.precio;
   }
