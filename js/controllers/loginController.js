@@ -41,9 +41,16 @@ angular.module('app')
       //alert(localStorageService.get("BackTo"));
    };
 
+   $scope.goContact = function(){
+    companyService.setActiveTab(2);
+    companyService.setShowContact(true);
+    $location.path("/company");
+   }
     $scope.go = function ( path ) {
-      if (path === '/company') {
-        companyService.setActiveTab(2);
+      if(path === '/company'){
+        console.log("Hello");
+        companyService.setActiveTab(0);
+        companyService.setShowContact(false);
       }
       $location.path( path );
     };

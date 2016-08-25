@@ -6,6 +6,13 @@ angular.module('app')
 	$scope.active_gall_img = 1;
 	$scope.active_gall_thmb = 2;
 
+	$scope.show_contact = companyService.getShowContact();
+	$scope.$watch(function() { return companyService.getShowContact();}, function(value){
+		$scope.show_contact = value;
+	});
+	$scope.$watch(function() { return companyService.getActiveTab();}, function(value){
+		$scope.active = value;
+	});
 	$scope.contact = {};
 	$anchorScroll();
 

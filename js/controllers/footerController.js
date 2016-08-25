@@ -35,6 +35,7 @@ angular.module('app')
 
 	$scope.goCompanyContact = function(){
       companyService.setActiveTab(2);
+      companyService.setShowContact(true);
       $window.scrollTo(0,0);
       $location.path('/company');
     }

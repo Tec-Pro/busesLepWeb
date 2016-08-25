@@ -98,7 +98,43 @@ angular.module('app').controller('ScheduleController', ['$scope', '$location', '
 	}
 
 
-
+	$scope.checkTravel = function(index){
+		parameters = [
+			{
+				name: "userWS",
+				type: "string",
+				value: "UsuarioLep"
+			},
+			{
+				name: "passWS",
+				type: "string",
+				value: "Lep1234"
+			},
+			{
+				name: "Id_Empresa",
+				type: "int",
+				value: $scope.schedules[index].Id_Empresa
+			},
+			{
+				name: "Id_destino",
+				type: "int",
+				value: $scope.schedules[index].id_destino
+			}, 
+			{	
+				name: "Cod_Horario",
+				type: "int",
+				value: $scope.schedules[index].cod_horario
+			}
+		];
+		display_loading_modal();
+		$scope.travels = [];
+	    wsService.callService(wsdl_url_wsConGps, urn, "ConsultarRecorridoServicio", parameters).then(function(response){
+			console.log(response);
+			$scope.travels = response;
+			display_travel_modal();
+			hide_loading_modal();
+		})
+	}
 
 
 	$scope.params = {
@@ -229,7 +265,7 @@ angular.module('app').controller('ScheduleController', ['$scope', '$location', '
 			}
 			else{
 				setScheduleReturn(index);
-        scheduleService.setRoundTripPrice($scope.roundTripPrice);
+        		scheduleService.setRoundTripPrice($scope.roundTripPrice);
 				//tripService.saveTripPrice($scope.schedules[index].precio);
 				$location.path('/summary');
 			}
@@ -296,5 +332,14 @@ angular.module('app').controller('ScheduleController', ['$scope', '$location', '
       map_modal.style.display = "none";
     }
 
+    var travel_modal = document.getElementById('travel-modal');
+
+    var display_travel_modal = function(){
+    	travel_modal.style.display = "block";
+    }
+
+    $scope.hide_travel_modal = function(){
+    	travel_modal.style.display = "none";
+    }
 
 }]);

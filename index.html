@@ -282,10 +282,15 @@
 	                    <a ng-hide="tab === 7" data-toggle="collapse" data-target=".navbar-collapse" href="#/"><strong>Inicio</strong></a>
 	                    <a ng-show="tab === 7" data-toggle="collapse" data-target=".navbar-collapse" href="#/"><span class="lepBlue-color"><strong>Inicio</strong></span></a>
 	                </li> -->
-									<li ng-click="tab = 7; go('/company')">
-	                    <a ng-hide="tab === 7" data-toggle="collapse" data-target=".navbar-collapse" href = "" ng-click="go('/company')"><strong>Contacto</strong></a>
-	                    <a ng-show="tab === 7" data-toggle="collapse" data-target=".navbar-collapse" href = "" ng-click="go('/company')"><span class="lepBlue-color"><strong>Contacto</strong></span></a>
+					<li ng-click="tab = 7; goContact()">
+	                    <a ng-hide="tab === 7" data-toggle="collapse" data-target=".navbar-collapse" href = "" ng-click="goContact()"><strong>Contacto</strong></a>
+	                    <a ng-show="tab === 7" data-toggle="collapse" data-target=".navbar-collapse" href = "" ng-click="goContact()"><span class="lepBlue-color"><strong>Contacto</strong></span></a>
 	                </li>
+	                <li ng-click="tab = 8; go('/')">
+	                    <a ng-hide="tab === 8" data-toggle="collapse" data-target=".navbar-collapse" href = "" ng-click="go('/')"><strong>Inicio</strong></a>
+	                    <a ng-show="tab === 8" data-toggle="collapse" data-target=".navbar-collapse" href = "" ng-click="go('/')"><span class="lepBlue-color"><strong>Inicio</strong></span></a>
+	                </li>
+	                
 	            </ul>
 
 	            <!-- md,lg -->
@@ -322,9 +327,9 @@
 	                    <a  ng-hide="tab === 7" href="#/"><strong>Inicio</strong></a>
 	                    <a  ng-show="tab === 7" href="#/"><span class="lepBlue-color"><strong>Inicio</strong></span></a>
 	                </li> -->
-									<li ng-click="tab = 7; go('/company')">
-	                    <a  ng-hide="tab === 7" href="" ng-click="go('/company')"><strong>Contacto</strong></a>
-	                    <a  ng-show="tab === 7" href="" ng-click="go('/company')"><span class="lepBlue-color"><strong>Contacto</strong></span></a>
+					<li ng-click="tab = 7; goContact()">
+	                    <a  ng-hide="tab === 7" href="" ng-click="goContact()"><strong>Contacto</strong></a>
+	                    <a  ng-show="tab === 7" href="" ng-click="goContact()"><span class="lepBlue-color"><strong>Contacto</strong></span></a>
 	                </li>
 	           </ul>
 
