@@ -206,3 +206,7 @@
 }
 
 .comp-modal-body {}
+
+.comp-webform {
+	min-height: 500px;
+}

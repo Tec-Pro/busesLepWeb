@@ -3,10 +3,6 @@
     <hr>
     <div class= "col-md-4 col-sm-12 col-xs-12">
       <h3 class="title lepStyleRed no-mar-pad-bor">Busqueda de horarios</h3>
-      {{min_go_price}}
-      {{max_go_price}}
-      {{min_return_price}}
-      {{max_return_price}}
     </div>
     <div class="col-md-8 col-sm-12 col-xs-12">
       <br>
@@ -51,9 +47,7 @@
       <div ng-if="!isRoundTrip" class= "col-xs-2 no-mar-pad-bor hidden-sm">
         <h4 class = "no-mar-pad-bor no-bold lepStyle background-white">Precio Ida:</h4><h5> <strong>${{min_go_price}} - ${{max_go_price}}</strong></h5>
       </div>
-      <div ng-if="!isRoundTrip" class= "col-xs-2 col-sm-6 visible-sm no-mar-pad-bor">
-        <h4 class = "no-mar-pad-bor title no-bold lepStyle background-white">Precio Ida: </h4><h5> <strong>${{min_go_price}} - ${{max_go_price}}</strong></h5>
-      </div>
+      
       <div ng-if="isRoundTrip" class= "col-sm-6 no-mar-pad-bor visible-sm">
         <h4 class = "no-mar-pad-bor title no-bold lepStyle background-white">Precio Ida y vuelta:</h4><h5> <strong>${{min_go_price+min_return_price}} - ${{max_go_price+max_return_price}}</strong></h5>
       </div>
@@ -64,7 +58,9 @@
     <div class= "hidden-xs col-xs-12 no-mar-pad-bor">
     <!--ng-if="isRoundTrip"-->
       <div  class= "col-xs-2 no-mar-pad-bor hidden-sm">
-        <h4 ng-if="isRoundTrip" class = "no-bold no-mar-pad-bor lepStyle background-white">Ida y vuelta: </h4><h5> <strong>${{min_go_price+min_return_price}} - ${{max_go_price+max_return_price}}</strong></h5>
+        <div ng-if="isRoundTrip">
+        <h4 class = "no-bold no-mar-pad-bor lepStyle background-white">Ida y vuelta: </h4><h5> <strong>${{min_go_price+min_return_price}} - ${{max_go_price+max_return_price}}</strong></h5>
+        </div>
       </div>
       <div class= "col-md-10 col-lg-10 col-sm-12 no-mar-pad-bor">
         <div class= "col-xs-6 no-mar-pad-bor">
