@@ -59,7 +59,13 @@ angular.module('app')
     };
     var lastSearches = localStorageService.get("last-searches");
     if (lastSearches != null){ // it isn't the first search
-      $scope.searches = JSON.parse(lastSearches); 
+      $scope.searches = JSON.parse(lastSearches);
+      for (i = 0; i < $scope.searches.length; i++){
+        if(moment().isAfter(moment($scope.searches[i].goingDate, moment.ISO_8601),'day')){
+          $scope.searches.splice(i,1);
+          i--;
+        }
+      } 
     }
     else{
       $scope.searches = [];
@@ -319,10 +325,10 @@ angular.module('app')
     };
 
     $scope.goSearch2 = function(orig_id,dest_id,orig, orig_office, dest, dDate, rDate){
-      if(moment().isAfter(moment(dDate, moment.ISO_8601),'day')){
-        alert("Este viaje ya caducó");
-      }
-      else{
+      //if(moment().isAfter(moment(dDate, moment.ISO_8601),'day')){
+      //  alert("Este viaje ya caducó");
+      //}
+      //else{
         dDate = moment(dDate, moment.ISO_8601).format("YYYY-MM-DD");
         console.log(rDate);
         if (rDate != ''){
@@ -391,7 +397,7 @@ angular.module('app')
               window.alert("No existen viajes para esa fecha");
             }
         });
-      }
+      //}
     };
 
     $scope.$watch('params.departureDate', function(date){
