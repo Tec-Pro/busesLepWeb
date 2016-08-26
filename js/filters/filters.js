@@ -26,7 +26,6 @@ angular.module('app').filter('lepHour', function(){
 angular.module('app').filter('lepDate', function($filter){
 
 	return function(input){
-		console.log(input);
 		if (input == null){
 			return "";
 		}

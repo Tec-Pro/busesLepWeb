@@ -61,9 +61,11 @@ angular.module('app')
     if (lastSearches != null){ // it isn't the first search
       $scope.searches = JSON.parse(lastSearches);
       for (i = 0; i < $scope.searches.length; i++){
-        if(moment().isAfter(moment($scope.searches[i].goingDate, moment.ISO_8601),'day')){
-          $scope.searches.splice(i,1);
-          i--;
+        if($scope.searches[i] != null){
+          if(moment().isAfter(moment($scope.searches[i].goingDate, moment.ISO_8601),'day')){
+            $scope.searches.splice(i,1);
+            i--;
+          }
         }
       } 
     }
@@ -330,7 +332,6 @@ angular.module('app')
       //}
       //else{
         dDate = moment(dDate, moment.ISO_8601).format("YYYY-MM-DD");
-        console.log(rDate);
         if (rDate != ''){
           tripService.setRoundTrip(1);
           rDate = moment(rDate, moment.ISO_8601).format("YYYY-MM-DD");
@@ -390,7 +391,6 @@ angular.module('app')
             if (schedules.length > 0){
               //guardar aca departure-trip
               //tripService.saveDepartureTrip();
-              console.log(schedules);
               tripService.setSchedules(schedules);
               $location.path('/schedules');
             } else {
