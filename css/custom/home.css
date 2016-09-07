@@ -34,8 +34,12 @@
 
 .carousel-control.left, .carousel-control.right {
 	background-image: none;
-	color: grey;
+	color: gray;
 	cursor:	default;
+}
+
+.carousel-control.left:hover, .carousel-control.right:hover {
+	color: red;
 }
 
 .carousel-indicators {
