@@ -33,6 +33,12 @@ angular.module('app')
         $scope.novedades = response;
     });
 
+  if(localStorageService.get("user-lep")){
+    $scope.user = localStorageService.get("user-lep");
+  } else {
+    $scope.user = {dni: "", pass: "", name: "", lastname: "", email: ""};
+  };
+
 	$scope.goCompanyContact = function(){
       companyService.setActiveTab(2);
       companyService.setShowContact(true);

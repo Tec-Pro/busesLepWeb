@@ -192,7 +192,7 @@
 	                </div>
 	            </div>
 	            <div class="text-center col-sm-12 col-lg-5"  >
-	                <div class="row" ng-controller="LoginCtrl" ng-show="user.dni != '' " style="padding-top:10px;margin-left:100px">
+	                <div class="row" ng-controller="LoginCtrl" ng-if="user.dni != '' " style="padding-top:10px;margin-left:100px">
 	                    <div class="col-sm-6 col-md-6">
 	                        <p>Bienvenido, <span class="lepRed-color"><strong>{{user.name}}</strong></span></p>
 	                    </div>
@@ -343,76 +343,97 @@
 	    	<div><br></div>
 	      <!-- footer-->
 				<div id="footer" class="container-fluid lepStyle2" ng-controller="FooterCtrl">
-	      			<div class = "row">
-			        <!-- <div class="col-xs-12 col-sm-3 text-center h4-responsive" style="padding:10px"><strong>Noticias</strong>
-			            <div class=" text-center ">
-			                <ul class="unstyled">
-			                  <li style="list-style-type: none;" ng-repeat="noticia in noticias | limitTo:3">
-			                      <p ng-bind-html="noticia.Texto"></p><br>
-			                  </li>
-			              </ul>
-			            </div>
-			        </div> -->
-			       <!--  <div class="col-xs-12 col-sm-4 text-center h4-responsive" style="padding:10px"><strong>Novedades</strong>
-			            <div class=" text-center ">
-			                <ul class="unstyled">
-			                  <li style="list-style-type: none;" ng-repeat="novedad in novedades | limitTo:3">
-			                      <p>{{novedad.DescNovedad}}</p><br>
-			                  </li>
-			              </ul>
-			            </div>
-			        </div> -->
-			         <div class="col-xs-12 col-sm-4 text-center h4-responsive" style="padding:10px"><strong>Novedades</strong>
-			            <div class=" text-center ">
-			                <div class="unstyled">
-			                  <div style="list-style-type: none;" ng-repeat="novedad in novedades | limitTo:3">
-			                      <p>{{novedad.DescNovedad}}</p><br>
-			                  </div>
-			              </div>
-			            </div>
-			        </div>
-			        <div class="col-xs-12 col-sm-4 text-center h4-responsive" style="padding:10px"><strong>Actualidad</strong>
-			            <div class=" text-center">
-			                <div class="unstyled">
-			                  <div style="list-style-type: none;" ng-repeat="feed in feeds | limitTo:3">
-			                      <a target="_blank" class="small lepGrey-color"href="{{feed.link}}">{{feed.title}}</a><br>
-			                  </div>
-			              </div>
-			            </div>
-			        </div>
-			        <!-- <div class="col-xs-12 col-sm-3 text-center h4-responsive" style="padding:10px">
-			            <div class=" text-center"><br><br>
-			                <p>Temperatura en Cordoba Capital <br>
-			                    <span class="h1-responsive">{{weather.temp}}°</span></p>
-			            </div>
-			        </div> -->
-			        <div class="hidden-xs col-sm-4 text-center h4-responsive" style="padding:10px"><strong>Tu opinión nos interesa...</strong>
-			        	<form ng-submit="sendOpinion()">
-				           <textarea required ng-model="opinion" class="lep-form textarea" style="margin-left:10px"name="Opinion"></textarea>
-				           <button id="enviarBtn"class="btn btn-default lepStyle2"type="submit" style="font-size:0.7em;margin-top:10px;margin-bottom:10px">Enviar</button>
-				       </form>
-			        </div>
-			      </div>
-			      <div class="row lepDarkestGrey-bg lepWhite-color border-bottom-red">
-			        <div class="col-xs-12 col-sm-2 padding-top10" >
-			            <p class="h2-responsive font-arial"><strong>buses Lep</strong></p>
-			        </div>
-			        <div class="col-xs-12 col-sm-10">
-			            <div class="row">
-			                 <div class=" font-normal2 padding-top15 col-sm-3 col-xs-10 h5-responsive">
-			                    <img src="img/Iconos comunes/Icono Celular.png" style="width:12px;height:19px;margin-right:10px"><a href="tel:0351-5696600" style="color:white">0351-5696600</a>, <a href="tel:0358-4219090" style="color:white">0358-4219090</a>
-			                </div>
-			                <div class="font-normal2 padding-top15 col-sm-4 col-xs-10 h5-responsive">
-			                    <img src="img/Iconos comunes/icono posicionamiento pie.png" style="width:15px;height:17px;margin-right:10px;">Andres Dadone 850 - CP(5800) Río Cuarto"
-			                </div>
-			                <div class="font-normal2 padding-top15 col-sm-3 col-xs-10 h5-responsive">
-			                    <img src="img/Iconos comunes/Icono sobre.png" style="width:18px;height:12px;margin-right:10px;"><a href="mailto:expreso@buseslep.com.ar" style="color:white">expreso@buseslep.com.ar</a>
-			                </div>
-			                <div class="col-xs-12 col-sm-1">
-			                   <button class="btn btn-default lepRed-bg lepWhite-color" type="button" style="margin:10px" ng-click="goCompanyContact()">Contacto</button>
-			                </div>
-			            </div>
-			        </div>
+	      			<div class = "row" ng-if="user.dni != '' ">
+				        <!-- <div class="col-xs-12 col-sm-3 text-center h4-responsive" style="padding:10px"><strong>Noticias</strong>
+				            <div class=" text-center ">
+				                <ul class="unstyled">
+				                  <li style="list-style-type: none;" ng-repeat="noticia in noticias | limitTo:3">
+				                      <p ng-bind-html="noticia.Texto"></p><br>
+				                  </li>
+				              </ul>
+				            </div>
+				        </div> -->
+				       <!--  <div class="col-xs-12 col-sm-4 text-center h4-responsive" style="padding:10px"><strong>Novedades</strong>
+				            <div class=" text-center ">
+				                <ul class="unstyled">
+				                  <li style="list-style-type: none;" ng-repeat="novedad in novedades | limitTo:3">
+				                      <p>{{novedad.DescNovedad}}</p><br>
+				                  </li>
+				              </ul>
+				            </div>
+				        </div> -->
+			        	<div class="col-xs-12 col-sm-4 text-center h4-responsive" style="padding:10px"><strong>Novedades</strong>
+				            <div class=" text-center ">
+				                <div class="unstyled">
+				                  <div style="list-style-type: none;" ng-repeat="novedad in novedades | limitTo:3">
+				                      <p>{{novedad.DescNovedad}}</p><br>
+				                  </div>
+				              </div>
+				            </div>
+				        </div>
+				        <div class="col-xs-12 col-sm-4 text-center h4-responsive" style="padding:10px"><strong>Actualidad</strong>
+				            <div class=" text-center">
+				                <div class="unstyled">
+				                  <div style="list-style-type: none;" ng-repeat="feed in feeds | limitTo:3">
+				                      <a target="_blank" class="small lepGrey-color"href="{{feed.link}}">{{feed.title}}</a><br>
+				                  </div>
+				              </div>
+				            </div>
+				        </div>
+				        <!-- <div class="col-xs-12 col-sm-3 text-center h4-responsive" style="padding:10px">
+				            <div class=" text-center"><br><br>
+				                <p>Temperatura en Cordoba Capital <br>
+				                    <span class="h1-responsive">{{weather.temp}}°</span></p>
+				            </div>
+				        </div> -->
+				        <div  class="hidden-xs col-sm-4 text-center h4-responsive" style="padding:10px"><strong>Tu opinión nos interesa...</strong>
+				        	{{user.dni}}
+				        	<form ng-submit="sendOpinion()">
+					           <textarea required ng-model="opinion" class="lep-form textarea" style="margin-left:10px"name="Opinion"></textarea>
+					           <button id="enviarBtn"class="btn btn-default lepStyle2"type="submit" style="font-size:0.7em;margin-top:10px;margin-bottom:10px">Enviar</button>
+					       </form>
+				        </div>
+			    		</div>
+			    		<div class= "row" ng-if="user.dni == ''">
+			    			<div class="col-xs-12 col-sm-6 text-center h4-responsive" style="padding:10px"><strong>Novedades</strong>
+				            <div class=" text-center ">
+				                <div class="unstyled">
+				                  <div style="list-style-type: none;" ng-repeat="novedad in novedades | limitTo:3">
+				                      <p>{{novedad.DescNovedad}}</p><br>
+				                  </div>
+				              </div>
+				            </div>
+				        </div>
+				        <div class="col-xs-12 col-sm-6 text-center h4-responsive" style="padding:10px"><strong>Actualidad</strong>
+				            <div class=" text-center">
+				                <div class="unstyled">
+				                  <div style="list-style-type: none;" ng-repeat="feed in feeds | limitTo:3">
+				                      <a target="_blank" class="small lepGrey-color"href="{{feed.link}}">{{feed.title}}</a><br>
+				                  </div>
+				              </div>
+				            </div>
+				        </div>
+			    		</div>
+				      <div class="row lepDarkestGrey-bg lepWhite-color border-bottom-red">
+				        <div class="col-xs-12 col-sm-2 padding-top10" >
+				            <p class="h2-responsive font-arial"><strong>buses Lep</strong></p>
+				        </div>
+				        <div class="col-xs-12 col-sm-10">
+				            <div class="row">
+				                 <div class=" font-normal2 padding-top15 col-sm-3 col-xs-10 h5-responsive">
+				                    <img src="img/Iconos comunes/Icono Celular.png" style="width:12px;height:19px;margin-right:10px"><a href="tel:0351-5696600" style="color:white">0351-5696600</a>, <a href="tel:0358-4219090" style="color:white">0358-4219090</a>
+				                </div>
+				                <div class="font-normal2 padding-top15 col-sm-4 col-xs-10 h5-responsive">
+				                    <img src="img/Iconos comunes/icono posicionamiento pie.png" style="width:15px;height:17px;margin-right:10px;">Andres Dadone 850 - CP(5800) Río Cuarto
+				                </div>
+				                <div class="font-normal2 padding-top15 col-sm-3 col-xs-10 h5-responsive">
+				                    <img src="img/Iconos comunes/Icono sobre.png" style="width:18px;height:12px;margin-right:10px;"><a href="mailto:expreso@buseslep.com.ar" style="color:white">expreso@buseslep.com.ar</a>
+				                </div>
+				                <div class="col-xs-12 col-sm-1">
+				                   <button class="btn btn-default lepRed-bg lepWhite-color" type="button" style="margin:10px" ng-click="goCompanyContact()">Contacto</button>
+				                </div>
+				            </div>
+				        </div>
 			      </div>
 			      <div class="row lepDarkestGrey-bg lepWhite-color">
 			        <p class="text-center padding-top5"> Copyright <strong>buses Lep 2016</strong> - Todos los derechos reservados</p>
