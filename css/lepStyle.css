@@ -663,7 +663,7 @@ smaller than 650
    /* Modal Content */
   .mercadopago-modal-content {
     background-color: #fefefe;
-      margin: 15% auto; /* 15% from the top and centered */
+      margin: 10% auto; /* 15% from the top and centered */
       padding: 20px;
       border: 1px solid #888;
       width: 90%; /* Could be more or less, depending on screen size */
@@ -706,7 +706,7 @@ smaller than 650
   }
   .mercadopago-modal-content {
     background-color: #fefefe;
-      margin: 15% auto; /* 15% from the top and centered */
+      margin: 10% auto; /* 15% from the top and centered */
       padding: 20px;
       border: 1px solid #888;
       width: 50%; /* Could be more or less, depending on screen size */
@@ -817,7 +817,6 @@ color:#ff0008;
     left: 0;
     top: 0;
     width: 100%; /* Full width */
-    height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
@@ -826,7 +825,7 @@ color:#ff0008;
 /* Modal Content/Box */
 .modal-content {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 10% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
@@ -868,7 +867,7 @@ color:#ff0008;
 .modal-content {
     position: relative;
     background-color: #fefefe;
-    margin: 15% auto;
+    margin: 10% auto;
     padding: 0;
     border: 1px solid #888;
     width: 80%;
@@ -884,11 +883,10 @@ color:#ff0008;
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 20; /* Sit on top */
-    padding-top: 80px; /* Location of the box */
+    padding-top: 0px; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
-    height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.2); /* Black w/ opacity */
