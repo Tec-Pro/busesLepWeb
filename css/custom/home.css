@@ -104,7 +104,8 @@
 	text-align: center;
 	width: 100%;
   height: auto;
-  max-height: 200px;
+  max-height:	700%;
+  z-index: 3;
   overflow-x: hidden;
 }
 
