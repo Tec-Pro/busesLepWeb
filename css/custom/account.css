@@ -6,6 +6,15 @@ input.card-input {
 	color: red;
 }
 
+.acc-prom-table > thead {
+    color: white;
+    background-color: red;
+}
+
+.acc-prom-table > tbody {
+    background-color: white;
+}
+
 .acc-form {
 	  margin-top: 0.5em;
 	  display: block;

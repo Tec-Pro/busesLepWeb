@@ -18,6 +18,11 @@
   <br>
   <br>
   <br>
+  <div class="row">
+    <div class="col-xs-12">
+      <h4>Recuerde que una vez realizado el pago, en el plazo de 48 horas su tarjeta se encontrará cargada.</h4>
+    </div>
+  </div>
   <div class="row lepLightGrey-bg">
     <form class="form-horizontal">
       <div class="form-group">
@@ -83,6 +88,32 @@
       </div>
     </form>` -->
   </div>
+  <div class="row lepLightGrey-bg">
+    <div class="col-xs-12 col-md-6">
+      <div class="table-responsive">
+        <table class="acc-prom-table table table-bordered">
+          <thead>
+            <th>Recarga</th>
+            <th>Bonificación</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Hasta $499</td>
+              <td>%25</td>
+            </tr>
+            <tr>
+              <td>Desde $500 hasta $999</td>
+              <td>%35</td>
+            </tr>
+            <tr>
+              <td>Desde $1000 en adelante</td>
+              <td>%40</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
   <!-- <div class="row">
       <div class="col-md-4"></div>
       <div class = "col-xs-9 col-md-4">
@@ -125,7 +156,7 @@
           <h4>Confirmación</h4>
         </div>
         <div class="modal-body">
-          <p>Usted esta por hacer una recarga en la tarjeta Nro <span><strong>{{card.number}}</strong></span> por un monto de <span><strong>$ {{card.amount}}</strong></span>.<strong>Recuerde que una vez realizado el pago, en el plazo de 48 horas su tarjeta se encontrará cargada.</strong></p>
+          <p>Usted esta por hacer una recarga en la tarjeta Nro <span><strong>{{card.number}}</strong></span> por un monto de <span><strong>$ {{card.amount}}</strong></span> con una bonificación de ${{bonus}}. <strong>Recuerde que una vez realizado el pago, en el plazo de 48 horas su tarjeta se encontrará cargada.</strong></p>
           <button class="btn btn-default lepRed-bg lepWhite-color row-top-margin15" type="button"  ng-click="deposit_to_card(card.number,card.amount)">Confirmar</button>
         </div>
       </div>

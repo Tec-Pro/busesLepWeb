@@ -13,34 +13,52 @@ angular.module('app')
       $location.path( path );
     };
 
+    $scope.bonus = 0;
+
+    var calculate_bonus = function(amount){
+    	if (amount >= 0) {
+    		if (amount <500) {
+    			return ((amount*25)/100)
+    		} else if (amount >= 500 && amount < 1000) {
+    			return ((amount*35)/100)
+    		} else {
+    			return ((amount*40)/100)
+    		}
+    	} 
+    }
+
+    $scope.$watch('card.amount', function(){
+    	$scope.bonus = calculate_bonus($scope.card.amount);
+    });
+
 	$scope.deposit_to_card = function(card, amount){
 		if (amount > 0){
 			var deposit_params = [
 				{
-		      name: "userWS",
-		      type: "string",
-		      value: "UsuarioLep"
-		    },
-		    {
-		      name: "passWS",
-		      type: "string",
-		      value: "Lep1234"
-		    },
-		    {
-		    	name: "NroTarjeta",
-		    	type: "string",
-		    	value: $scope.card.number
-		    },
-		    {
-		    	name: "Monto",
-		    	type: "double",
-		    	value: $scope.card.amount
-		    },
-		    {
-		      name: "id_plataforma",
-		      type: "int",
-		      value: "3"
-		    }
+			      name: "userWS",
+			      type: "string",
+			      value: "UsuarioLep"
+			    },
+			    {
+			      name: "passWS",
+			      type: "string",
+			      value: "Lep1234"
+			    },
+			    {
+			    	name: "NroTarjeta",
+			    	type: "string",
+			    	value: $scope.card.number
+			    },
+			    {
+			    	name: "Monto",
+			    	type: "double",
+			    	value: $scope.card.amount
+			    },
+			    {
+			      name: "id_plataforma",
+			      type: "int",
+			      value: "3"
+			    }
 			];
 			hide_modal();
 			display_loading_modal()
@@ -78,7 +96,7 @@ angular.module('app')
 		} else if ($scope.card.number != parseInt($scope.card.number) || isNaN(parseInt($scope.card.number))) {
 			alert("Por favor, ingrese un número válido de tarjeta.");
 		} else {
-	  	modal.style.display = "block";
+	  		modal.style.display = "block";
 		}
 	}
 
