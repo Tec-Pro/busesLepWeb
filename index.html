@@ -29,6 +29,8 @@
 	  <link rel="stylesheet" type="text/css" href="css/custom/encomiendas.css">
 
 	  <link rel="stylesheet" type="text/css" href="css/custom/ticketOffices.css">
+
+	  <link rel="stylesheet" type="text/css" href="css/custom/schedulesList.css">
 	  <!-- jQuery -->
 	  <script src="js/jquery.js"></script>
 	  <script src="js/jquery.soap.js"></script>
@@ -46,7 +48,7 @@
 	  <script type="text/javascript" src="js/daterangepicker.js"></script>
 	  <script type="text/javascript" src="js/angular-datepicker.min.js"></script>
 	  <script type="text/javascript" src="js/angular-sanitize.min.js"></script>
-
+	  <script type="text/javascript" src="js/ngStorage.js"></script>
 	  <script type="text/javascript" src="js/soapclient.js"></script>
 	  <script type="text/javascript" src="js/angular.soap.js"></script>
 
@@ -272,10 +274,10 @@
 	                    <a ng-show="tab === 5" data-toggle="collapse" data-target=".navbar-collapse" href = "" ng-click="go('/special')"><span class="lepBlue-color"><strong>Viajes Especiales</strong></span></a>
 	                </li>
 	                <li ng-click="tab = 6" ng-show = "user.dni != ''">
-	                    <a ng-hide="tab === 6" data-toggle="collapse" data-target=".navbar-collapse" href = "" ng-click="go('/account/reserves')"><strong>Mi Cuenta</strong></a>
-	                    <a ng-show="tab === 6" data-toggle="collapse" data-target=".navbar-collapse" href = "" ng-click="go('/account/reserves')"><span class="lepBlue-color"><strong>Mi Cuenta</strong></span></a>
+	                    <a ng-hide="tab === 6" data-toggle="collapse" data-target=".navbar-collapse" href = "" ng-click="go('/account')"><strong>Mi Cuenta</strong></a>
+	                    <a ng-show="tab === 6" data-toggle="collapse" data-target=".navbar-collapse" href = "" ng-click="go('/account')"><span class="lepBlue-color"><strong>Mi Cuenta</strong></span></a>
 	                </li>
-	                <li ng-click="tab = 6;BackTo('/account/reserves');" ng-show = "user.dni == ''">
+	                <li ng-click="tab = 6;BackTo('/account');" ng-show = "user.dni == ''">
 	                    <a ng-hide="tab === 6" data-toggle="collapse" data-target=".navbar-collapse" href = "" ng-click="go('/login')"><strong>Mi Cuenta</strong></a>
 	                    <a ng-show="tab === 6" data-toggle="collapse" data-target=".navbar-collapse" href = "" ng-click="go('/login')"><span class="lepBlue-color"><strong>Mi Cuenta</strong></span></a>
 	                </li>
@@ -298,7 +300,7 @@
 	           <ul class="selected nav navbar-nav hidden-xs hidden-sm" >
 	                <li ng-click="tab = 1" >
 	                    <a  ng-hide="tab === 1" href = "" ng-click="go('/company')"><strong>Empresa</strong></a>
-	                    <a  ng-show="tab === 1" href = "" ng-click="go('/company')"><span class="lepBlue-color"><strong>Empresa</strong></span></a>
+	                    <a  ng-show="tab === 1" href = "" ng-click="go('/company')"><span><strong>Empresa</strong></span></a>
 	                </li>
 	                <li ng-click="tab = 2">
 	                    <a  ng-hide="tab === 2" href="" ng-click="go('/tours')"><strong>Recorridos</strong></a>
@@ -317,8 +319,8 @@
 	                    <a  ng-show="tab === 5" href="" ng-click="go('/special')"><span class="lepBlue-color"><strong>Viajes Especiales</strong></span></a>
 	                </li>
 	                <li ng-click="tab = 6" ng-show = "user.dni != ''">
-	                    <a  ng-hide="tab === 6" href="" ng-click="go('/account/reserves')"><strong>Mi Cuenta</strong></a>
-	                    <a  ng-show="tab === 6" href="" ng-click="go('/account/reserves')"><span class="lepBlue-color"><strong>Mi Cuenta</strong></span></a>
+	                    <a  ng-hide="tab === 6" href="" ng-click="go('/account')"><strong>Mi Cuenta</strong></a>
+	                    <a  ng-show="tab === 6" href="" ng-click="go('/account')"><span class="lepBlue-color"><strong>Mi Cuenta</strong></span></a>
 	                </li>
 	                <li ng-click="tab = 6;BackTo('/account/reserves');" ng-show = "user.dni == ''">
 	                    <a  ng-hide="tab === 6" href="" ng-click="go('/login')"><strong>Mi Cuenta</strong></a>
@@ -420,7 +422,16 @@
 				        <div class="col-xs-12 col-sm-10">
 				            <div class="row">
 				                 <div class=" font-normal2 padding-top15 col-sm-3 col-xs-10 h5-responsive">
-				                    <img src="img/Iconos comunes/Icono Celular.png" style="width:12px;height:19px;margin-right:10px"><a href="tel:0351-5696600" style="color:white">0351-5696600</a>, <a href="tel:0358-4219090" style="color:white">0358-4219090</a>
+				                 	<div class="row">
+				                 		<div class="col-xs-12">
+				                    		<img src="img/Iconos comunes/Icono Celular.png" style="width:12px;height:19px;margin-right:10px"><a href="tel:0351-5696600" style="color:white">0351-5696600</a>, <a href="tel:0358-4219090" style="color:white">0358-4219090</a>
+				                    	</div>
+				                    </div>
+				                    <div class="row">
+				                   		<div class="col-xs-5">
+				                    		<img src="img/Iconos comunes/icono whatsapp.png" class="img-responsive" style="width:20px;height:20px;"><span>351-2466600</span>
+				                    	</div>
+				                    </div>
 				                </div>
 				                <div class="font-normal2 padding-top15 col-sm-4 col-xs-10 h5-responsive">
 				                    <img src="img/Iconos comunes/icono posicionamiento pie.png" style="width:15px;height:17px;margin-right:10px;">Andres Dadone 850 - CP(5800) Río Cuarto
