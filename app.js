@@ -1,4 +1,4 @@
-angular.module("app", ["ngRoute","ngAnimate","LocalStorageModule","angularSoap","daterangepicker","ngSanitize"])
+angular.module("app", ["ngRoute","ngAnimate","LocalStorageModule","angularSoap","daterangepicker","ngSanitize", "ngStorage"])
     .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider){
             $routeProvider
                 .when("/", {
@@ -69,12 +69,6 @@ angular.module("app", ["ngRoute","ngAnimate","LocalStorageModule","angularSoap",
                     controller: "MercadopagoController",
                     templateUrl: "views/mercadopago.html"
                 })
-                .when("/userReserves", {
-                    templateUrl: "views/userReserves.html"
-                })
-                .when("/userTickets", {
-                    templateUrl: "views/userTickets.html"
-                })
                 .when("/ticketOffices", {
                     controller: "TicketOfficesController",
                     templateUrl: "views/ticketOffices.html"
@@ -91,29 +85,8 @@ angular.module("app", ["ngRoute","ngAnimate","LocalStorageModule","angularSoap",
                     controller: "EncomController",
                     templateUrl:"views/encomiendas.html"
                 })
-                .when("/account/reserves", {
-                    controller: "ReservesCtrl",
-                    templateUrl: "views/accountReserves.html"
-                })
-                .when("/account/purchases", {
-                    controller: "ReservesCtrl",
-                    templateUrl: "views/accountPurchases.html"
-                })
-                .when("/account/lastsearch", {
-                    controller: "HomeCtrl",
-                    templateUrl: "views/accountSearches.html"
-                })
-                .when("/account/checkbalance", {
-                    controller: "AccBalCtrl",
-                    templateUrl: "views/accountCheckBalance.html"
-                })
-                .when("/account/buycredits", {
-                    controller: "AccDepCtrl",
-                    templateUrl: "views/accountBuyCredits.html"
-                })
-                .when("/account/update", {
-                    controller: "LoginCtrl",
-                    templateUrl: "views/accountUpdate.html"
+                .when("/account", {
+                    templateUrl: "views/account.html"
                 })
                 .otherwise({
                     redirectTo: "/"

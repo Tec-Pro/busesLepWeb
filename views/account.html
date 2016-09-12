@@ -1,0 +1,35 @@
+<div class="acc-container">
+  <div ng-init = "active = 0">
+    <div class="row border-bottom border-top">
+      <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
+      	<a href="" ng-click="active = 0;">Mis <span><strong>Reservas</strong><span></a>
+      </div>
+      <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
+      	<a href="" ng-click="active = 1;">Mis <span><strong >Compras</strong><span></a>
+      </div>
+      <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
+      	<a href="" ng-click="active = 2;">Últimas <span><strong >Búsquedas</strong><span></a>
+      </div>
+      <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
+      	<a href="" ng-click="active = 3;">Consultar <span><strong >Saldo</strong><span></a>
+      </div>
+      <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
+      	<a href="" ng-click="active = 4;">Recargar <span><strong class="lepBlue-color">Saldo</strong><span></a>
+      </div>
+      <div class="col-xs-4 col-sm-2 text-center lep-href lep-margin">
+      	<a href="" ng-click="active = 5;">Modificar <span><strong>Cuenta</strong><span></a>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <div>
+  	<div ng-if="active==0" ng-include="'views/accountReserves.html'"></div>
+  	<div ng-if="active==1" ng-include="'views/accountPurchases.html'"></div>
+  	<div ng-if="active==2" ng-include="'views/accountSearches.html'"></div>
+  	<div ng-if="active==3" ng-include="'views/accountCheckBalance.html'"></div>
+  	<div ng-if="active==4" ng-include="'views/accountBuyCredits.html'"></div>
+  	<div ng-if="active==5" ng-include="'views/accountUpdate.html'"></div>
+  </div>
+</div>

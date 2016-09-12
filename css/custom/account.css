@@ -11,6 +11,10 @@ input.card-input {
     background-color: red;
 }
 
+.acc-content {
+    margin-top: 15px;
+}
+
 .acc-prom-table > tbody {
     background-color: white;
 }

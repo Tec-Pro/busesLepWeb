@@ -1,5 +1,5 @@
-<div class="acc-container">
-  <div>
+<div class="acc-container" ng-controller="AccDepCtrl">
+  <!-- <div>
         <div class="row border-bottom border-top">
           <div class="col-xs-4 col-sm-2 border-right text-center lep-href lep-margin">
           	<a href="" ng-click="go('/account/reserves')">Mis <span><strong>Reservas</strong><span></a></div>
@@ -14,103 +14,102 @@
           <div class="col-xs-4 col-sm-2 text-center lep-href lep-margin">
           	<a href="" ng-click="go('/account/update')">Modificar <span><strong>Cuenta</strong><span></a></div>
         </div>
-  </div>
-  <br>
-  <br>
-  <br>
-  <div class="row">
-    <div class="col-xs-12">
-      <h4>Recuerde que una vez realizado el pago, en el plazo de 48 horas su tarjeta se encontrará cargada.</h4>
+  </div> -->
+  <div>
+    <div class="row">
+      <div class="col-xs-12">
+        <h4>Recuerde que una vez realizado el pago, en el plazo de 48 horas su tarjeta se encontrará cargada.</h4>
+      </div>
     </div>
-  </div>
-  <div class="row lepLightGrey-bg">
-    <form class="form-horizontal">
-      <div class="form-group">
-        <label class="col-xs-offset-1 col-xs-11 col-sm-4 col-md-1 " for="card_input">Número de tarjeta</label>
-        <div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-6 col-md-3">
-          <input type="text" class="form-control acc-form card-input" id="card_input" placeholder="Ingresar Número" ng-model="card.number">
-        </div>
-        <label class="col-xs-offset-1 col-xs-11 col-sm-4 col-md-1" for="amount_input">Monto a recargar</label>
-        <div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-6 col-md-3">
-          <input type="text" class="form-control acc-form card-input" id="amount_input" placeholder="Ingresar Monto" ng-model="card.amount">
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="col-xs-offset-1 col-xs-10 col-sm-offset-2 col-sm-8 col-md-offset-7 col-md-3">
-          <button ng-disabled="card.amount <= 0" id="depositBtn" class="btn btn-default lepRed-bg lepWhite-color btn-block" type="button">Recargar</button>
-        </div>
-      </div>
-    </form>
-    <!-- <div class="col-xs-12">
+    <div class="row lepLightGrey-bg">
       <form class="form-horizontal">
         <div class="form-group">
-          <label class="col-xs-2" for="card_input"><p>Número de Tarjeta</p></label>
-          <input type="text" class="col-xs-10 form-control acc-form card-input" id="card_input" placeholder="Ingresar Número" ng-model="card.number">
+          <label class="col-xs-offset-1 col-xs-11 col-sm-4 col-md-1 " for="card_input">Número de tarjeta</label>
+          <div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-6 col-md-3">
+            <input type="text" class="form-control acc-form card-input" id="card_input" placeholder="Ingresar Número" ng-model="card.number">
+          </div>
+          <label class="col-xs-offset-1 col-xs-11 col-sm-4 col-md-1" for="amount_input">Monto a recargar</label>
+          <div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-6 col-md-3">
+            <input type="text" class="form-control acc-form card-input" id="amount_input" placeholder="Ingresar Monto" ng-model="card.amount">
+          </div>
         </div>
         <div class="form-group">
-          <label class="text-center" for="deposit_amount"><p>Monto a recargar</p></label>
-          <input type="text" class="form-control acc-form card-input" id="deposit_amount" placeholder="Ingresar Monto" required ng-model="card.amount">
-        </div>
-        <button ng-disabled="card.amount <= 0" id="depositBtn" class="btn btn-default lepRed-bg lepWhite-color btn-block" type="button">Recargar</button>
-      </form>
-    </div> -->
-    <!-- `<form>
-      <div class="lepLightGrey-bg col-xs-12 col-sm-4">
-        <div class="row credits-row">
-          <div class="form-group">
-            <div class="col-xs-12 col-sm-6">
-              <p><strong>Número de Tarjeta</strong></p>
-            </div>
-            <div class="col-xs-12 col-sm-6">
-              <input type="text" class="lep-form card-input form-control" id="nroTarjeta" placeholder="Ingresar Nro" name="card-input" ng-model="card.number">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="lepLightGrey-bg col-xs-12 col-sm-4">
-        <div class="row credits-row">
-          <div class="col-xs-12 col-sm-6">
-            <p><strong>Monto a Recargar</strong></p>
-          </div>
-          <div class="col-xs-12 col-sm-6">
-            <input type="text" class="lep-form form-control card-input" id="montoRecarga" placeholder="Ingresar Monto" required ng-model="card.amount"/>
-          </div>
-        </div>
-      </div>
-      <div class="lepLightGrey-bg col-xs-12 col-sm-4">
-        <div class="row credits-row">
-          <div class="col-xs-12 col-sm-6">
+          <div class="col-xs-offset-1 col-xs-10 col-sm-offset-2 col-sm-8 col-md-offset-7 col-md-3">
             <button ng-disabled="card.amount <= 0" id="depositBtn" class="btn btn-default lepRed-bg lepWhite-color btn-block" type="button">Recargar</button>
           </div>
-          <div class="col-xs-12 col-sm-6">
+        </div>
+      </form>
+      <!-- <div class="col-xs-12">
+        <form class="form-horizontal">
+          <div class="form-group">
+            <label class="col-xs-2" for="card_input"><p>Número de Tarjeta</p></label>
+            <input type="text" class="col-xs-10 form-control acc-form card-input" id="card_input" placeholder="Ingresar Número" ng-model="card.number">
+          </div>
+          <div class="form-group">
+            <label class="text-center" for="deposit_amount"><p>Monto a recargar</p></label>
+            <input type="text" class="form-control acc-form card-input" id="deposit_amount" placeholder="Ingresar Monto" required ng-model="card.amount">
+          </div>
+          <button ng-disabled="card.amount <= 0" id="depositBtn" class="btn btn-default lepRed-bg lepWhite-color btn-block" type="button">Recargar</button>
+        </form>
+      </div> -->
+      <!-- `<form>
+        <div class="lepLightGrey-bg col-xs-12 col-sm-4">
+          <div class="row credits-row">
+            <div class="form-group">
+              <div class="col-xs-12 col-sm-6">
+                <p><strong>Número de Tarjeta</strong></p>
+              </div>
+              <div class="col-xs-12 col-sm-6">
+                <input type="text" class="lep-form card-input form-control" id="nroTarjeta" placeholder="Ingresar Nro" name="card-input" ng-model="card.number">
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </form>` -->
-  </div>
-  <div class="row lepLightGrey-bg">
-    <div class="col-xs-12 col-md-6">
-      <div class="table-responsive">
-        <table class="acc-prom-table table table-bordered">
-          <thead>
-            <th>Recarga</th>
-            <th>Bonificación</th>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Hasta $499</td>
-              <td>%25</td>
-            </tr>
-            <tr>
-              <td>Desde $500 hasta $999</td>
-              <td>%35</td>
-            </tr>
-            <tr>
-              <td>Desde $1000 en adelante</td>
-              <td>%40</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="lepLightGrey-bg col-xs-12 col-sm-4">
+          <div class="row credits-row">
+            <div class="col-xs-12 col-sm-6">
+              <p><strong>Monto a Recargar</strong></p>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+              <input type="text" class="lep-form form-control card-input" id="montoRecarga" placeholder="Ingresar Monto" required ng-model="card.amount"/>
+            </div>
+          </div>
+        </div>
+        <div class="lepLightGrey-bg col-xs-12 col-sm-4">
+          <div class="row credits-row">
+            <div class="col-xs-12 col-sm-6">
+              <button ng-disabled="card.amount <= 0" id="depositBtn" class="btn btn-default lepRed-bg lepWhite-color btn-block" type="button">Recargar</button>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+            </div>
+          </div>
+        </div>
+      </form>` -->
+    </div>
+    <div class="row lepLightGrey-bg">
+      <div class="col-xs-12 col-md-6">
+        <div class="table-responsive">
+          <table class="acc-prom-table table table-bordered">
+            <thead>
+              <th>Recarga</th>
+              <th>Bonificación</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Hasta $499</td>
+                <td>25 %</td>
+              </tr>
+              <tr>
+                <td>Desde $500 hasta $999</td>
+                <td>35 %</td>
+              </tr>
+              <tr>
+                <td>Desde $1000 en adelante</td>
+                <td>40 %</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
