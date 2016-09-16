@@ -51,8 +51,13 @@
 }
 
 .comp-text-box {
-    height: 257px;
+
+}
+
+@media (min-width: 768px){
+	.comp-text-box{
     overflow-x: hidden;
+  }
 }
 
 .comp-textarea {

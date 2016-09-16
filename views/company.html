@@ -17,21 +17,36 @@
 	        </div>
     	</div>
 	</div> -->
-	<div ng-if="!show_contact" class="comp-nav row border-bottom border-top">
-		<div class="col-xs-6 col-sm-3 border-right text-center lep-href lep-margin">
-			<a class="comp-ref" href ng-click="set_active(0)"><strong>Historia</strong></a>
+	<div class="hidden-xs"> 
+		<div ng-if="!show_contact" class="comp-nav row border-bottom border-top">
+			<div class="col-sm-3 border-right text-center lep-href lep-margin">
+				<a class="comp-ref" href ng-click="set_active(0)"><strong>Historia</strong></a>
+			</div>
+			<div class="col-sm-3 border-right text-center lep-href lep-margin">
+				<a class="comp-ref" href data-ng-click="set_active(1)"><strong>Nosotros</strong></a>
+			</div>
+			<div class="col-sm-3 border-right text-center lep-href lep-margin">
+				<a class="comp-ref" href ng-click="set_active(2)"><strong>Contacto</strong></a>
+			</div>
+			<div class="col-sm-3 text-center lep-href lep-margin">
+				<a class="comp-ref" href ng-click="set_active(3)"><strong>Unidades</strong></a>
+			</div>
 		</div>
-		<div class="col-xs-6 col-sm-3 border-right text-center lep-href lep-margin">
-			<a class="comp-ref" href data-ng-click="set_active(1)"><strong>Nosotros</strong></a>
-		</div>
-		<div class="col-xs-6 col-sm-3 border-right text-center lep-href lep-margin">
-			<a class="comp-ref" href ng-click="set_active(2)"><strong>Contacto</strong></a>
-		</div>
-		<div class="col-xs-6 col-sm-3 text-center lep-href lep-margin hidden-xs">
-			<a class="comp-ref" href ng-click="set_active(3)"><strong>Unidades</strong></a>
-		</div>
-		<div class="col-xs-6 col-sm-3 border-right text-center lep-href lep-margin visible-xs-block">
-			<a class="comp-ref" href ng-click="set_active(3)"><strong>Unidades</strong></a>
+	</div>
+	<div class="visible-xs-block">
+		<div ng-if="!show_contact" class="comp-nav row border-top">
+			<div class="col-xs-6 border-right border-bottom text-center lep-href lep-margin">
+				<a class="comp-ref" href ng-click="set_active(0)"><strong>Historia</strong></a>
+			</div>
+			<div class="col-xs-6 border-right border-bottom text-center lep-href lep-margin">
+				<a class="comp-ref" href data-ng-click="set_active(1)"><strong>Nosotros</strong></a>
+			</div>
+			<div class="col-xs-6 border-right border-bottom text-center lep-href lep-margin">
+				<a class="comp-ref" href ng-click="set_active(2)"><strong>Contacto</strong></a>
+			</div>
+			<div class="col-xs-6 border-right border-bottom text-center lep-href lep-margin">
+				<a class="comp-ref" href ng-click="set_active(3)"><strong>Unidades</strong></a>
+			</div>
 		</div>
 	</div>
 	<br>
@@ -40,19 +55,19 @@
 		<div class="col-xs-12">
 			<div data-ng-hide="active != 0" class="history-content">
 				<div class="row">
-					<div class="col-xs-12 col-sm-7 border-bottom border-top border-left border-right comp-text-box">
+					<div class="col-xs-12 col-md-7 border-bottom border-top border-left border-right comp-text-box">
 						<p>
 							Somos una empresa dedicada al servicio de transporte de pasajeros que nació en el año 1993. Por aquellos tiempos todo comenzó con algunas vagas ideas que paulatinamente se fueron transformando en hechos concretos. En nuestros inicios contábamos con pequeñas unidades que trasladaban a sólo 10 personas pero, poco a poco y sobrellevando muchas dificultades, logramos posicionarnos en un lugar privilegiado en el mercado y mantenemos un crecimiento sostenido. Hoy nuestra flota, de modernas unidades, está compuesta por más de 110 buses de medio y gran porte, con capacidad máxima de 48 asientos. Ofrecemos un servicio distintivo, completo y competitivo con conceptos claros en materia de atención y confort. Este ascenso permanente hace que busquemos, constantemente, maneras de superarnos para que nuestros clientes elijan día a día como medio de transporte rápido, cómodo y seguro. Las mejoras se reflejan en renovaciones de flotas y mayores beneficios para nuestros clientes, manteniendo nuestro contacto permanente con cada uno de ellos, cosa que nos caracterizó desde el principio, y lo cual nos llevó a mejorar día a día. Actualmente conectamos más de 70 localidades de la Provincia de Córdoba, y contamos con 32 boleterías al servicio del pasajero.
 						</p>
 					</div>
-					<div class="col-xs-12 col-sm-5">
+					<div class="col-xs-12 col-md-5">
 						<img class="img-responsive" src="./img/company/history.png">
 					</div>
 				</div>
 			</div>
 			<div data-ng-hide="active != 1" class="about-us-content">
 				<div class="row">
-					<div class="col-xs-12 col-sm-7 border-bottom border-top border-left border-right comp-text-box">
+					<div class="col-xs-12 col-md-7 border-bottom border-top border-left border-right comp-text-box">
 						<p>
 							Somos una empresa Argentina que invierte en el país, que adquiere y pone al servicio del cliente las últimas tecnologías, procurando brindarle calidad, rapidez, seguridad y confort.
 							Ser sinónimo de transporte de pasajeros y mantener el posicionamiento obtenido a lo largo de la historia nos compromete a seguir aggiornándonos a los nuevos tiempos, incorporar e implementar constantemente nuevos servicios y tecnologías.
@@ -60,7 +75,7 @@
 							Paralelamente desarrollamos de manera continua nuevas promociones e incentivos para que los pasajeros puedan acceder a nuestros servicios y así elegir viajar con comodidad y seguridad.
 						</p>
 					</div>
-					<div class="col-xs-12 col-sm-5">
+					<div class="col-xs-12 col-md-5">
 						<img class="img-responsive" src="./img/company/about_us.png">
 					</div>
 				</div>
@@ -163,12 +178,12 @@
 			<div data-ng-hide="active != 3" class="units-content">
 				<div class="row border-top">
 					<br>
-					<div class="col-xs-12 col-sm-4">
+					<div class="col-xs-12 col-md-4">
 						Contamos con una flota de última generación, totalmente equipada para que disfrutes del viaje que hagas.
 						<br>
 						<strong>Confort, tecnología y seguridad</strong> son los pilares de nuestro crecimiento.
 					</div>
-					<div class="hidden-xs col-sm-8">
+					<div class="hidden-xs hidden-sm col-md-8">
 						<div class="row">
 							<div class="col-xs-1">
 								<input class="comp-gall-nav-btn" type="image" src="./img/company/left_button.png" data-ng-click="active_gall_thmb_left()"></input>
@@ -183,7 +198,7 @@
 						<br>
 						<div class="row">
 							<div class="col-xs-offset-9 col-xs-1">
-								<button class="btn comp-btn" id="comp-gall-btn">Galería <img class="sp-gall-icon" src="./img/company/gallery.png"></button>
+								<button class="btn comp-btn" id="comp-gall-btn"><img class="sp-gall-icon" src="./img/company/gallery.png"></button>
 							</div>
 						</div>
 					</div>
@@ -217,7 +232,7 @@
 							</div>
 						</div>
 						<div class="row comp-units-content">
-							<div data-ng-hide="active_unit_tab != 0" class="col-xs-11 col-xs-offset-1">
+							<div data-ng-hide="active_unit_tab != 0" class="col-xs-11 col-xs-offset-1 col-sm-offset-0">
 								<div class="row">
 									<div class="col-xs-12 col-md-3">
 										<p>
@@ -226,20 +241,20 @@
 									</div>
 									<div class="col-xs-12 col-md-9">
 										<div class="row">
-											<div class="col-xs-12 col-md-4">
+											<div class="col-xs-12 col-sm-4">
 												<img class="img-responsive" src="./img/company/confort1.png">
 											</div>
-											<div class="col-xs-12 col-md-4">
+											<div class="col-xs-12 col-sm-4">
 												<img class="img-responsive" src="./img/company/confort2.png">
 											</div>
-											<div class="col-xs-12 col-md-4">
+											<div class="col-xs-12 col-sm-4">
 												<img class="img-responsive" src="./img/company/confort3.png">
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-							<div data-ng-hide="active_unit_tab != 1" class="col-xs-11 col-xs-offset-1">
+							<div data-ng-hide="active_unit_tab != 1" class="col-xs-11 col-xs-offset-1 col-sm-offset-0">
 								<div class="row">
 									<div class="col-xs-12 col-md-4">
 										Innovamos constantemente para facilitar al pasajero un viaje más cómodo y seguro. Somos los primeros en implementar el sistema de tarjeta electrónica, donde el usuario puede realizar la carga de la misma en boletería y utilizarla a cualquier destino de buses Lep.
@@ -247,26 +262,26 @@
 										Tenemos un novedoso sistema de seguimiento de vehículos instalado en cada sala de espera, para que sepas en tiempo real a qué hora llega aquel que estás esperando.
 										Además todas las unidades cuentan con sistema de video y sonido y están perfectamente climatizadas en cualquier época del año.
 									</div>
-									<div class="col-xs-12 col-md-4">
+									<div class="col-xs-12 col-sm-6">
 										<img class="img-responsive" src="./img/company/technology1.png">
 									</div>
-									<div class="col-xs-12 col-md-4">
+									<div class="col-xs-12 col-sm-6">
 										<img class="img-responsive" src="./img/company/technology2.png">
 									</div>
 								</div>
 							</div>
-							<div data-ng-hide="active_unit_tab != 2" class="col-xs-11 col-xs-offset-1">
+							<div data-ng-hide="active_unit_tab != 2" class="col-xs-11 col-xs-offset-1 col-sm-offset-0">
 								<div class="row">
 									<div class="col-xs-12 col-md-3">
 										Todas las unidades cuentan con sistema vigía que regula y mantiene la correcta presión de los neumáticos; también son monitoreadas con seguimiento satelital que nos avisa en tiepo real cualquier situación meteorológica o mecánica improvista.
 									</div>
-									<div class="col-xs-12 col-md-3">
+									<div class="col-xs-12 col-sm-4">
 										<img class="img-responsive" src="./img/company/security1.png">
 									</div>
-									<div class="col-xs-12 col-md-3">
+									<div class="col-xs-12 col-sm-4">
 										<img class="img-responsive" src="./img/company/security2.png">
 									</div>
-									<div class="col-xs-12 col-md-3">
+									<div class="col-xs-12 col-sm-4">
 										<img class="img-responsive" src="./img/company/security3.png">
 									</div>
 								</div>
