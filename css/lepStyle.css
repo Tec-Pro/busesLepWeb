@@ -221,6 +221,13 @@ body {
     color: white;
 }
 
+.tour-title {
+  font-weight: bold;
+}
+.bg-tour {
+  background-color: #cccccc;
+}
+
 .background-lightgrey3{
   background: #F8F8F8;
 }
