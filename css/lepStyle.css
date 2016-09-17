@@ -414,16 +414,34 @@ div.card5{
 }
 
 
-
 .lep-navbar .navbar-header {
   width: 250%;
   background-color: inherit;
 }
 
+.lep-navbar {
+  width: 50%;
+  margin-left: 0%;
+  margin-top: 1%;
+}
+
+@media (min-width: 360px){
+  .lep-navbar{
+    margin-top: auto;
+  }
+}
+
+
 @media (min-width: 768px) {
   .navbar.navbar-default .navbar-nav li a {
     padding-top: 2%;
     padding-bottom: 2%;
+  }
+
+  .lep-navbar {
+    margin-top: auto;
+    margin-left: auto;
+    width: 100%;
   }
 }
 
@@ -433,10 +451,6 @@ div.card5{
     padding-bottom: 5px;
     line-height: 10px;
     border-bottom: none;
-  }
-
-  .lep-navbar {
-    width: 100%;
   }
 
   .lep-navbar .navbar-header {
@@ -983,4 +997,9 @@ color:#ff0008;
 
 .travel-modal {
 	width: 50%;
+}
+
+.active-link  {
+  background-color: red;
+  color: #444484;
 }
