@@ -41,10 +41,6 @@ angular.module('app').controller('ToursController', ['$scope', '$location', '$an
 	$scope.hide_modal = function(){
       pic_modal.style.display = "none";
     }
-  	/*$scope.tours = [
-	    { origin: 'Cordoba', destination: 'Sta Rosa de Calamuchita', 'cities':[{name: "Va. Gral Belgrano"}]},
-	    { origin: 'Sta Rosa de Calamuchita', destination: 'Amancay', 'cities':[{name: "El torreon"}, {name: "San Ignacio"}, {name: "Amboy"}]},
-	    { origin: 'Va. Gral Belgrano', destination: 'Va. Ciudad Parque', 'cities':[{name: "Los Reartes"}]},
-  	];*/
+
 
  }]);
