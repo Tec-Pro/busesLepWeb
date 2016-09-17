@@ -120,9 +120,15 @@ angular.module('app')
   }
 
   $scope.load_origins = function(){
+
     $scope.origin_search = '';
     $scope.destination_search = '';
     $scope.destinations = '';
+    if($window.innerWidth >= 768){
+      $anchorScroll('sticky-element');
+    } else {
+      $anchorScroll('search-container');
+    }
     //Call the web service and update the origins from the scope.
     if ($scope.origins.length == 0){
       display_modal();
@@ -140,6 +146,15 @@ angular.module('app')
     }
   };
 
+  var origin_dropdown = angular.element(document.querySelector('#origin'));
+  
+  $scope.$watch('origin_search', function(){
+    if($scope.origin_search.length == 1){
+      console.log(origin_dropdown);
+      console.log(origin_dropdown.dropdown());
+      origin_dropdown.dropdown();
+    } 
+  });
     //Function that check the availables destinations whenever the trip origin changes.
     $scope.checkDestinations = function(origin){
         $scope.params.origin = origin;
