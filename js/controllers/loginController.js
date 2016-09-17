@@ -48,10 +48,10 @@ angular.module('app')
    }
     $scope.go = function ( path ) {
       if(path === '/company'){
-        console.log("Hello");
         companyService.setActiveTab(0);
         companyService.setShowContact(false);
       }
+      $location.search('packid',null);
       $location.path( path );
     };
 
