@@ -1,0 +1,23 @@
+.travel-list{
+    list-style: none;
+    padding:0;
+    margin:0;
+}
+
+.travel-item { 
+    padding-left: 1em; 
+    text-indent: -.7em;
+}
+
+.travel-item:before {
+    content:'';
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border: 3px solid;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.travel-list >:first-child:before{
+}
