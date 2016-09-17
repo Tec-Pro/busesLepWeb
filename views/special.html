@@ -12,20 +12,20 @@
 				<div class="hidden-xs col-md-9 border-bottom">
 					<div class="row">
 						<div class="col-xs-1">
-							<input class="sp-gall-nav-btn" type="image" src="./img/special/left_button.png" data-ng-click="active_gall_thmb_left()"></input>
+							<input class="sp-nav-btn" type="image" src="./img/special/left_button.png" data-ng-click="active_gall_thmb_left()"></input>
 						</div>
 						<div data-ng-repeat="image in gallery_images track by $index" class="col-xs-2">
 							<input type="image" data-ng-mouseover="set_active_gall_thmb($index)" data-ng-click="open_image()" data-ng-src="{{image.source}}" data-ng-class="{'comp-gall-wrap': active_gall_thmb != $index}" class="sp-gall-img img-responsive"></input>
 						</div>
 						<div class="col-xs-1">
-							<input class="sp-gall-nav-btn" type="image" src="./img/special/right_button.png" data-ng-click="active_gall_thmb_right()"></input>
+							<input class="sp-nav-btn" type="image" src="./img/special/right_button.png" data-ng-click="active_gall_thmb_right()"></input>
 						</div>
 					</div>
 					<br>
 					<div class="row">
 						<div class="col-xs-offset-10 col-xs-1">
 							<!-- Trigger/Open The Modal -->
-							<button class="btn sp-btn" id="sp-modal-btn">Galería <img class="sp-gall-icon" src="./img/company/gallery.png"></button>
+							<button class="btn sp-btn" id="sp-modal-btn"><img class="sp-gall-icon" src="./img/company/gallery.png"></button>
 						</div>
 					</div>
 				</div>

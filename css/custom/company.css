@@ -11,10 +11,16 @@
 .comp-contact-link-row {
 	margin-top: 3%;
 }
-.comp-gall-nav-btn{
+
+.comp-nav-btn{
+	max-height: 25px;
+	margin-top: 50px;
+}
+
+.comp-gall-nav-btn {
 	max-height: 25px;
 	margin-top: 150px;
-}
+};
 
 .comp-right-arrow {
 	max-height: 30px;

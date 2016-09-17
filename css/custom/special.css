@@ -37,10 +37,16 @@
 	resize: none;
 }
 
-.sp-gall-nav-btn{
-	max-height: 25px;
-	margin-top: 150px;
+.sp-nav-btn{
+    max-height: 25px;
+    margin-top: 50px;
 }
+
+.sp-gall-nav-btn {
+    max-height: 25px;
+    margin-top: 150px;
+};
+
 
 /* Modal Content */
 .sp-modal-content {
