@@ -16,6 +16,7 @@ angular.module('app').controller('ToursController', ['$scope', '$location', '$an
 	];
 
 	$scope.tours = [];
+	$scope.picture = "";
 	wsService.callService(wsdl_url, "", "Destinos", toursParams).then(function(response){
 
 		for (var i = 0; i < response.length; i++) {
@@ -31,8 +32,9 @@ angular.module('app').controller('ToursController', ['$scope', '$location', '$an
 
 	var pic_modal = document.getElementById('pic_modal');
   	$scope.showPicture =  function(picture){
+  		//console.log(picture);	
+  		$scope.picture = picture;
   		pichtml = document.getElementById('pic');
-  		pichtml.src = picture;
   		pic_modal.style.display = "block";
     };
 
