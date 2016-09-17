@@ -1,4 +1,4 @@
-angular.module('app').filter('lepDateYear', function($filter){
+angular.module('app').filter('lepDateYear', ["$filter",function($filter){
 	
 	return function(input){
 		if (input == null) {
@@ -8,9 +8,9 @@ angular.module('app').filter('lepDateYear', function($filter){
 		return _date.toUpperCase();
 	}
 	
-});
+}]);
 
-angular.module('app').filter('lepHour', function(){
+angular.module('app').filter('lepHour',[function(){
 	
 	return function(input){
 		//console.log(input);
@@ -21,9 +21,9 @@ angular.module('app').filter('lepHour', function(){
 		//console.log(_hour);
 		return _hour.toUpperCase();
 	}
-});
+}]);
 
-angular.module('app').filter('lepDate', function($filter){
+angular.module('app').filter('lepDate', ["$filter", function($filter){
 
 	return function(input){
 		if (input == null){
@@ -32,9 +32,9 @@ angular.module('app').filter('lepDate', function($filter){
 		var _date = moment(input).format("DD/MM/YYYY HH:mm");
 		return _date.toUpperCase();
 	}
-})
+}]);
 
-angular.module('app').filter('lepDateMonth', function($filter){
+angular.module('app').filter('lepDateMonth', ["$filter", function($filter){
 	
 	return function(input){
 		if (input == null) {
@@ -47,12 +47,12 @@ angular.module('app').filter('lepDateMonth', function($filter){
 		return _date.toUpperCase();
 	}
 	
-});
+}]);
 
-angular.module('app').filter('capitalize', function($filter){
+angular.module('app').filter('capitalize', ["$filter", function($filter){
 	
 	 return function(input) {
       return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
     }
 	
-});
+}]);
