@@ -37,7 +37,7 @@
 												<div class="dropdown">
 													<input type="text" name="dropdown-toggle" ng-click="destination_search=''" data-ng-model=destination_search placeholder="Ciudad Destino" ng-disabled = "params.origin === ''" class="btn btn-default search-menu-button dropdown-toggle" id="destination" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true" required autocomplete="off">
 													<ul class="dropdown-menu search-menu-items" aria-labelledby="origin">
-														<li><a href class="search-menu-item" data-ng-repeat="destination in destinations | filter:destination_search" data-ng-click="setDestinationData(destination)">{{destination.hasta}}</a></li>
+														<li><a href ng-class-even="'background-lightgrey2'" ng-class-odd="'background-lightgrey3'" class="search-menu-item" data-ng-repeat="destination in destinations | filter:destination_search" data-ng-click="setDestinationData(destination)">{{destination.hasta}}</a></li>
 													</ul>
 												</div>
 												<!-- <select class="search-text form-control" name="destination" id="destination" data-ng-model="params.destination" data-ng-disabled="destinationDisabled" data-ng-options="destination as destination.hasta for destination in destinations" data-ng-change="setDestinationData()" required>
