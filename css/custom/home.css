@@ -107,6 +107,11 @@
   max-height:	700%;
   z-index: 3;
   overflow-x: hidden;
+
+}
+
+.dropdown-menu > li > a.search-menu-item {
+  border-bottom: 1px solid #cccccc;
 }
 
 .dropdown-menu > li > a.search-menu-item:hover {

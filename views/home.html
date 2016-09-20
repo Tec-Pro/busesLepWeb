@@ -20,7 +20,7 @@
 														{{params.origin_name}}
 													</button> -->
 													<ul class="dropdown-menu dropdown-menu-right search-menu-items" aria-labelledby="origin">
-														<li><a href class= "search-menu-item" data-ng-repeat="origin in origins | filter:origin_search" data-ng-click="checkDestinations(origin)">{{origin.Localidad}}</a></li>
+														<li><a href ng-class-even="'background-lightgrey2'" ng-class-odd="'background-lightgrey3'" class= "search-menu-item" data-ng-repeat="origin in origins | filter:origin_search" data-ng-click="checkDestinations(origin)">{{origin.Localidad}}</a></li>
 													</ul>
 												</div>
 												<!-- <label class="sr-only" for="origin">Origen:</label>
