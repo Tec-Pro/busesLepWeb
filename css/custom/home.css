@@ -105,12 +105,14 @@
 	width: 100%;
   height: auto;
   max-height:	700%;
-  z-index: 3;
+  z-index: 993;
   overflow-x: hidden;
 
 }
 
 .dropdown-menu > li > a.search-menu-item {
+	padding-top: 2%;
+	padding-bottom: 2%;
   border-bottom: 1px solid #cccccc;
 }
 
