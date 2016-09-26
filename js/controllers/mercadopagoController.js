@@ -283,7 +283,6 @@ angular.module('app')
 
 	function sdkResponseHandler(status, response) {
 	    if (status != 200 && status != 201) {
-	    	console.log(response);
 	    	document.getElementById("error-modal-text").innerHTML = "Datos Incorrectos";
 		    error_modal.style.display = "block";
 	    }else{
@@ -309,7 +308,6 @@ angular.module('app')
 	        				transaction_amount: parseInt($scope.totalAmount)
 	        	}
 	        } else if (tripService.getPurchaseOrigin() == "1") {
-	        	console.log(idventa);
 	        	var datosCompra = {description:"precarga tarjeta", 
 	        				external_reference: "recarga:"+idventa,
 	        				installments: parseInt(cuotas),

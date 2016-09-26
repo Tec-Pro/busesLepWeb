@@ -145,8 +145,7 @@ angular.module('app')
       });
     }
   };
-
-  var origin_dropdown = angular.element(document.querySelector('#origin'));
+  /*var origin_dropdown = angular.element(document.querySelector('#origin'));
   
   $scope.$watch('origin_search', function(){
     if($scope.origin_search.length == 1){
@@ -154,7 +153,7 @@ angular.module('app')
       console.log(origin_dropdown.dropdown());
       origin_dropdown.dropdown();
     } 
-  });
+  });*/
     //Function that check the availables destinations whenever the trip origin changes.
     $scope.checkDestinations = function(origin){
         $scope.params.origin = origin;
@@ -447,4 +446,6 @@ angular.module('app')
     var hide_modal = function(){
       modal.style.display = "none";
     }
+
+    $scope.load_origins();
 }]);
