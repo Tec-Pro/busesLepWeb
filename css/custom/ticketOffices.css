@@ -1,4 +1,4 @@
-.to-info-container {
+/*.to-info-container {
 	overflow:auto;
 }
 
@@ -14,8 +14,14 @@
 		min-height: 300px;
 		max-height: 400px;
 	}
-}
+}*/
 
 .to-img-container {
+	background-color: #ccc;
 	margin-top:15%; 
+}
+
+.office-row {
+	padding-top: 2%;
+	padding-bottom: 2%; 
 }
