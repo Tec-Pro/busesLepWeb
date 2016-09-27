@@ -16,9 +16,39 @@
 	}
 }*/
 
-.to-img-container {
-	background-color: #ccc;
-	margin-top:15%; 
+.fixed-img {
+	position: fixed;
+	margin-left: 65%;
+	margin-top: -10%;
+}
+
+.absolute-img {
+	position: absolute;
+	margin-left: 65%;
+	margin-top: auto;
+}
+
+.absolute-img-bottom {
+	margin-top: 130%;
+}
+
+@media only screen and (min-width: 1768px){
+	#img-container {
+		width: 16.6%;
+	}
+
+	.fixed-img {
+		margin-left: 45%;
+		margin-left: -5%;
+	}
+
+	.absolute-img {
+		margin-left: 45%;
+	}
+
+	.absolute-img-bottom{
+		margin-top: 85%;
+	}
 }
 
 .office-row {

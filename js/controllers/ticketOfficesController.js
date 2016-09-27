@@ -17,10 +17,17 @@ angular.module('app').controller('TicketOfficesController', ['$scope', '$locatio
 		}
 	];
 
+	var rect = document.getElementById("footer").getBoundingClientRect();
+	var image_container = document.getElementById("img-container").getBoundingClientRect();
+	var body = document.getElementsByTagName("BODY")[0];
+
 	$scope.ticketOffices = [];
 
 	wsService.callService(wsdl_url, urn, method, ticketOfficesParams).then(function(offices){
 		$scope.ticketOffices = offices;
+		var rect = document.getElementById("footer").getBoundingClientRect();
+		var image_container = document.getElementById("img-container").getBoundingClientRect();
+		var body = document.getElementsByTagName("BODY")[0];
 	});
 
   	$scope.selectedImg = "img/Boleterias/EjemploFotoBoleteria.png";
@@ -60,5 +67,17 @@ angular.module('app').controller('TicketOfficesController', ['$scope', '$locatio
 	$scope.hide_modal = function(){
       map_modal.style.display = "none";
     }
-  	
+  
+	window.onscroll = function(){
+		reposition();
+	}
+	function reposition() {
+		if (window.scrollY + window.innerHeight > body.offsetHeight - (rect.height )){
+			document.getElementById('img-container').className = 'col-md-offset-1 col-md-3 hidden-xs hidden-sm absolute-img absolute-img-bottom';
+		} else if (window.scrollY > image_container.y -100) {
+			document.getElementById('img-container').className = 'col-md-offset-1 col-md-3 hidden-xs hidden-sm fixed-img';
+		} else {
+			document.getElementById('img-container').className = 'col-md-offset-1 col-md-3 hidden-xs hidden-sm absolute-img';
+		}
+	}
 }]);

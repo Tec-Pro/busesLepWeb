@@ -1,94 +1,76 @@
-<div>
-    <div class="col-sm-4 col-md-4 col-lg-4 hidden-xs"></div>
-    <div class = "col-xs-12"> <br></div>
-
-    <!-- information card -->
-    <div class = "card2 col-xs-12 col-sm-8 col-md-8 col-lg-8 to-info-container">
-        <div class = "col-xs-12"> <br></div>
-
-        <div class = "col-xs-12 no-mar-pad-bor">
-            <div class = "col-xs-11 lepLightGrey-bg hidden-xs">
-                <div class = "col-xs-4 ">
-                  <h5 class = "no-mar-pad-bor no-bold title">Localidad</h5>
-                </div>
-                <div class = "col-xs-4">
-                  <h5 class = "no-mar-pad-bor no-bold title">Direccion</h5>
-                </div>
-                <div class = "col-xs-4">
-                  <h5 class = "no-mar-pad-bor no-bold title">Telefono</h5>
-                </div>
-            </div>
-            <div class = "col-xs-1 hidden-xs">
-                
-            </div>
-
-            <!-- xs only -->
-            <div class = "col-xs-12 lepLightGrey-bg visible-xs">
-                <div class = "col-xs-12 ">
-                  <h5 class = "no-mar-pad-bor no-bold title">Boleterias</h5>
-                </div>
-            </div>
-        </div>
-
-        <div class = "col-xs-12"> <br></div>
-        <div ng-repeat="office in ticketOffices">
-
-            <!-- sm-md-lg -->
-            <div class = "col-xs-12 no-mar-pad-bor hidden-xs">
-                <div class = "col-xs-11 card3 no-mar-pad-bor" ng-class-odd="'background-lightgrey3'" ng-class-even="" >
-                    <div class = "col-xs-12 no-mar-pad-bor" style="cursor:pointer" ng-class="{'card4':$index == selectedRow}" ng-click="setClickedRow($index)">
-                        <div class = "col-xs-4">
-                          <h5 class = "title ">{{office.Localidad}}</h5>
-                        </div>
-                        <div class = "col-xs-4">
-                          <h5 class = "title" ng-class="{'lepBlue-color':$index == selectedRow}">{{office.Boleteria_Ubicacion}}</h5>
-                        </div>
-                        <div class = "col-xs-4">
-                          <h5 class = "title"><a ng-href="tel:{{office.Boleteria_Telefono}}">{{office.Boleteria_Telefono}}</a></h5>
-                        </div>
-                    </div>
-                </div>
-                <div class = "col-xs-1">
-                    <img ng-click="showMap(office.latitud, office.longitud)" class = "map-img center-block" style = "height:22px; width:15px; cursor: pointer;" ng-src="img/Posicionamiento.png" alt="">
-                </div>
-            </div>
-
-            <!-- xs -->
-            <div class = "col-xs-12 no-mar-pad-bor visible-xs card3" ng-class-odd="'background-lightgrey3'" ng-class-even="" >   
-                <div class = "col-xs-10 no-mar-pad-bor">          
-                    <div class = "col-xs-12">
-                      <h5 class = "text-left">{{office.Localidad}}</h5>
-                    </div>
-                    <div class = "col-xs-12">
-                      <h5 class = "text-left"> Dir: {{office.Boleteria_Ubicacion}}</h5>
-                    </div>
-                    <div class = "col-xs-12">   
-                        <h5 class = "text-left"> <a ng-href="tel:{{office.Boleteria_Telefono}}">Tel: {{office.Boleteria_Telefono}}</a></h5>
-                    </div>
-                </div> 
-                <div class = "col-xs-2 no-mar-pad-bor">
-                   <img ng-click="showMap(office.latitud, office.longitud)" class = "map-img center-block" style = "height:22px; width:15px; margin-top:45px; cursor: pointer;" ng-src="img/Posicionamiento.png" alt="">
-                </div>
-            </div>
-        </div>
-        <div class = "col-xs-12"> <br></div>
-    </div>
-    <!-- End information card -->
-    <div class="col-sm-1 col-md-1 col-lg-1 hidden-xs"></div>
-    <!-- ticket office image -->
-    <div class="hidden-xs col-sm-3 col-md-3 col-lg-3 to-img-container" >
-        
-        <img class = "center-block img-responsive center-vertically" style = "width:100%;" ng-src="{{selectedImg}}" alt="" ng-cloak>
-        
-    </div>
-
-    <!-- Map Modal -->
-      <div id="map-modal" class="mercadopago-modal">
-        <!-- Modal content -->
-        <div class="mercadopago-modal-content">         
-            <div id="googleMap" style="width:100%;height:300px;"></div> 
-            <br>
-             <button type="button" class="btn btn-large btn-danger lepStyleRed center-block" ng-click="hide_modal()">Cerrar</button>   
-        </div>
-      </div>
+<div id="view-container" class="row">
+	<div class="col-xs-12 col-md-8">
+		<div class="row visible-xs-block">
+			<div class="col-xs-12 lepLightGrey-bg">
+				<h5 class="text-center">Boleterías</h5>
+			</div>
+		</div>
+		<div class="row lepLightGrey-bg hidden-xs">
+			<div class="col-sm-3">
+				<h5 class="text-center">Localidad</h5>
+			</div>
+			<div class="col-sm-3">
+				<h5 class="text-center">Dirección</h5>
+			</div>
+			<div class="col-sm-3">
+				<h5 class="text-center">Teléfono</h5>
+			</div>
+			<div class="col-sm-3">
+				<h5 class="text-center">Ubicación</h5>
+			</div>
+		</div>
+		<div class="row text-center office-row" ng-repeat="office in ticketOffices" ng-class-odd="'background-lightgrey3'" ng-class="{'background-lightgrey2':$index == selectedRow}" ng-click="setClickedRow($index)" style="cursor:pointer">
+			<div class="visible-xs-block">
+				<div class="col-xs-12">
+					<div class="row">
+						<div class="col-xs-6">
+							{{office.Localidad}}
+						</div>
+						<div class="col-xs-6">
+							{{office.Boleteria_Ubicacion}}
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12">
+					<div class="row">
+						<div class="col-xs-6">
+							<a ng-href="tel:{{office.Boleteria_Telefono}}" style="color:#666666">
+							{{office.Boleteria_Telefono}}</a>
+						</div>
+						<div class="col-xs-6">
+							<img ng-click="showMap(office.latitud, office.longitud)" class = "map-img center-block" style = "height:22px; width:15px; cursor: pointer;" ng-src="img/Posicionamiento.png" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="hidden-xs">
+				<div class="col-sm-3">
+					{{office.Localidad}}
+				</div>
+				<div class="col-sm-3">
+					{{office.Boleteria_Ubicacion}}
+				</div>
+				<div class="col-sm-3">
+					<a ng-href="tel:{{office.Boleteria_Telefono}}" style="color:#666666">
+							{{office.Boleteria_Telefono}}</a>
+				</div>
+				<div class="col-sm-3">
+					<img ng-click="showMap(office.latitud, office.longitud)" class = "map-img center-block" style = "height:22px; width:15px; cursor: pointer;" ng-src="img/Posicionamiento.png" alt="">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="img-container" class="col-md-offset-1 col-md-3 hidden-xs hidden-sm absolute-img">     
+    <img class = "img-responsive" ng-src="{{selectedImg}}" alt="" ng-cloak>
+	</div>
+	<!-- Map Modal -->
+  <div id="map-modal" class="mercadopago-modal">
+  <!-- Modal content -->
+  	<div class="mercadopago-modal-content">         
+      <div id="googleMap" style="width:100%;height:300px;"></div> 
+    	<br>
+     	<button type="button" class="btn btn-large btn-danger lepStyleRed center-block" ng-click="hide_modal()">Cerrar</button>   
+		</div>
+	</div>
 </div>
+	
