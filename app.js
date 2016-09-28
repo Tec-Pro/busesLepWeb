@@ -88,7 +88,7 @@ angular.module("app", ["ngRoute","ngAnimate","LocalStorageModule","angularSoap",
                 .when("/account", {
                     templateUrl: "views/account.html"
                 })
-                .when("/validate", {
+                .when("/validate/:dni?:cod?", {
                     controller: "AccValCtrl",
                     templateUrl: "views/accountValidate.html"
                 })

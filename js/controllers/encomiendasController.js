@@ -44,7 +44,6 @@ angular.module('app')
 	}
 
 	$scope.update_route = function (id) {
-		console.log(id);
 		if (track_param != id){
     	$route.updateParams({packid: id});
     	track_param = id;
