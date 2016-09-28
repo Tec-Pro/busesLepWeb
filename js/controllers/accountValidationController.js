@@ -39,7 +39,15 @@ angular.module('app')
 	    	}
 			];
 			wsService.callService(wsdl_url_web, urn, method, validate_params).then(function(msg){
-    		$location.path("/");
+				console.log(msg);
+				if (msg == -1) {
+					alert("Error al activar su cuenta, verifique que los datos sean correctos e intente nuevamente");
+				} else if (msg == 1) {
+					alert("Activación de su cuenta realizada correctamente");
+    			$location.path("/");
+    		} else {
+    			alert("Error de activación, por favor intente nuevamente más tarde");
+    		}
     	});
 		}
 	}
