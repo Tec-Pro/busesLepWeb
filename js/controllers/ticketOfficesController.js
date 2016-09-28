@@ -73,11 +73,16 @@ angular.module('app').controller('TicketOfficesController', ['$scope', '$locatio
 	}
 	function reposition() {
 		if (window.scrollY + window.innerHeight > body.offsetHeight - (rect.height )){
+			console.log("a");			
 			document.getElementById('img-container').className = 'col-md-offset-1 col-md-3 hidden-xs hidden-sm absolute-img absolute-img-bottom';
-		} else if (window.scrollY > image_container.y -100) {
-			document.getElementById('img-container').className = 'col-md-offset-1 col-md-3 hidden-xs hidden-sm fixed-img';
 		} else {
-			document.getElementById('img-container').className = 'col-md-offset-1 col-md-3 hidden-xs hidden-sm absolute-img';
+			if (window.scrollY > image_container.y -100) {
+				console.log("b");
+				document.getElementById('img-container').className = 'col-md-offset-1 col-md-3 hidden-xs hidden-sm fixed-img';
+			} else {
+				console.log("c");
+				document.getElementById('img-container').className = 'col-md-offset-1 col-md-3 hidden-xs hidden-sm absolute-img';
+			}
 		}
 	}
 }]);
