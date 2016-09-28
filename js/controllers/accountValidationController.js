@@ -2,7 +2,8 @@ angular.module('app')
 .controller('AccValCtrl', ['$scope', '$location', '$anchorScroll', 'wsService', function($scope, $location, $anchorScroll, wsService){
 
   var wsdl_url_web = "https://webservices.buseslep.com.ar:443/WebServices/WSLepPaginaWeb.dll/soap/IWSLepPaginaWeb";
-	urn = "";
+	var wsdl_url = "https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepcGPS.dll/soap/ILepWebService";
+	urn = "WSLepPaginaWebIntf-IWSLepPaginaWeb";
 	method = "ActivarCuentaWeb";
 
 	$scope.dni = '';

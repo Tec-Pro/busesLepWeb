@@ -835,7 +835,7 @@ color:#ff0008;
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 10; /* Sit on top */
+    z-index: 1100; /* Sit on top */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -905,7 +905,7 @@ color:#ff0008;
 .mercadopago-modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 20; /* Sit on top */
+    z-index: 1100; /* Sit on top */
     padding-top: 0px; /* Location of the box */
     left: 0;
     top: 0;
@@ -950,7 +950,7 @@ color:#ff0008;
 .sched-modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 20; /* Sit on top */
+    z-index: 1100; /* Sit on top */
     padding-top: 100px; /* Location of the box */
     left: 0;
     top: 0;

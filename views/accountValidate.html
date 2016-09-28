@@ -6,11 +6,11 @@
 		<form ng-submit="validate()">
 			<div class="form-group">
 				<label for="dni">DNI:</label>
-				<input autocomplete="false" type="text" ng-model="dni" class="form-control" id="dni">
+				<input required autocomplete="false" type="text" ng-model="dni" class="form-control" id="dni">
 			</div>
 			<div class="form-group">
 				<label for="code">Código:</label>
-				<input autocomplete="false" type="text" ng-model="code" class="form-control" id="code">
+				<input required autocomplete="false" type="text" ng-model="code" class="form-control" id="code">
 			</div>
 			<div class="col-xs-offset-2 col-xs-8 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4">
 				<button type="submit" class="btn btn-block btn-danger">Validar</button>
