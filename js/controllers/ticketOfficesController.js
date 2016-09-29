@@ -28,6 +28,9 @@ angular.module('app').controller('TicketOfficesController', ['$scope', '$locatio
 		var rect = document.getElementById("footer").getBoundingClientRect();
 		var image_container = document.getElementById("img-container").getBoundingClientRect();
 		var body = document.getElementsByTagName("BODY")[0];
+		console.log(rect.height);
+		console.log(image_container);
+		console.log(body.offsetHeight);
 	});
 
   	$scope.selectedImg = "img/Boleterias/EjemploFotoBoleteria.png";
@@ -71,11 +74,12 @@ angular.module('app').controller('TicketOfficesController', ['$scope', '$locatio
 	window.onscroll = function(){
 		reposition();
 	}
+
 	function reposition() {
-		if (window.scrollY + window.innerHeight > body.offsetHeight - (rect.height )){
+		if (window.scrollY + window.innerHeight + image_container.height > body.offsetHeight - (rect.height)){
 			document.getElementById('img-container').className = 'col-md-offset-1 col-md-3 hidden-xs hidden-sm absolute-img absolute-img-bottom';
 		} else {
-			if (window.scrollY > image_container.y -100) {
+			if (window.scrollY > image_container.top) {
 				document.getElementById('img-container').className = 'col-md-offset-1 col-md-3 hidden-xs hidden-sm fixed-img';
 			} else {
 				document.getElementById('img-container').className = 'col-md-offset-1 col-md-3 hidden-xs hidden-sm absolute-img';
