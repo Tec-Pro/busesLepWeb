@@ -1,8 +1,7 @@
-
-
 body {
     padding-top: 0px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
+
 @media screen and (max-width: 768px) {
     body { padding-top: 35px; }
 }
@@ -24,6 +23,10 @@ body {
     }
 }
 
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 .validation.ng-invalid.ng-dirty{
   border-color: #FA787E;
 }
@@ -35,6 +38,9 @@ body {
   padding-top: 53px;
 }
 
+.body-bg {
+  background-color: #fbfbfb;
+}
 /*input.ng-invalid{
   border: 1px solid red;
 }*/

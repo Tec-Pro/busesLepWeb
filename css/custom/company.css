@@ -126,6 +126,11 @@
 	height: 20px;
 }
 
+.comp-contact-row{
+	padding-top: 5%;
+	padding-bottom: 5%;
+}
+
 .comp-units-navbar {
 	padding-top: 2%;
 }
