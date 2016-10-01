@@ -1,6 +1,6 @@
 angular.module('app')
 .controller('MercadopagoController', ['$scope', '$http', '$location', '$anchorScroll', 'wsService', 'localStorageService', 'tripService', function($scope,$http, $location, $anchorScroll, wsService, localStorageService, tripService){
-//https://webservices.buseslep.com.ar:443/WebServices/WSCobroMercadoPagoTest.dll/soap/IWSCobroMercadoPago	
+//https://webservices.buseslep.com.ar:443/WebServices/WSCobroMercadoPagoTest.dll/soap/IWSCobroMercadoPago
 //http://webservices.buseslep.com.ar:8080/WebServices/WSCobroMercadoPagoTest.dll/soap/IWSCobroMercadoPago
 	//https://webservices.buseslep.com.ar/WebServices/WSCobroMercadoPago.dll/wsdl/IWSCobroMercadoPago para poner en el soap client
 	//https://webservices.buseslep.com.ar:443/WebServices/WSCobroMercadoPago.dll/soap/IWSCobroMercadoPago //para poner en la wsdl_urn
@@ -11,14 +11,14 @@ angular.module('app')
 	Mercadopago.setPublishableKey("APP_USR-3f8dc194-8894-4d07-bb6c-b4a786a19c6c"); //TEST-2e5d7d95-7cb8-48d3-8bd6-cfde1bc34254
 	$scope.paymentMethods = [];													//APP_USR-3f8dc194-8894-4d07-bb6c-b4a786a19c6c
 	$http.get("https://api.mercadolibre.com/sites/MLA/payment_methods").success(function(response){ //llama a la api nuestra y ahi se obtiene los medios de pago
-		//obj = JSON.parse(response)		
+		//obj = JSON.parse(response)
 		payments = response;
 		if (payments.length > 0) {
 			for (var i = 0; i < payments.length; i++) {
 				if(payments[i].payment_type_id == 'credit_card'){
 					$scope.paymentMethods.push({id:payments[i].id,name:payments[i].name});
 				}
-			}; 		
+			};
     	}
     });
     var user_email = localStorageService.get("user-lep").email;
@@ -41,7 +41,7 @@ angular.module('app')
 			//console.log(response);
 	});*/
 
-	
+
 
 	function addEvent(el, eventName, handler){
 	    if (el.addEventListener) {
@@ -86,7 +86,7 @@ angular.module('app')
     	Mercadopago.getPaymentMethod({"payment_method_id": $scope.selectedPayment}, setPaymentMethodInfo);
  	 }
 	/*function guessingPaymentMethod(event) {
-		
+
 	    var bin = getBin();
 	    amount = document.querySelector('#amount').value;
 	    if (event.type == "keyup") {
@@ -107,7 +107,7 @@ angular.module('app')
 	};*/
 
 	function setPaymentMethodInfo(status, response) {
-		
+
 	    if (status == 200) {
 	        // do somethings ex: show logo of the payment method
 	        var form = document.querySelector('#pay');
@@ -157,15 +157,15 @@ angular.module('app')
 	            }
 	        };
 	        if (issuerMandatory) {
-	        	
+
 	            Mercadopago.getIssuers(response[0].id, showCardIssuers);
 
 	            addEvent(document.querySelector('#issuer'), 'change', setInstallmentsByIssuerId);
-	            
+
 	        } else {
-	        	
+
 	            document.querySelector("#issuer").style.display = 'none';
-	            document.querySelector("#issuer").options.length = 0;     
+	            document.querySelector("#issuer").options.length = 0;
 	        }
 		}
 	};
@@ -194,7 +194,7 @@ angular.module('app')
 	function setInstallmentsByIssuerId(status, response) {
 	    var issuerId = document.querySelector('#issuer').value,
 	        amount = document.querySelector('#amount').value;
-	        
+
 	    if (issuerId === '-1') {
 	    	  var selectorInstallments = document.querySelector("#installments"),
 	            fragment = document.createDocumentFragment(),
@@ -206,7 +206,7 @@ angular.module('app')
 	        selectorInstallments.setAttribute('disabled', 'disabled');
 	        return;
 	    }
-	    
+
 	    Mercadopago.getInstallments({
 	        "payment_method_id": $scope.selectedPayment,
 	        "amount": amount,
@@ -225,7 +225,8 @@ angular.module('app')
 	        payerCosts = response[0].payer_costs;
 
 	        fragment.appendChild(option);
-	        for (var i = 0; i < payerCosts.length; i++) {
+					//Replace with this payerCosts.length
+	        for (var i = 0; i < 1; i++) {
 	            option = new Option(payerCosts[i].recommended_message || payerCosts[i].installments, payerCosts[i].installments);
 	            fragment.appendChild(option);
 	        }
@@ -299,19 +300,19 @@ angular.module('app')
 			//var inputValue = form.get("inputTypeName");
 			cuotas = document.querySelector('#installments').value;
 			if (tripService.getPurchaseOrigin() == "0") {
-	        	var datosCompra = {description:"boletos", 
+	        	var datosCompra = {description:"boletos",
 	        				external_reference: "boleto:"+idventa,
 	        				installments: parseInt(cuotas),
-	        				payer:{email: user_email},//"test_user_19653727@testuser.com"},//user_email}, 
+	        				payer:{email: user_email},//"test_user_19653727@testuser.com"},//user_email},
 	        				payment_method_id: $scope.selectedPayment,
 	        				token: response.id,
 	        				transaction_amount: parseInt($scope.totalAmount)
 	        	}
 	        } else if (tripService.getPurchaseOrigin() == "1") {
-	        	var datosCompra = {description:"precarga tarjeta", 
+	        	var datosCompra = {description:"precarga tarjeta",
 	        				external_reference: "recarga:"+idventa,
 	        				installments: parseInt(cuotas),
-	        				payer:{email: user_email},//"test_user_19653727@testuser.com"},//user_email}, 
+	        				payer:{email: user_email},//"test_user_19653727@testuser.com"},//user_email},
 	        				payment_method_id: $scope.selectedPayment,
 	        				token: response.id,
 	        				transaction_amount: parseInt($scope.totalAmount)
@@ -350,41 +351,41 @@ angular.module('app')
 		       		}
 	       		} else if (tripService.getPurchaseOrigin() == "1") {
 					splittedResponse = response.split("{Result\":\"");
-					console.log(splittedResponse);	       		
+					console.log(splittedResponse);
 				}
 	       		var messageError = "";
 	       		try {
 				    switch(JSON.parse(splittedResponse[0]).status_detail) {
 				    case "accredited": //Pago aprobado
 				    	if(tripService.getPurchaseOrigin() == "0") {
-	                        $location.path('/endPurchase/' + codImpresion);
-	                    } else if (tripService.getPurchaseOrigin() == "1"){
-	                    	$location.path('/endDeposit');
-	                    }
+                $location.path('/endPurchase/' + codImpresion);
+              } else if (tripService.getPurchaseOrigin() == "1"){
+              	$location.path('/endDeposit');
+              }
 	                        //doSubmit=true;
 		        			//form.submit();
-	                    break;
-                    case "pending_contingency": //Pago pendiente
-                        messageError="ERROR: Pago pendiente";
-                        break;
-                    case "cc_rejected_call_for_authorize": //Pago rechazado, llamar para autorizar.
-                        messageError="ERROR: Pago rechazado, llamar para autorizar.";              
-                        break;
-                    case "cc_rejected_insufficient_amount": //Pago rechazado, saldo insuficiente.
-                        messageError="ERROR: Pago rechazado, saldo insuficiente.";                    
-                        break;
-                    case "cc_rejected_bad_filled_security_code": //Pago rechazado por código de seguridad.
-                        messageError="ERROR: Pago rechazado por código de seguridad.";                      
-                        break;
-                    case "cc_rejected_bad_filled_date": //Pago rechazado por fecha de expiración.
-                        messageError="ERROR: Pago rechazado por fecha de expiración.";                   
-                        break;
-                    case "cc_rejected_bad_filled_other": //Pago rechazado por error en el formulario
-                        messageError="ERROR: Pago rechazado por error en el formulario";
-                        break;
-                    default: //Pago rechazado
-                        messageError="ERROR";                    
-                        break;
+			        break;
+			        case "pending_contingency": //Pago pendiente
+			            messageError="ERROR: Pago pendiente";
+			            break;
+			        case "cc_rejected_call_for_authorize": //Pago rechazado, llamar para autorizar.
+			            messageError="ERROR: Pago rechazado, llamar para autorizar.";
+			            break;
+			        case "cc_rejected_insufficient_amount": //Pago rechazado, saldo insuficiente.
+			            messageError="ERROR: Pago rechazado, saldo insuficiente.";
+			            break;
+			        case "cc_rejected_bad_filled_security_code": //Pago rechazado por código de seguridad.
+			            messageError="ERROR: Pago rechazado por código de seguridad.";
+			            break;
+			        case "cc_rejected_bad_filled_date": //Pago rechazado por fecha de expiración.
+			            messageError="ERROR: Pago rechazado por fecha de expiración.";
+			            break;
+			        case "cc_rejected_bad_filled_other": //Pago rechazado por error en el formulario
+			            messageError="ERROR: Pago rechazado por error en el formulario";
+			            break;
+			        default: //Pago rechazado
+			            messageError="ERROR";
+			            break;
 					}
 
 					if(messageError != ""){
@@ -397,10 +398,10 @@ angular.module('app')
 					document.getElementById("error-modal-text").innerHTML = splittedResponse[0];
 		        	error_modal.style.display = "block";
 				}
-	       		
+
 	        });
-	        
-	        
+
+
 	        /*$http.post("http://localhost:8081/api/mercadopago").success(function(response){ //llama a nuestra api para efectuar el pago
 				console.log(response);
 			});*/
@@ -418,6 +419,6 @@ angular.module('app')
 	  }
 	}
 
-	
-	
+
+
 }]);
