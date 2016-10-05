@@ -28,7 +28,7 @@
 	      	<div class="form-group">
 	          <label class="control-label col-xs-4 col-sm-6 col-md-4" for="cardNumber">Número de tarjeta:</label>
 	          <div class="col-xs-8 col-sm-6 col-md-7">
-	          	<input class="form-control" type="text" id="cardNumber" ng-model="object.bin" maxlength="16" data-checkout="cardNumber" placeholder="4509 9535 6623 3704" />
+	          	<input class="form-control" type="text" id="cardNumber" ng-model="object.bin" maxlength="16" data-checkout="cardNumber" autocomplete="off" placeholder="4509 9535 6623 3704" />
 	         	</div>
 	        </div>
 	        <div ng-show="paymentMethod.length != 0">
@@ -50,22 +50,22 @@
 		        <div class="form-group">
 		          <label class="control-label col-xs-4 col-sm-6 col-md-4" for="securityCode">Código de seguridad:</label>
 		          <div class="col-xs-8 col-sm-6 col-md-7">
-		          	<input class="form-control" type="text" id="securityCode" data-checkout="securityCode" placeholder="123" />
+		          	<input class="form-control" type="text" id="securityCode" data-checkout="securityCode" autocomplete="off" placeholder="123" />
 		          </div>
 		        </div>
 		      	<div class="form-group">
 		          <label class="control-label col-xs-4 col-sm-6 col-md-4" for="cardExpirationMonth">Fecha de vencimiento:</label>
 		          <div class="col-xs-4 col-sm-3 col-md-2">
-		          	<input class="form-control" type="number" id="cardExpirationMonth" data-checkout="cardExpirationMonth" placeholder="12" min="1" max="12"/>
+		          	<input class="form-control" type="number" id="cardExpirationMonth" autocomplete="off" data-checkout="cardExpirationMonth" placeholder="12" min="1" max="12"/>
 		          </div>
 		          <div class="col-xs-4 col-sm-3 col-md-5">
-		          	<input class="form-control" type="number" id="cardExpirationYear" data-checkout="cardExpirationYear" placeholder="2016" min="2016"/>
+		          	<input class="form-control" type="number" id="cardExpirationYear" autocomplete="off" data-checkout="cardExpirationYear" placeholder="2016" min="2016"/>
 		          </div>
 		        </div>
 		      	<div class="form-group">
 		          <label class="control-label col-xs-4 col-sm-6 col-md-4" for="cardholderName">Titular de la tarjeta:</label>
 		          <div class="col-xs-8 col-sm-6 col-md-7">
-		          	<input class="form-control" type="text" id="cardholderName" data-checkout="cardholderName" placeholder="Como figura en la tarjeta" />
+		          	<input class="form-control" type="text" id="cardholderName" data-checkout="cardholderName" autocomplete="off" placeholder="Como figura en la tarjeta" />
 		          </div>
 		       	</div>
 		      	<div class="form-group">
@@ -74,7 +74,7 @@
 		          	<select class="form-control" id="docType" data-checkout="docType"></select>
 		          </div>
 		          <div class="col-xs-4 col-sm-3 col-md-5">
-		          	<input class="form-control" type="text" id="docNumber" data-checkout="docNumber" placeholder="12345678" />
+		          	<input class="form-control" type="text" id="docNumber" data-checkout="docNumber" autocomplete="off" placeholder="12345678" />
 		          </div>
 		        </div>
 		        <div class="form-group">

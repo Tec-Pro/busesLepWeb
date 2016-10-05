@@ -3,7 +3,7 @@ angular.module('app')
 //https://webservices.buseslep.com.ar:443/WebServices/WSCobroMercadoPagoTest.dll/soap/IWSCobroMercadoPago
 	//https://webservices.buseslep.com.ar/WebServices/WSCobroMercadoPago.dll/wsdl/IWSCobroMercadoPago para poner en el soap client
 	//https://webservices.buseslep.com.ar:443/WebServices/WSCobroMercadoPago.dll/soap/IWSCobroMercadoPago //para poner en la wsdl_urn
-	var wsdl_url ="https://webservices.buseslep.com.ar:443/WebServices/WSCobroMercadoPagoTest.dll/soap/IWSCobroMercadoPago"; //"https://webservices.buseslep.com.ar:443/WebServices/WSCobroMercadoPagocTestyEnc.dll/soap/IWSCobroMercadoPago";
+	var wsdl_url ="https://webservices.buseslep.com.ar:443/WebServices/WSCobroMercadoPagocTestyEnc.dll/soap/IWSCobroMercadoPago"; //"https://webservices.buseslep.com.ar:443/WebServices/WSCobroMercadoPagocTestyEnc.dll/soap/IWSCobroMercadoPago";
 	var urn = "";
 	wsMethod = "RealizarCobroMercadoPago";
 	$anchorScroll();
@@ -215,7 +215,7 @@ angular.module('app')
 	        	var datosCompra = {description:"boletos",
 	        				external_reference: "boleto:"+idventa,
 	        				installments: parseInt(cuotas),
-	        				payer:{email: user_email},//"test_user_19653727@testuser.com"},//user_email},
+	        				payer:{email: "test_user_19653727@testuser.com"},//"test_user_19653727@testuser.com"},//user_email},
 	        				payment_method_id: $scope.selectedPayment,
 	        				token: response.id,
 	        				transaction_amount: parseInt($scope.totalAmount)
@@ -224,7 +224,7 @@ angular.module('app')
 	        	var datosCompra = {description:"precarga tarjeta",
 	        				external_reference: "recarga:"+idventa,
 	        				installments: parseInt(cuotas),
-	        				payer:{email: user_email},//"test_user_19653727@testuser.com"},//user_email},
+	        				payer:{email: "test_user_19653727@testuser.com"},//"test_user_19653727@testuser.com"},//user_email},
 	        				payment_method_id: $scope.selectedPayment,
 	        				token: response.id,
 	        				transaction_amount: parseInt($scope.totalAmount)
