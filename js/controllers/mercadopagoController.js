@@ -3,7 +3,7 @@ angular.module('app')
 //https://webservices.buseslep.com.ar:443/WebServices/WSCobroMercadoPagoTest.dll/soap/IWSCobroMercadoPago
 	//https://webservices.buseslep.com.ar/WebServices/WSCobroMercadoPago.dll/wsdl/IWSCobroMercadoPago para poner en el soap client
 	//https://webservices.buseslep.com.ar:443/WebServices/WSCobroMercadoPago.dll/soap/IWSCobroMercadoPago //para poner en la wsdl_urn
-	var wsdl_url ="https://webservices.buseslep.com.ar:443/WebServices/WSCobroMercadoPagocTestyEnc.dll/soap/IWSCobroMercadoPago"; //"https://webservices.buseslep.com.ar:443/WebServices/WSCobroMercadoPagocTestyEnc.dll/soap/IWSCobroMercadoPago";
+	var wsdl_url ="https://webservices.buseslep.com.ar/WebServices/WSCobroMercadoPagoTest.dll/wsdl/IWSCobroMercadoPago"; //"https://webservices.buseslep.com.ar:443/WebServices/WSCobroMercadoPagocTestyEnc.dll/soap/IWSCobroMercadoPago";
 	var urn = "";
 	wsMethod = "RealizarCobroMercadoPago";
 	$anchorScroll();
