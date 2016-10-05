@@ -7,151 +7,113 @@
 		</div>
 	</div>
 </div> -->
-<div>
-    <form action="" method="post" id="pay" name="pay" novalidate>
-        <fieldset>
-            <div class = "row ">
-                <div class = "col-xs-12 col-sm-8 col-sm-offset-2 ">
-                    <div> 
-                        <input type="hidden" class="form-control" id="email" name="email" ng-model="user.email" type="email"/> 
-                    </div>
-                    <div class = "col-xs-12">
-                        <label class = "col-sm-4 text-right hidden-xs" style = "margin-top:5px;" for="paymentMethod">Medio de pago:</label>
-                        <label class = "col-xs-12 text-left visible-xs" style = "margin-top:5px;" for="paymentMethod">Medio de pago:</label>  
-                        <div class = "col-xs-12 col-sm-4">                                     
-                            <select class="form-control" id="paymentMethod" name="paymentMethod" ng-model="selectedPayment" ng-change="paymentMethodSelected()">
-                                <option ng-repeat="option in paymentMethods" value="{{option.id}}">{{option.name}}</option>
-                            </select>                           
-                        </div> 
-                    </div>
 
-                    <div class = "col-xs-12"> <br></div>
-                    <div ng-show = "selectedPayment != null">
-                        <div class = "col-xs-12">
-                            <label class = "col-sm-4 text-right hidden-xs" style = "margin-top:5px;" for="paymentMethod">Numero de tarjeta:</label>
-                            <label class = "col-xs-12 text-left visible-xs" style = "margin-top:5px;" for="paymentMethod">Numero de tarjeta:</label>                         
-                            <div class = "col-xs-12 col-sm-4">          
-                                <input class="form-control validation" ng-model="cardNum" numbers-only type="text" id="cardNumber" data-checkout="cardNumber" placeholder="4509 9535 6623 3704" type="number" ng-minlength="12" ng-maxlength="18" required/>
-                            </div> 
-                        </div>
-
-                        <div class = "col-xs-12"> <br></div>
-
-                        <div class = "col-xs-12"> 
-                            <label class = "col-sm-4 text-right hidden-xs"  style = "margin-top:5px;" for="issuer">Banco:</label>
-                            <label class = "col-xs-12 text-left visible-xs" style = "margin-top:5px;" for="issuer">Banco:</label>
-                            <div class = "col-sm-5 col-xs-10">
-                                <select class="form-control" id="issuer" name="issuer"></select>
-                            </div>
-                        </div>
-
-                        <div class = "col-xs-12"> <br></div>
-
-                        <div class = "col-xs-12" ng-show = "showSecurityCodeInput">
-                            <label class = "col-sm-4 text-right hidden-xs" style = "margin-top:5px;"  for="securityCode">Codigo de Seguridad:</label>
-                            <label class = "col-xs-12 text-left visible-xs" style = "margin-top:5px;"  for="securityCode">Codigo de Seguridad:</label>
-                            <div  class = "col-sm-2 col-xs-6">
-                                <input class="form-control validation" type="text" ng-model="secCode" numbers-only id="securityCode" data-checkout="securityCode" placeholder="123" type="number" ng-minlength="3" ng-maxlength="5" required/>
-                            </div>
-                        </div>
-
-                        <div class = "col-xs-12"><br></div>
-
-                        <div class = "col-xs-12">
-                            <label class = "col-sm-4 text-right hidden-xs" style = "margin-top:5px;" for="cardExpirationMonth">Fecha de vencimiento:</label>
-                             <label class = "col-xs-12 text-left visible-xs" style = "margin-top:5px;" for="cardExpirationMonth">Fecha de vencimiento:</label>
-                            <div class = "col-sm-2 col-xs-5">
-                                <input class="form-control validation" ng-model="expMonth" id="cardExpirationMonth" data-checkout="cardExpirationMonth"  placeholder="12" type="number" ng-minlength="1" ng-maxlength="2" step="1" min="1" max="12" required/>
-
-                            </div>
-                            <div class = "col-sm-2 col-xs-6">
-                                <input class="form-control validation" ng-model="expYear"  id="cardExpirationYear" data-checkout="cardExpirationYear" value="2016" placeholder="2016" type="number" step="1" min="2016" max="3000" required/>
-                            </div>
-                        </div>
-
-                        <div class = "col-xs-12"><br></div>
-
-                        <div class = "col-xs-12">
-                            <label for="cardholderName" class = "col-sm-4 text-right hidden-xs" style = "margin-top:5px;">Titular de la tarjeta:</label>
-                            <label for="cardholderName" class = "col-xs-12 text-left visible-xs" style = "margin-top:5px;">Titular de la tarjeta:</label>
-                            <div class = "col-sm-6 col-xs-12">
-                                <input class="form-control validation" type="text" id="cardholderName" data-checkout="cardholderName" placeholder="Como figura en la tarjeta" required/> <!-- poner "APRO" para un pago aprobado es para testear-->
-                            </div>
-                        </div>
-
-                        <div class = "col-xs-12"><br></div>
-
-                        <div class = "col-xs-12 ">
-                            <label for="docType" class = "col-sm-4 text-right hidden-xs" style = "margin-top:5px;">Tipo y numero de Documento:</label>
-                            <label for="docType" class = "col-xs-12 text-left visible-xs" style = "margin-top:5px;">Tipo y numero de Documento:</label>
-                            <div class = "col-sm-4 col-xs-5">
-                                <select class="form-control" id="docType" data-checkout="docType">
-                                <!--esto se completa solo cuando se llama a getIdentificationTypes(); de mercadopago -->
-                                </select>
-                            </div>
-                            <div class = "col-sm-4 col-xs-7">
-                                <input class="form-control validation" type="text" id="docNumber"  ng-model="docNum" numbers-only data-checkout="docNumber" placeholder="12345678" required/>
-                            </div>
-                        </div>
-                        <div class = "col-xs-12"><br></div>
-
-                        <!-- <div class = "col-xs-12">
-                            <label for="docNumber">Numero de documento:</label>
-                            
-                        </div> -->
-                        
-                        <div class = "col-xs-12">
-                            <label class = "col-sm-4 text-right hidden-xs" style = "margin-top:5px;" for="installments">Cuotas:</label>
-                            <label class = "col-xs-12 text-left visible-xs" style = "margin-top:5px;" for="installments">Cuotas:</label>
-                            <div class = "col-sm-6 col-xs-12">
-                                <select class="form-control"id="installments" name="installments"></select>
-                            </div>
-                        </div>
-
-                        <div class = "col-xs-12"><br></div>
-                    </div>
-
-                    <div class = "col-xs-12">
-                        <label class = "col-xs-4 text-right hidden-xs" style = "margin-top:10px;">Total a pagar:</label>
-                        <label class = "col-xs-4 text-right visible-xs" style = "margin-top:10px;">Total:</label>
-                        <div class = "col-sm-6 col-xs-8">
-                           <h4>${{totalAmount}}</h4>
-                        </div>
-                    </div>
-                    
-                    <div class = "col-xs-12"><br></div>
-
-                    <input type="hidden" id="amount" name="amount" /> <!-- tiene que estar si o si por que la usa el sdk -->
-                    <div class = "col-xs-12">
-                        <div class = " col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
-                            <input class = "btn btn-danger lepStyleRed center-block" type="submit" value="Confirmar Compra"/>
-                        </div>
-                    </div>
-                 <!--   <div>{{pay.$valid}}</div> -->
-                   
-                </div>  
-            </div>
-        </fieldset>
-    </form>
-        <!-- The Modal -->
-    <div id="error-modal" class="mercadopago-modal">
-      <!-- Modal content -->
-      <div class="mercadopago-modal-content">
-        
-            <h5 class = "text-center" id="error-modal-text"></h5>
-            <button type="submit" class="btn btn-large btn-danger lepStyleRed center-block" ng-click="hide_modal()">Cerrar</button>     
-      </div>
-    </div>
-
-    <!-- The Modal -->
-    <div id="load-modal" class="home-modal">
-
-      <!-- Modal content -->
-      <div class="home-modal-content">
-        <div class="home-modal-body">
-            <img src="./img/shared/ajax-loader.gif">
+<div class="row">
+	<div class="col-xs-12 col-sm-offset-2 col-sm-8">
+		<form class="form-horizontal" action="" method="post" id="pay" name="pay" >
+	    <fieldset>
+	    	<!-- <div class="form-group">
+	    		<label class="control-label col-xs-4 col-sm-6 col-md-4">Medio de pago</label>
+	    		<div class="col-xs-8 col-sm-6 col-md-7">
+	    			<select class="form-control"></select>
+	    		</div>
+	    	</div> -->
+	    	<div>
+	    		<div class="form-group">
+	        	<label class="control-label col-xs-4 col-sm-6 col-md-4" for="total">Total a pagar:</label>
+	        	<div class="col-xs-8 col-sm-6 col-md-7">
+	        		<p class="form-control-static lead">${{price}}</p>
+	        	</div>
+	        </div>
+	      	<div class="form-group">
+	          <label class="control-label col-xs-4 col-sm-6 col-md-4" for="cardNumber">Número de tarjeta:</label>
+	          <div class="col-xs-8 col-sm-6 col-md-7">
+	          	<input class="form-control" type="text" id="cardNumber" ng-model="object.bin" maxlength="16" data-checkout="cardNumber" placeholder="4509 9535 6623 3704" />
+	         	</div>
+	        </div>
+	        <div ng-show="paymentMethod.length != 0">
+	        	<div class="form-group">
+	        		<label class="control-label col-xs-4 col-sm-6 col-md-4">Tarjeta:</label>
+	        		<div class="col-xs-4 col-sm-4 col-md-4">
+	        			<p class="form-control-static">{{paymentMethod.name}}</p>
+	        			<img ng-src="{{paymentMethod.secure_thumbnail}}">
+	        		</div>
+	        	</div>
+	        	<div id="iss_container" class="form-group">
+	        		<label class="control-label col-xs-4 col-sm-6 col-md-4">Banco:</label>
+	        		<div class="col-xs-8 col-sm-6 col-md-7">
+	        			<select id="issuerSelector" ng-model="issuer" class="form-control" ng-change="issuerSelected()">
+	        				<option value="">Elija su banco</option>
+	        			</select>
+	        		</div>
+	        	</div>
+		        <div class="form-group">
+		          <label class="control-label col-xs-4 col-sm-6 col-md-4" for="securityCode">Código de seguridad:</label>
+		          <div class="col-xs-8 col-sm-6 col-md-7">
+		          	<input class="form-control" type="text" id="securityCode" data-checkout="securityCode" placeholder="123" />
+		          </div>
+		        </div>
+		      	<div class="form-group">
+		          <label class="control-label col-xs-4 col-sm-6 col-md-4" for="cardExpirationMonth">Fecha de vencimiento:</label>
+		          <div class="col-xs-4 col-sm-3 col-md-2">
+		          	<input class="form-control" type="number" id="cardExpirationMonth" data-checkout="cardExpirationMonth" placeholder="12" min="1" max="12"/>
+		          </div>
+		          <div class="col-xs-4 col-sm-3 col-md-5">
+		          	<input class="form-control" type="number" id="cardExpirationYear" data-checkout="cardExpirationYear" placeholder="2016" min="2016"/>
+		          </div>
+		        </div>
+		      	<div class="form-group">
+		          <label class="control-label col-xs-4 col-sm-6 col-md-4" for="cardholderName">Titular de la tarjeta:</label>
+		          <div class="col-xs-8 col-sm-6 col-md-7">
+		          	<input class="form-control" type="text" id="cardholderName" data-checkout="cardholderName" placeholder="Como figura en la tarjeta" />
+		          </div>
+		       	</div>
+		      	<div class="form-group">
+		          <label class="control-label col-xs-4 col-sm-6 col-md-4" for="docType">Tipo y número de documento:</label>
+		          <div class="col-xs-4 col-sm-3 col-md-2">
+		          	<select class="form-control" id="docType" data-checkout="docType"></select>
+		          </div>
+		          <div class="col-xs-4 col-sm-3 col-md-5">
+		          	<input class="form-control" type="text" id="docNumber" data-checkout="docNumber" placeholder="12345678" />
+		          </div>
+		        </div>
+		        <div class="form-group">
+		        	<label class="control-label col-xs-4 col-sm-6 col-md-4" for="installments">Cuotas:</label>
+		        	<div class="col-xs-4 col-sm-6 col-md-7">
+			        	<select id="inst_sel" class="form-control" ng-model="installment">
+			        		<option selected="selected" value="">Elija sus cuotas</option>
+			        	</select>
+		        	</div>
+		        </div>
+		        <div class="col-xs-offset-4 col-xs-4">
+		        	<input class="btn btn-block btn-danger" type="submit" value="Confirmar compra" />
+		        </div>
+		      </div>
         </div>
-      </div>
-
-    </div>
+	    </fieldset>
+		</form>
+	</div>
 </div>
+
+
+<!-- The Modal -->
+<div id="error-modal" class="mercadopago-modal">
+  <!-- Modal content -->
+  <div class="mercadopago-modal-content">
+    <h5 class = "text-center" id="error-modal-text"></h5>
+    <button type="button" class="btn btn-large btn-danger lepStyleRed center-block" ng-click="hide_modal()">Cerrar</button>     
+  </div>
+</div>
+
+<!-- The Modal -->
+<div id="load-modal" class="home-modal">
+
+  <!-- Modal content -->
+  <div class="home-modal-content">
+    <div class="home-modal-body">
+        <img src="./img/shared/ajax-loader.gif">
+    </div>
+  </div>
+
+</div>
+
