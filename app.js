@@ -67,7 +67,7 @@ angular.module("app", ["ngRoute","ngAnimate","LocalStorageModule","angularSoap",
                 })
                 .when("/buy", {
                     controller: "MercadopagoController",
-                    templateUrl: "views/mercadopago.html"
+                    templateUrl: "views/mercadopagoTest.html"
                 })
                 .when("/ticketOffices", {
                     controller: "TicketOfficesController",

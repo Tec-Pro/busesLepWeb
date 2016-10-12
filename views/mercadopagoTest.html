@@ -1,0 +1,108 @@
+<div class="row">
+	<div class="col-xs-12 col-sm-offset-2 col-sm-8">
+		<form class="form-horizontal" action="" method="post" id="pay" name="pay" >
+    <fieldset>
+        <ul>
+            <!-- <div class="form-group">
+                <label class="control-label" for="email">Email</label>
+                <input class="form-control" id="email" name="email" value="test_user_19653727@testuser.com" type="email" placeholder="your email"/>
+            </div> -->
+            <div class="form-group">
+            	<label class="control-label col-xs-12 col-sm-6 col-md-4">Total a pagar:</label>
+            	<div class="col-xs-12 col-sm-6 col-md-7">
+            		<p id="amountLabel" class="form-control-static lead"></p>
+            	</div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-xs-12 col-sm-6 col-md-4" for="cardNumber">Número de tarjeta:</label>
+                <div class="col-xs-12 col-sm-6 col-md-6">
+                	<input class="form-control" type="text" id="cardNumber" data-checkout="cardNumber" placeholder="4509 9535 6623 3704" />
+                </div>
+            </div>
+            <div id="paymentMethodInfo" style="visibility: hidden" class="form-group">
+            	<label class="control-label col-xs-12 col-sm-6 col-md-4">Tarjeta:</label>
+						  <div class="col-xs-6 col-sm-3 col-md-2">
+						    <p id="paymentMethodName" class="form-control-static"></p>
+						  </div>
+						  <div class="col-xs-6 col-sm-3 col-md-4">
+						  	<img id="paymentMethodImg">
+						  </div>
+            </div>
+            <div class="form-group">
+						    <label class="control-label col-xs-12 col-sm-6 col-md-4" for="issuer" id="issuerLabel" style="visibility: hidden">Banco:</label>
+						    <div class="col-xs-12 col-sm-6 col-md-6">
+						    	<select class="form-control" id="issuer" name="issuer"></select>
+						    </div>
+						</div>
+            <div class="form-group">
+                <label class="control-label col-xs-12 col-sm-6 col-md-4" for="securityCode">Código de seguridad:</label>
+                <div class="col-xs-4 col-sm-2 col-md-2">
+                	<input class="form-control" type="text" id="securityCode" data-checkout="securityCode" placeholder="123" />
+                </div>
+                <div class="col-xs-8 col-sm-4 col-md-6">
+                	<p class="form-control-static" id="securityCodeInfo"></p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-xs-12 col-sm-6 col-md-4" for="cardExpirationMonth">Fecha de vencimiento:</label>
+                <div class="col-xs-5 col-sm-3 col-md-2">
+	                <input class="form-control" type="text" id="cardExpirationMonth" data-checkout="cardExpirationMonth" placeholder="12" />
+	              </div>
+	              <div class="col-xs-7 col-sm-3 col-md-4">
+	                <input class="form-control" type="text" id="cardExpirationYear" data-checkout="cardExpirationYear" placeholder="2015" />
+	              </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-xs-12 col-sm-6 col-md-4" for="cardholderName">Titular de la tarjeta:</label>
+                <div class="col-xs-12 col-sm-6 col-md-6">
+                	<input class="form-control" type="text" id="cardholderName" data-checkout="cardholderName" placeholder="Como aparece en la tarjeta" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-xs-12 col-sm-6 col-md-4" for="docType">Tipo de documento:</label>
+                <div class="col-xs-4 col-sm-3 col-md-2">
+                	<select class="form-control" id="docType" data-checkout="docType"></select>
+                </div>
+                <div class="col-xs-8 col-sm-3 col-md-4">
+                	<input class="form-control" type="text" id="docNumber" data-checkout="docNumber" placeholder="12345678" />
+               	</div>
+            </div>
+            <input type="hidden" id="amount" name="amount" />
+						<div class="form-group">
+						    <label class="control-label col-xs-12 col-sm-6 col-md-4" for="installments">Cuotas:</label>
+						    <div class="col-xs-12 col-sm-6 col-md-6">
+						    	<select  class="form-control" id="installments" name="installments"></select>
+						    </div>
+						</div>
+        </ul>
+        <div class="col-xs-offset-3 col-xs-6 ">
+        	<input class="btn btn-block btn-danger" type="submit" value="Confimar"/>
+        </div>
+    </fieldset>
+		</form>
+	</div>
+</div>
+
+
+
+<!-- The Modal -->
+<div id="error-modal" class="mercadopago-modal">
+  <!-- Modal content -->
+  <div class="mercadopago-modal-content">
+    <h5 class = "text-center" id="error-modal-text"></h5>
+    <button type="button" class="btn btn-large btn-danger lepStyleRed center-block" ng-click="hide_modal()">Cerrar</button>     
+  </div>
+</div>
+
+<!-- The Modal -->
+<div id="load-modal" class="home-modal">
+
+  <!-- Modal content -->
+  <div class="home-modal-content">
+    <div class="home-modal-body">
+        <img src="./img/shared/ajax-loader.gif">
+    </div>
+  </div>
+
+</div>
+
