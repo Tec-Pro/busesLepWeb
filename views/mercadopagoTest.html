@@ -16,7 +16,7 @@
             <div class="form-group">
                 <label class="control-label col-xs-12 col-sm-6 col-md-4" for="cardNumber">Número de tarjeta:</label>
                 <div class="col-xs-12 col-sm-6 col-md-6">
-                	<input class="form-control" type="text" id="cardNumber" data-checkout="cardNumber" placeholder="4509 9535 6623 3704" />
+                	<input class="form-control" type="text" id="cardNumber" data-checkout="cardNumber" autocomplete="off" placeholder="4509 9535 6623 3704" />
                 </div>
             </div>
             <div id="paymentMethodInfo" style="visibility: hidden" class="form-group">
@@ -37,7 +37,7 @@
             <div class="form-group">
                 <label class="control-label col-xs-12 col-sm-6 col-md-4" for="securityCode">Código de seguridad:</label>
                 <div class="col-xs-4 col-sm-2 col-md-2">
-                	<input class="form-control" type="text" id="securityCode" data-checkout="securityCode" placeholder="123" />
+                	<input class="form-control" type="text" id="securityCode" data-checkout="securityCode" autocomplete="off" placeholder="123" />
                 </div>
                 <div class="col-xs-8 col-sm-4 col-md-6">
                 	<p class="form-control-static" id="securityCodeInfo"></p>
@@ -46,10 +46,10 @@
             <div class="form-group">
                 <label class="control-label col-xs-12 col-sm-6 col-md-4" for="cardExpirationMonth">Fecha de vencimiento:</label>
                 <div class="col-xs-5 col-sm-3 col-md-2">
-	                <input class="form-control" type="text" id="cardExpirationMonth" data-checkout="cardExpirationMonth" placeholder="12" />
+	                <input class="form-control" type="text" id="cardExpirationMonth" autocomplete="off" data-checkout="cardExpirationMonth" placeholder="12" />
 	              </div>
 	              <div class="col-xs-7 col-sm-3 col-md-4">
-	                <input class="form-control" type="text" id="cardExpirationYear" data-checkout="cardExpirationYear" placeholder="2015" />
+	                <input class="form-control" type="text" id="cardExpirationYear" autocomplete="off" data-checkout="cardExpirationYear" placeholder="2015" />
 	              </div>
             </div>
             <div class="form-group">
@@ -68,12 +68,12 @@
                	</div>
             </div>
             <input type="hidden" id="amount" name="amount" />
-						<div class="form-group">
-						    <label class="control-label col-xs-12 col-sm-6 col-md-4" for="installments">Cuotas:</label>
-						    <div class="col-xs-12 col-sm-6 col-md-6">
-						    	<select  class="form-control" id="installments" name="installments"></select>
-						    </div>
-						</div>
+    			<div class="form-group">
+    			    <label class="control-label col-xs-12 col-sm-6 col-md-4" for="installments">Cuotas:</label>
+    			    <div class="col-xs-12 col-sm-6 col-md-6">
+    			    	<select  class="form-control" id="installments" name="installments"></select>
+    			    </div>
+    			</div>
         </ul>
         <div class="col-xs-offset-3 col-xs-6 ">
         	<input class="btn btn-block btn-danger" type="submit" value="Confimar"/>
