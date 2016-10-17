@@ -55,7 +55,7 @@
 		<div class="col-xs-12">
 			<div data-ng-hide="active != 0" class="history-content">
 				<div class="row">
-					<div class="col-xs-12 col-md-7 comp-text-box card">
+					<div class="col-xs-12 col-md-7 comp-text-box">
 					<!--<div class="col-xs-12 col-md-7 border-bottom border-top border-left border-right comp-text-box"> -->
 						<p>
 							Somos una empresa dedicada al servicio de transporte de pasajeros que nació en el año 1993. Por aquellos tiempos todo comenzó con algunas vagas ideas que paulatinamente se fueron transformando en hechos concretos. En nuestros inicios contábamos con pequeñas unidades que trasladaban a sólo 10 personas pero, poco a poco y sobrellevando muchas dificultades, logramos posicionarnos en un lugar privilegiado en el mercado y mantenemos un crecimiento sostenido. Hoy nuestra flota, de modernas unidades, está compuesta por más de 110 buses de medio y gran porte, con capacidad máxima de 48 asientos. Ofrecemos un servicio distintivo, completo y competitivo con conceptos claros en materia de atención y confort. Este ascenso permanente hace que busquemos, constantemente, maneras de superarnos para que nuestros clientes elijan día a día como medio de transporte rápido, cómodo y seguro. Las mejoras se reflejan en renovaciones de flotas y mayores beneficios para nuestros clientes, manteniendo nuestro contacto permanente con cada uno de ellos, cosa que nos caracterizó desde el principio, y lo cual nos llevó a mejorar día a día. Actualmente conectamos más de 70 localidades de la Provincia de Córdoba, y contamos con 32 boleterías al servicio del pasajero.
@@ -67,7 +67,7 @@
 				</div>
 			</div>
 			<div data-ng-hide="active != 1" class="about-us-content">
-				<div class="row card">
+				<div class="row">
 					<div class="col-xs-12 col-md-7 comp-text-box">
 					<!--<div class="col-xs-12 col-md-7 border-bottom border-top border-left border-right comp-text-box"> -->
 						<p>
@@ -101,7 +101,7 @@
 				</div>
 				<br>
 				<br>
-				<div class="row card comp-contact-row border-top">
+				<div class="row comp-contact-row border-top">
 					<div class="col-xs-12 col-md-7">
 						<div class="row">
 							<div class="col-xs-12 col-md-7">
@@ -208,34 +208,28 @@
 				<div class="row border-top border-bottom">
 					<div class="col-xs-12">
 						<div class="row comp-units-navbar">
-							<div class="col-xs-12 col-md-4">
+							<div class="col-xs-12 col-md-5">
 								<div class="row">
-									<button class="btn col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-3" data-ng-click="set_active_unit_tab(0)">Confort</button>
+									<div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-4">
+										<button class="btn btn-block" data-ng-click="set_active_unit_tab(0)">Confort</button>
+									</div>
+									
+									<div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-4">
+										<button class="btn btn-block" data-ng-click="set_active_unit_tab(1)">Tecnología</button>
+									</div>
 									<span class="visible-xs">
 										<br>
 										<br>
 									</span>
-									<button class="btn col-xs-10 col-xs-offset-1 col-sm-3" data-ng-click="set_active_unit_tab(1)">Tecnología</button>
-									<span class="visible-xs">
-										<br>
-										<br>
-									</span>
-									<button class="btn col-xs-10 col-xs-offset-1 col-sm-3" data-ng-click="set_active_unit_tab(2)">Seguridad</button>
-									<!-- <div ng-click="set_active_unit_tab(1)" class="col-xs-3 col-xs-offset-1 text-center comp-units-tab">
-							        	<a href class="">Confort</a>
-							        </div>
-							        <div ng-click="set_active_unit_tab(2)" class="col-xs-3 col-xs-offset-1 text-center comp-units-tab">
-							        	<a href class="">Tecnología</a>
-							        </div>
-							        <div ng-click="set_active_unit_tab(3)" class="col-xs-3 col-xs-offset-1 text-center comp-units-tab">
-							        	<a href class="">Seguridad</a>
-							        </div> -->
-						        </div>
+									<div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-4">
+										<button class="btn btn-block" data-ng-click="set_active_unit_tab(2)">Seguridad</button>
+									</div>
+				        </div>
 							</div>
 						</div>
 						<div class="row comp-units-content">
 							<div data-ng-hide="active_unit_tab != 0" class="col-xs-11 col-xs-offset-1 col-sm-offset-0">
-								<div class="row card">
+								<div class="row">
 									<div class="col-xs-12 col-md-3">
 										<p>
 											El interior de las unidades está modificado, ubicando tres filas de asientos para un mayor cofort. De esta manera podemos brindar butacas cuyo ancho y su capacidad de reclinarse (Semi-cama) es superior a cualquier otro servicio, haciendo que viajar sea un verdadero placer.
@@ -257,7 +251,7 @@
 								</div>
 							</div>
 							<div data-ng-hide="active_unit_tab != 1" class="col-xs-11 col-xs-offset-1 col-sm-offset-0">
-								<div class="row card">
+								<div class="row">
 									<div class="col-xs-12 col-md-4">
 										Innovamos constantemente para facilitar al pasajero un viaje más cómodo y seguro. Somos los primeros en implementar el sistema de tarjeta electrónica, donde el usuario puede realizar la carga de la misma en boletería y utilizarla a cualquier destino de buses Lep.
 										Desarrollamos una aplicación exclusiva para consulta, reserva y compra de pasajes. La experiencia de viajar con nosotros está en la palma de tu mano.
@@ -273,7 +267,7 @@
 								</div>
 							</div>
 							<div data-ng-hide="active_unit_tab != 2" class="col-xs-11 col-xs-offset-1 col-sm-offset-0">
-								<div class="row card">
+								<div class="row">
 									<div class="col-xs-12 col-md-3">
 										Todas las unidades cuentan con sistema vigía que regula y mantiene la correcta presión de los neumáticos; también son monitoreadas con seguimiento satelital que nos avisa en tiepo real cualquier situación meteorológica o mecánica improvista.
 									</div>
