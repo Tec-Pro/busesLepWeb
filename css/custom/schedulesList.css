@@ -1,3 +1,40 @@
+.sch-title {
+    text-align: center;
+}
+
+.sch-text-center {
+    text-align: center;
+}
+
+.sch-calendar {
+    margin-top: 5%;
+}
+
+.sch-grey {
+    color: #666666;
+}
+
+.sch-row {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.sch-first-row {
+    margin-top: 0%;
+}
+
+.sch-bg-white {
+    background-color: white;
+}
+
+.sch-bg-red {
+    background-color: red;
+}
+
+.sch-white {
+    color: white;
+}
+
 .travel-list{
     list-style: none;
     padding:0;
@@ -20,4 +57,5 @@
 }
 
 .travel-list >:first-child:before{
+    
 }

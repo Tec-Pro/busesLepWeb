@@ -1,4 +1,4 @@
-angular.module('app').controller('ScheduleController', ['$scope', '$location', '$anchorScroll', 'tripService', 'scheduleService', '$filter', 'wsService', function ($scope, $location, $anchorScroll, tripService, scheduleService, $filter, wsService){
+angular.module('app').controller('ScheduleController', ['$scope', '$location', '$timeout', '$anchorScroll', 'tripService', 'scheduleService', '$filter', 'wsService', function ($scope, $location, $timeout, $anchorScroll, tripService, scheduleService, $filter, wsService){
 	var wsdl_url = 'https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService';
 	var wsdl_url_wsConGps = "https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepcGPS.dll/soap/ILepWebService";
     var urn = 'LepWebServiceIntf-ILepWebService';
@@ -12,7 +12,6 @@ angular.module('app').controller('ScheduleController', ['$scope', '$location', '
 	var hide_loading_modal = function() {
 		loading_modal.style.display = "none";
 	}
-	$anchorScroll();
 
     getReturnSchedules = function(){
 		var listarHorarios_parameters2 = [
@@ -76,8 +75,23 @@ angular.module('app').controller('ScheduleController', ['$scope', '$location', '
 	$scope.schedules = tripService.getSchedules();
 	$scope.min_go_price = Math.min.apply(Math, $scope.schedules.map(function(s){return s.precio}));
 	$scope.max_go_price = Math.max.apply(Math, $scope.schedules.map(function(s){return s.precio}));
+	function findSchedule(schedule){
+ 		return schedule.ServicioPrestado === 'disponible';
+ 	}
 
+ 	//console.log($scope.schedules.find(findSchedule));
+ 	//console.log($scope.schedules.indexOf($scope.schedules.find(findSchedule)));
 
+	var first_available = "row-"+$scope.schedules.indexOf($scope.schedules.find(findSchedule));
+
+/*	$scope.goTo = function(){
+		console.log(first_available);
+		var row = document.getElementById(first_available);
+		console.log(row);
+		console.log(row.offset)
+		console.log(document.body);
+	};
+*/
   	$scope.isRoundTrip = $scope.departure_trip.round_trip === 1;
 
   	if ($scope.isRoundTrip){
@@ -322,6 +336,7 @@ angular.module('app').controller('ScheduleController', ['$scope', '$location', '
   	var longitude = 0;
   	var map_modal = document.getElementById('map-modal');
   	$scope.showMap =  function(lat,lon){
+  		console.log("Hola");
   		latitude = Number(lat);
   		longitude = Number(lon);
   		var mapCenter = new google.maps.LatLng(latitude, longitude);
