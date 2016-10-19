@@ -97,8 +97,7 @@ angular.module("app", ["ngRoute","ngAnimate","LocalStorageModule","angularSoap",
                     templateUrl: "views/arrivals.html"
                 })
                 .when("/app", {
-                    controller: "AppCtrl",
-                    templateUrl: "views/app.html"
+                    controller: "AppCtrl"
                 })
                 .when("/departures", {
                     controller: "SmartStopsCtrl",
