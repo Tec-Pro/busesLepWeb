@@ -16,5 +16,8 @@ angular.module('app').controller('AppCtrl',["$location",function($location){
         return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Windows());
     }
 	};
-	console.log(isMobile);
+	console.log(isMobile.Android());
+	console.log(isMobile.Windows());
+	console.log(isMobile.BlackBerry());
+	console.log(isMobile.iOS());
 }]);
