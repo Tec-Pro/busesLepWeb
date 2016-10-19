@@ -35,6 +35,12 @@
 .absolute-img-bottom {
 	margin-top: 270%;
 }
+@media only screen and (min-width: 1300px){
+	.absolute-img-bottom {
+		margin-top: 175%;
+	}
+}
+
 
 @media only screen and (min-width: 1440px){
 	.absolute-img {
