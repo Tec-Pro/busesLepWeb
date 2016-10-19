@@ -32,6 +32,10 @@ angular.module('app')
     load_modal.style.display = "none";
   }
 
+  $scope.goBack = function(){
+  	window.history.back();
+  }
+
   $scope.hide_modal = function(){
     error_modal.style.display = "none";
     location.reload();
