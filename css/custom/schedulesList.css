@@ -36,17 +36,28 @@
 }
 
 .travel-list{
-    list-style: none;
-    padding:0;
     margin:0;
+    width: 100%;
 }
 
 .travel-item { 
-    padding-left: 1em; 
-    text-indent: -.7em;
+    padding-left: 1.4em; 
+    font-size: 25px;
 }
 
-.travel-item:before {
+.travel-item-marker{
+    color: red;
+}
+
+.t-item-container {
+    margin-bottom: 2%;
+}
+
+.travel-modal {
+    width: 40%;
+}
+/*.travel-item-marker {
+    color:red;
     content:'';
     display: inline-block;
     width: 5px;
@@ -54,8 +65,4 @@
     border: 3px solid;
     border-radius: 10px;
     margin-right: 10px;
-}
-
-.travel-list >:first-child:before{
-    
-}
+}*/

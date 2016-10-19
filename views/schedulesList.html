@@ -208,9 +208,9 @@
           <h4>Recorrido</h4>
         </div>
         <div class="modal-body">
-          <ul class="travel-list">
-          	<li ng-repeat="t in travels"><p class="travel-item">{{t.nombre}}</p></li>
-          </ul>
+          <div class="travel-list">
+          	<div ng-repeat="t in travels" class="t-item-container"><span ng-class="{'glyphicon glyphicon-arrow-right travel-item-marker': $first || $last, 'glyphicon glyphicon-arrow-down': $middle}"></span><span class="travel-item">{{t.nombre}}</span></div>
+          </div>
          	<button type="submit" class="btn btn-large btn-danger lepStyleRed center-block" ng-click="hide_travel_modal()">Cerrar</button>
         </div>
       </div>
