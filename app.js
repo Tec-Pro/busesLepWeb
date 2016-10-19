@@ -92,10 +92,18 @@ angular.module("app", ["ngRoute","ngAnimate","LocalStorageModule","angularSoap",
                     controller: "AccValCtrl",
                     templateUrl: "views/accountValidate.html"
                 })
+                .when("/arrivals", {
+                    controller: "SmartStopsCtrl",
+                    templateUrl: "views/arrivals.html"
+                })
+                .when("/departures", {
+                    controller: "SmartStopsCtrl",
+                    templateUrl: "views/departures.html"
+                })
                 .otherwise({
                     redirectTo: "/"
                 });
-                //$locationProvider.html5Mode(true);            
+                $locationProvider.html5Mode(true);            
         }])
     .directive('numbersOnly', function() {
       return {

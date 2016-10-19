@@ -1,0 +1,49 @@
+<div class="smart-stops-container">
+	<div class="row smart-stops-header">
+		<div class="col-xs-12">
+			<h1 class="text-center"><strong>ARRIBOS</strong></h1>
+		</div>
+	</div>
+	<div class="row smart-stops-header table-header">
+		<div class="col-xs-11 col-xs-offset-1">
+			<div class="row">
+				<div class="col-xs-2">
+					<h3>Llega</h3>
+				</div>
+				<div class="col-xs-4">
+					<h3>Desde</h3>
+				</div>
+				<div class="col-xs-2">
+					<h3>Empresa</h3>
+				</div>
+				<div class="col-xs-2">	
+					<h3>Plataforma</h3>
+				</div>
+				<div class="col-xs-2">	
+					<h3>Coche</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row smart-stops-table">
+		<div class="col-xs-11 col-xs-offset-1">
+			<div ng-repeat="arrival in arrivals" class="row">
+				<div class="col-xs-2">
+					<p class="lead">{{arrival.arrival_time}}</p>
+				</div>
+				<div class="col-xs-4">
+					<p class="lead">{{arrival.from}}</p>
+				</div>
+				<div class="col-xs-2">
+					<p class="lead">{{arrival.company}}</p>
+				</div>
+				<div class="col-xs-2">	
+					<p class="lead">{{arrival.platform}}</p>
+				</div>
+				<div class="col-xs-2">	
+					<p class="lead">{{arrival.bus}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
