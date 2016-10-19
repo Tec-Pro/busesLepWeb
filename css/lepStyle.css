@@ -761,9 +761,8 @@ smaller than 650
 }
 
 .content-seats{
+    border: 1px solid;
     padding:0;
-    overflow: scroll; overflow-x:hidden;
-    height:100%;  
 }
 
 .schedules-row:hover{

@@ -20,7 +20,7 @@
 .comp-gall-nav-btn {
 	max-height: 25px;
 	margin-top: 150px;
-};
+}
 
 .comp-right-arrow {
 	max-height: 30px;
@@ -165,7 +165,7 @@
 .comp-modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 10; /* Sit on top */
+    z-index: 1500; /* Sit on top */
     padding-top: 100px; /* Location of the box */
     left: 0;
     top: 0;

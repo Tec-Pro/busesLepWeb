@@ -44,6 +44,11 @@ angular.module('app')
     	$scope.home_news = news;
     })
 
+    $scope.dropdown_toggle = function(){
+        $('#origin').dropdown("toggle");
+        //console.log($(".dropdown-toggle"));
+    }
+
     sessionStorage.clear();
     //Date picker options
     $scope.dpOpts = {
@@ -145,8 +150,31 @@ angular.module('app')
       });
     }
   };
+
+  $scope.$watch('origin_search', function(){
+    if (!($scope.origin_search == undefined)){
+      if ($scope.origin_search.length >= 1 ){
+        origin = $('#origin');
+        if (origin.attr("aria-expanded") == "false"){
+          origin.dropdown('toggle');
+        } 
+      }
+    }
+  });
+
+  $scope.$watch('destination_search', function(){
+    if (!($scope.destination_search == undefined)){
+      if ($scope.destination_search.length >= 1 ){
+        destination = $('#destination');
+        if (destination.attr("aria-expanded") == "false"){
+          destination.dropdown('toggle');
+        } 
+      }
+    }
+  })
   /*var origin_dropdown = angular.element(document.querySelector('#origin'));
   
+
   $scope.$watch('origin_search', function(){
     if($scope.origin_search.length == 1){
       console.log(origin_dropdown);

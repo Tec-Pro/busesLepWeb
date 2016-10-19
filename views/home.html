@@ -15,7 +15,7 @@
 								<div class="col-xs-12">
 										<div class="form-group">
 												<div class="dropdown">
-														<input type="text" ng-click="load_origins()" name="dropdown-toggle" data-ng-model=origin_search placeholder="Ciudad Origen" class="btn btn-default search-menu-button dropdown-toggle" id="origin" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true" required autocomplete="off">
+														<input type="text" ng-click="load_origins()" name="dropdown-toggle" data-ng-model=origin_search placeholder="Ciudad Origen" class="btn btn-default search-menu-button dropdown-toggle" id="origin" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false" required autocomplete="off">
 													<!-- <button class="btn btn-default search-menu-button dropdown-toggle" type="button" id="origin" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true">
 														{{params.origin_name}}
 													</button> -->
@@ -35,7 +35,7 @@
 										<div class="form-group">
 												<label class="sr-only" for="destination">Destino:</label>
 												<div class="dropdown">
-													<input type="text" name="dropdown-toggle" ng-click="destination_search=''" data-ng-model=destination_search placeholder="Ciudad Destino" ng-disabled = "params.origin === ''" class="btn btn-default search-menu-button dropdown-toggle" id="destination" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true" required autocomplete="off">
+													<input type="text" name="dropdown-toggle" ng-click="destination_search=''" data-ng-model=destination_search placeholder="Ciudad Destino" ng-disabled = "params.origin === ''" class="btn btn-default search-menu-button dropdown-toggle" id="destination" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false" required autocomplete="off">
 													<ul class="dropdown-menu search-menu-items" aria-labelledby="origin">
 														<li><a href class="search-menu-item" data-ng-repeat="destination in destinations | filter:destination_search" data-ng-click="setDestinationData(destination)">{{destination.hasta}}</a></li>
 													</ul>
