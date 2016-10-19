@@ -96,6 +96,9 @@ angular.module("app", ["ngRoute","ngAnimate","LocalStorageModule","angularSoap",
                     controller: "SmartStopsCtrl",
                     templateUrl: "views/arrivals.html"
                 })
+                .when("/app", {
+                    templateUrl: "views/app.html"
+                })
                 .when("/departures", {
                     controller: "SmartStopsCtrl",
                     templateUrl: "views/departures.html"
@@ -103,7 +106,7 @@ angular.module("app", ["ngRoute","ngAnimate","LocalStorageModule","angularSoap",
                 .otherwise({
                     redirectTo: "/"
                 });
-                $locationProvider.html5Mode(true);            
+                //$locationProvider.html5Mode(true);            
         }])
     .directive('numbersOnly', function() {
       return {
