@@ -16,8 +16,12 @@ angular.module('app').controller('AppCtrl',["$location",function($location){
         return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Windows());
     }
 	};
-	console.log(isMobile.Android());
-	console.log(isMobile.Windows());
-	console.log(isMobile.BlackBerry());
-	console.log(isMobile.iOS());
+	if (isMobile.Android()){
+		window.location = "https://play.google.com/store/apps/details?id=com.tecpro.buseslep&utm_source=global_co&utm_medium=prtnr&utm_content=Mar2515&utm_campaign=PartBadge&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1";
+	}
+	if (isMobile.iOS()){
+		window.location = "https://itunes.apple.com/ar/app/buses-lep-horarios-y-reservas/id1044093506?mt=8";
+	} else {
+		$location.path("/"); 
+	}
 }]);
