@@ -92,17 +92,13 @@ angular.module("app", ["ngRoute","ngAnimate","LocalStorageModule","angularSoap",
                     controller: "AccValCtrl",
                     templateUrl: "views/accountValidate.html"
                 })
-                .when("/arrivals", {
+                .when("/smartStops/:type?:id?", {
                     controller: "SmartStopsCtrl",
-                    templateUrl: "views/arrivals.html"
+                    templateUrl: "views/smartStops.html"
                 })
                 .when("/app", {
                     controller: "AppCtrl",
                     templateUrl: "views/app.html"
-                })
-                .when("/departures", {
-                    controller: "SmartStopsCtrl",
-                    templateUrl: "views/departures.html"
                 })
                 .otherwise({
                     redirectTo: "/"
