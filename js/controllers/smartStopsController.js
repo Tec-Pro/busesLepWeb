@@ -31,12 +31,11 @@ angular.module('app')
 
   function caller(){
 	  wsService["callService"](wsdl_url, urn, "HorariosProximaSalida", p).then(function(data){
-	  	console.log(data);
-	  	if ($scope.type == 0){
-	  			$scope.arrivals = data;	
-	  		} else if ($scope.type == 1){
-	  			$scope.departures = data;
-	  		}
+	  		if ($scope.type == 0){
+  				$scope.arrivals = data;	
+  			}	else if ($scope.type == 1){
+					$scope.departures = data;
+  			}
 			}
 		);	
   }

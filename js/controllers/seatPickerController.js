@@ -76,7 +76,6 @@ angular.module('app').controller('SeatsController', ['$scope', '$location', '$an
             type: "int",
             value: "3"
         }]
-        console.log("Hola");
         wsService.callService(wsdl_url, urn, 'EstadoButacasPlantaHorario', parameters).then(function(response){
             console.log(response);
             if (response["length"] > 1){
@@ -89,7 +88,7 @@ angular.module('app').controller('SeatsController', ['$scope', '$location', '$an
             } else {
                 for (var i = 0; i < $scope["passengers"]; i++){
                     if ($scope.isRoundTrip){
-                        autoPick($scope["passengers"],1);
+                        autoPick($scope["passengers"], 1);
                         autoPick($scope["passengers"], 0);
                     } else {
                         autoPick($scope["passengers"],1);   
@@ -272,7 +271,7 @@ angular.module('app').controller('SeatsController', ['$scope', '$location', '$an
         wsService.callService(wsdl_url,urn, 'SeleccionarButaca', parametersPickSeat).then(function(response){
             //console.log(response);
             console.log(response);
-            if(response == '1'){
+            if(response == '-1'){
                 if(go == 1){
                     $scope.seatsSelectedGo.push("-");
                     tripService.saveSelectedSeatsGo($scope.seatsSelectedGo);
@@ -281,6 +280,9 @@ angular.module('app').controller('SeatsController', ['$scope', '$location', '$an
                     $scope.seatsSelectedReturn.push("-");
                     tripService.saveSelectedSeatsReturn($scope.seatsSelectedReturn);
                 }
+            } else {
+                alert("Error: No hay asientos disponibles");
+                window["history"]["back"]();
             }
         });
     }
@@ -293,8 +295,6 @@ angular.module('app').controller('SeatsController', ['$scope', '$location', '$an
         if(!isGo){
             isIda = "0";
         }
-        console.log("Todo bien");
-        console.log(seat);
         switch(seat.img) {
             case Free: // selecciona
                 console.log("free");
@@ -394,7 +394,6 @@ angular.module('app').controller('SeatsController', ['$scope', '$location', '$an
     };
 
     $scope.goBack = function () {
-        console.log(window.history);
         window.history.back();
     }
 

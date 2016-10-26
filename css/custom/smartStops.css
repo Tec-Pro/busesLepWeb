@@ -1,13 +1,13 @@
 .smart-stops-header {
 	margin: 0;
 	color: white;
-	background-color: lightblue;
+	background-color: #009bd1;
 }
 
 .table-header {
 	border-top: 2px solid;
 	border-bottom: 2px solid;
-	border-color: gold;
+	border-color: #f7b24a;
 }
 
 .smart-stops-container {

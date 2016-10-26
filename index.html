@@ -357,7 +357,7 @@
 	    	<div><br></div>
 	      <!-- footer-->
 				<div id="footer" class="container-fluid lepStyle2" ng-controller="FooterCtrl">
-	      			<div class = "row" ng-if="user.dni != '' ">
+	      			<div class = "row" ng-show="user.dni != '' ">
 				        <!-- <div class="col-xs-12 col-sm-3 text-center h4-responsive" style="padding:10px"><strong>Noticias</strong>
 				            <div class=" text-center ">
 				                <ul class="unstyled">
@@ -403,7 +403,7 @@
 				        <div  class="hidden-xs col-sm-4 text-center h4-responsive" style="padding:10px"><strong>Tu opinión nos interesa...</strong>
 				        	<form ng-submit="sendOpinion()">
 					           <textarea required ng-model="opinion" class="lep-form textarea" style="margin-left:10px"name="Opinion"></textarea>
-					           <button id="enviarBtn"class="btn btn-default lepStyle2"type="submit" style="font-size:0.7em;margin-top:10px;margin-bottom:10px">Enviar</button>
+					           <button id="enviarBtn" class="btn btn-default lepStyle2" type="submit" style="font-size:0.7em;margin-top:10px;margin-bottom:10px">Enviar</button>
 					       </form>
 				        </div>
 			    		</div>

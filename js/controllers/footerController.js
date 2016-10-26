@@ -70,7 +70,6 @@ angular.module('app')
         type: "string",
         value: dni
       }];
-      console.log(params);
 	    wsService.callService(wsdl_url, urn, "AgregarOpinion", params).then(function(response){
         	if (response[0].Resul == 0){
 			        modal.style.display = "block";			     
