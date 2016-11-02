@@ -10,19 +10,19 @@
 			<div class="col-xs-12">
 				<div class="row">
 					<div class="col-xs-2">
-						<h3>Llega</h3>
+						<h1>Llega</h1>
 					</div>
 					<div class="col-xs-5">
-						<h3>Desde</h3>
+						<h1>Desde</h1>
 					</div>
 					<div class="col-xs-2">
-						<h3>Empresa</h3>
+						<h1>Empresa</h1>
 					</div>
 					<div class="col-xs-2">	
-						<h3>Plataforma</h3>
+						<h1>Plataforma</h1>
 					</div>
 					<div class="col-xs-1">	
-						<h3>Coche</h3>
+						<h1>Coche</h1>
 					</div>
 				</div>
 			</div>
@@ -31,19 +31,19 @@
 			<div class="col-xs-12">
 				<div ng-repeat="arrival in arrivals" class="row smart-stops-row" data-ng-class-odd="'odd-smart-stops-row'">
 					<div class="col-xs-2 text-center">
-						<h3>{{arrival.FechaHoraLlegadaEstimado | lepHour}}<br><small data-ng-show="arrival.MinutosDemora == 0">{{arrival.Estado | capitalize }}</small><small data-ng-show="arrival.MinutosDemora > 0">{{arrival.Estado | capitalize}} de {{arrival.MinutosDemora}} minutos</small></h3>
+						<h1>{{arrival.FechaHoraLlegadaEstimado | lepHour}}<br><small data-ng-show="arrival.MinutosDemora == 0">{{arrival.Estado | capitalize }}</small><small data-ng-show="arrival.MinutosDemora > 0">{{arrival.Estado | capitalize}} de {{arrival.MinutosDemora}} minutos</small></h1>
 					</div>
 					<div class="col-xs-5">
-						<h3 class="text-center">{{arrival.Origen}}<br><small>{{arrival.Localidades}}</small></h3>
+						<h1 class="text-center">{{arrival.Origen}}<br><small id="text">{{arrival.Localidades}}</small></h1>
 					</div>
 					<div class="col-xs-2">
-						<img src="./img/shared/isologo.png" class="img-responsive">
+						<img src="./img/shared/isologo.png" class="smart-stops-img img-responsive">
 					</div>
 					<div class="col-xs-2">	
-						<h3 class="text-center">{{arrival.Plataforma}}</h3>
+						<h1 class="text-center">{{arrival.Plataforma}}</h1>
 					</div>
 					<div class="col-xs-1">	
-						<h3 class="text-center">{{arrival.Unidad}}</h3>
+						<h1 class="text-center">{{arrival.Unidad}}</h1>
 					</div>
 				</div>
 			</div>
@@ -54,19 +54,19 @@
 			<div class="col-xs-12">
 				<div class="row">
 					<div class="col-xs-2">
-						<h3>Sale</h3>
+						<h1>Sale</h1>
 					</div>
 					<div class="col-xs-5">
-						<h3>Destino</h3>
+						<h1>Destino</h1>
 					</div>
 					<div class="col-xs-2">
-						<h3>Empresa</h3>
+						<h1>Empresa</h1>
 					</div>
 					<div class="col-xs-2">	
-						<h3>Plataforma</h3>
+						<h1>Plataforma</h1>
 					</div>
 					<div class="col-xs-1">	
-						<h3>Coche</h3>
+						<h1>Coche</h1>
 					</div>
 				</div>
 			</div>
@@ -75,19 +75,19 @@
 			<div class="col-xs-12">
 				<div ng-repeat="departure in departures" class="row smart-stops-row" data-ng-class-odd="'odd-smart-stops-row'">
 					<div class="col-xs-2 text-center">
-						<h3>{{departure.SalidaEstimada}}<br><small data-ng-show="departure.MinutosDemora == 0">{{departure.Estado | capitalize}}</small><small data-ng-show="departure.MinutosDemora > 0">{{departure.Estado | capitalize}} de {{departure.MinutosDemora}} minutos</small></h3>
+						<h1>{{departure.SalidaEstimada}}<br><small data-ng-show="departure.MinutosDemora == 0">{{departure.Estado | capitalize}}</small><small data-ng-show="departure.MinutosDemora > 0">{{departure.Estado | capitalize}} de {{departure.MinutosDemora}} minutos</small></h1>
 					</div>
 					<div class="col-xs-5">
-						<h3 class="text-center">{{departure.destino}}<br><small class="text-left">{{departure.Localidades}}</small></h3>
+						<h1 class="text-center">{{departure.destino}}<br><small id="text" class="text-left">{{departure.Localidades}}</small></h1>
 					</div>
 					<div class="col-xs-2">
-						<img src="./img/shared/isologo.png" class="img-responsive">
+						<img src="./img/shared/isologo.png" class="smart-stops-img img-responsive">
 					</div>
 					<div class="col-xs-2">	
-						<h3 class="text-center">{{departure.Plataforma}}</h3>
+						<h1 class="text-center">{{departure.Plataforma}}</h1>
 					</div>
 					<div class="col-xs-1">	
-						<h3 class="text-center">{{departure.Unidad}}</h3>
+						<h1 class="text-center">{{departure.Unidad}}</h1>
 					</div>
 				</div>
 			</div>

@@ -10,6 +10,12 @@
 	border-color: #f7b24a;
 }
 
+.smart-stops-img {
+	height: 50px;
+}
+
+
+
 .smart-stops-container {
 	position: absolute;
 	top: 0;
@@ -27,9 +33,9 @@
 }
 
 .smart-stops-row {
-	border-bottom: 3px solid grey;
-	padding-top: 2%;
-	padding-bottom: 2%;
+	border-bottom: 2px solid grey;
+	padding-top: 1%;
+	padding-bottom: 1%;
 }
 
 .smart-stops-table {
