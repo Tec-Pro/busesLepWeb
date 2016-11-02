@@ -30,7 +30,7 @@ angular.module('app')
       })
     } else if ($scope.type == 1){
       wsService["callService"](wsdl_url, urn, "HorariosProximaSalida", p, true).then(function(data){
-        consolse.log(data);
+        console.log(data);
         $scope.departures = data;
        
       })
