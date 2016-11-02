@@ -1,18 +1,18 @@
 <div class="smart-stops-container">
-		<div class="row smart-stops-header">
+		<div ng-show="header" class="row smart-stops-header">
 			<div class="col-xs-12" style="padding: 0;">
 				<img class="img-responsive" src="./img/smart_stops/header.png">
 				<!--<h1 class="text-center"><strong>ARRIBOS</strong></h1>-->
 			</div>
 		</div>
 	<div ng-if="type == 0">
-		<div class="row smart-stops-header table-header">
-			<div class="col-xs-11 col-xs-offset-1">
+		<div class="row smart-stops-header table-header text-center">
+			<div class="col-xs-12">
 				<div class="row">
 					<div class="col-xs-2">
 						<h3>Llega</h3>
 					</div>
-					<div class="col-xs-4">
+					<div class="col-xs-5">
 						<h3>Desde</h3>
 					</div>
 					<div class="col-xs-2">
@@ -21,44 +21,42 @@
 					<div class="col-xs-2">	
 						<h3>Plataforma</h3>
 					</div>
-					<div class="col-xs-2">	
+					<div class="col-xs-1">	
 						<h3>Coche</h3>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="row smart-stops-table">
-			<div class="col-xs-11 col-xs-offset-1">
-				<div ng-repeat="arrival in arrivals" class="row">
-					<div class="col-xs-2">
-						<h3>{{arrival.FechaHoraLlegadaEstimado | lepHour}}<br>
-						<small>{{arrival.Estado | capitalize}} <div data-ng-show="arrival.MinutosDemora > 0"> de {{arrival.MinutosDemora}} minutos</div></small></h3>
+			<div class="col-xs-12">
+				<div ng-repeat="arrival in arrivals" class="row smart-stops-row" data-ng-class-odd="'odd-smart-stops-row'">
+					<div class="col-xs-2 text-center">
+						<h3>{{arrival.FechaHoraLlegadaEstimado | lepHour}}<br><small data-ng-show="arrival.MinutosDemora == 0">{{arrival.Estado | capitalize }}</small><small data-ng-show="arrival.MinutosDemora > 0">{{arrival.Estado | capitalize}} de {{arrival.MinutosDemora}} minutos</small></h3>
 					</div>
-					<div class="col-xs-4">
-						<h3>{{arrival.Origen}}<br><small>{{arrival.Localidades}}</small></h3>
+					<div class="col-xs-5">
+						<h3 class="text-center">{{arrival.Origen}}<br><small>{{arrival.Localidades}}</small></h3>
 					</div>
 					<div class="col-xs-2">
-						<h3>Buses Lep</h3>
-						<h3>{{arrival.company}}</h3>
+						<img src="./img/shared/isologo.png" class="img-responsive">
 					</div>
 					<div class="col-xs-2">	
-						<h3>{{arrival.Plataforma}}</h3>
+						<h3 class="text-center">{{arrival.Plataforma}}</h3>
 					</div>
-					<div class="col-xs-2">	
-						<h3>{{arrival.Unidad}}</h3>
+					<div class="col-xs-1">	
+						<h3 class="text-center">{{arrival.Unidad}}</h3>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 	<div ng-if="type == 1">
-		<div class="row smart-stops-header table-header">
-			<div class="col-xs-11 col-xs-offset-1">
+		<div class="row smart-stops-header table-header text-center">
+			<div class="col-xs-12">
 				<div class="row">
 					<div class="col-xs-2">
 						<h3>Sale</h3>
 					</div>
-					<div class="col-xs-4">
+					<div class="col-xs-5">
 						<h3>Destino</h3>
 					</div>
 					<div class="col-xs-2">
@@ -67,29 +65,29 @@
 					<div class="col-xs-2">	
 						<h3>Plataforma</h3>
 					</div>
-					<div class="col-xs-2">	
+					<div class="col-xs-1">	
 						<h3>Coche</h3>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="row smart-stops-table">
-			<div class="col-xs-11 col-xs-offset-1">
-				<div ng-repeat="departure in departures" class="row">
-					<div class="col-xs-2">
-						<h3>{{departure.SalidaProgramada}}<br><small>{{departure.Estado}} <div ng-show="departure.MinutosDemora > 0">de {{departure.MinutosDemora}} minutos</div></small></h3>
+			<div class="col-xs-12">
+				<div ng-repeat="departure in departures" class="row smart-stops-row" data-ng-class-odd="'odd-smart-stops-row'">
+					<div class="col-xs-2 text-center">
+						<h3>{{departure.SalidaEstimada}}<br><small data-ng-show="departure.MinutosDemora == 0">{{departure.Estado | capitalize}}</small><small data-ng-show="departure.MinutosDemora > 0">{{departure.Estado | capitalize}} de {{departure.MinutosDemora}} minutos</small></h3>
 					</div>
-					<div class="col-xs-4">
-						<h3>{{departure.destino}}<br><small>{{departure.Localidades}}</small></h3>
+					<div class="col-xs-5">
+						<h3 class="text-center">{{departure.destino}}<br><small class="text-left">{{departure.Localidades}}</small></h3>
 					</div>
 					<div class="col-xs-2">
-						<h3>Buses Lep</h3>
+						<img src="./img/shared/isologo.png" class="img-responsive">
 					</div>
 					<div class="col-xs-2">	
-						<h3>{{departure.Plataforma}}</h3>
+						<h3 class="text-center">{{departure.Plataforma}}</h3>
 					</div>
-					<div class="col-xs-2">	
-						<h3>{{departure.Unidad}}</h3>
+					<div class="col-xs-1">	
+						<h3 class="text-center">{{departure.Unidad}}</h3>
 					</div>
 				</div>
 			</div>

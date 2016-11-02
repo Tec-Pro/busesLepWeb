@@ -6,6 +6,7 @@ angular.module('app')
 
   $scope.type = $routeParams.type;
   var id = $routeParams.id;
+  $scope.header = $routeParams.header == 1;
 
   var p = [
         {
@@ -20,6 +21,25 @@ angular.module('app')
         }
   ];
 
+  function caller(){
+    if ($scope.type == 0){      
+      wsService["callService"](wsdl_url, urn, "HorariosProximosArribos", p, true).then(function(data){
+        console.log(data);
+        $scope.arrivals = data; 
+        
+      })
+    } else if ($scope.type == 1){
+      wsService["callService"](wsdl_url, urn, "HorariosProximaSalida", p, true).then(function(data){
+        consolse.log(data);
+        $scope.departures = data;
+       
+      })
+    }      
+  } 
+  
+  caller();
+  setInterval(caller, 60000);
+
   function splitter(data){
     if ($scope.type ==0){
       data = data.subStr(data.indexOf(" ") + 1);
@@ -28,21 +48,4 @@ angular.module('app')
     }
   }
 
-  function caller(){
-		if ($scope.type == 0){
-      wsService["callService"](wsdl_url, urn, "HorariosProximosArribos", p, true).then(function(data){
-        data.map(splitter(data.Origen));
-			  $scope.arrivals = data;	
-        console.log(data);
-      })
-		}	else if ($scope.type == 1){
-      wsService["callService"](wsdl_url, urn, "HorariosProximaSalida", p, true).then(function(data){
-			 $scope.departures = data;
-       console.log(data);
-      })
-		}      
-	}	
-  
-  caller();
-  setInterval(caller, 60000);
 }]);

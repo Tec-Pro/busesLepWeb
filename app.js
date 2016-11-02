@@ -92,7 +92,7 @@ angular.module("app", ["ngRoute","ngAnimate","LocalStorageModule","angularSoap",
                     controller: "AccValCtrl",
                     templateUrl: "views/accountValidate.html"
                 })
-                .when("/smartStops/:type?:id?", {
+                .when("/smartStops/:type?:id?:header?", {
                     controller: "SmartStopsCtrl",
                     templateUrl: "views/smartStops.html"
                 })

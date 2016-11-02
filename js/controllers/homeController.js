@@ -1,8 +1,7 @@
 angular.module('app')
 .controller('HomeCtrl', ['$scope', '$sce', '$location', '$window', '$anchorScroll', 'localStorageService', 'wsService', 'tripService', 'companyService', function($scope, $sce, $location, $window, $anchorScroll, localStorageService, wsService, tripService, companyService){
     $anchorScroll();
-    var wsdl_url = 'https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService'//https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService';
-    var wsdl_url_wsConGps = "https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepcGPS.dll/soap/ILepWebService";
+    var wsdl_url = "https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepcGPS.dll/soap/ILepWebService";
     var wsdl_url_web = "https://webservices.buseslep.com.ar:443/WebServices/WSLepPaginaWeb.dll/soap/IWSLepPaginaWeb";
     var urn = '';
 
@@ -107,7 +106,7 @@ angular.module('app')
     //Call the web service and update the origins from the scope.
     if ($scope.origins.length == 0){
       display_modal();
-      wsService.callService(wsdl_url_wsConGps, urn, "LocalidadesDesdeWeb",localidadesDesde_parameters, true).then(function(origins){
+      wsService.callService(wsdl_url, urn, "LocalidadesDesdeWeb",localidadesDesde_parameters, true).then(function(origins){
         hide_modal();
         $scope.origins = origins;
       }, function(reason){
@@ -265,7 +264,7 @@ angular.module('app')
           ];
           tripService.saveDepartureTrip();
           display_modal();
-          wsService.callService(wsdl_url_wsConGps, urn, "ListarHorarioscGPS", listarHorarios_parameters, true).then(function(schedules){ //"ListarHorarioscGPS"
+          wsService.callService(wsdl_url, urn, "ListarHorarioscGPS", listarHorarios_parameters, true).then(function(schedules){ //"ListarHorarioscGPS"
   						hide_modal();
               if (schedules.length > 0){
                 var trip = tripService.getDepartureTrip();
@@ -342,7 +341,7 @@ angular.module('app')
         ];
         tripService.saveDepartureTrip();
         //alert(JSON.stringify(tripService.getDepartureTrip()));
-        wsService.callService(wsdl_url_wsConGps, urn, "ListarHorarioscGPS", listarHorarios_parameters, true).then(function(schedules){
+        wsService.callService(wsdl_url, urn, "ListarHorarioscGPS", listarHorarios_parameters, true).then(function(schedules){
             if (schedules.length > 0){
               //guardar aca departure-trip
               //tripService.saveDepartureTrip();
@@ -383,13 +382,13 @@ angular.module('app')
     
 
     var display_modal = function(){
-      if ($location.path() == "/home") {
+      if ($location.path() == "/") {
         modal.style.display = "block";
       }
     }
 
     var hide_modal = function(){
-      if ($location.path() == "/home") {
+      if ($location.path() == "/") {
         modal.style.display = "none";
       }
     }
