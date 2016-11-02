@@ -15,8 +15,7 @@ angular.module('app').controller('DetailsController', ['$scope', '$location', '$
 	$scope.seatsSelectedReturn = tripService.getSelectedSeatsReturn();
 	$anchorScroll();
 	$scope.goMercadopagoBuy = function() {
-		tripService.savePurchaseOrigin(0);
-	    $location.path('/buy');	 
+		tripService.savePurchaseOrigin(0);	    $location.path('/buy');	 
 	    //seat.img = '../img/occupied_seat.png'
 	};
 
@@ -29,10 +28,7 @@ angular.module('app').controller('DetailsController', ['$scope', '$location', '$
 	}
 
 	$scope.$on('$routeChangeStart', function (scope, next, current) {
-        //console.log(next.$$route.controller);
         if (next.$$route.controller == "SeatsController") {
-            // Show here for your model, and do what you need**
-            //$("#yourModel").show();
             $location.path('/');	
         }
     });
@@ -55,16 +51,6 @@ angular.module('app').controller('DetailsController', ['$scope', '$location', '$
 	    }
 
 			var add_reserve_parameters = [
-	          {
-	            name: "userWS",
-	            type: "string",
-	            value: "UsuarioLep"
-	          },
-	          {
-	            name: "passWS",
-	            type: "string",
-	            value: "Lep1234"
-	          },
 	          {
 	            name: "Dni",
 	            type: "string",
@@ -141,7 +127,7 @@ angular.module('app').controller('DetailsController', ['$scope', '$location', '$
 	            value: "3"
 	          }          
 	        ];
-	        wsService.callService(wsdl_url, urn, "AgregarReserva", add_reserve_parameters).then(function(response){	           
+	        wsService.callService(wsdl_url, urn, "AgregarReserva", add_reserve_parameters, true).then(function(response){	           
 	               tripService.setBuy(0);
 	               $location.path('/endReserve');	
 			});

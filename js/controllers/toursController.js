@@ -2,22 +2,9 @@ angular.module('app').controller('ToursController', ['$scope', '$location', '$an
 	$anchorScroll();
 	var wsdl_url = "https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepcGPS.dll/soap/ILepWebService";
 
-	var toursParams = [
-		{
-			name: "userWS",
-		    type: "string",
-		    value: "UsuarioLep"
-		},
-		{
-			name: "passWS",
-		    type: "string",
-		    value: "Lep1234"
-		}
-	];
-
 	$scope.tours = [];
 	$scope.picture = "";
-	wsService.callService(wsdl_url, "", "Destinos", toursParams).then(function(response){
+	wsService.callService(wsdl_url, "", "Destinos", [], true).then(function(response){
 
 		for (var i = 0; i < response.length; i++) {
 			splittedCities2 = response[i].Recorridos.split(" . ");
@@ -32,7 +19,7 @@ angular.module('app').controller('ToursController', ['$scope', '$location', '$an
 
 	var pic_modal = document.getElementById('pic_modal');
   	$scope.showPicture =  function(picture){
-  		//console.log(picture);	
+  		////console.log(picture);	
   		$scope.picture = picture;
   		pichtml = document.getElementById('pic');
   		pic_modal.style.display = "block";

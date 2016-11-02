@@ -4,36 +4,20 @@ angular.module('app').controller('TicketOfficesController', ['$scope', '$locatio
 	urn = "LepWebServiceIntf-ILepWebService";
 	method = "Boleterias";
 
-	var ticketOfficesParams = [
-		{
-			name: "userWS",
-		    type: "string",
-		    value: "UsuarioLep"
-		},
-		{
-			name: "passWS",
-		    type: "string",
-		    value: "Lep1234"
-		}
-	];
-
 	var rect = document.getElementById("footer").getBoundingClientRect();
 	var image_container = document.getElementById("img-container").getBoundingClientRect();
 	var body = document.getElementsByTagName("BODY")[0];
 
 	$scope.ticketOffices = [];
 
-	wsService.callService(wsdl_url, urn, method, ticketOfficesParams).then(function(offices){
+	wsService.callService(wsdl_url, urn, method, [], true).then(function(offices){
 		$scope.ticketOffices = offices;
 		var rect = document.getElementById("footer").getBoundingClientRect();
 		var image_container = document.getElementById("img-container").getBoundingClientRect();
 		var body = document.getElementsByTagName("BODY")[0];
-		console.log(rect.height);
-		console.log(image_container);
-		console.log(body.offsetHeight);
 	});
 
-  	$scope.selectedImg = "img/Boleterias/EjemploFotoBoleteria.png";
+  	$scope.selectedImg;
 
   	$scope.goSchedules = function() {
 	   // $location.path('/schedules');	 
@@ -71,12 +55,28 @@ angular.module('app').controller('TicketOfficesController', ['$scope', '$locatio
       map_modal.style.display = "none";
     }
   
-	window.onscroll = function(){
-		reposition();
+  var breakpoint;
+	function check_width(){
+		if (window.innerWidth >= 2400){
+			breakpoint = 2300;
+		}
+		else if (window.innerWidth >= 1300) {
+			breakpoint = 2350;
+		} else {
+			breakpoint = 2600;
+		}
+	}
+
+	check_width();
+    
+	onscroll = function(){
+		if ($location.path() === '/ticketOffices'){
+			reposition();
+		}
 	}
 
 	function reposition() {
-		if (window.scrollY + window.innerHeight + image_container.height > body.offsetHeight - (rect.height)){
+		if (window.scrollY +  image_container.height > breakpoint){
 			document.getElementById('img-container').className = 'col-md-offset-1 col-md-3 hidden-xs hidden-sm absolute-img absolute-img-bottom';
 		} else {
 			if (window.scrollY > image_container.top) {

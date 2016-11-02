@@ -1,22 +1,13 @@
 angular.module('app')
 .controller('SmartStopsCtrl', ['$scope','wsService', '$routeParams', function($scope,wsService, $routeParams){
 
-	wsdl_url = 'https://webservices.buseslep.com.ar:443/WebServices/WSHorariosProximaSalidayPlataforma.dll/soap/ILWService';
+	wsdl_url = 'https://webservices.buseslep.com.ar/WebServices/WSHorariosProximaSalidayArribos.dll/soap/ILWService';
   urn = 'LepWebServiceIntf-ILWService';	
 
   $scope.type = $routeParams.type;
   var id = $routeParams.id;
 
-  var p = [{
-            name: "userWS",
-            type: "string",
-            value: "UsuarioLep"
-        },
-        {
-            name: "passWS",
-            type: "string",
-            value: "Lep1234"
-        },
+  var p = [
         {
             name: "id_Boleteria",
             type: "int",
@@ -29,16 +20,29 @@ angular.module('app')
         }
   ];
 
-  function caller(){
-	  wsService["callService"](wsdl_url, urn, "HorariosProximaSalida", p).then(function(data){
-	  		if ($scope.type == 0){
-  				$scope.arrivals = data;	
-  			}	else if ($scope.type == 1){
-					$scope.departures = data;
-  			}
-			}
-		);	
+  function splitter(data){
+    if ($scope.type ==0){
+      data = data.subStr(data.indexOf(" ") + 1);
+    } else if ($scope.type == 1){
+      data = data.subStr(data.indexOf(" ")+1);
+    }
   }
+
+  function caller(){
+		if ($scope.type == 0){
+      wsService["callService"](wsdl_url, urn, "HorariosProximosArribos", p, true).then(function(data){
+        data.map(splitter(data.Origen));
+			  $scope.arrivals = data;	
+        console.log(data);
+      })
+		}	else if ($scope.type == 1){
+      wsService["callService"](wsdl_url, urn, "HorariosProximaSalida", p, true).then(function(data){
+			 $scope.departures = data;
+       console.log(data);
+      })
+		}      
+	}	
+  
   caller();
   setInterval(caller, 60000);
 }]);

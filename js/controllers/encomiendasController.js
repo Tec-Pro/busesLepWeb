@@ -14,16 +14,6 @@ angular.module('app')
 	var load_data = function(id){
 	 	var service_parameters = [
 	    {
-	      name: "userWS",
-	      type: "string",
-	      value: "UsuarioLep"
-	    },
-	    {
-	      name: "passWS",
-	      type: "string",
-	      value: "Lep1234"
-	    },
-	    {
 	      name: "NroGuia",
 	      type: "string",
 	      value: id
@@ -31,7 +21,7 @@ angular.module('app')
     ]
 
 
-    wsService.callService(wsdl_url, urn, "BuscarEncomienda", service_parameters).then(function(data){
+    wsService.callService(wsdl_url, urn, "BuscarEncomienda", service_parameters, true).then(function(data){
     	if(data.length != 0 && data !== "Error no especificado"){
     		$scope.result_ready = true;
     		$scope.package = data;

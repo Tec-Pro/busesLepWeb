@@ -107,7 +107,7 @@ angular.module('app')
 
 	function setPaymentMethodInfo(status, response) {
 	    if (status == 200) {
-	    		console.log(response);
+	    		//console.log(response);
 	        // do somethings ex: show logo of the payment method
 	        var form = document.querySelector('#pay');
 	        if (document.querySelector("input[name=paymentMethodId]") == null) {
@@ -228,7 +228,7 @@ angular.module('app')
 
 	        fragment.appendChild(option);
 	        for (var i = 0; i < payerCosts.length; i++) {
-	        		console.log(payerCosts[i]);
+	        		//console.log(payerCosts[i]);
 	            option = new Option(payerCosts[i].recommended_message || payerCosts[i].installments, payerCosts[i].installments);
 	            fragment.appendChild(option);
 	        }
@@ -269,7 +269,7 @@ angular.module('app')
 
 	function sdkResponseHandler(status, response) {
     if (status != 200 && status != 201) {
-    	console.log(response);
+    	//console.log(response);
       alert("Verifique los datos ingresados.");
     }else{
        
@@ -303,8 +303,8 @@ angular.module('app')
 					transaction_amount: parseInt(price)
 		  	}
       }
-      console.log(datosCompra);
-      console.log(JSON.stringify(datosCompra));
+      //console.log(datosCompra);
+      //console.log(JSON.stringify(datosCompra));
       wsParameters = [
 				{
 					name: "UserCobro",
@@ -327,11 +327,11 @@ angular.module('app')
 					value: "3"
 			}]
 			display_load_modal();
-     	wsService.callService(wsdl_url, urn, wsMethod, wsParameters).then(function(response){
-	     		console.log(response);
+     	wsService.callService(wsdl_url, urn, wsMethod, wsParameters, false).then(function(response){
+	     		//console.log(response);
 	     		hide_load_modal();
 	     		if (tripService.getPurchaseOrigin() == "0"){
-	     			console.log(response);
+	     			//console.log(response);
 	     			splittedResponse = response.split("{\"Cod_Impresion\":\"");
 	     			var codImpresion = -1;
 	       		if(splittedResponse[1] != undefined){
@@ -339,7 +339,7 @@ angular.module('app')
 	       		}
 	     		} else if (tripService.getPurchaseOrigin() == "1") {
 						splittedResponse = response.split("{Result\":\"");
-						console.log(splittedResponse);
+						//console.log(splittedResponse);
 					}
    		var messageError = response;
    		try {

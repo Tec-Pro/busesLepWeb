@@ -1,4 +1,4 @@
-<div id="view-container" class="row">
+<div ng-cloak id="view-container" class="row">
 	<div class="col-xs-12 col-md-8">
 		<div class="row visible-xs-block">
 			<div class="col-xs-12 lepLightGrey-bg">
@@ -39,7 +39,7 @@
 								{{office.Boleteria_Telefono}}</a>
 							</div>
 							<div class="col-xs-6">
-								<img ng-click="showMap(office.latitud, office.longitud)" class = "map-img center-block" style = "height:22px; width:15px; cursor: pointer;" ng-src="img/Posicionamiento.png" alt="">
+								<img ng-click="showMap(office.latitud, office.longitud)" class = "map-img center-block" style = "height:22px; width:15px; cursor: pointer;" ng-src="img/shared/positioning.png" alt="">
 							</div>
 						</div>
 					</div>
@@ -56,14 +56,14 @@
 								{{office.Boleteria_Telefono}}</a>
 					</div>
 					<div class="col-sm-3">
-						<img ng-click="showMap(office.latitud, office.longitud)" class = "map-img center-block" style = "height:22px; width:15px; cursor: pointer;" ng-src="img/Posicionamiento.png" alt="">
+						<img ng-click="showMap(office.latitud, office.longitud)" class = "map-img center-block" style = "height:22px; width:15px; cursor: pointer;" ng-src="img/shared/positioning.png" alt="">
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 	<div id="img-container" class="col-md-offset-1 col-md-3 hidden-xs hidden-sm absolute-img">     
-    <img class = "img-responsive" ng-src="{{selectedImg}}" alt="" ng-cloak>
+    <img class = "img-responsive" src="img/ticket_offices/placeholder.png" ng-src="{{selectedImg}}" alt="" ng-cloak>
 	</div>
 	<!-- Map Modal -->
   <div id="map-modal" class="mercadopago-modal">

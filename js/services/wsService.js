@@ -1,6 +1,9 @@
 angular.module('app')
 .factory('wsService', ["$q","$timeout", function($q, $timeout){
 
+  var a = btoa("UsuarioLep");
+  var b = btoa("Lep1234");
+
 	var wsService = {};
 	/*
 	* This method is a general web service caller. It takes as parameters
@@ -11,44 +14,51 @@ angular.module('app')
 	* that contains the parameter name, the type and the value.
 	* ie: p = [{name: 'userws', type: 'string', value: 'UsuarioLep'}
 	*/
-	wsService.callService = function(wsdl_url, urn, method, parameters){
+	wsService.callService = function(wsdl_url, urn, method, parameters, auth){
     //console.clear();
 		//Create the deferred object
 		var deferred = $q.defer();
 		//Create the xmlhttp petition 
-
 		var xmlhttp = new XMLHttpRequest();
 		//Specify the type of request so that it will be a post, sent to the wsdl
 		//passed by the user and that it will be an asynchronous call.
 		xmlhttp.open('POST', wsdl_url, true);
-     
-		//Build the SOAP request
-		var soap_request = 
-				'<?xml version="1.0" encoding="UTF-8" standalone="no"?>' +
-                '<SOAP-ENV:Envelope ' + 
-                    'xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" ' +
-                    'xmlns:xs="http://www.w3.org/2001/XMLSchema" ' +
-                    'xmlns:tns="http://tempuri.org/" ' +
-                    'xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" ' +
-                    'xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" ' +
-                    'xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" ' +
-                    'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ' +
-                    'xmlns:xsd="http://www.w3.org/2001/XMLSchema" >'+
-                    '<SOAP-ENV:Body>' +
-                        '<mns:'+ method + ' xmlns:mns="urn:'+ urn +'" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">';
-        for (i = 0; i< parameters.length; i++){
-        	var current = parameters[i];
-        	soap_request = soap_request + '<'+current.name+' xsi:type="xs:'+current.type+'">'+current.value+'</'+current.name+'>';
-        }
 
-        soap_request = soap_request + '</mns:'+method+'>' +
-     								'</SOAP-ENV:Body>' +
-     							'</SOAP-ENV:Envelope>';
-                            // '<userWS xsi:type="xs:string">UsuarioLep</userWS>' +
-                            // '<passWS xsi:type="xs:string">Lep1234</passWS>' +
-                            // '<id_plataforma xsi:type="xs:int">3</id_plataforma>' +
-       //	console.log("Peticion: "+soap_request);
-       	//When the status of the request changes to ready, parse the received object.
+		//Build the SOAP request
+    var soap_request =  '<?xml version="1.0" encoding="UTF-8" standalone="no"?>' +
+      '<SOAP-ENV:Envelope ' + 
+          'xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" ' +
+          'xmlns:xs="http://www.w3.org/2001/XMLSchema" ' +
+          'xmlns:tns="http://tempuri.org/" ' +
+          'xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" ' +
+          'xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" ' +
+          'xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" ' +
+          'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ' +
+          'xmlns:xsd="http://www.w3.org/2001/XMLSchema" >'+ 
+          '<SOAP-ENV:Body>';
+		if (auth) {
+      soap_request =  soap_request +
+      '<mns:'+ method + ' xmlns:mns="urn:'+ urn +'" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">' +
+      '<userWS xsi:type="xs:string">'+atob(a)+'</userWS>' +
+      '<passWS xsi:type="xs:string">'+atob(b)+'</passWS>';
+        for (i = 0; i< parameters.length; i++){
+          var current = parameters[i];
+          soap_request = soap_request + '<'+current.name+' xsi:type="xs:'+current.type+'">'+current.value+'</'+current.name+'>';
+      };
+    } else {
+      soap_request = soap_request +
+      '<mns:'+ method + ' xmlns:mns="urn:'+ urn +'" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">';
+        for (i = 0; i< parameters.length; i++){
+          var current = parameters[i];
+          soap_request = soap_request + '<'+current.name+' xsi:type="xs:'+current.type+'">'+current.value+'</'+current.name+'>';
+        };
+    }
+                        
+    soap_request = soap_request + '</mns:'+method+'>' +
+                '</SOAP-ENV:Body>' +
+              '</SOAP-ENV:Envelope>';
+    
+      	//When the status of the request changes to ready, parse the received object.
        	xmlhttp.onreadystatechange = function() {
        		//When the request status is ready and the response has been received.
        		if (xmlhttp.readyState == 4){
@@ -107,8 +117,6 @@ angular.module('app')
 	};
 
 	return wsService;
-	// var parseResult = function(){
 
-	// };
 
 }]);

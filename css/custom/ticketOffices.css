@@ -33,11 +33,11 @@
 }
 
 .absolute-img-bottom {
-	margin-top: 270%;
+	margin-top: 260%;
 }
 @media only screen and (min-width: 1300px){
 	.absolute-img-bottom {
-		margin-top: 175%;
+		margin-top: 160%;
 	}
 }
 
@@ -52,7 +52,7 @@
 	}
 
 	.absolute-img-bottom {
-		margin-top: 165%;
+		margin-top: 160%;
 	}
 }
 

@@ -8,45 +8,25 @@ angular.module('app')
 
     $scope.home_news = [];
 
+    var drp = $('#departureDate');
+
+    $scope.show_departure = function(){
+
+    }
+
     $scope.home_images = [];
 
-    var img_home_params = [
-      {
-	      name: "userWS",
-	      type: "string",
-	      value: "UsuarioLep"
-	    },
-	    {
-	      name: "passWS",
-	      type: "string",
-	      value: "Lep1234"
-	    }
-    ]
-
-    var news_home_params = [
-      {
-	      name: "userWS",
-	      type: "string",
-	      value: "UsuarioLep"
-	    },
-	    {
-	      name: "passWS",
-	      type: "string",
-	      value: "Lep1234"
-	    }
-    ]
-
-    wsService.callService(wsdl_url_web, urn, "ImagenesHome",img_home_params).then(function(imgs){
+    wsService.callService(wsdl_url_web, urn, "ImagenesHome", [], true).then(function(imgs){
     	$scope.home_images = imgs;
     });
 
-    wsService.callService(wsdl_url_web, urn, "Noticias", news_home_params).then(function(news){
+    wsService.callService(wsdl_url_web, urn, "Noticias", [], true).then(function(news){
     	$scope.home_news = news;
     })
 
     $scope.dropdown_toggle = function(){
         $('#origin').dropdown("toggle");
-        //console.log($(".dropdown-toggle"));
+        ////console.log($(".dropdown-toggle"));
     }
 
     sessionStorage.clear();
@@ -103,16 +83,6 @@ angular.module('app')
     
   var localidadesDesde_parameters = [
     {
-      name: "userWS",
-      type: "string",
-      value: "UsuarioLep"
-    },
-    {
-      name: "passWS",
-      type: "string",
-      value: "Lep1234"
-    },
-    {
       name: "id_plataforma",
       type: "int",
       value: "3"
@@ -137,7 +107,7 @@ angular.module('app')
     //Call the web service and update the origins from the scope.
     if ($scope.origins.length == 0){
       display_modal();
-      wsService.callService(wsdl_url_wsConGps, urn, "LocalidadesDesdeWeb",localidadesDesde_parameters).then(function(origins){
+      wsService.callService(wsdl_url_wsConGps, urn, "LocalidadesDesdeWeb",localidadesDesde_parameters, true).then(function(origins){
         hide_modal();
         $scope.origins = origins;
       }, function(reason){
@@ -172,16 +142,6 @@ angular.module('app')
       }
     }
   })
-  /*var origin_dropdown = angular.element(document.querySelector('#origin'));
-  
-
-  $scope.$watch('origin_search', function(){
-    if($scope.origin_search.length == 1){
-      console.log(origin_dropdown);
-      console.log(origin_dropdown.dropdown());
-      origin_dropdown.dropdown();
-    } 
-  });*/
     //Function that check the availables destinations whenever the trip origin changes.
     $scope.checkDestinations = function(origin){
         $scope.params.origin = origin;
@@ -195,16 +155,6 @@ angular.module('app')
         	// var id_localidad = $scope.params.origin.ID_Localidad.toString();
           var getDestinations_params = [
             {
-              name: "userWS",
-              type: "string",
-              value: "UsuarioLep"
-            },
-            {
-              name: "passWS",
-              type: "string",
-              value: "Lep1234"
-            },
-            {
               name: "IdLocalidadOrigen",
               type: "int",
               value: $scope.params.origin.ID_Localidad.toString()
@@ -216,7 +166,7 @@ angular.module('app')
             }
           ];
           display_modal();
-          wsService.callService(wsdl_url,urn,"Localidadeshasta",getDestinations_params).then(function(destinations){
+          wsService.callService(wsdl_url,urn,"Localidadeshasta",getDestinations_params, true).then(function(destinations){
               $scope.destinations = destinations;
               hide_modal();
       	    }, function(reason){
@@ -254,23 +204,6 @@ angular.module('app')
     $scope.go = function ( path ) {
       $location.path( path );
     };
-    // tripService.getOriginsAngularWSDL().then(function(response){
-    //     console.log("Angular WSDL");
-    //     console.log(response);
-    // });
-
-    // console.log("Angular SOAP");
-    // tripService.prueba().then(function(response){
-    //     $scope.response = response;
-    //     console.log($scope.response);
-    // });
-
-    // console.log("Get Origins WSDL");
-    // tripService.getOriginsWSDL();
-
-
-    //$scope.origins = [];
-    //console.log("Get Origins SOAP");
 
     //Call the search web service and
     $scope.goSearch = function(){
@@ -300,20 +233,10 @@ angular.module('app')
   				tripService.setTripDestinationName($scope.params.destination.hasta);
           tripService.setOriginOffice($scope.params.origin.TieneBoleteria);
           tripService.setDestinationOffice($scope.params.destination.TieneBoleteria);
-          //console.log($scope.params.departureDate);
+          ////console.log($scope.params.departureDate);
   				tripService.setTripDeparture($scope.params.departureDate);
   				// tripService.searchTrips($scope.params.origin.ID_Localidad, $scope.params.destination.id_localidad_destino, $scope.params.departureDate.format("YYYYMMDD")).then(function(schedules)
           var listarHorarios_parameters = [
-            {
-              name: "userWS",
-              type: "string",
-              value: "UsuarioLep"
-            },
-            {
-              name: "passWS",
-              type: "string",
-              value: "Lep1234"
-            },
             {
               name: "IdLocalidadOrigen",
               type: "int",
@@ -342,7 +265,7 @@ angular.module('app')
           ];
           tripService.saveDepartureTrip();
           display_modal();
-          wsService.callService(wsdl_url_wsConGps, urn, "ListarHorarioscGPS", listarHorarios_parameters).then(function(schedules){ //"ListarHorarioscGPS"
+          wsService.callService(wsdl_url_wsConGps, urn, "ListarHorarioscGPS", listarHorarios_parameters, true).then(function(schedules){ //"ListarHorarioscGPS"
   						hide_modal();
               if (schedules.length > 0){
                 var trip = tripService.getDepartureTrip();
@@ -351,7 +274,7 @@ angular.module('app')
                 //guardar aca departure-trip
                 //tripService.saveDepartureTrip();
   							tripService.setSchedules(schedules);
-                console.log(schedules);
+                //console.log(schedules);
   							$location.path('/schedules');
   						} else {
   							window.alert("No existen viajes para esa fecha");
@@ -387,20 +310,10 @@ angular.module('app')
         tripService.setTripDestinationId(dest_id.toString());
         tripService.setTripDestinationName(dest);
         tripService.setOriginOffice(orig_office);
-        //console.log($scope.params.departureDate);
+        ////console.log($scope.params.departureDate);
         tripService.setTripDeparture(dDate);
         // tripService.searchTrips($scope.params.origin.ID_Localidad, $scope.params.destination.id_localidad_destino, $scope.params.departureDate.format("YYYYMMDD")).then(function(schedules)
         var listarHorarios_parameters = [
-          {
-            name: "userWS",
-            type: "string",
-            value: "UsuarioLep"
-          },
-          {
-            name: "passWS",
-            type: "string",
-            value: "Lep1234"
-          },
           {
             name: "IdLocalidadOrigen",
             type: "int",
@@ -429,7 +342,7 @@ angular.module('app')
         ];
         tripService.saveDepartureTrip();
         //alert(JSON.stringify(tripService.getDepartureTrip()));
-        wsService.callService(wsdl_url_wsConGps, urn, "ListarHorarioscGPS", listarHorarios_parameters).then(function(schedules){
+        wsService.callService(wsdl_url_wsConGps, urn, "ListarHorarioscGPS", listarHorarios_parameters, true).then(function(schedules){
             if (schedules.length > 0){
               //guardar aca departure-trip
               //tripService.saveDepartureTrip();
@@ -465,14 +378,20 @@ angular.module('app')
     }
 
     // Get the modal
+    
     var modal = document.getElementById('home-modal');
+    
 
     var display_modal = function(){
-      modal.style.display = "block";
+      if ($location.path() == "/home") {
+        modal.style.display = "block";
+      }
     }
 
     var hide_modal = function(){
-      modal.style.display = "none";
+      if ($location.path() == "/home") {
+        modal.style.display = "none";
+      }
     }
 
     $scope.load_origins();

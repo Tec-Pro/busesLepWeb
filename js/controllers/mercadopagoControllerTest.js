@@ -1,17 +1,17 @@
 angular.module('app')
-.controller('MercadopagoController', ['$scope', '$http', '$location', '$anchorScroll', 'wsService', 'localStorageService', 'tripService', function($scope,$http, $location, $anchorScroll, wsService, localStorageService, tripService){
+.controller('MercadopagoControllerTest', ['$scope', '$http', '$location', '$anchorScroll', 'wsService', 'localStorageService', 'tripService', function($scope,$http, $location, $anchorScroll, wsService, localStorageService, tripService){
 //https://webservices.buseslep.com.ar:443/WebServices/WSCobroMercadoPagoTest.dll/soap/IWSCobroMercadoPago
 	//https://webservices.buseslep.com.ar/WebServices/WSCobroMercadoPago.dll/wsdl/IWSCobroMercadoPago para poner en el soap client
 	//https://webservices.buseslep.com.ar:443/WebServices/WSCobroMercadoPago.dll/soap/IWSCobroMercadoPago //para poner en la wsdl_urn
-	var wsdl_url ="https://webservices.buseslep.com.ar/WebServices/WSCobroMercadoPagoTest.dll/wsdl/IWSCobroMercadoPago"; //"https://webservices.buseslep.com.ar:443/WebServices/WSCobroMercadoPagocTestyEnc.dll/soap/IWSCobroMercadoPago";
+	var wsdl_url ="https://webservices.buseslep.com.ar:443/WebServices/WSCobroMercadoPago.dll/soap/IWSCobroMercadoPago";  //"https://webservices.buseslep.com.ar:443/WebServices/WSCobroMercadoPagocTestyEnc.dll/soap/IWSCobroMercadoPago";
 	var urn = "";
 	wsMethod = "RealizarCobroMercadoPago";
 	$anchorScroll();
 	$scope.paymentMethod = [];
 
 	//Sets the test key.
-	Mercadopago.setPublishableKey("TEST-2e5d7d95-7cb8-48d3-8bd6-cfde1bc34254"); 
-	//TEST-2e5d7d95-7cb8-48d3-8bd6-cfde1bc34254
+	Mercadopago.setPublishableKey("TEST-2e5d7d95-7cb8-48d3-8bd6-cfde1bc34254");  
+	//TEST-2e5d7d95-7cb8-48d3-8bd6-cfde1bc34254 APP_USR-3f8dc194-8894-4d07-bb6c-b4a786a19c6c
 	
 	Mercadopago.getIdentificationTypes();
 
@@ -75,7 +75,7 @@ angular.module('app')
 	};
 
 	$scope.$watch('object.bin', function(){
-		if ($scope.object.bin.length == 6){
+		if ($scope.object.bin.length >= 14){
 			Mercadopago.getPaymentMethod($scope.object, function(status, pm_response){
 				//console.log(pm_response);
 				var form = document.querySelector('#pay');
@@ -84,7 +84,7 @@ angular.module('app')
             paymentMethod.setAttribute('name', "paymentMethodId");
             paymentMethod.setAttribute('type', "hidden");
             paymentMethod.setAttribute('value', pm_response[0].id);
-            //console.log(response[0].id);
+            //console.log(pm_response[0].id);
             form.appendChild(paymentMethod);
         } else {
             document.querySelector("input[name=paymentMethodId]").value = pm_response[0].id;
@@ -94,6 +94,7 @@ angular.module('app')
 				} else {
 					$scope.paymentMethod = pm_response[0];
 				}
+				//console.log($scope.paymentMethod);
 				if ($scope.paymentMethod.additional_info_needed.includes("issuer_id")){
 					Mercadopago.getIssuers($scope.paymentMethod.id, function(status, iss_response){
 						document.getElementById('inst_sel').disabled = true;
@@ -129,8 +130,6 @@ angular.module('app')
 							//console.log(inst_sel);
 							//$scope.installments = inst_response;
 							//console.log(inst_response);
-							//console.log($scope.installments);
-							//console.log($scope.installments.length);
 						} else {
 							inst_sel.disabled = true;
 						}
@@ -151,7 +150,7 @@ angular.module('app')
 			Mercadopago.getInstallments({"bin":$scope.object.bin.substring(0,6), "payment_method_id": $scope.paymentMethod.id, "amount":$scope.price,"issuer_id":$scope.issuer}, function(status, inst_response){
 				//console.log({"bin":$scope.object.bin.substring(0,6), "amount":$scope.price,"issuer_id":$scope.issuer});
 				//console.log(inst_response);
-				//console.log(inst_response);
+				////console.log(inst_response);
 						if (status == 200){
 							var inst_sel = document.getElementById('inst_sel');
 							remove_options(inst_sel);
@@ -163,13 +162,12 @@ angular.module('app')
 							}
 							//console.log(inst_sel);
 							inst_sel.disabled = false;
-							//console.log(inst_sel);
+							////console.log(inst_sel);
 							//$scope.installments = inst_response;
-							//console.log(inst_response);
-							//console.log($scope.installments);
-							//console.log($scope.installments.length);
+							////console.log(inst_response);
+							////console.log($scope.installments);
+							////console.log($scope.installments.length);
 						} else {
-							//console.log("Ehhh");
 							document.getElementById('inst_sel').disabled = true;
 						}
 				//$scope.$apply();
@@ -199,7 +197,6 @@ angular.module('app')
 	    	document.getElementById("error-modal-text").innerHTML = "Datos Incorrectos";
 		    error_modal.style.display = "block";
 	    }else{
-       	alert("all good" + response.id);
        	//console.log(response);
         var form = document.querySelector('#pay');
         var card = document.createElement('input');
@@ -215,7 +212,7 @@ angular.module('app')
       	var datosCompra = {description:"boletos",
 				external_reference: "boleto:"+idventa,
 				installments: parseInt(cuotas),
-				payer:{email: "test_user_64183349@testuser.com"},//"test_user_19653727@testuser.com"},//user_email},
+				payer:{email: user_email},//"test_user_64183349@testuser.com"},//user_email},
 				payment_method_id: $scope.paymentMethod.id,
 				token: response.id,
 				transaction_amount: parseInt($scope.price)
@@ -224,7 +221,7 @@ angular.module('app')
       	var datosCompra = {description:"precarga tarjeta",
 					external_reference: "recarga:"+idventa,
 					installments: parseInt(cuotas),
-					payer:{email: "test_user_64183349@testuser.com"},//"test_user_19653727@testuser.com"},//user_email},
+					payer:{email: user_email},//"test_user_19653727@testuser.com"},//user_email},
 					payment_method_id: $scope.paymentMethod.id,
 					token: response.id,
 					transaction_amount: parseInt($scope.price)
@@ -255,7 +252,7 @@ angular.module('app')
 					value: "3"
 			}]
 			display_load_modal();
-     	wsService.callService(wsdl_url, urn, wsMethod, wsParameters).then(function(response){
+     	wsService.callService(wsdl_url, urn, wsMethod, wsParameters, false).then(function(response){
 	     		//console.log(response);
 	     		hide_load_modal();
 	     		if (tripService.getPurchaseOrigin() == "0"){
@@ -333,3 +330,6 @@ angular.module('app')
   });*/
 
 }]);
+
+
+*/

@@ -29,16 +29,6 @@ angular.module('app')
 			alert("El campo código solo acepta dígitos.")
 		} else {
 			var validate_params = [
-				{
-		      name: "userWS",
-		      type: "string",
-		      value: "UsuarioLep"
-	    	},
-	    	{
-		      name: "passWS",
-		      type: "string",
-		      value: "Lep1234"
-	    	},
 	    	{
 	    		name:"Dni",
 	    		type: "int",
@@ -50,7 +40,7 @@ angular.module('app')
 	    		value: $scope.code
 	    	}
 			];
-			wsService.callService(wsdl_url_web, urn, method, validate_params).then(function(msg){
+			wsService.callService(wsdl_url_web, urn, method, validate_params, true).then(function(msg){
 				if (msg == -1) {
 					alert("Error al activar su cuenta, verifique que los datos sean correctos e intente nuevamente");
 				} else if (msg == 1) {

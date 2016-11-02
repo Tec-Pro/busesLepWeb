@@ -14,22 +14,10 @@ angular.module('app')
 	//NOTICIAS Y NOVEDADES
 	var wsdl_url ="https://webservices.buseslep.com.ar:443/WebServices/WSLepPaginaWeb.dll/soap/IWSLepPaginaWeb";
 	var urn = 'LepWebServiceIntf-ILepWebService';
-	var parameters = [
-    {
-      name: "userWS",
-      type: "string",
-      value: "UsuarioLep"
-    },
-    {
-      name: "passWS",
-      type: "string",
-      value: "Lep1234"
-    }];
-
-	wsService.callService(wsdl_url, urn, "Noticias", parameters).then(function(response){
+	wsService.callService(wsdl_url, urn, "Noticias", [], true).then(function(response){
     	$scope.noticias = response;
     });
-	wsService.callService(wsdl_url, urn, "Novedades", parameters).then(function(response){
+	wsService.callService(wsdl_url, urn, "Novedades", [], true).then(function(response){
         $scope.novedades = response;
     });
 
@@ -51,16 +39,6 @@ angular.module('app')
       var dni = localStorageService.get("user-lep") ? localStorageService.get("user-lep").dni : "";
     	var params = [
 	    {
-	      name: "userWS",
-	      type: "string",
-	      value: "UsuarioLep"
-	    },
-	    {
-	      name: "passWS",
-	      type: "string",
-	      value: "Lep1234"
-	    },
-	    {
 	      name: "TextoOpinion",
 	      type: "string",
 	      value: $scope.opinion
@@ -70,7 +48,7 @@ angular.module('app')
         type: "string",
         value: dni
       }];
-	    wsService.callService(wsdl_url, urn, "AgregarOpinion", params).then(function(response){
+	    wsService.callService(wsdl_url, urn, "AgregarOpinion", params, true).then(function(response){
         	if (response[0].Resul == 0){
 			        modal.style.display = "block";			     
               $scope.opinion = '';

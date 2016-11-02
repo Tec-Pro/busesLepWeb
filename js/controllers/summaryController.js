@@ -13,7 +13,7 @@ angular.module('app').controller('SummaryController', ['$scope', '$location', '$
 
 
   $scope.passengers = 1;
-  //console.log(localStorageService.get("user-lep").dni);
+  ////console.log(localStorageService.get("user-lep").dni);
   //
   $anchorScroll();
   /*$scope.trip = {
@@ -98,16 +98,6 @@ angular.module('app').controller('SummaryController', ['$scope', '$location', '$
 
     var add_reserve_parameters = [
           {
-            name: "userWS",
-            type: "string",
-            value: "UsuarioLep"
-          },
-          {
-            name: "passWS",
-            type: "string",
-            value: "Lep1234"
-          },
-          {
             name: "Dni",
             type: "string",
             value: localStorageService.get("user-lep").dni.toString()
@@ -183,7 +173,7 @@ angular.module('app').controller('SummaryController', ['$scope', '$location', '$
             value: "3"
           }
         ];
-      wsService.callService(wsdl_url, urn, "AgregarReserva", add_reserve_parameters).then(function(response){
+      wsService.callService(wsdl_url, urn, "AgregarReserva", add_reserve_parameters, true).then(function(response){
           if(response > 0){
               tripService.saveSellCode(response);
               tripService.saveTripPrice($scope.price * $scope.passengers);
@@ -197,7 +187,7 @@ angular.module('app').controller('SummaryController', ['$scope', '$location', '$
             $location.path('/endReserve'); 
           }
           if(response < 0){
-            console.log("problema al reservar");
+            //console.log("problema al reservar");
           }
       });
   }

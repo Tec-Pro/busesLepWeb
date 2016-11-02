@@ -5,16 +5,6 @@ angular.module('app')
     var urn = 'LepWebServiceIntf-ILepWebService';
     var service_parameters = [
       {
-        name: "userWS",
-        type: "string",
-        value: "UsuarioLep"
-      },
-      {
-        name: "passWS",
-        type: "string",
-        value: "Lep1234"
-      },
-      {
         name: "Dni",
         type: "int",
         value: localStorageService.get("user-lep").dni.toString()
@@ -30,11 +20,11 @@ angular.module('app')
     $scope.reserves = [];
     $scope.purchases = [];
 
-  wsService.callService(wsdl_url, urn, "ListarMisReserva",service_parameters).then(function(response){
+  wsService.callService(wsdl_url, urn, "ListarMisReserva",service_parameters, true).then(function(response){
     //alert(JSON.stringify(response));
     $scope.reserves = response;
   });
-  wsService.callService(wsdl_url, urn, "ListarMisCompras",service_parameters).then(function(response){
+  wsService.callService(wsdl_url, urn, "ListarMisCompras",service_parameters, true).then(function(response){
     $scope.ready = true;
     $scope.purchases = response;
   });
@@ -45,16 +35,6 @@ angular.module('app')
 
   $scope.cancelReserve = function (fecha) {
         var cancel_parameters = [
-          {
-            name: "userWS",
-            type: "string",
-            value: "UsuarioLep"
-          },
-          {
-            name: "passWS",
-            type: "string",
-            value: "Lep1234"
-          },
           {
             name: "DNI",
             type: "int",
@@ -71,7 +51,7 @@ angular.module('app')
             value: "3"
           }
         ];
-        wsService.callService(wsdl_url, urn, "AnularReservas", cancel_parameters).then(function(response){
+        wsService.callService(wsdl_url, urn, "AnularReservas", cancel_parameters, true).then(function(response){
           if (response != 1){
                 alert("No se ha podido cancelar la reserva");
           }

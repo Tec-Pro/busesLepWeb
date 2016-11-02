@@ -8,7 +8,7 @@ angular.module('app')
 
 
     $scope.$on('$routeChangeStart', function (scope, next, current) {
-        //console.log(next.$$route.controller);
+        ////console.log(next.$$route.controller);
         if(next == undefined)
             return;
         if(next.$$route == undefined)

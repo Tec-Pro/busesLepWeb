@@ -16,16 +16,6 @@ angular.module('app').controller('ScheduleController', ['$scope', '$location', '
     getReturnSchedules = function(){
 		var listarHorarios_parameters2 = [
           {
-            name: "userWS",
-            type: "string",
-            value: "UsuarioLep"
-          },
-          {
-            name: "passWS",
-            type: "string",
-            value: "Lep1234"
-          },
-          {
             name: "IdLocalidadOrigen",
             type: "int",
             value: $scope.origin_id
@@ -52,7 +42,7 @@ angular.module('app').controller('ScheduleController', ['$scope', '$location', '
           }
         ];
         display_loading_modal();
-        wsService.callService(wsdl_url_wsConGps, urn, "ListarHorarioscGPS", listarHorarios_parameters2).then(function(schedules){ //"ListarHorarioscGPS"
+        wsService.callService(wsdl_url_wsConGps, urn, "ListarHorarioscGPS", listarHorarios_parameters2, true).then(function(schedules){ //"ListarHorarioscGPS"
         	hide_loading_modal();
 			if (schedules.length > 0){
 				$scope.schedules = schedules;
@@ -79,17 +69,17 @@ angular.module('app').controller('ScheduleController', ['$scope', '$location', '
  		return schedule.ServicioPrestado === 'disponible';
  	}
 
- 	//console.log($scope.schedules.find(findSchedule));
- 	//console.log($scope.schedules.indexOf($scope.schedules.find(findSchedule)));
+ 	////console.log($scope.schedules.find(findSchedule));
+ 	////console.log($scope.schedules.indexOf($scope.schedules.find(findSchedule)));
 
 	var first_available = "row-"+$scope.schedules.indexOf($scope.schedules.find(findSchedule));
 
 /*	$scope.goTo = function(){
-		console.log(first_available);
+		//console.log(first_available);
 		var row = document.getElementById(first_available);
-		console.log(row);
-		console.log(row.offset)
-		console.log(document.body);
+		//console.log(row);
+		//console.log(row.offset)
+		//console.log(document.body);
 	};
 */
   	$scope.isRoundTrip = $scope.departure_trip.round_trip === 1;
@@ -124,16 +114,6 @@ angular.module('app').controller('ScheduleController', ['$scope', '$location', '
 	$scope.checkTravel = function(index){
 		parameters = [
 			{
-				name: "userWS",
-				type: "string",
-				value: "UsuarioLep"
-			},
-			{
-				name: "passWS",
-				type: "string",
-				value: "Lep1234"
-			},
-			{
 				name: "Id_Empresa",
 				type: "int",
 				value: $scope.schedules[index].Id_Empresa
@@ -151,7 +131,7 @@ angular.module('app').controller('ScheduleController', ['$scope', '$location', '
 		];
 		display_loading_modal();
 		$scope.travels = [];
-	    wsService.callService(wsdl_url_wsConGps, urn, "ConsultarRecorridoServicio", parameters).then(function(response){
+	    wsService.callService(wsdl_url_wsConGps, urn, "ConsultarRecorridoServicio", parameters, true).then(function(response){
 			$scope.travels = response;
 			display_travel_modal();
 			hide_loading_modal();
@@ -170,16 +150,6 @@ angular.module('app').controller('ScheduleController', ['$scope', '$location', '
 			return;
     	if (!$scope.params.departureDate.isSame($scope.departure_date)){
 	        var listarHorarios_parameters = [
-		        {
-		            name: "userWS",
-		            type: "string",
-		            value: "UsuarioLep"
-		        },
-		        {
-		            name: "passWS",
-		            type: "string",
-		            value: "Lep1234"
-		        },
 		        {
 		            name: "IdLocalidadOrigen",
 		            type: "int",
@@ -207,7 +177,7 @@ angular.module('app').controller('ScheduleController', ['$scope', '$location', '
 				}
         	];
         	display_loading_modal();
-	        wsService.callService(wsdl_url_wsConGps, urn, "ListarHorarioscGPS", listarHorarios_parameters).then(function(schedules){
+	        wsService.callService(wsdl_url_wsConGps, urn, "ListarHorarioscGPS", listarHorarios_parameters, true).then(function(schedules){
 				hide_loading_modal();
 				if (schedules.length > 0){
 					$scope.schedules = schedules;
@@ -227,46 +197,6 @@ angular.module('app').controller('ScheduleController', ['$scope', '$location', '
 			$scope.departure_date = $scope.params.departureDate;
     	}
     });
-
-	// parametersPrice = [
-	// 	{
-	// 		name: "userWS",
-	// 		type: "string",
-	// 		value: "UsuarioLep"
-	// 	},
-	// 	{
-	// 		name: "passWS",
-	// 		type: "string",
-	// 		value: "Lep1234"
-	// 	},
-	// 	{
-	// 		name: "ID_LocalidadOrigen",
-	// 		type: "int",
-	// 		value: $scope.origin_id
-	// 	},
-	// 	{
-	// 		name: "ID_LocalidadDestino",
-	// 		type: "int",
-	// 		value: $scope.destination_id
-	// 	}
-	// ]
-	// display_loading_modal();
-	// wsService.callService(wsdl_url_wsConGps, urn, 'ObtenerTarifaTramo', parametersPrice).then(function(tarifas){
-	// 	hide_loading_modal();
-	// 	console.log(tarifas);
- // 		result = tarifas.split("-");
- // 		$scope.goPrice = Number(result[0].trim().substring(7));
- // 		$scope.roundTripPrice = Number(result[1].trim().substring(13));
- // 	}, function(reason){
-	//     if (reason == "timeout"){
-	//         alert("Tiempo de respuesta agotado, verifique su conexión o intente más tarde.");
-	//     } else {
-	//     	alert("Error: "+reason+". Por favor, intente más tarde.");
-	//     }
-	//     hide_loading_modal();
- //    });
-
-	//riocuarto es id=10 cordoba plaza es id=1
 	//Date picker options
     $scope.dpOpts = {
         locale: {
@@ -304,15 +234,6 @@ angular.module('app').controller('ScheduleController', ['$scope', '$location', '
 
 	setScheduleGo = function(index){
 		var selectedSchedule = $scope.schedules[index];
-		/*scheduleService.setScheduleFirstDepartureDatetime(selectedSchedule.fechahora);
-		scheduleService.setScheduleFirstArrivalDatetime(selectedSchedule.FechaHoraLlegada);
-		scheduleService.setSchedulePrice($scope.goPrice);
-		scheduleService.setScheduleStatus(selectedSchedule.ServicioPrestado);
-		scheduleService.setScheduleDuration(selectedSchedule.DemoraViaje);
-		scheduleService.setScheduleDestinationId($scope.departure_trip.destination_id);
-		scheduleService.setScheduleOriginId($scope.departure_trip.origin_id);
-		scheduleService.setScheduleDestinationName($scope.departure_trip.destination_name);
-		scheduleService.setScheduleOriginName($scope.departure_trip.origin_name);*/
 		scheduleService.saveSchedule(selectedSchedule);
 	};
 
@@ -336,7 +257,6 @@ angular.module('app').controller('ScheduleController', ['$scope', '$location', '
   	var longitude = 0;
   	var map_modal = document.getElementById('map-modal');
   	$scope.showMap =  function(lat,lon){
-  		console.log("Hola");
   		latitude = Number(lat);
   		longitude = Number(lon);
   		var mapCenter = new google.maps.LatLng(latitude, longitude);

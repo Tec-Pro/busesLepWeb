@@ -9,6 +9,9 @@
 	  <!-- <base href="/"> -->
 	  <title>Buses Lep</title>
 
+	  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="/favicon.ico" type="image/x-icon">
+
 	  <!-- Bootstrap Core CSS -->
 	  <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -64,8 +67,8 @@
 	  <script src="https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js"></script>
 
 	  <!-- App code -->
-	  <!-- <script type="text/javascript" src="lep.min.js"></script> -->
-	  <script type="text/javascript" src="app.js"></script>
+<!-- 	  <script type="text/javascript" src="lep.min.js"></script> 
+ -->	  <script type="text/javascript" src="app.js"></script>
 
 	  <!-- Services -->
 	  <script type="text/javascript" src="js/services/tripService.js"></script>
@@ -180,16 +183,16 @@
 	            <div class="col-sm-7 col-md-7 visible-lg">
 	                <div class="row">
 	                    <div class=" font-normal2 padding-top10 col-sm-3 text-center visible-lg">
-	                        <img src="img/Iconos comunes/icono whatsapp.png" class="img-responsive" style="float:left;width:20px;height:20px;margin-left:30px"><span style="font-size:1em">351-2466600</span>
+	                        <img src="img/shared/whatsapp.png" class="img-responsive" style="float:left;width:20px;height:20px;margin-left:30px"><span style="font-size:1em">351-2466600</span>
 	                    </div>
 	                    <div class=" font-normal2 padding-top10 col-sm-4 text-center hidden-sm">
-	                        <img src="img/Iconos comunes/Icono Celular.png" style=" float:left; width:12px; height:19px;"><span style="font-size:1em"><a href="tel:0351-5696600" style="color:#666666">0351-5696600</a>, <a href="tel:0358-4219090" style="color:#666666">0358-4219090</a></span>
+	                        <img src="img/shared/phone.png" style=" float:left; width:12px; height:19px;"><span style="font-size:1em"><a href="tel:0351-5696600" style="color:#666666">0351-5696600</a>, <a href="tel:0358-4219090" style="color:#666666">0358-4219090</a></span>
 	                    </div>
 	                    <div class=" padding-top10 col-sm-1">
-	                        <a href="http://www.facebook.com/expresobuseslep" type="button" class="nav-style" style="background:#e6e6e6"><img src="img/Iconos comunes/Icono Facebook.png" style="width:20px;height:20px;margin-left:20px"></a>
+	                        <a href="http://www.facebook.com/expresobuseslep" type="button" class="nav-style" style="background:#e6e6e6"><img src="img/shared/facebook.png" style="width:20px;height:20px;margin-left:20px"></a>
 	                    </div>
 	                    <div class="font-normal2 padding-top10 col-sm-4 text-center">
-	                        <img src="img/Iconos comunes/Icono sobre.png" style="float:left;width:18px;height:12px;margin-top:6px;margin-left:20px;"><a href="mailto:expreso@buseslep.com.ar" style="color:grey"><span style="font-size:1em">expreso@buseslep.com.ar</span></a>
+	                        <img src="img/shared/mail.png" style="float:left;width:18px;height:12px;margin-top:6px;margin-left:20px;"><a href="mailto:expreso@buseslep.com.ar" style="color:grey"><span style="font-size:1em">expreso@buseslep.com.ar</span></a>
 	                    </div>
 	                </div>
 	            </div>
@@ -221,8 +224,8 @@
 	    <!-- Cover Image-->
 	   	<div id="cover" ng-controller="LoginCtrl" class="row no-mar-pad-bor row-top-margin15 lepStyle background-white hidden-xs" >
 	      <div>
-	        <a  href="" ng-click="go('/')" class="col-xs-6 "><img class="padding-top50  size-logo img-responsive left" ng-src="img/Iconos comunes/Isologo.png" alt="Buses Lep" ></a>
-	        <img class="padding-top45 col-xs-6 img-responsive no-margin" ng-src="img/Buses-Head.jpg" >
+	        <a  href="" ng-click="go('/')" class="col-xs-6 "><img class="padding-top50  size-logo img-responsive left" ng-src="img/shared/isologo.png" alt="Buses Lep" ></a>
+	        <img class="padding-top45 col-xs-6 img-responsive no-margin" ng-src="img/shared/index_header.jpg" >
 	        <!--<p class="col-xs-6 font-arial" style="padding-top:5%;text-align:center;font-size:180%;">
 	            Preocupate por otras cosas, <b> buses Lep </b> te lleva.
 	        </p>-->
@@ -358,24 +361,6 @@
 	      <!-- footer-->
 				<div id="footer" class="container-fluid lepStyle2" ng-controller="FooterCtrl">
 	      			<div class = "row" ng-show="user.dni != '' ">
-				        <!-- <div class="col-xs-12 col-sm-3 text-center h4-responsive" style="padding:10px"><strong>Noticias</strong>
-				            <div class=" text-center ">
-				                <ul class="unstyled">
-				                  <li style="list-style-type: none;" ng-repeat="noticia in noticias | limitTo:3">
-				                      <p ng-bind-html="noticia.Texto"></p><br>
-				                  </li>
-				              </ul>
-				            </div>
-				        </div> -->
-				       <!--  <div class="col-xs-12 col-sm-4 text-center h4-responsive" style="padding:10px"><strong>Novedades</strong>
-				            <div class=" text-center ">
-				                <ul class="unstyled">
-				                  <li style="list-style-type: none;" ng-repeat="novedad in novedades | limitTo:3">
-				                      <p>{{novedad.DescNovedad}}</p><br>
-				                  </li>
-				              </ul>
-				            </div>
-				        </div> -->
 			        	<div class="col-xs-12 col-sm-4 text-center h4-responsive" style="padding:10px"><strong>Novedades</strong>
 				            <div class=" text-center ">
 				                <div class="unstyled">
@@ -394,12 +379,6 @@
 				              </div>
 				            </div>
 				        </div>
-				        <!-- <div class="col-xs-12 col-sm-3 text-center h4-responsive" style="padding:10px">
-				            <div class=" text-center"><br><br>
-				                <p>Temperatura en Cordoba Capital <br>
-				                    <span class="h1-responsive">{{weather.temp}}°</span></p>
-				            </div>
-				        </div> -->
 				        <div  class="hidden-xs col-sm-4 text-center h4-responsive" style="padding:10px"><strong>Tu opinión nos interesa...</strong>
 				        	<form ng-submit="sendOpinion()">
 					           <textarea required ng-model="opinion" class="lep-form textarea" style="margin-left:10px"name="Opinion"></textarea>
@@ -436,20 +415,20 @@
 				                 <div class=" font-normal2 padding-top15 col-sm-3 col-xs-10 h5-responsive">
 				                 	<div class="row">
 				                 		<div class="col-xs-12">
-			                    		<img src="img/Iconos comunes/Icono Celular.png" style="width:12px;height:19px;margin-right:10px"><a href="tel:0351-5696600" style="color:white">0351-5696600</a>, <a href="tel:0358-4219090" style="color:white">0358-4219090</a>
+			                    		<img src="img/shared/phone.png" style="width:12px;height:19px;margin-right:10px"><a href="tel:0351-5696600" style="color:white">0351-5696600</a>, <a href="tel:0358-4219090" style="color:white">0358-4219090</a>
 		                    		</div>
 			                    </div>
 			                    <div class="row">
 			                   		<div class="col-xs-12">
-			                    		<img src="img/Iconos comunes/icono whatsapp.png" style="width:20px;height:20px;"><span>   351-2466600</span>
+			                    		<img src="img/shared/whatsapp.png" style="width:20px;height:20px;"><span>   351-2466600</span>
 			                    	</div>
 			                    </div>
 				                </div>
 				                <div class="font-normal2 padding-top15 col-sm-4 col-xs-10 h5-responsive">
-				                    <img src="img/Iconos comunes/icono posicionamiento pie.png" style="width:15px;height:17px;margin-right:10px;">Andres Dadone 850 - CP(5800) Río Cuarto
+				                    <img src="img/shared/footer_position.png" style="width:15px;height:17px;margin-right:10px;">Andres Dadone 850 - CP(5800) Río Cuarto
 				                </div>
 				                <div class="font-normal2 padding-top15 col-sm-3 col-xs-10 h5-responsive">
-				                    <img src="img/Iconos comunes/Icono sobre.png" style="width:18px;height:12px;margin-right:10px;"><a href="mailto:expreso@buseslep.com.ar" style="color:white">expreso@buseslep.com.ar</a>
+				                    <img src="img/shared/mail.png" style="width:18px;height:12px;margin-right:10px;"><a href="mailto:expreso@buseslep.com.ar" style="color:white">expreso@buseslep.com.ar</a>
 				                </div>
 				                <div class="col-xs-12 col-sm-1">
 				                   <button class="btn btn-default lepRed-bg lepWhite-color" type="button" style="margin:10px" ng-click="goCompanyContact()">Contacto</button>

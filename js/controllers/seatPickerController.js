@@ -14,38 +14,18 @@ angular.module('app').controller('SeatsController', ['$scope', '$location', '$an
     $scope.isRoundTrip = tripService.getDepartureTrip().round_trip === 1;
     $scope.seatsSelectedGo = [];
     $scope.seatsSelectedReturn = [];
-    const Occupied =  'img/occupied_seat.png';
-    const Free =  'img/free_seat.png';
-    const Selected = 'img/selected_seat.png';
-    const None = 'img/none_seat.png';
-    const Driver = 'img/driver_seat.png';
+    const Occupied =  'img/seatpicker/occupied_seat.png';
+    const Free =  'img/seatpicker/free_seat.png';
+    const Selected = 'img/seatpicker/selected_seat.png';
+    const None = 'img/seatpicker/none_seat.png';
+    const Driver = 'img/seatpicker/driver_seat.png';
 
     seatsWsCall(schedule.Id_Empresa,schedule.id_destino,schedule.cod_horario,trip.origin_id,trip.destination_id,true);
     if($scope.isRoundTrip){
         seatsWsCall(scheduleReturn.Id_Empresa,scheduleReturn.id_destino,scheduleReturn.cod_horario,trip.destination_id, trip.origin_id, false);
     }
-
-   /* $scope.noBack = function(event){
-        console.log(event.persisted);
-        if(event.persisted){
-            $location.path('/'); 
-        }
-    }*/
-
-    //$scope.noBack(event);
-
     function seatsWsCall(companyId,destintionId,scheduleCode,originId,destinationId,isGo){
         parameters = [
-        {
-            name: "userWS",
-            type: "string",
-            value: "UsuarioLep"
-        },
-        {
-            name: "passWS",
-            type: "string",
-            value: "Lep1234"
-        },
         {
             name: "IdEmpresa",
             type: "int",
@@ -76,8 +56,8 @@ angular.module('app').controller('SeatsController', ['$scope', '$location', '$an
             type: "int",
             value: "3"
         }]
-        wsService.callService(wsdl_url, urn, 'EstadoButacasPlantaHorario', parameters).then(function(response){
-            console.log(response);
+        wsService.callService(wsdl_url, urn, 'EstadoButacasPlantaHorario', parameters, true).then(function(response){
+            //console.log(response);
             if (response["length"] > 1){
                 if(isGo){
                     $scope.seatsArrGo = reallocateSeats(response);
@@ -233,16 +213,6 @@ angular.module('app').controller('SeatsController', ['$scope', '$location', '$an
     function autoPick(amount, go) {
         parametersPickSeat = [
         {
-            name: "userWS",
-            type: "string",
-            value: "UsuarioLep"
-        },
-        {
-            name: "passWS",
-            type: "string",
-            value: "Lep1234"
-        },
-        {
             name: "NroButaca",
             type: "int",
             value: "100"
@@ -268,9 +238,7 @@ angular.module('app').controller('SeatsController', ['$scope', '$location', '$an
             value: "3"
         }]
 
-        wsService.callService(wsdl_url,urn, 'SeleccionarButaca', parametersPickSeat).then(function(response){
-            //console.log(response);
-            console.log(response);
+        wsService.callService(wsdl_url,urn, 'SeleccionarButaca', parametersPickSeat, true).then(function(response){
             if(response == '-1'){
                 if(go == 1){
                     $scope.seatsSelectedGo.push("-");
@@ -288,7 +256,6 @@ angular.module('app').controller('SeatsController', ['$scope', '$location', '$an
     }
 
     $scope.toggleSeat = function(seat,position,isGo) {
-        //console.log(seat.seatNum);
         var isSelection = 0;
         var newImage = Free;
         var isIda = "1";
@@ -297,12 +264,12 @@ angular.module('app').controller('SeatsController', ['$scope', '$location', '$an
         }
         switch(seat.img) {
             case Free: // selecciona
-                console.log("free");
+                //console.log("free");
                    isSelection = 1;
                    newImage = Selected;
                 break;
             case Selected: // deselecciona
-                console.log("deselected");
+                //console.log("deselected");
                 isSelection = 0;
                 break;
              default: // seleccionado
@@ -310,16 +277,6 @@ angular.module('app').controller('SeatsController', ['$scope', '$location', '$an
                 break;
         }
         parametersPickSeat = [
-        {
-            name: "userWS",
-            type: "string",
-            value: "UsuarioLep"
-        },
-        {
-            name: "passWS",
-            type: "string",
-            value: "Lep1234"
-        },
         {
             name: "NroButaca",
             type: "int",
@@ -345,10 +302,8 @@ angular.module('app').controller('SeatsController', ['$scope', '$location', '$an
             type: "int",
             value: "3"
         }]
-        for (var j = 0; j < i; j++){
-            wsService.callService(wsdl_url,urn, 'SeleccionarButaca', parametersPickSeat).then(function(response){
-                //console.log(response);
-                console.log(response);
+        
+            wsService.callService(wsdl_url,urn, 'SeleccionarButaca', parametersPickSeat, true).then(function(response){
                 if(response == '1'){
                     if(isGo){
                         $scope.seatsArrGo[position].img = newImage;
@@ -376,7 +331,7 @@ angular.module('app').controller('SeatsController', ['$scope', '$location', '$an
                     }               
                 }
             });
-        }
+        
     };
 
     $scope.goBuy = function() {

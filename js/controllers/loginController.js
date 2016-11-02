@@ -5,16 +5,6 @@ angular.module('app')
    var urn = 'LepWebServiceIntf-ILepWebService';
    var parameters = [
     {
-      name: "userWS",
-      type: "string",
-      value: "UsuarioLep"
-    },
-    {
-      name: "passWS",
-      type: "string",
-      value: "Lep1234"
-    },
-    {
       name: "id_plataforma",
       type: "int",
       value: "3"
@@ -58,19 +48,16 @@ angular.module('app')
     $scope.login = function () {
         parameters.splice(2,0, {name: "DNI",type: "int",value: $scope.user.dni.toString()},
                                {name: "Pass",type: "string",value: $scope.user.pass}); //meto los parametros
-        wsService.callService(wsdl_url, urn, "login", parameters).then(function(origins){
-          //alert(JSON.stringify(origins));
+        wsService.callService(wsdl_url, urn, "login", parameters, true).then(function(origins){
           if (origins != null && origins[0] != null && origins[0].Email != null){
             $scope.user.name = origins[0].Nombre;
             $scope.user.lastname = origins[0].Apellido;
             $scope.user.email = origins[0].Email;
             localStorageService.set("user-lep", $scope.user);
-            //$location.path(localStorageService.get("BackTo"));
             localStorageService.set("rld", "yes");
             location.reload();
-            //localStorageService.set("BackTo","/");
           } else {
-                alert("DNI y/o contraseña incorrectos");
+            alert("DNI y/o contraseña incorrectos");
           }
         });
         parameters.splice(2,2); //saco los parametros
@@ -91,8 +78,7 @@ angular.module('app')
                                  {name: "Nombre",type: "string",value: $scope.user.name},
                                  {name: "Apellido",type: "string",value: $scope.user.lastname},
                                  {name: "Email",type: "string",value: $scope.user.email}); //meto los parametros
-          wsService.callService(wsdl_url, urn, "RegistrarUsuario", parameters).then(function(origins){
-            //alert(JSON.stringify(origins));
+          wsService.callService(wsdl_url, urn, "RegistrarUsuario", parameters, true).then(function(origins){
             if (origins != null && origins[0] != null){
               localStorageService.set("user-lep", $scope.user);
               localStorageService.set("BackTo", "/account/reserves");
@@ -116,7 +102,7 @@ angular.module('app')
                                  {name: "pas",type: "string",value: oldPass.pass},
                                  {name: "NuevaPass",type: "string",value: $scope.user.pass}
                                  ); //meto los parametros
-          wsService.callService(wsdl_url, urn, "ModificarContraseña", parameters).then(function(origins){
+          wsService.callService(wsdl_url, urn, "ModificarContraseña", parameters, true).then(function(origins){
             if (origins == 1) {
                 localStorageService.set("user-lep", $scope.user);
                 localStorageService.set("BackTo", "/account/update");
@@ -137,8 +123,7 @@ angular.module('app')
                                  {name: "Nombre",type: "string",value: $scope.user.name},
                                  {name: "Apellido",type: "string",value: $scope.user.lastname},
                                  {name: "Email",type: "string",value: $scope.user.email}); //meto los parametros
-          wsService.callService(wsdl_url, urn, "EditarPerfilCliente", parameters).then(function(origins){
-            //alert(JSON.stringify(origins));
+          wsService.callService(wsdl_url, urn, "EditarPerfilCliente", parameters, true).then(function(origins){
             if (origins != null && origins[0] != null){
               localStorageService.set("user-lep", $scope.user);
               localStorageService.set("BackTo", "/account/update");
@@ -155,8 +140,8 @@ angular.module('app')
     $scope.recoverPass = function ( ) {
         parameters.splice(2,0, {name: "Dni",type: "int",value: $scope.user.dni.toString()},
                               {name: "Email",type: "string",value: $scope.user.email}); //meto los parametros
-        wsService.callService(wsdl_url, urn, "RecuperarContrasena", parameters).then(function(origins){
-        console.log(origins);
+        wsService.callService(wsdl_url, urn, "RecuperarContrasena", parameters, true).then(function(origins){
+        //console.log(origins);
         if (origins == 1) {
           alert("Se ha enviado a su email la contraseña");
           localStorageService.set("BackTo", "/login");

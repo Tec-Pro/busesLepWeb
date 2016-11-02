@@ -26,16 +26,6 @@ angular.module('app')
 		var contact_parameters = 
 		[
 			{
-				name: "userWS",
-				type: "string",
-				value: "UsuarioLep"
-			},
-			{
-				name: "passWS",
-				type: "string",
-				value: "Lep1234"
-			},
-			{
 				name: "DNI",
 				type: "string",
 				value: $scope.contact.dni
@@ -62,7 +52,7 @@ angular.module('app')
 			}
 		];
 
-		wsService.callService(wsdl_url_web, urn, "AgregarContacto", contact_parameters).then(function(response){
+		wsService.callService(wsdl_url_web, urn, "AgregarContacto", contact_parameters, true).then(function(response){
             if (response[0].Resul == 1){
             	display_response_modal();
             	$scope.contact = {};

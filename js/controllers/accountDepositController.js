@@ -33,36 +33,26 @@ angular.module('app')
 
 	$scope.deposit_to_card = function(card, amount){
 		if (amount > 0){
-			var deposit_params = [
-				{
-			      name: "userWS",
-			      type: "string",
-			      value: "UsuarioLep"
-			    },
-			    {
-			      name: "passWS",
-			      type: "string",
-			      value: "Lep1234"
-			    },
-			    {
-			    	name: "NroTarjeta",
-			    	type: "string",
-			    	value: $scope.card.number
-			    },
-			    {
-			    	name: "Monto",
-			    	type: "double",
-			    	value: $scope.card.amount
-			    },
-			    {
-			      name: "id_plataforma",
-			      type: "int",
-			      value: "3"
-			    }
+		var deposit_params = [
+		    {
+		    	name: "NroTarjeta",
+		    	type: "string",
+		    	value: $scope.card.number
+		    },
+		    {
+		    	name: "Monto",
+		    	type: "double",
+		    	value: $scope.card.amount
+		    },
+		    {
+		      name: "id_plataforma",
+		      type: "int",
+		      value: "3"
+		    }
 			];
 			hide_modal();
 			display_loading_modal()
-			wsService.callService(wsdl_url, urn, method, deposit_params).then(function(msg){
+			wsService.callService(wsdl_url, urn, method, deposit_params, true).then(function(msg){
 				hide_loading_modal();
 				tripService.savePurchaseOrigin(1);
 				tripService.saveTripPrice($scope.card.amount);

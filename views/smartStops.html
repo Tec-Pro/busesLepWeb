@@ -1,11 +1,11 @@
 <div class="smart-stops-container">
-	<div ng-if="type == 0">
-		<div  class="row smart-stops-header">
+		<div class="row smart-stops-header">
 			<div class="col-xs-12" style="padding: 0;">
 				<img class="img-responsive" src="./img/smart_stops/header.png">
 				<!--<h1 class="text-center"><strong>ARRIBOS</strong></h1>-->
 			</div>
 		</div>
+	<div ng-if="type == 0">
 		<div class="row smart-stops-header table-header">
 			<div class="col-xs-11 col-xs-offset-1">
 				<div class="row">
@@ -27,35 +27,31 @@
 				</div>
 			</div>
 		</div>
-	</div>
-	<div ng-if="type == 1">
 		<div class="row smart-stops-table">
 			<div class="col-xs-11 col-xs-offset-1">
 				<div ng-repeat="arrival in arrivals" class="row">
 					<div class="col-xs-2">
-						<h3>{{arrival.arrival_time}}</h3>
+						<h3>{{arrival.FechaHoraLlegadaEstimado | lepHour}}<br>
+						<small>{{arrival.Estado | capitalize}} <div data-ng-show="arrival.MinutosDemora > 0"> de {{arrival.MinutosDemora}} minutos</div></small></h3>
 					</div>
 					<div class="col-xs-4">
-						<h3>{{arrival.from}}</h3>
+						<h3>{{arrival.Origen}}<br><small>{{arrival.Localidades}}</small></h3>
 					</div>
 					<div class="col-xs-2">
+						<h3>Buses Lep</h3>
 						<h3>{{arrival.company}}</h3>
 					</div>
 					<div class="col-xs-2">	
-						<h3>{{arrival.platform}}</h3>
+						<h3>{{arrival.Plataforma}}</h3>
 					</div>
 					<div class="col-xs-2">	
-						<h3>{{arrival.bus}}</h3>
+						<h3>{{arrival.Unidad}}</h3>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="row smart-stops-header">
-			<div class="col-xs-12" style="padding: 0;">
-				<img class="img-responsive" src="./img/smart_stops/header.png">
-				<!--<h1 class="text-center"><strong>PARTIDAS</strong></h1>-->
-			</div>
-		</div>
+	</div>
+	<div ng-if="type == 1">
 		<div class="row smart-stops-header table-header">
 			<div class="col-xs-11 col-xs-offset-1">
 				<div class="row">
