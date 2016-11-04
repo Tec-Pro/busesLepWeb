@@ -101,10 +101,10 @@
 						<div class="row">
 							<div class="col-xs-2 text-center">
 								<div data-ng-show="departure.MinutosDemora == 0" class="smart-stops-small">{{departure.Estado | capitalize}}</div>
-								<div class="smart-stops-small" data-ng-show="departure.MinutosDemora > 0">{{departure.Estado | capitalize}} de {{departure.MinutosDemora}} minutos</div>
+								<div class="smart-stops-small" data-ng-show="departure.MinutosDemora > 0"><p>{{departure.Estado | capitalize}} de {{departure.MinutosDemora}} minutos</p></div>
 							</div>
 							<div class="col-xs-5">
-								<div id="text" class="smart-stops-small text-left">{{departure.Localidades}}</div>
+								<p id="text" class="marquee smart-stops-small">{{departure.Localidades}}</p>
 							</div>
 						</div>
 					</div>
