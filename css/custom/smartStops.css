@@ -13,13 +13,10 @@
 .smart-stops-img {
 	position: absolute;
 	height: 50px;
-	margin-top: 10%;
 }
 
 .smart-stops-small{
 	font-size: 1.9em;
-  text-align: center;
-  line-height: 3.8em;
   display: block; /* Fallback for non-webkit */
   display: -webkit-box;
   max-width: 400px;
@@ -28,7 +25,6 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .smart-stops-text{
@@ -55,9 +51,8 @@
 
 .smart-stops-row {
 	border-bottom: 2px solid grey;
-	padding-top: 2.5%;
-	padding-bottom: 0.5%;
-	height: 200px;
+	margin-top: 5%;
+	margin-bottom: 0%;
 }
 
 .smart-stops-table {
@@ -66,9 +61,21 @@
 	background-color: white;
 }
 
+.smart-stops-state{
+	font-size: 1.9em;
+  line-height: 1.5em;
+  display: block; /* Fallback for non-webkit */
+  display: -webkit-box;
+  max-width: 400px;
+  height: 3.8em; /* Fallback for non-webkit */
+  margin: 0 auto;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 /* Make it a marquee */
 .marquee {
-    
     margin: 0 auto;
     overflow: hidden;
     white-space: nowrap;
@@ -79,5 +86,5 @@
 /* Make it move */
 @keyframes marquee {
     0%   { text-indent: 15em }
-    100% { text-indent: -45em }
+    100% { text-indent: -90em }
 }

@@ -32,10 +32,10 @@
 				<div ng-repeat="arrival in arrivals" class="row smart-stops-row" data-ng-class-odd="'odd-smart-stops-row'">
 					<div class="col-xs-2 text-center">
 						<div class="smart-stops-text">{{arrival.FechaHoraLlegadaEstimado | lepHour}}</div><br>
-						<div class="smart-stops-small" data-ng-show="arrival.MinutosDemora == 0">{{arrival.Estado | capitalize }}</div><div class="smart-stops-small" data-ng-show="arrival.MinutosDemora > 0">{{arrival.Estado | capitalize}} de {{arrival.MinutosDemora}} minutos</div>
+						<div class="smart-stops-small" data-ng-show="arrival.MinutosDemora == 0">{{arrival.Estado | capitalize }}</div><p class="smart-stops-small marquee" data-ng-show="arrival.MinutosDemora > 0">{{arrival.Estado | capitalize}} de {{arrival.MinutosDemora}} minutos</p>
 					</div>
 					<div class="col-xs-5">
-						<div class="text-center smart-stops-text">{{arrival.Origen}}<br><small class="smart-stops-small" id="text">{{arrival.Localidades}}</small></div>
+						<div class="text-center smart-stops-text">{{arrival.Origen}}<br><p id="text" class="marquee smart-stops-small">{{arrival.Localidades}}</p></div>
 					</div>
 					<div class="col-xs-2">
 						<img src="./img/shared/isologo.png" class="smart-stops-img img-responsive">
@@ -100,8 +100,8 @@
 					<div class="col-xs-12 smart-stops-second-text">
 						<div class="row">
 							<div class="col-xs-2 text-center">
-								<div data-ng-show="departure.MinutosDemora == 0" class="smart-stops-small">{{departure.Estado | capitalize}}</div>
-								<div class="smart-stops-small" data-ng-show="departure.MinutosDemora > 0"><p>{{departure.Estado | capitalize}} de {{departure.MinutosDemora}} minutos</p></div>
+								<div data-ng-show="departure.MinutosDemora == 0" class="smart-stops-state">{{departure.Estado | capitalize}}</div>
+								<div data-ng-show="departure.MinutosDemora > 0" class="smart-stops-state"><p>{{departure.Estado | capitalize}} de {{departure.MinutosDemora}} minutos</p></div>
 							</div>
 							<div class="col-xs-5">
 								<p id="text" class="marquee smart-stops-small">{{departure.Localidades}}</p>
