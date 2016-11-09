@@ -51,7 +51,7 @@
 
 .smart-stops-row {
 	border-bottom: 2px solid grey;
-	margin-top: 5%;
+	margin-top: 4%;
 	margin-bottom: 0%;
 }
 
@@ -87,4 +87,19 @@
 @keyframes marquee {
     0%   { text-indent: 15em }
     100% { text-indent: -90em }
+}
+
+@media only screen and (min-width: 2000px){
+	.smart-stops-state{
+		font-size: 2.5em;
+	}
+
+	.smart-stops-text{
+		font-size: 4.5em;
+	}
+
+	.smart-stops-small{
+		font-size: 2.5em;
+		max-width: 800px;
+	}
 }
