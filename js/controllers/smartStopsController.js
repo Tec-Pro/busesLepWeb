@@ -32,7 +32,11 @@ angular.module('app')
           cities.pop();
           cities.shift();
           var rep = cities.toString();
-          data[i].Localidades = cities.toString().replace(/,/g, " - ");
+          if (rep.length != 0){
+            data[i].Localidades = cities.toString().replace(/,/g, " - ");
+          } else {
+            data[i].Localidades = "Directo"
+          }
         }
         $scope.arrivals = data;  
       })
@@ -44,7 +48,11 @@ angular.module('app')
           cities.pop();
           cities.shift();
           var rep = cities.toString();
-          data[i].Localidades = cities.toString().replace(/,/g, " - ");
+          if (rep.length != 0){
+            data[i].Localidades = cities.toString().replace(/,/g, " - ");
+          } else {
+            data[i].Localidades = "Directo"
+          }
         }
         $scope.departures = data;
         
@@ -53,22 +61,22 @@ angular.module('app')
   } 
   
   caller();
-  setInterval(caller, 15000);
-  setInterval(interval, 14000);
+  setInterval(caller, 60000);
+  setInterval(interval, 55000);
 
   function interval(){
-    console.log($scope.begin);
     var length = 0;
     if ($scope.arrivals != undefined) {
       length = $scope.arrivals.length
     } else if ($scope.departures != undefined){
       length = $scope.departures.length
     }
-    console.log(length);
-    if ($scope.begin+parseInt($scope.amount) >= length){
-      $scope.begin = 0;
-    } else {
-      $scope.begin = $scope.begin + parseInt($scope.amount);
+    if ($scope.amount != undefined){
+      if ($scope.begin+parseInt($scope.amount) >= length){
+        $scope.begin = 0;
+      } else {
+        $scope.begin = $scope.begin + parseInt($scope.amount);
+      }
     }
   }
 

@@ -7,59 +7,62 @@
 		</div>
 	<div ng-if="type == 0">
 		<div class="row smart-stops-header table-header text-center">
-			<div class="col-xs-12">
+			<div class="col-xs-6">
 				<div class="row">
-					<div class="col-xs-2">
+					<div class="col-xs-4">
 						<h2>Llega</h2>
 					</div>
-					<div class="col-xs-5">
+					<div class="col-xs-8">
 						<h2>Desde</h2>
 					</div>
-					<div class="col-xs-2">
+				</div>
+			</div>
+			<div class="col-xs-6">
+				<div class="row">
+					<div class="col-xs-5">
 						<h2>Empresa</h2>
 					</div>
-					<div class="col-xs-2">	
+					<div class="col-xs-5">	
 						<h2>Plataforma</h2>
 					</div>
-					<div class="col-xs-1">	
+					<div class="col-xs-2">	
 						<h2>Coche</h2>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="row smart-stops-table">
-		<div class="col-xs-12">
+			<div class="col-xs-12">
 				<div ng-repeat="arrival in arrivals | limitTo: amount : begin" class="row smart-stops-row" data-ng-class-odd="'odd-smart-stops-row'" >
-					<div class="col-xs-12">
+					<div class="col-xs-6">
 						<div class="row">
-							<div class="col-xs-2 text-center">
+							<div class="col-xs-4 text-center">
 								<div class="smart-stops-text">{{arrival.FechaHoraLlegadaEstimado | lepHour }}</div>						
 							</div>
-							<div class="col-xs-5">
+							<div class="col-xs-8">
 								<div class="smart-stops-text text-center">{{arrival.Origen}}</div>
 							</div>
-							<div class="col-xs-2">
-								<img src="./img/shared/isologo.png" class="smart-stops-img img-responsive">
+						</div>
+						<div class="row smart-stops-second-text">
+							<div class="col-xs-4">
+								<div data-ng-show="arrival.MinutosDemora == 0" class="smart-stops-state text-center">{{arrival.Estado | capitalize}}</div>
+								<div data-ng-show="arrival.MinutosDemora > 0" class="smart-stops-state marquee"><p>{{arrival.Estado | capitalize}} de {{arrival.MinutosDemora}} minutos</p></div>
 							</div>
-							<div class="col-xs-2">	
-								<div class="smart-stops-text text-center">{{arrival.Plataforma}}</div>
-							</div>
-							<div class="col-xs-1">	
-								<div class="smart-stops-text text-center">{{arrival.Unidad}}</div>
+							<div class="col-xs-8">
+								<p id="text" class="marquee smart-stops-small">{{arrival.Localidades}}</p>
 							</div>
 						</div>
 					</div>
-					<br>
-					<br>
-					<br>
-					<div class="col-xs-12 smart-stops-second-text">
-						<div class="row">
-							<div class="col-xs-2 text-center">
-								<div data-ng-show="arrival.MinutosDemora == 0" class="smart-stops-state">{{arrival.Estado | capitalize}}</div>
-								<div data-ng-show="arrival.MinutosDemora > 0" class="smart-stops-state"><p>{{arrival.Estado | capitalize}} de {{arrival.MinutosDemora}} minutos</p></div>
-							</div>
+					<div class="col-xs-6 smart-stops-right">
+						<div class="row">						
 							<div class="col-xs-5">
-								<p id="text" class="marquee smart-stops-small">{{arrival.Localidades}}</p>
+								<img src="./img/shared/isologo.png" class="smart-stops-img img-responsive">
+							</div>
+							<div class="col-xs-5">	
+								<div class="smart-stops-text text-center">{{arrival.Plataforma}}</div>
+							</div>
+							<div class="col-xs-2">	
+								<div class="smart-stops-text text-center">{{arrival.Unidad}}</div>
 							</div>
 						</div>
 					</div>
@@ -69,21 +72,25 @@
 	</div>
 	<div ng-if="type == 1">
 		<div class="row smart-stops-header table-header text-center">
-			<div class="col-xs-12">
+			<div class="col-xs-6">
 				<div class="row">
-					<div class="col-xs-2">
+					<div class="col-xs-4">
 						<h2>Sale</h2>
 					</div>
-					<div class="col-xs-5">
+					<div class="col-xs-8">
 						<h2>Destino</h2>
 					</div>
-					<div class="col-xs-2">
+				</div>
+			</div>
+			<div class="col-xs-6">
+				<div class="row">
+					<div class="col-xs-5">
 						<h2>Empresa</h2>
 					</div>
-					<div class="col-xs-2">	
+					<div class="col-xs-5">	
 						<h2>Plataforma</h2>
 					</div>
-					<div class="col-xs-1">	
+					<div class="col-xs-2">	
 						<h2>Coche</h2>
 					</div>
 				</div>
@@ -92,65 +99,38 @@
 		<div class="row smart-stops-table">
 			<div class="col-xs-12">
 				<div ng-repeat="departure in departures | limitTo: amount : begin" class="row smart-stops-row" data-ng-class-odd="'odd-smart-stops-row'" >
-					<div class="col-xs-12">
+					<div class="col-xs-6">
 						<div class="row">
-							<div class="col-xs-2 text-center">
-								<div class="smart-stops-text">{{departure.SalidaEstimada}}</div>						
+							<div class="col-xs-4 text-center">
+								<div class="smart-stops-text">{{departure.SalidaEstimada}}</div>
 							</div>
-							<div class="col-xs-5">
+							<div class="col-xs-8">
 								<div class="smart-stops-text text-center">{{departure.destino}}</div>
 							</div>
-							<div class="col-xs-2">
-								<img src="./img/shared/isologo.png" class="smart-stops-img img-responsive">
-							</div>
-							<div class="col-xs-2">	
-								<div class="smart-stops-text text-center">{{departure.Plataforma}}</div>
-							</div>
-							<div class="col-xs-1">	
-								<div class="smart-stops-text text-center">{{departure.Unidad}}</div>
-							</div>
 						</div>
-					</div>
-					<br>
-					<br>
-					<br>
-					<div class="col-xs-12 smart-stops-second-text">
-						<div class="row">
-							<div class="col-xs-2 text-center">
-								<div data-ng-show="departure.MinutosDemora == 0" class="smart-stops-state">{{departure.Estado | capitalize}}</div>
-								<div data-ng-show="departure.MinutosDemora > 0" class="smart-stops-state"><p>{{departure.Estado | capitalize}} de {{departure.MinutosDemora}} minutos</p></div>
+						<div class="row smart-stops-second-text">
+							<div class="col-xs-4">
+								<div data-ng-show="departure.MinutosDemora == 0" class="smart-stops-state text-center">{{departure.Estado | capitalize}}</div>
+								<div data-ng-show="departure.MinutosDemora > 0" class="smart-stops-state marquee"><p>{{departure.Estado | capitalize}} de {{departure.MinutosDemora}} minutos</p></div>
 							</div>
-							<div class="col-xs-5">
+							<div class="col-xs-8">
 								<p id="text" class="marquee smart-stops-small">{{departure.Localidades}}</p>
 							</div>
 						</div>
 					</div>
-					<!-- <div class="row" data-ng-class-odd="'odd-smart-stops-row'">
-						<div class="col-xs-2 text-center">
-							<div class="smart-stops-text">{{departure.SalidaEstimada}}</div>						
-						</div>
-						<div class="col-xs-5">
-							<div class="smart-stops-text text-center">{{departure.destino}}</div>
-						</div>
-						<div class="col-xs-2">
-							<img src="./img/shared/isologo.png" class="smart-stops-img img-responsive">
-						</div>
-						<div class="col-xs-2">	
-							<div class="smart-stops-text text-center">{{departure.Plataforma}}</div>
-						</div>
-						<div class="col-xs-1">	
-							<div class="smart-stops-text text-center">{{departure.Unidad}}</div>
+					<div class="col-xs-6 smart-stops-right">
+						<div class="row">						
+							<div class="col-xs-5">
+								<img src="./img/shared/isologo.png" class="smart-stops-img img-responsive">
+							</div>
+							<div class="col-xs-5">	
+								<div class="smart-stops-text text-center">{{departure.Plataforma}}</div>
+							</div>
+							<div class="col-xs-2">	
+								<div class="smart-stops-text text-center">{{departure.Unidad}}</div>
+							</div>
 						</div>
 					</div>
-					<div ng-class="row smart-stops-row" data-ng-class-odd="'odd-smart-stops-row'" >
-						<div class="col-xs-2 text-center">
-							<div data-ng-show="departure.MinutosDemora == 0" class="smart-stops-small">{{departure.Estado | capitalize}}</div>
-							<div class="smart-stops-small">{{departure.Estado | capitalize}} </div><div data-ng-show="departure.MinutosDemora > 0" class="smart-stops-small"> de {{departure.MinutosDemora}} minutos</div>
-						</div>
-						<div class="col-xs-5">
-							<div id="text" class="smart-stops-small text-left">{{departure.Localidades}}</div>
-						</div>
-					</div> -->
 				</div> 
 			</div>
 		</div>

@@ -12,6 +12,7 @@
 
 .smart-stops-img {
 	position: absolute;
+	margin-left: 20%;
 	height: 50px;
 }
 
@@ -51,14 +52,18 @@
 
 .smart-stops-row {
 	border-bottom: 2px solid gray;
-	padding-top: 2%;
-	min-height: 150px;
+	padding-top: 1%;
+	min-height: 100px;
 }
 
 .smart-stops-table {
 	margin: 0;
 	height: 100%;
 	background-color: white;
+}
+
+.smart-stops-right {
+	padding-top: 1%;
 }
 
 .smart-stops-state{
@@ -80,13 +85,13 @@
     overflow: hidden;
     white-space: nowrap;
     box-sizing: border-box;
-    animation: marquee 15s linear infinite;
+    animation: marquee 20s linear infinite;
 }
 
 /* Make it move */
 @keyframes marquee {
-    0%   { text-indent: 20em }
-    100% { text-indent: -20em }
+    0%   { text-indent: 25em }
+    100% { text-indent: -25em }
 }
 
 @media only screen and (min-width: 2000px){
