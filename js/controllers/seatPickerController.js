@@ -57,7 +57,7 @@ angular.module('app').controller('SeatsController', ['$scope', '$location', '$an
             value: "3"
         }]
         wsService.callService(wsdl_url, urn, 'EstadoButacasPlantaHorario', parameters, true).then(function(response){
-            //console.log(response);
+            console.log(response);
             if (response["length"] > 1){
                 if(isGo){
                     $scope.seatsArrGo = reallocateSeats(response);
@@ -239,6 +239,7 @@ angular.module('app').controller('SeatsController', ['$scope', '$location', '$an
         }]
 
         wsService.callService(wsdl_url,urn, 'SeleccionarButaca', parametersPickSeat, true).then(function(response){
+            console.log(response)
             if(response == '-1'){
                 if(go == 1){
                     $scope.seatsSelectedGo.push("-");
@@ -250,7 +251,7 @@ angular.module('app').controller('SeatsController', ['$scope', '$location', '$an
                 }
             } else {
                 alert("Error: No hay asientos disponibles");
-                window["history"]["back"]();
+                $location.path("/schedules");
             }
         });
     }
