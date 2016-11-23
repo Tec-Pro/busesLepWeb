@@ -1,9 +1,10 @@
 .tour-row {
 	margin-bottom: 1%; 
-	padding-top: 1%;
+	padding-top: 2.5%;
 	padding-bottom:1%;
+	min-height: 90px;
 }
 
 .tour-first-row {
-	margin-top: 
+	margin-top: 0;
 }
