@@ -21,6 +21,8 @@ angular.module('app')
 		ticket_amount: 0
 	};
 
+	var origin_search = '';
+	var destination_search = '';
 	var origin_office = 0;
 	var destination_office = 0;
 	var trip_price = 0;
@@ -117,6 +119,12 @@ angular.module('app')
 			}
 			sessionStorage.setItem('selected_seats_return', JSON.stringify(selectedSeatsReturn));	
 		},
+		getOriginSearch: function(){
+			return origin_search;
+		},
+		getDestinationSearch: function(){
+			return destination_search;
+		},
 		getPurchaseOrigin: function () {
 			return sessionStorage.purchase_origin;
 		},
@@ -185,6 +193,12 @@ angular.module('app')
 		getTripPrice: function(){
 			return sessionStorage.trip_price;
 		},
+		getDepartureDate: function(){
+			return departure_trip.departure_date;
+		},
+		getReturnDate: function(){
+			return departure_trip.return_date;
+		},
 		getSellCode: function(){
 			return sessionStorage.sell_code;
 		},
@@ -205,6 +219,12 @@ angular.module('app')
 			//console.log(JSON.stringify(schedules));
 			sessionStorage.setItem('schedules', JSON.stringify(schedules));
 			//console.log(JSON.parse(sessionStorage.schedules));
+		},
+		setOriginSearch: function(val){
+			origin_search = val;
+		},
+		setDestinationSearch: function(val){
+			destination_search = val;
 		},
 		setRoundTrip: function(val) {
 			departure_trip.round_trip = val;
