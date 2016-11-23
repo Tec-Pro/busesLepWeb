@@ -8,16 +8,23 @@
 	border-top: 2px solid;
 	border-bottom: 2px solid;
 	border-color: #f7b24a;
+	font-size: 2em;
+	font-weight: bold;
 }
 
+.table-header h2 {
+	font-size: 1.1em;
+	font-weight: bold;
+}
 .smart-stops-img {
-	position: absolute;/* 
+	position: absolute;
+	margin-top:-15px;/* 
 	margin-left: 20%;
 	height: 50px; */
 }
 
 .smart-stops-small{
-	font-size: 1.5em;
+	font-size: 1.75em;
   display: block; /* Fallback for non-webkit */
   display: -webkit-box;
   max-width: 400px;
@@ -29,13 +36,13 @@
 }
 
 .smart-stops-text{
-	font-size: 3em;
+	font-size: 2.2em;
 	line-height: 100%;
-	font-weight: 800;
+	font-weight: 500;
 	display: block; /* Fallback for non-webkit */
   display: -webkit-box;
-  max-width: 400px;
-  height: 45px; /* Fallback for non-webkit */
+  /*max-width: 400px;*/
+  height: 35px; /* Fallback for non-webkit */
   margin: 0 auto;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -62,7 +69,7 @@
 .smart-stops-row {
 	border-bottom: 2px solid gray;
 	padding-top: 1%;
-	min-height: 100px;
+	min-height: 95px;
 }
 
 .smart-stops-table {
@@ -76,7 +83,8 @@
 }
 
 .smart-stops-state{
-	font-size: 1.5em;
+	color: #545353;
+	font-size: 1.75em;
   display: block; /* Fallback for non-webkit */
   display: -webkit-box;
   max-width: 400px;
@@ -89,6 +97,7 @@
 }
 
 .smart-stops-cities {
+	color: #545353;
     margin: 0 auto;
     overflow: hidden;
     white-space: nowrap;
