@@ -75,10 +75,7 @@ angular.module('app')
       destination_name: 'Ciudad Destino',
       departureDate: '',
       returnDate: ''
-    };
-
-    $scope.origin_search = '';
-    $scope.destination_search = '';
+    };   
     
   var localidadesDesde_parameters = [
     {
@@ -93,10 +90,14 @@ angular.module('app')
     $scope.params.returnDate= '';
   }
 
+  $scope.params.departureDate = tripService.getDepartureDate()
+  $scope.params.returnDate = tripService.getReturnDate()
   $scope.load_origins = function(){
-
-    $scope.origin_search = '';
-    $scope.destination_search = '';
+    console.log(tripService.getOriginSearch())
+    console.log(tripService.getDestinationSearch())
+    console.log(tripService.getDepartureDate())
+    $scope.origin_search = tripService.getOriginSearch()
+    $scope.destination_search = tripService.getDestinationSearch()
     $scope.destinations = '';
     if($window.innerWidth >= 768){
       $anchorScroll('sticky-element');
@@ -270,6 +271,14 @@ angular.module('app')
                 var trip = tripService.getDepartureTrip();
                 $scope.searches.unshift({ goingDate: trip.departure_date, backDate: trip.return_date, goingCity_id:trip.origin_id, goingCity:trip.origin_name, goingCityOffice: $scope.params.origin.TieneBoleteria, backCity_id:trip.destination_id, backCity:trip.destination_name, status: false});
                 localStorageService.set("last-searches",JSON.stringify($scope.searches));
+                console.log("DESPUES DE BUSCAR")
+                console.log($scope.origin_search)
+                sessionStorage.origin_search = JSON.stringify($scope.origin_search);
+
+                sessionStorage.destination_search = JSON.stringify($scope.destination_search);
+                console.log($scope.destination_search)
+                tripService.setOriginSearch($scope.origin_search)
+                tripService.setDestinationSearch($scope.destination_search)
                 //guardar aca departure-trip
                 //tripService.saveDepartureTrip();
   							tripService.setSchedules(schedules);
@@ -309,6 +318,8 @@ angular.module('app')
         tripService.setTripDestinationId(dest_id.toString());
         tripService.setTripDestinationName(dest);
         tripService.setOriginOffice(orig_office);
+        tripService.setOriginSearch($scope.origin_search)
+        tripService.setDestinationSearch($scope.destination_search)
         ////console.log($scope.params.departureDate);
         tripService.setTripDeparture(dDate);
         // tripService.searchTrips($scope.params.origin.ID_Localidad, $scope.params.destination.id_localidad_destino, $scope.params.departureDate.format("YYYYMMDD")).then(function(schedules)
