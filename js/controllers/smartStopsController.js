@@ -29,8 +29,8 @@ angular.module('app')
         
         for (var i = data.length - 1; i >= 0; i--) {
           var cities = data[i].Localidades.split(" - ");
-          cities.pop();
-          cities.shift();
+          //cities.pop();
+          //cities.shift();
           var rep = cities.toString();
           if (rep.length != 0){
             data[i].Localidades = cities.toString().replace(/,/g, " - ");
@@ -45,17 +45,18 @@ angular.module('app')
         
         for (var i = data.length - 1; i >= 0; i--) {
           var cities = data[i].Localidades.split(" - ");
-          cities.pop();
-          cities.shift();
+          //cities.pop();
+          //cities.shift();
           var rep = cities.toString();
           if (rep.length != 0){
             data[i].Localidades = cities.toString().replace(/,/g, " - ");
           } else {
             data[i].Localidades = "Directo"
           }
+          console.log(data[i].destino)
+          console.log(data[i].Localidades.length)
         }
         $scope.departures = data;
-        
       })
     }      
   } 
