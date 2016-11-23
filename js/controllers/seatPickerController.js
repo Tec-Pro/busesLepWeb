@@ -240,7 +240,7 @@ angular.module('app').controller('SeatsController', ['$scope', '$location', '$an
 
         wsService.callService(wsdl_url,urn, 'SeleccionarButaca', parametersPickSeat, true).then(function(response){
             console.log(response)
-            if(response == '-1'){
+            if(response == '1'){
                 if(go == 1){
                     $scope.seatsSelectedGo.push("-");
                     tripService.saveSelectedSeatsGo($scope.seatsSelectedGo);
@@ -249,8 +249,11 @@ angular.module('app').controller('SeatsController', ['$scope', '$location', '$an
                     $scope.seatsSelectedReturn.push("-");
                     tripService.saveSelectedSeatsReturn($scope.seatsSelectedReturn);
                 }
-            } else {
-                alert("Error: No hay asientos disponibles");
+            } else if (response == '-1'){
+                alert("Error: Asientos ocupados");
+                $location.path("/schedules");
+            } else if (response == '-2'){
+                alert("Error: No hay asientos para seleccionar");
                 $location.path("/schedules");
             }
         });
