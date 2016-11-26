@@ -597,10 +597,15 @@ p.small{
     margin-top: 5px;
   }
 
+.info-bar-item {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 .lep-form {
   margin-top: 0.5em;
   display: block;
-  width: 140px;
+  width: 110px;
   height: 100%;
   padding: 6px 10px;
   font-size: 10px;
