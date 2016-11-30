@@ -21,10 +21,14 @@ angular.module('app')
 		ticket_amount: 0
 	};
 
+	var origin = '';
+	var destination = '';
 	var origin_search = '';
+	var origin_id = 0;
 	var destination_search = '';
 	var origin_office = 0;
 	var destination_office = 0;
+	var destination_id = 0;
 	var trip_price = 0;
 	var sell_code = -1;
 	var passengers = 1;
@@ -119,8 +123,20 @@ angular.module('app')
 			}
 			sessionStorage.setItem('selected_seats_return', JSON.stringify(selectedSeatsReturn));	
 		},
+		getOrigin : function(){
+			return origin;
+		},
 		getOriginSearch: function(){
 			return origin_search;
+		},
+		getOriginId: function(){
+			return origin_id;
+		},
+		getDestination : function(){
+			return destination;
+		},
+		getDestinationId: function(){
+			return destination_id;
 		},
 		getDestinationSearch: function(){
 			return destination_search;
@@ -225,6 +241,18 @@ angular.module('app')
 		},
 		setDestinationSearch: function(val){
 			destination_search = val;
+		},
+		setOrigin : function(val){
+			origin = val;
+		},
+		setOriginId: function(val){
+			origin_id = val;
+		},
+		setDestination : function(val){
+			destination = val;
+		},
+		setDestinationId: function(val){
+			destination_id = val;
 		},
 		setRoundTrip: function(val) {
 			departure_trip.round_trip = val;
