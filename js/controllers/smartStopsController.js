@@ -26,8 +26,8 @@ angular.module('app')
   function caller(){
     if ($scope.type == 0){      
       wsService["callService"](wsdl_url, urn, "HorariosProximosArribos", p, true).then(function(data){
-        
         for (var i = data.length - 1; i >= 0; i--) {
+          data[i].Origen = data[i].Origen.substr(data[i].Origen.indexOf("De") + 2 );
           var cities = data[i].Localidades.split(" - ");
           //cities.pop();
           //cities.shift();
@@ -42,8 +42,9 @@ angular.module('app')
       })
     } else if ($scope.type == 1){
         wsService["callService"](wsdl_url, urn, "HorariosProximaSalida", p, true).then(function(data){
-        
         for (var i = data.length - 1; i >= 0; i--) {
+          data[i].destino = data[i].destino.substr(data[i].destino.indexOf("A")+2);
+          data[i].SalidaEstimada = data[i].SalidaEstimada.substr(0,data[i].SalidaEstimada.indexOf("Hs"));
           var cities = data[i].Localidades.split(" - ");
           //cities.pop();
           //cities.shift();
@@ -53,8 +54,6 @@ angular.module('app')
           } else {
             data[i].Localidades = "Directo"
           }
-          console.log(data[i].destino)
-          console.log(data[i].Localidades.length)
         }
         $scope.departures = data;
       })
