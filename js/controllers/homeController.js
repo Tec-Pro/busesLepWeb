@@ -69,9 +69,9 @@ angular.module('app')
     //Current parameters of the trip.
     $scope.params = {
       today: moment(),
-      origin: '',
+      origin: {},
       origin_name: 'Ciudad Origen',
-      destination: '',
+      destination: {},
       destination_name: 'Ciudad Destino',
       departureDate: '',
       returnDate: ''
@@ -93,8 +93,14 @@ angular.module('app')
   $scope.params.departureDate = tripService.getDepartureDate()
   $scope.params.returnDate = tripService.getReturnDate()
   $scope.load_origins = function(){
+    /*console.log(tripService.getOriginId());
+    console.log(tripService.getDestinationId());*/
     $scope.origin_search = tripService.getOriginSearch()
     $scope.destination_search = tripService.getDestinationSearch()
+    $scope.params.origin.ID_Localidad = tripService.getOriginId();
+    $scope.params.destination.id_localidad_destino = tripService.getDestinationId();
+    /*console.log($scope.params.origin);
+    console.log($scope.params.destination);*/
     $scope.destinations = '';
     if($window.innerWidth >= 768){
       $anchorScroll('sticky-element');
@@ -260,16 +266,22 @@ angular.module('app')
               value: "3"
             }          
           ];
+          /*console.log($scope.params.origin);
+          console.log($scope.params.destination);*/
           tripService.saveDepartureTrip();
           display_modal();
+          //console.log(listarHorarios_parameters);
           wsService.callService(wsdl_url, urn, "ListarHorarioscGPS", listarHorarios_parameters, true).then(function(schedules){ //"ListarHorarioscGPS"
   						hide_modal();
+              //console.log(schedules);
               if (schedules.length > 0){
                 var trip = tripService.getDepartureTrip();
                 $scope.searches.unshift({ goingDate: trip.departure_date, backDate: trip.return_date, goingCity_id:trip.origin_id, goingCity:trip.origin_name, goingCityOffice: $scope.params.origin.TieneBoleteria, backCity_id:trip.destination_id, backCity:trip.destination_name, status: false});
                 localStorageService.set("last-searches",JSON.stringify($scope.searches));
-                tripService.setOriginSearch($scope.origin_search)
-                tripService.setDestinationSearch($scope.destination_search)
+                tripService.setOriginSearch($scope.origin_search);
+                tripService.setDestinationSearch($scope.destination_search);
+                tripService.setOriginId($scope.params.origin.ID_Localidad);
+                tripService.setDestinationId($scope.params.destination.id_localidad_destino);
                 //guardar aca departure-trip
                 //tripService.saveDepartureTrip();
   							tripService.setSchedules(schedules);
@@ -311,6 +323,8 @@ angular.module('app')
         tripService.setOriginOffice(orig_office);
         tripService.setOriginSearch($scope.origin_search)
         tripService.setDestinationSearch($scope.destination_search)
+        tripService.setOriginId($scope.params.origin.ID_Localidad);
+        tripService.setDestinationId($scope.params.destination.id_localidad_destino);
         ////console.log($scope.params.departureDate);
         tripService.setTripDeparture(dDate);
         // tripService.searchTrips($scope.params.origin.ID_Localidad, $scope.params.destination.id_localidad_destino, $scope.params.departureDate.format("YYYYMMDD")).then(function(schedules)
