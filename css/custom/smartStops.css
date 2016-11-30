@@ -5,13 +5,23 @@
 }  
 
 .smart-stops-container{
-	font-family: dinblack;
+
 }
 
 .smart-stops-header {
 	margin: 0;
 	color: white;
 	background-color: #00a1d6;
+}
+
+.smart-stops-header h2 {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.smart-stops-header h1 {
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 
 .table-header {
