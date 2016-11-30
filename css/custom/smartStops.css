@@ -13,6 +13,8 @@
 }
 
 .table-header h2 {
+	margin-top: 5px;
+	margin-bottom: 5px;
 	font-size: 1.1em;
 	font-weight: bold;
 }
@@ -27,7 +29,6 @@
 	font-size: 1.75em;
   display: block; /* Fallback for non-webkit */
   display: -webkit-box;
-  max-width: 400px;
   height: auto; /* Fallback for non-webkit */
   margin: 0 auto;
   -webkit-line-clamp: 2;
