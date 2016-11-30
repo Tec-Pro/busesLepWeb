@@ -14,9 +14,9 @@ angular.module('app').controller('DetailsController', ['$scope', '$location', '$
 	$scope.seatsSelectedGo = tripService.getSelectedSeatsGo();
 	$scope.seatsSelectedReturn = tripService.getSelectedSeatsReturn();
 	$anchorScroll();
+	
 	$scope.goMercadopagoBuy = function() {
 		tripService.savePurchaseOrigin(0);	    $location.path('/buy');	 
-	    //seat.img = '../img/occupied_seat.png'
 	};
 
 	$scope.goReserve= function() {

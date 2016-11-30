@@ -93,9 +93,6 @@ angular.module('app')
   $scope.params.departureDate = tripService.getDepartureDate()
   $scope.params.returnDate = tripService.getReturnDate()
   $scope.load_origins = function(){
-    console.log(tripService.getOriginSearch())
-    console.log(tripService.getDestinationSearch())
-    console.log(tripService.getDepartureDate())
     $scope.origin_search = tripService.getOriginSearch()
     $scope.destination_search = tripService.getDestinationSearch()
     $scope.destinations = '';
@@ -271,12 +268,6 @@ angular.module('app')
                 var trip = tripService.getDepartureTrip();
                 $scope.searches.unshift({ goingDate: trip.departure_date, backDate: trip.return_date, goingCity_id:trip.origin_id, goingCity:trip.origin_name, goingCityOffice: $scope.params.origin.TieneBoleteria, backCity_id:trip.destination_id, backCity:trip.destination_name, status: false});
                 localStorageService.set("last-searches",JSON.stringify($scope.searches));
-                console.log("DESPUES DE BUSCAR")
-                console.log($scope.origin_search)
-                sessionStorage.origin_search = JSON.stringify($scope.origin_search);
-
-                sessionStorage.destination_search = JSON.stringify($scope.destination_search);
-                console.log($scope.destination_search)
                 tripService.setOriginSearch($scope.origin_search)
                 tripService.setDestinationSearch($scope.destination_search)
                 //guardar aca departure-trip

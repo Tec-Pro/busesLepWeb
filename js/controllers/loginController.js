@@ -3,18 +3,18 @@ angular.module('app')
 
    var wsdl_url = 'https://webservices.buseslep.com.ar:443/WebServices/WebServiceLepCEnc.dll/soap/ILepWebService';
    var urn = 'LepWebServiceIntf-ILepWebService';
-   var parameters = [
-    {
-      name: "id_plataforma",
-      type: "int",
-      value: "3"
-    }]
 
    if(localStorageService.get("user-lep")){
-        $scope.user = localStorageService.get("user-lep");
+
+    $scope.user = localStorageService.get("user-lep");
+    if ($scope.user.remember == false){
+      if (moment().isAfter($scope.user.remember_exp, 'hour')){
+        $scope.user = {dni: "", pass: "", name: "", lastname: "", email: "", remember: ""};
+      }
+    }     
    } else {
-        $scope.user = {dni: "", pass: "", name: "", lastname: "", email: ""};
-    };
+        $scope.user = {dni: "", pass: "", name: "", lastname: "", email: "", remember: ""};
+  };
 
   //localStorageService.set("BackTo","/");
 
@@ -46,7 +46,41 @@ angular.module('app')
     };
 
     $scope.login = function () {
-        parameters.splice(2,0, {name: "DNI",type: "int",value: $scope.user.dni.toString()},
+        var parameters = [
+          {
+            name: "DNI", 
+            type: "int", 
+            value: $scope.login.dni
+          },
+          {
+            name: "Pass",
+            type: "string",
+            value: $scope.login.pass
+          },
+          {
+            name: "id_plataforma",
+            type: "int",
+            value: "3"
+          }]
+        wsService.callService(wsdl_url,urn,"login", parameters, true).then(function(response){
+          if (response != null && response[0] != null && response[0].Email != null){
+            $scope.user.dni = $scope.login.dni;
+            $scope.user.pass = $scope.login.pass;
+            $scope.user.name = response[0].Nombre;
+            $scope.user.lastname = response[0].Apellido;
+            $scope.user.email = response[0].Email;
+            $scope.user.remember = $scope.login.remember;
+            if (!$scope.login.remember){
+              $scope.user.remember_exp = moment();
+            }
+            localStorageService.set("user-lep", $scope.user);
+            localStorageService.set("rld", "yes");
+            location.reload();
+          } else if (response == "-1"){
+            alert("DNI y/o contraseña incorrectos");
+          }
+        });
+        /*parameters.splice(2,0, {name: "DNI",type: "int",value: $scope.user.dni.toString()},
                                {name: "Pass",type: "string",value: $scope.user.pass}); //meto los parametros
         wsService.callService(wsdl_url, urn, "login", parameters, true).then(function(origins){
           if (origins != null && origins[0] != null && origins[0].Email != null){
@@ -60,11 +94,11 @@ angular.module('app')
             alert("DNI y/o contraseña incorrectos");
           }
         });
-        parameters.splice(2,2); //saco los parametros
+        parameters.splice(2,2); //saco los parametros*/
     };
 
     $scope.logout = function ( ) {
-        $scope.user = {dni: "", pass: "", name: "", lastname: "", email: ""};
+        $scope.user = {dni: "", pass: "", name: "", lastname: "", email: "", remember: ""};
         localStorageService.set("user-lep", $scope.user);
         localStorageService.set("BackTo", "/");
         localStorageService.set("rld", "yes");
@@ -90,20 +124,45 @@ angular.module('app')
           });
           parameters.splice(2,5); //saco los parametros
         } else {
+          console.log($scope.user.pass)
+          console.log($scope.user.pass2)
           alert('Las contraseñas no coinciden');
         }
     };
 
     $scope.editPass = function ( ) {
-        if ($scope.user.pass.localeCompare($scope.user.pass2) == 0){
-          var oldPass = localStorageService.get("user-lep");
-          parameters.splice(2,0, {name: "Dni",type: "int",value: $scope.user.dni.toString()},
-                                 {name: "Email",type: "string",value: $scope.user.email},
-                                 {name: "pas",type: "string",value: oldPass.pass},
-                                 {name: "NuevaPass",type: "string",value: $scope.user.pass}
-                                 ); //meto los parametros
+      if ($scope.user.pass.localeCompare($scope.update.pass) == 0){
+        var parameters = [
+          {
+            name: "Dni", 
+            type: "int", 
+            value: $scope.user.dni
+          },
+          {
+            name: "Email", 
+            type: "string", 
+            value: $scope.user.email
+          },
+          {
+            name: "Pas",
+            type: "string",
+            value: $scope.user.pass
+          },
+          {
+            name: "NuevaPass", 
+            type: "string", 
+            value: $scope.update.new_pass
+          },
+          {
+            name: "id_plataforma",
+            type: "int",
+            value: "3"
+          }]        
+      
+        if ($scope.update.new_pass.localeCompare($scope.update.confirm_pass) == 0){
           wsService.callService(wsdl_url, urn, "ModificarContraseña", parameters, true).then(function(origins){
             if (origins == 1) {
+                $scope.user.pass = $scope.update.new_pass;
                 localStorageService.set("user-lep", $scope.user);
                 localStorageService.set("BackTo", "/account/update");
                 localStorageService.set("rld", "yes");
@@ -112,19 +171,43 @@ angular.module('app')
                 alert("No se ha podido editar la contraseña");
               }
           });
-          parameters.splice(2,4); //saco los parametros
         } else {
-          alert('Las contraseñas no coinciden');
+          alert('Error: La contraseña nueva y la repetida no coinciden');
         }
+      } else {
+        alert("Error: La contraseña actual ingresada no es correcta");
+      }
     };
 
-    $scope.editProfile = function ( ) {
-          parameters.splice(2,0, {name: "DNI",type: "int",value: $scope.user.dni.toString()},
-                                 {name: "Nombre",type: "string",value: $scope.user.name},
-                                 {name: "Apellido",type: "string",value: $scope.user.lastname},
-                                 {name: "Email",type: "string",value: $scope.user.email}); //meto los parametros
-          wsService.callService(wsdl_url, urn, "EditarPerfilCliente", parameters, true).then(function(origins){
-            if (origins != null && origins[0] != null){
+    $scope.editProfile = function () {
+      var parameters = [
+          {
+            name: "DNI", 
+            type: "int", 
+            value: $scope.user.dni
+          },
+          {
+            name: "Nombre",
+            type: "string",
+            value: $scope.user.name
+          },
+          {
+            name: "Apellido",
+            type: "string",
+            value: $scope.user.lastname
+          },
+          {
+            name: "Email",
+            type: "string",
+            value: $scope.user.email
+          },
+          {
+            name: "id_plataforma",
+            type: "int",
+            value: "3"
+      }]
+          wsService.callService(wsdl_url, urn, "EditarPerfilCliente", parameters, true).then(function(response){
+            if (response != null && response[0] != null){
               localStorageService.set("user-lep", $scope.user);
               localStorageService.set("BackTo", "/account/update");
               localStorageService.set("rld", "yes");
@@ -133,7 +216,6 @@ angular.module('app')
               alert("No se ha podido editar el perfil");
             }
           });
-          parameters.splice(2,4); //saco los parametros
     };
 
 

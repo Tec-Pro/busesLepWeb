@@ -15,73 +15,74 @@
             <a href="" ng-click="go('/account/update')">Modificar <span><strong class="lepBlue-color">Cuenta</strong><span></a></div>
         </div>
     </div> -->
-    <form class="row" ng-submit="editProfile()">
+    <form class="form" ng-submit="editProfile()">
         <!--DNI-->
-        <div class="col-xs-12">
-            <div class="row row-bottom-margin15">
-                <div class="col-xs-offset-1 col-sm-7 col-xs-10">
-                    <div class="row card">
-                        <div class = "col-xs-4 text-center row-top-margin5">
-                            <strong>DNI</strong>
-                        </div>
-                        <div class = "col-xs-8 text-center row-bottom-margin15">
-                            <p>{{user.dni}}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--APELLIDO Y DIRECCION-->
-            <div class="row row-bottom-margin15">
-                <div class="col-xs-offset-1 col-sm-7 col-xs-10">
-                    <div class="row card">
-                        <div class = "col-xs-4 text-center row-top-margin5">
-                            <strong>Apellido/s</strong>
-                        </div>
-                        <div class = "form-group col-xs-8 text-center row-bottom-margin15">
-                            <input type="text" class="lep-form" id="Apellido" placeholder="Apellido/s" required ng-model="user.lastname"/>
+        <div class="row">
+            <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+                <div class="row row-bottom-margin15">
+                    <div class="col-xs-offset-1 col-xs-10">
+                        <div class="row card">
+                            <div class = "col-xs-4 text-center row-top-margin5">
+                                <strong>DNI</strong>
+                            </div>
+                            <div class = "col-xs-8 text-center row-bottom-margin15">
+                                <p>{{user.dni}}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!--NOMBRE Y BARRIO-->
-            <div class="row row-bottom-margin15">
-                <div class="col-xs-offset-1 col-sm-7 col-xs-10">
-                    <div class="row card">
-                        <div class = "col-xs-4 text-center row-top-margin5">
-                            <strong>Nombre/s</strong>
-                        </div>
-                        <div class = "form-group col-xs-8 text-center row-bottom-margin15">
-                            <input type="text" class="lep-form" id="Nombre" placeholder="Nombre/s" required ng-model="user.name"/>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--EMAIL-->
-            <div class="row row-bottom-margin15">
-                <div class="col-xs-offset-1 col-sm-7 col-xs-10">
-                    <div class="row card">
-                        <div class = "col-xs-4 text-center row-top-margin5">
-                            <strong>E-mail</strong>
-                        </div>
-                        <div class = "form-group col-xs-8 text-center">
-                            <input type="text" class="lep-form" id="Email" placeholder="E-mail" required ng-model="user.email"/>
+                <!--APELLIDO Y DIRECCION-->
+                <div class="row row-bottom-margin15">
+                    <div class="col-xs-offset-1 col-xs-10">
+                        <div class="row card">
+                            <div class = "col-xs-4 text-center row-top-margin5">
+                                <strong>Apellido/s</strong>
+                            </div>
+                            <div class = "form-group col-xs-8 text-center row-bottom-margin15">
+                                <input type="text" class="form-control" id="Apellido" placeholder="Apellido/s" required ng-model="user.lastname"/>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!--PASS-->
-            <div class="row row-bottom-margin15">
-                <div class="col-xs-offset-1 col-xs-8 col-sm-2">
-                    <button type="button" id="cambiarBtn" class="btn btn-block lepRed-bg lepWhite-color">Cambiar contraseña</button>
+                <!--NOMBRE Y BARRIO-->
+                <div class="row row-bottom-margin15">
+                    <div class="col-xs-offset-1 col-xs-10">
+                        <div class="row card">
+                            <div class = "col-xs-4 text-center row-top-margin5">
+                                <strong>Nombre/s</strong>
+                            </div>
+                            <div class = "form-group col-xs-8 text-center row-bottom-margin15">
+                                <input type="text" class="form-control" id="Nombre" placeholder="Nombre/s" required ng-model="user.name"/>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-offset-1 col-xs-8 col-sm-2">
-                    <button class="btn btn-block lepRed-bg lepWhite-color" type="submit">Guardar cambios</button>
+                <!--EMAIL-->
+                <div class="row row-bottom-margin15">
+                    <div class="col-xs-offset-1 col-xs-10">
+                        <div class="row card">
+                            <div class = "col-xs-4 text-center row-top-margin5">
+                                <strong>E-mail</strong>
+                            </div>
+                            <div class = "form-group col-xs-8 text-center">
+                                <input type="text" class="form-control" id="Email" placeholder="E-mail" required ng-model="user.email"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--PASS-->
+                <div class="row row-bottom-margin15">
+                    <div class="col-xs-offset-1 col-xs-8 col-sm-3">
+                        <button type="button" id="cambiarBtn" class="btn btn-block lepRed-bg lepWhite-color">Cambiar contraseña</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-offset-1 col-xs-8 col-sm-3">
+                        <button class="btn btn-block lepRed-bg lepWhite-color" type="submit">Guardar cambios</button>
+                    </div>
                 </div>
             </div>
         </div>
-        
     </form>
 
     
@@ -97,23 +98,33 @@
             <h4>Cambiar contraseña</h4>
           </div>
           <div class="modal-body">
-            <div class="row">
-                <div class="col-xs-2">
-                    <p>Nueva Contraseña</p>
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-xs-2 col-xs-offset-1">
+                        <p>Contraseña Actual</p>
+                    </div>
+                    <div class="col-xs-6">
+                        <input type="password" class="form-control" placeholder="Nueva Contraseña" required ng-model="update.pass"/>
+                    </div>
                 </div>
-                <div class="col-xs-6">
-                    <input type="password" class="lep-form" placeholder="Nueva Contraseña" required ng-model="user.new_pass"/>
+                <div class="form-group">
+                    <div class="col-xs-2 col-xs-offset-1">
+                        <p>Nueva Contraseña</p>
+                    </div>
+                    <div class="col-xs-6">
+                        <input type="password" class="form-control" placeholder="Nueva Contraseña" required ng-model="update.new_pass"/>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-2">
-                    <p>Repetir Contraseña</p>
+                <div class="form-group">
+                    <div class="col-xs-2 col-xs-offset-1">
+                        <p>Repetir Contraseña</p>
+                    </div>
+                    <div class="col-xs-6">
+                        <input type="password" class="form-control" placeholder="Repetir Contraseña" required ng-model="update.confirm_pass"/>
+                    </div>
                 </div>
-                <div class="col-xs-6">
-                    <input type="password" class="lep-form" placeholder="Repetir Contraseña" required ng-model="user.pass2"/>
-                </div>
-            </div>
-            <button ng-click="editPass()" class="btn btn-default lepRed-bg lepWhite-color row-top-margin15" type="button">Confirmar</button>
+                <button ng-click="editPass()" class="btn btn-default lepRed-bg lepWhite-color row-top-margin15" type="button">Confirmar</button>
+            </form>
           </div>
         </div>
 
