@@ -1,7 +1,17 @@
+@font-face {
+  font-family: 'dinblack';
+  src: url('/fonts/dinblack-webfont.woff') format('woff'),  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+ 			url('/fonts/dinblack-webfont.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+}  
+
+.smart-stops-container{
+	font-family: dinblack;
+}
+
 .smart-stops-header {
 	margin: 0;
 	color: white;
-	background-color: #009bd1;
+	background-color: #00a1d6;
 }
 
 .table-header {
@@ -20,9 +30,10 @@
 }
 .smart-stops-img {
 	position: absolute;
-	margin-top:-15px;/* 
+	margin-top:-12.5px;/* 
 	margin-left: 20%;
 	height: 50px; */
+	max-width: 75%;
 }
 
 .smart-stops-small{

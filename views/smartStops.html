@@ -1,8 +1,13 @@
 <div class="smart-stops-container">
 		<div class="row smart-stops-header">
-			<div class="col-xs-12" style="padding: 0;">
-				<img ng-show="header" class="img-responsive" src="./img/smart_stops/header.png">
-				<h1 ng-show="!header" class="text-center"><strong ng-show="type==0">ARRIBOS</strong><strong ng-show="type==1">SALIDAS</strong></h1>
+			<div class="col-xs-4">
+				<h2>{{time}}</h2>
+			</div>
+			<div class="col-xs-4">			
+				<h1 class="text-center"><strong ng-show="type==0">ARRIBOS</strong><strong ng-show="type==1">SALIDAS</strong></h1>
+			</div>
+			<div class="col-xs-4">
+				<img class="img-responsive" src="./img/smart_stops/barra.png" style="margin-top: 2.5%;">
 			</div>
 		</div>
 	<div ng-if="type == 0">
@@ -90,7 +95,7 @@
 					<div class="col-xs-5">	
 						<h2>PLATAFORMA</h2>
 					</div>
-					<div class="col-xs-3">	
+					<div class="col-xs-3 text-right">	
 						<h2>COCHE</h2>
 					</div>
 				</div>
