@@ -97,8 +97,8 @@ angular.module('app')
     console.log(tripService.getDestinationId());*/
     $scope.origin_search = tripService.getOriginSearch()
     $scope.destination_search = tripService.getDestinationSearch()
-    $scope.params.origin.ID_Localidad = tripService.getOriginId();
-    $scope.params.destination.id_localidad_destino = tripService.getDestinationId();
+    $scope.params.origin = tripService.getOrigin();
+    $scope.params.destination = tripService.getDestination();
     /*console.log($scope.params.origin);
     console.log($scope.params.destination);*/
     $scope.destinations = '';
@@ -282,6 +282,8 @@ angular.module('app')
                 tripService.setDestinationSearch($scope.destination_search);
                 tripService.setOriginId($scope.params.origin.ID_Localidad);
                 tripService.setDestinationId($scope.params.destination.id_localidad_destino);
+                tripService.setOrigin($scope.params.origin);
+                tripService.setDestination($scope.params.destination);
                 //guardar aca departure-trip
                 //tripService.saveDepartureTrip();
   							tripService.setSchedules(schedules);
@@ -359,6 +361,8 @@ angular.module('app')
         //alert(JSON.stringify(tripService.getDepartureTrip()));
         wsService.callService(wsdl_url, urn, "ListarHorarioscGPS", listarHorarios_parameters, true).then(function(schedules){
             if (schedules.length > 0){
+              tripService.setOrigin($scope.params.origin);
+              tripService.setDestination($scope.params.destination);
               //guardar aca departure-trip
               //tripService.saveDepartureTrip();
               tripService.setSchedules(schedules);
