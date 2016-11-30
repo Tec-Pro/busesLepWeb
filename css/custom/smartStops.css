@@ -26,7 +26,7 @@
 }
 
 .smart-stops-small{
-	font-size: 1.75em;
+	font-size: 1.6em;
   display: block; /* Fallback for non-webkit */
   display: -webkit-box;
   height: auto; /* Fallback for non-webkit */
@@ -85,7 +85,7 @@
 
 .smart-stops-state{
 	color: #545353;
-	font-size: 1.75em;
+	font-size: 1.6em;
   display: block; /* Fallback for non-webkit */
   display: -webkit-box;
   max-width: 400px;
