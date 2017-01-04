@@ -3,12 +3,11 @@
 
   if (typeof define === 'function' && define.amd) {
     define(['angular'], factory);
-  } else if (typeof exports === 'object') {
-    factory(require('angular'));
-    module.exports = 'ngStorage';
-  } else {
+  } else if (root.hasOwnProperty('angular')) {
     // Browser globals (root is window), we don't register it.
     factory(root.angular);
+  } else if (typeof exports === 'object') {
+    module.exports = factory(require('angular'));
   }
 }(this , function (angular) {
     'use strict';
