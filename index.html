@@ -182,29 +182,29 @@
 	    <!-- Info bar-->
 	    <div id="info-bar" class="container-fluid lepStyle hidden-xs navbar-fixed-top border-bottom-grey" style = "max-width: 1300px;">
 	        <div class="row" ng-controller="LoginCtrl">
-	        	<div class="col-sm-4 info-bar-item">
-                	<img src="img/shared/whatsapp.png" style="width:20px;height:20px; margin-right: 5px;">
-                    <span style="font-size:1em; margin-right: 25px">351-2466600</span>
-                    <img src="img/shared/phone.png" style="width:12px; height:19px; margin-right: 5px">
-                    <span style="font-size:1em; margin-right: 20px;">
+	        	<div class="col-sm-4 info-bar-item first-info">
+                	<img src="img/shared/whatsapp.png" class="info-bar-img" style="width:20px;height:20px;">
+                    <span>351-2466600</span>
+                    <img src="img/shared/phone.png" class="info-bar-img" style="width:12px; height:19px;">
+                    <span>
 	                    <a href="tel:0351-5696600" style="color:#666666">0351-5696600</a>, 
 	                    <a href="tel:0358-4219090" style="color:#666666">0358-4219090</a>
                     </span>
                     <a href="http://www.facebook.com/expresobuseslep" style="background:#e6e6e6">
-                    <img src="img/shared/facebook.png" style="width:20px;height:20px;">
+                    <img src="img/shared/facebook.png" class="info-bar-face">
                     </a>
 	        	</div>
-	        	<div class="col-sm-4 info-bar-item" style="width: 18%;">
+	        	<div class="col-sm-4 info-bar-item second-info">
 	        		<img src="img/shared/mail.png" style="width:18px;height:12px;">
-	        		<a href="mailto:expreso@buseslep.com.ar" style="color:grey"><span style="font-size:1em">expreso@buseslep.com.ar</span></a>
+	        		<a href="mailto:expreso@buseslep.com.ar" style="color:grey"><span>expreso@buseslep.com.ar</span></a>
 	        	</div>
-	        	<div class="col-sm-5" ng-show="user.dni == ''">
+	        	<div class="col-sm-5 third-info" ng-show="user.dni == ''">
 	        		<div class="row">
 	        			<form class="form" ng-submit="login()">
-		        			<div class="col-sm-8">
+		        			<div class="col-sm-7 info-bar-form">
 											<div class="row">
 												<div class="col-sm-3">
-													<div class="checkbox">
+													<div class="checkbox info-bar-item">
 														<label>
 															<input type="checkbox" name="" ng-model="login.remember" ng-init="login.remember = false">Recordar
 														</label>
@@ -219,8 +219,8 @@
 				        			</div>
 		        			</div>
 		        			<div class="col-sm-4 info-bar-item" >
-										<button class="button-link" href="" style="font-size:0.9em"><strong>Ingresar </strong></button> / 
-										<button class="button-link" ng-click="go('/signin')" type="button" style="font-size:0.9em"><strong>Registrarse</strong></button>
+										<button class="button-link" href=""><strong>Ingresar </strong></button> / 
+										<button class="button-link" ng-click="go('/signin')" type="button"><strong>Registrarse</strong></button>
 	              	</div>
               	</form>
               </div>
@@ -299,23 +299,36 @@
 	      <div class="container-fluid lepStyle ">
 	        <div class="navbar-header visible-xs navbar-fixed-top">
 	          <p class="navbar-brand-2 text-center sr-only">buses Lep</p>
-	          <button type="button" class="navbar-toggle collapsed pull-left nav-style " data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+	          <button type="button" class="navbar-toggle collapsed pull-left nav-style " data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" style="margin-right: 0;">
 	            <span class="sr-only">Toggle navigation</span>
 	            <span class="icon-bar"></span>
 	            <span class="icon-bar"></span>
 	            <span class="icon-bar"></span>
 	          </button>
-	          <div ng-controller="LoginCtrl" style="margin-bottom:10px" ng-show = "user.email == ''" href="">
-	            <form class="row" ng-submit="login()">
-	                <input type="text" class="lep-form col-xs-2" id="DNI" placeholder="DNI" required ng-model="user.dni"/>
-	                <input type="password" class="lep-form col-xs-2" id="Password" placeholder="Contraseña" required ng-model="user.pass"/>
-	                <div class="col-xs-4"style="margin-top:8px;">
-	                     <button class="button-link" ng-click="go('/signin')" type="submit" style="font-size:0.7em"><strong>Ingr.</strong></button> /
-	                     <button class="button-link" ng-click="go('/signin')" type="button" style="font-size:0.7em"><strong>Regist.</strong></button>
+	          <div ng-controller="LoginCtrl" style="margin-bottom:10px" ng-show = "user.dni == ''" href="">
+	            <form class="form" ng-submit="login()">
+		            	<div class="row">
+		            	<div class="col-xs-1">
+							<div class="checkbox">
+								<label style="font-size: 10px; line-height: 2;">
+									<input type="checkbox" name="" ng-model="login.remember" ng-init="login.remember = false" >Recordar
+								</label>
+							</div>
+						</div>
+						<div class="col-xs-1">
+		                	<input type="text" class="form-control lep-form" id="DNI" placeholder="DNI" required ng-model="login.dni"/>
+		                </div>
+		                <div class="col-xs-1">
+		                	<input type="password" class="form-control lep-form" id="Password" placeholder="Contraseña" required ng-model="login.pass"/>
+		                </div>
+		                <div class="col-xs-6"style="margin-top:8px;">
+		                     <button class="button-link" type="submit" style="font-size:0.7em"><strong>Ingr.</strong></button> /
+		                     <button class="button-link" ng-click="go('/signin')" type="button" style="font-size:0.7em"><strong>Regist.</strong></button>
+		                </div>
 	                </div>
 	            </form>
 	          </div>
-		      <div class="text-center" ng-controller="LoginCtrl" ng-show="user.email != '' " style="padding-top:13px; margin-bottom:5px">
+		      <div class="text-center" ng-controller="LoginCtrl" ng-show="user.dni != '' " style="padding-top:13px; margin-bottom:5px">
 		            <div class="row">
 		                <div class="col-xs-2" style="font-size:0.7em">
 		                    <p>Bienvenido, <span class="lepRed-color" ><strong>{{user.name}}</strong></span></p>

@@ -296,7 +296,8 @@ body {
 }
 
 .nav-style{
-    margin-left: 3%;
+    margin-left: 2%;
+    margin-bottom: 0%;
     border-style: none;
     float: left;
 }
@@ -598,14 +599,69 @@ p.small{
   }
 
 .info-bar-item {
+  font-size: 0.9em;
   margin-top: 10px;
   margin-bottom: 12.5px;
+  padding-right: 0px;
 }
+
+.info-bar-img {
+  margin-right: 1.2px;
+}
+
+.info-bar-face {
+  width: 18px;
+  height: 18px;
+}
+
+.first-info {
+  width: 33%;
+}
+
+.second-info {
+  width: 19%;
+}
+
+.third-info {
+  width: 48%;
+}
+
+.info-bar-form {
+  width: 60%;
+}
+@media screen and (min-width: 1440px){
+  .info-bar-item {
+    font-size: 1em;
+    margin-right: 20px;
+  }
+
+  .info-bar-img {
+    margin-right: 5px;
+  }
+
+  .info-bar-face {
+    width: 20px;
+    height: 20px;
+  }
+
+  .lep-form {
+    width: 110px;
+  }
+
+  .first-info {
+    width: 30%;
+  }
+  
+  .third-info {
+    width: 41.6666666%;
+  }
+}
+
 
 .lep-form {
   margin-top: 0.5em;
   display: block;
-  width: 110px;
+  width: 90px;
   height: 100%;
   padding: 6px 10px;
   font-size: 10px;
@@ -655,6 +711,9 @@ smaller than 650
   .lep-form {
     width: 70px;
     margin-left: 5px;
+    padding: 7px 10px;
+    margin-top: 8px;
+    margin-bottom: 8px;
   }
 
   .textarea{

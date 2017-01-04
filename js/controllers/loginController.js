@@ -46,6 +46,7 @@ angular.module('app')
     };
 
     $scope.login = function () {
+      console.log("CLICKED");
         var parameters = [
           {
             name: "DNI", 
@@ -63,6 +64,7 @@ angular.module('app')
             value: "3"
           }]
         wsService.callService(wsdl_url,urn,"login", parameters, true).then(function(response){
+          console.log(response);
           if (response != null && response[0] != null && response[0].Email != null){
             $scope.user.dni = $scope.login.dni;
             $scope.user.pass = $scope.login.pass;
