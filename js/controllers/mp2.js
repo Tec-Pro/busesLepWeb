@@ -1,11 +1,11 @@
 angular.module('app')
 .controller('MercadopagoController', ['$scope', '$location', 'wsService', 'localStorageService', 'tripService', function($scope, $location, wsService, localStorageService, tripService) {
 
-	var wsdl_url ="https://webservices.buseslep.com.ar:443/WebServices/WSCobroMercadoPago.dll/soap/IWSCobroMercadoPago";  //"https://webservices.buseslep.com.ar:443/WebServices/WSCobroMercadoPagocTestyEnc.dll/soap/IWSCobroMercadoPago";
+	var wsdl_url = "https://webservices.buseslep.com.ar/WebServices/WSCobroMercadoPagoTest1.dll/soap/IWSCobroMercadoPago"; //"https://webservices.buseslep.com.ar:443/WebServices/WSCobroMercadoPago.dll/soap/IWSCobroMercadoPago";  //"https://webservices.buseslep.com.ar/WebServices/WSCobroMercadoPagoTest.dll/wsdl/IWSCobroMercadoPago" "https://webservices.buseslep.com.ar:443/WebServices/WSCobroMercadoPagocTestyEnc.dll/soap/IWSCobroMercadoPago";
 	var urn = "";
 	wsMethod = "RealizarCobroMercadoPago";
-  //TEST-2d04b147-a22d-404e-8be3-670a81e57a03 APP_USR-3f8dc194-8894-4d07-bb6c-b4a786a19c6c
-	Mercadopago.setPublishableKey("TEST-2d04b147-a22d-404e-8be3-670a81e57a03");
+  //TEST-37595b1e-6198-4028-a1aa-2718cb145f7f APP_USR-3f8dc194-8894-4d07-bb6c-b4a786a19c6c
+	Mercadopago.setPublishableKey("TEST-88cffe14-afc5-4009-8443-89ea9e958094");
 	Mercadopago.getIdentificationTypes();
 
 	var price = tripService.getTripPrice();
@@ -262,14 +262,13 @@ angular.module('app')
 	    if(!doSubmit){
 	        var $form = document.querySelector('#pay');
 	        Mercadopago.createToken($form, sdkResponseHandler); // The function "sdkResponseHandler" is defined below
-
 	        return false;
 	    }
 	};
 
 	function sdkResponseHandler(status, response) {
+		console.log(response);
     if (status != 200 && status != 201) {
-    	//console.log(response);
       alert("Verifique los datos ingresados.");
     }else{
        
@@ -285,26 +284,27 @@ angular.module('app')
 
         if (tripService.getPurchaseOrigin() == "0") {
 	      	var datosCompra = {
+	      		binary_mode: true,
 	      		description:"boletos",
 						external_reference: "boleto:"+sell_code,
 						installments: parseInt(installments),
-						payer:{email: user_email},//"test_user_64183349@testuser.com"},//user_email},
+						payer:{email: "joakonat@gmail.com"},//"test_user_64183349@testuser.com"},//user_email},
 						payment_method_id: payment_method_id,
 						token: response.id,
 						transaction_amount: parseInt(price)
       		}
       	} else if (tripService.getPurchaseOrigin() == "1") {
-      	var datosCompra = {description:"precarga tarjeta",
+      	var datosCompra = {
+      		binary_mode: true,
+      		description:"precarga tarjeta",
 					external_reference: "recarga:"+idventa,
 					installments: parseInt(installments),
-					payer:{email: user_email},//"test_user_19653727@testuser.com"},//user_email},
+					payer:{email: "joakonat@gmail.com"},//"test_user_19653727@testuser.com"},//user_email},
 					payment_method_id: payment_method_id,
 					token: response.id,
 					transaction_amount: parseInt(price)
 		  	}
       }
-      //console.log(datosCompra);
-      //console.log(JSON.stringify(datosCompra));
       wsParameters = [
 				{
 					name: "UserCobro",
@@ -328,66 +328,82 @@ angular.module('app')
 			}]
 			display_load_modal();
      	wsService.callService(wsdl_url, urn, wsMethod, wsParameters, false).then(function(response){
-	     		//console.log(response);
+	     		console.log(response);
 	     		hide_load_modal();
 	     		if (tripService.getPurchaseOrigin() == "0"){
-	     			//console.log(response);
 	     			splittedResponse = response.split("{\"Cod_Impresion\":\"");
 	     			var codImpresion = -1;
 	       		if(splittedResponse[1] != undefined){
 	       			codImpresion = splittedResponse[1].replace("\"}","");
 	       		}
+	       		console.log(splittedResponse);
 	     		} else if (tripService.getPurchaseOrigin() == "1") {
 						splittedResponse = response.split("{Result\":\"");
-						//console.log(splittedResponse);
+						console.log(splittedResponse);
 					}
-   		var messageError = response;
-   		try {
-	    	switch(JSON.parse(splittedResponse[0]).status_detail) {
-		    	case "accredited": //Pago aprobado
-			    	if(tripService.getPurchaseOrigin() == "0") {
-			        $location.path('/endPurchase/' + codImpresion);
-			      } else if (tripService.getPurchaseOrigin() == "1"){
-			      	$location.path('/endDeposit');
-			      }
-		      break;
-		      case "pending_contingency": //Pago pendiente
-		          messageError="ERROR: Pago pendiente";
-		          break;
-		      case "cc_rejected_call_for_authorize": //Pago rechazado, llamar para autorizar.
-		          messageError="ERROR: Pago rechazado, llamar para autorizar.";
-		          break;
-		      case "cc_rejected_insufficient_amount": //Pago rechazado, saldo insuficiente.
-		          messageError="ERROR: Pago rechazado, saldo insuficiente.";
-		          break;
-		      case "cc_rejected_bad_filled_security_code": //Pago rechazado por código de seguridad.
-		          messageError="ERROR: Pago rechazado por código de seguridad.";
-		          break;
-		      case "cc_rejected_bad_filled_date": //Pago rechazado por fecha de expiración.
-		          messageError="ERROR: Pago rechazado por fecha de expiración.";
-		          break;
-		      case "cc_rejected_bad_filled_other": //Pago rechazado por error en el formulario
-		          messageError="ERROR: Pago rechazado por error en el formulario";
-		          break;
-		      default: //Pago rechazado
-		          messageError="ERROR";
-		          break;
-				}
+	   		var messageError = "";
+	   		try {
+	   			console.log(JSON.parse(splittedResponse[0]));
+		    	switch(JSON.parse(splittedResponse[0]).status_detail) {
+			    	case "accredited": //Pago aprobado
+				    	if(tripService.getPurchaseOrigin() == "0") {
+				        $location.path('/endPurchase/' + codImpresion);
+				      } else if (tripService.getPurchaseOrigin() == "1"){
+				      	$location.path('/endDeposit');
+				      }
+			      break;
+			      case "pending_contingency": //Pago pendiente
+			          messageError="ERROR: Pago pendiente de aprobación.";
+			          break;
+			      case "cc_rejected_call_for_authorize": //Pago rechazado, llamar para autorizar.
+			          messageError="ERROR: Pago rechazado, llame a su banco para autorizar.";
+			          break;
+			      case "cc_rejected_insufficient_amount": //Pago rechazado, saldo insuficiente.
+			          messageError="ERROR: Pago rechazado, saldo insuficiente.";
+			          break;
+			      case "cc_rejected_bad_filled_card_number": //Pago rechazado, error en el número de tarjeta.
+			      		messageError="ERROR: Pago rechazado, revisa el número de tarjeta."
+			      		break;
+			      case "cc_rejected_bad_filled_security_code": //Pago rechazado por código de seguridad.
+			          messageError="ERROR: Pago rechazado por error en el código de seguridad.";
+			          break;
+			      case "cc_rejected_bad_filled_date": //Pago rechazado por fecha de expiración.
+			          messageError="ERROR: Pago rechazado por error en la fecha de vencimiento.";
+			          break;
+			      case "cc_rejected_bad_filled_other": //Pago rechazado por error en el formulario
+			          messageError="ERROR: Pago rechazado por error en el formulario, verifique los datos ingresados.";
+			          break;
+			      case "cc_rejected_blacklist": //Pago rechazado por estar en lista negra
+			      		messageError="ERROR: El pago no pudo ser procesado, comuníquese con Mercadopago.";
+			      		break;
+			      case "cc_rejected_card_disabled": //Pago rechazado, tarjeta inhabilitada debe llamar al emisor.
+			      		messageError="ERROR: Tarjeta inhabilitada, llame a su banco para activarla.";
+			      		break;
+			      case "cc_rejected_card_error": //Pago rechazado por error de tarjeta.
+			      		messageError="ERROR: El pago no pudo ser procesado por un error de la tarjeta, comuníquse con su banco.";
+			      		break;
+			      case "cc_rejected_max_attempts": //Pago rechazado por llegar al máximo número de intentos.
+			      		messageError="ERROR: Llegaste al límite de intentos permitidos, por favor elige otra tarjeta o medio de pago."
+			      		break;
+			      default: //Pago rechazado por Mercadopago
+			          messageError="ERROR: Pago rechazado por Mercadopago.";
+			          break;
+					}
 
-				if(messageError != ""){
-      		document.getElementById("error-modal-text").innerHTML = messageError;
-      		error_modal.style.display = "block";
-      		//location.reload();
-      	}
-			} catch(err) {
-				document.getElementById("error-modal-text").innerHTML = splittedResponse[0];
-      	error_modal.style.display = "block";
-			}
+					if(messageError != ""){
+	      		document.getElementById("error-modal-text").innerHTML = messageError;
+	      		error_modal.style.display = "block";
+	      		//location.reload();
+	      	}
+				} catch(err) {
+					document.getElementById("error-modal-text").innerHTML = splittedResponse[0];
+	      	error_modal.style.display = "block";
+				}
 
   		});
 		}
-        //doSubmit=true;
-        //form.submit();
+    doSubmit=true;
+    //form.submit();
     
 	};
 }]);

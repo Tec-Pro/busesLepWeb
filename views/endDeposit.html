@@ -1,5 +1,6 @@
 <div ng-controller="EndController" class="text-center" >
-  <br>
+	<div class="row">
+	  <br>
     <h4 class="col-xs-12">¡Su recarga ha finalizado con éxito!</h4>
     
     <p class="no-marin-p">Ud. Recibirá un correo con la información de la recarga.</p>
@@ -7,5 +8,8 @@
 
     <p class="col-xs-12">Prodrá consultar el estado de la recarga a través de la opción "Consultar Saldo" dentro del menú "Mi Cuenta".</p>
     <br>
-      <button class="btn btn-default col-xs-12 " ng-click="go('/account/checkBalance')">Finalizar</button>    
+    <div class="col-xs-6 col-xs-offset-3">
+    	<button class="btn btn-default btn-block" onclick="location.href= 'https://www.buseslep.com.ar/account';">Finalizar</button>
+    </div>
+  </div>
 </div>
