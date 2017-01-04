@@ -35,14 +35,15 @@
 }
 
 .travel-list{
-    margin:0;
+    margin-left: 0%;
     width: 100%;
 }
 
 .travel-item { 
     padding-left: 1.4em; 
-    font-size: 25px;
+    font-size: 20px;
 }
+
 
 .travel-item-marker{
     color: red;
@@ -53,7 +54,25 @@
 }
 
 .travel-modal {
-    width: 40%;
+    width: 65%  ;
+}
+
+@media (min-width: 400px){
+    .travel-list {
+        margin-left: 15%;
+    }
+}
+
+@media (min-width: 500px){
+    .travel-list {
+        margin-left: 35%;
+    }
+}
+
+@media (min-width: 1000px){
+    .travel-list {
+        margin-left: 40%;
+    }
 }
 /*.travel-item-marker {
     color:red;
