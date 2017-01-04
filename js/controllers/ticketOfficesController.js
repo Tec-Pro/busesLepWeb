@@ -58,12 +58,12 @@ angular.module('app').controller('TicketOfficesController', ['$scope', '$locatio
   var breakpoint;
 	function check_width(){
 		if (window.innerWidth >= 2400){
-			breakpoint = 2300;
+			breakpoint = 3100;
 		}
 		else if (window.innerWidth >= 1300) {
-			breakpoint = 2350;
+			breakpoint = 3150;
 		} else {
-			breakpoint = 2600;
+			breakpoint = 3250;
 		}
 	}
 
@@ -76,7 +76,7 @@ angular.module('app').controller('TicketOfficesController', ['$scope', '$locatio
 	}
 
 	function reposition() {
-		if (window.scrollY +  image_container.height > breakpoint){
+		if (window.scrollY > breakpoint){
 			document.getElementById('img-container').className = 'col-md-offset-1 col-md-3 hidden-xs hidden-sm absolute-img absolute-img-bottom';
 		} else {
 			if (window.scrollY > image_container.top) {
