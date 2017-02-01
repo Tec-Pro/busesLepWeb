@@ -23,6 +23,14 @@ body {
     }
 }
 
+input, input:before, input:after {
+  -webkit-user-select: initial;
+  -khtml-user-select: initial;
+  -moz-user-select: initial;
+  -ms-user-select: initial;
+  user-select: initial;
+ } 
+
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -599,7 +607,7 @@ p.small{
   }
 
 .info-bar-item {
-  font-size: 0.9em;
+  font-size: 0.85em;
   margin-top: 10px;
   margin-bottom: 12.5px;
   padding-right: 0px;
