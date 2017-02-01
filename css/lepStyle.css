@@ -24,7 +24,7 @@ body {
 }
 
 input, textarea {
-  -webkit-user-select: text;
+  -webkit-user-select: text !important;
   -khtml-user-select: text;
   -moz-user-select: text;
   -ms-user-select: text;
