@@ -141,7 +141,7 @@
             </div>
             <div class="col-sm-3">
               <p>{{sched.DemoraViaje | limitTo: 5}} Hs</p>
-              <a class="no-bold blue hidden-sm" ng-click="checkTravel($index)" style="cursor:pointer;">Recorrido</a>
+              <a class="no-bold blue" ng-click="checkTravel($index)" style="cursor:pointer;">Recorrido</a>
             </div>
             <div class="col-sm-3">
               <h5 class = "no-bold" data-ng-class="{'red': sched.ServicioPrestado == 'en viaje' || sched.ServicioPrestado == 'completo', 'green': sched.ServicioPrestado == 'disponible', 'blue': sched.ServicioPrestado == 'en destino'}">{{sched.ServicioPrestado | capitalize}}</h5>
