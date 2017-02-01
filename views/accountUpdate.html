@@ -31,6 +31,18 @@
                         </div>
                     </div>
                 </div>
+                <div class="row row-bottom-margin15">
+                    <div class="col-xs-offset-1 col-xs-10">
+                        <div class="row card">
+                            <div class = "col-xs-4 text-center row-top-margin5">
+                                <strong>Nombre/s</strong>
+                            </div>
+                            <div class = "form-group col-xs-8 text-center row-bottom-margin15">
+                                <input type="text" class="form-control" id="Nombre" placeholder="Nombre/s" required ng-model="user.name"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <!--APELLIDO Y DIRECCION-->
                 <div class="row row-bottom-margin15">
                     <div class="col-xs-offset-1 col-xs-10">
@@ -40,19 +52,6 @@
                             </div>
                             <div class = "form-group col-xs-8 text-center row-bottom-margin15">
                                 <input type="text" class="form-control" id="Apellido" placeholder="Apellido/s" required ng-model="user.lastname"/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--NOMBRE Y BARRIO-->
-                <div class="row row-bottom-margin15">
-                    <div class="col-xs-offset-1 col-xs-10">
-                        <div class="row card">
-                            <div class = "col-xs-4 text-center row-top-margin5">
-                                <strong>Nombre/s</strong>
-                            </div>
-                            <div class = "form-group col-xs-8 text-center row-bottom-margin15">
-                                <input type="text" class="form-control" id="Nombre" placeholder="Nombre/s" required ng-model="user.name"/>
                             </div>
                         </div>
                     </div>
@@ -104,7 +103,7 @@
                         <p>Contraseña Actual</p>
                     </div>
                     <div class="col-xs-6">
-                        <input type="password" class="form-control" placeholder="Nueva Contraseña" required ng-model="update.pass"/>
+                        <input type="password" class="form-control" placeholder="Contraseña Actual" required ng-model="update.pass"/>
                     </div>
                 </div>
                 <div class="form-group">
