@@ -25,7 +25,6 @@ angular.module('app')
 
     $scope.dropdown_toggle = function(){
         $('#origin').dropdown("toggle");
-        ////console.log($(".dropdown-toggle"));
     }
 
     sessionStorage.clear();
@@ -93,14 +92,10 @@ angular.module('app')
   $scope.params.departureDate = tripService.getDepartureDate()
   $scope.params.returnDate = tripService.getReturnDate()
   $scope.load_origins = function(){
-    /*console.log(tripService.getOriginId());
-    console.log(tripService.getDestinationId());*/
     $scope.origin_search = tripService.getOriginSearch()
     $scope.destination_search = tripService.getDestinationSearch()
     $scope.params.origin = tripService.getOrigin();
     $scope.params.destination = tripService.getDestination();
-    /*console.log($scope.params.origin);
-    console.log($scope.params.destination);*/
     $scope.destinations = '';
     if($window.innerWidth >= 768){
       $anchorScroll('sticky-element');
@@ -236,7 +231,6 @@ angular.module('app')
   				tripService.setTripDestinationName($scope.params.destination.hasta);
           tripService.setOriginOffice($scope.params.origin.TieneBoleteria);
           tripService.setDestinationOffice($scope.params.destination.TieneBoleteria);
-          ////console.log($scope.params.departureDate);
   				tripService.setTripDeparture($scope.params.departureDate);
   				// tripService.searchTrips($scope.params.origin.ID_Localidad, $scope.params.destination.id_localidad_destino, $scope.params.departureDate.format("YYYYMMDD")).then(function(schedules)
           var listarHorarios_parameters = [
@@ -266,14 +260,10 @@ angular.module('app')
               value: "3"
             }          
           ];
-          /*console.log($scope.params.origin);
-          console.log($scope.params.destination);*/
           tripService.saveDepartureTrip();
           display_modal();
-          //console.log(listarHorarios_parameters);
           wsService.callService(wsdl_url, urn, "ListarHorarioscGPS", listarHorarios_parameters, true).then(function(schedules){ //"ListarHorarioscGPS"
   						hide_modal();
-              //console.log(schedules);
               if (schedules.length > 0){
                 var trip = tripService.getDepartureTrip();
                 $scope.searches.unshift({ goingDate: trip.departure_date, backDate: trip.return_date, goingCity_id:trip.origin_id, goingCity:trip.origin_name, goingCityOffice: $scope.params.origin.TieneBoleteria, backCity_id:trip.destination_id, backCity:trip.destination_name, status: false});
@@ -287,7 +277,6 @@ angular.module('app')
                 //guardar aca departure-trip
                 //tripService.saveDepartureTrip();
   							tripService.setSchedules(schedules);
-                //console.log(schedules);
   							$location.path('/schedules');
   						} else {
   							window.alert("No existen viajes para esa fecha");
@@ -305,10 +294,6 @@ angular.module('app')
     };
 
     $scope.goSearch2 = function(orig_id,dest_id,orig, orig_office, dest, dDate, rDate){
-      //if(moment().isAfter(moment(dDate, moment.ISO_8601),'day')){
-      //  alert("Este viaje ya caducó");
-      //}
-      //else{
         dDate = moment(dDate, moment.ISO_8601).format("YYYY-MM-DD");
         if (rDate != ''){
           tripService.setRoundTrip(1);
@@ -327,7 +312,6 @@ angular.module('app')
         tripService.setDestinationSearch($scope.destination_search)
         tripService.setOriginId($scope.params.origin.ID_Localidad);
         tripService.setDestinationId($scope.params.destination.id_localidad_destino);
-        ////console.log($scope.params.departureDate);
         tripService.setTripDeparture(dDate);
         // tripService.searchTrips($scope.params.origin.ID_Localidad, $scope.params.destination.id_localidad_destino, $scope.params.departureDate.format("YYYYMMDD")).then(function(schedules)
         var listarHorarios_parameters = [
@@ -358,7 +342,6 @@ angular.module('app')
           }          
         ];
         tripService.saveDepartureTrip();
-        //alert(JSON.stringify(tripService.getDepartureTrip()));
         wsService.callService(wsdl_url, urn, "ListarHorarioscGPS", listarHorarios_parameters, true).then(function(schedules){
             if (schedules.length > 0){
               tripService.setOrigin($scope.params.origin);
