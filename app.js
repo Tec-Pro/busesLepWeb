@@ -1,4 +1,4 @@
-angular.module("app", ["ngRoute","ngAnimate","LocalStorageModule","angularSoap","daterangepicker","ngSanitize", "ngStorage"])
+angular.module("app", ["ngRoute","ngAnimate","LocalStorageModule","angularSoap","daterangepicker","ngSanitize", "ngStorage",'ui.bootstrap'])
     .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider){
             $routeProvider
                 .when("/", {
