@@ -14,7 +14,7 @@
 						<div class="row">
 								<div class="col-xs-12">
 										<div class="form-group">
-											<input type="text" ng-model="origin_search" ng-click="load_origins()" uib-typeahead="origin.Localidad for origin in origins | filter:$viewValue |limitTo:8 " class="form-control search-menu-button" placeholder="Ciudad Origen" typehead-select-on-exact="true" typeahead-on-select="checkDestinations($item, $model, $label)" required="true">
+											<input type="text" ng-model="origin_search" ng-click="load_origins()" uib-typeahead="origin.Localidad for origin in origins | filter:$viewValue |limitTo:8 " class="form-control text-center search-menu-button" placeholder="Ciudad Origen" typehead-select-on-exact="true" reset-typeahead typeahead-min-length="0" typeahead-on-select="checkDestinations($item, $model, $label)" required="true" typeahead-popup-template-url="locationSearch.html">
 												<!-- <div class="dropdown">
 														<input ng-click="load_origins()" name="dropdown-toggle" data-ng-model=origin_search placeholder="Ciudad Origen" class="btn btn-default search-menu-button dropdown-toggle" id="origin" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false" required autocomplete="off">
 													<ul class="dropdown-menu dropdown-menu-right search-menu-items" aria-labelledby="origin">
@@ -28,7 +28,7 @@
 								<div class="col-xs-12">
 										<div class="form-group">
 												<label class="sr-only" for="destination">Destino:</label>
-												<input type="text" ng-model="destination_search" uib-typeahead="destination.hasta for destination in destinations | filter:$viewValue |limitTo:8 " class="form-control search-menu-button" placeholder="Ciudad Destino" typehead-select-on-exact="true" typeahead-on-select="setDestinationData($item, $model, $label)" required="true" ng-disabled="params.origin === ''">
+												<input type="text" ng-model="destination_search" uib-typeahead="destination.hasta for destination in destinations | filter:$viewValue |limitTo:8 " class="form-control text-center search-menu-button" placeholder="Ciudad Destino" typehead-select-on-exact="true" typeahead-on-select="setDestinationData($item, $model, $label)" required="true" reset-typeahead typeahead-min-length="0" ng-disabled="params.origin === ''" typeahead-popup-template-url="locationSearch.html">
 												<!-- <div class="dropdown">
 													<input name="dropdown-toggle" ng-click="destination_search=''" data-ng-model=destination_search placeholder="Ciudad Destino" ng-disabled = "params.origin === ''" class="btn btn-default search-menu-button dropdown-toggle" id="destination" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false" required autocomplete="off">
 													<ul class="dropdown-menu search-menu-items" aria-labelledby="origin">
@@ -228,3 +228,18 @@
 		</div>
 	</div>
 </div>
+
+<script type="text/ng-template" id="locationSearch.html">
+  <div class="custom-popup-wrapper"
+     ng-style="{top: position().top+'px', left: position().left+'px'}"
+     style="display: block; width: 92.5%;"
+     ng-show="isOpen() && !moveInProgress"
+     aria-hidden="{{!isOpen()}}">
+    <ul class="dropdown-menu dropdown-menu-right search-menu-items" role="listbox">
+      <li class="uib-typeahead-match search-menu-item" ng-repeat="match in matches track by $index" ng-class="{active: isActive($index) }"
+        ng-mouseenter="selectActive($index)" ng-click="selectMatch($index)" role="option" id="{{::match.id}}">
+        <div uib-typeahead-match index="$index" match="match" query="query" template-url="templateUrl"></div>
+      </li>
+    </ul>
+  </div>
+</script>
