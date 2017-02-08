@@ -14,19 +14,13 @@
 						<div class="row">
 								<div class="col-xs-12">
 										<div class="form-group">
-												<div class="dropdown">
-														<input type="text" ng-click="load_origins()" name="dropdown-toggle" data-ng-model=origin_search placeholder="Ciudad Origen" class="btn btn-default search-menu-button dropdown-toggle" id="origin" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false" required autocomplete="off">
-													<!-- <button class="btn btn-default search-menu-button dropdown-toggle" type="button" id="origin" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true">
-														{{params.origin_name}}
-													</button> -->
+											<input type="text" ng-model="origin_search" ng-click="load_origins()" uib-typeahead="origin.Localidad for origin in origins | filter:$viewValue |limitTo:8 " class="form-control search-menu-button" placeholder="Ciudad Origen" typehead-select-on-exact="true" typeahead-on-select="checkDestinations($item, $model, $label)" required="true">
+												<!-- <div class="dropdown">
+														<input ng-click="load_origins()" name="dropdown-toggle" data-ng-model=origin_search placeholder="Ciudad Origen" class="btn btn-default search-menu-button dropdown-toggle" id="origin" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false" required autocomplete="off">
 													<ul class="dropdown-menu dropdown-menu-right search-menu-items" aria-labelledby="origin">
 														<li><a href class= "search-menu-item" data-ng-repeat="origin in origins | filter:origin_search" data-ng-click="checkDestinations(origin)">{{origin.Localidad}}</a></li>
 													</ul>
-												</div>
-												<!-- <label class="sr-only" for="origin">Origen:</label>
-												<select class="search-text form-control" name="origin" id="origin" ng-model="params.origin" ng-change="checkDestinations()" ng-options="origin as origin.Localidad for origin in origins" required>
-														<option class="default-option" value="" selected><div class="background-darkgrey"> Origen </div></option>
-												</select> -->
+												</div> -->
 										</div>
 								</div>
 						</div>
@@ -34,15 +28,13 @@
 								<div class="col-xs-12">
 										<div class="form-group">
 												<label class="sr-only" for="destination">Destino:</label>
-												<div class="dropdown">
-													<input type="text" name="dropdown-toggle" ng-click="destination_search=''" data-ng-model=destination_search placeholder="Ciudad Destino" ng-disabled = "params.origin === ''" class="btn btn-default search-menu-button dropdown-toggle" id="destination" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false" required autocomplete="off">
+												<input type="text" ng-model="destination_search" uib-typeahead="destination.hasta for destination in destinations | filter:$viewValue |limitTo:8 " class="form-control search-menu-button" placeholder="Ciudad Destino" typehead-select-on-exact="true" typeahead-on-select="setDestinationData($item, $model, $label)" required="true" ng-disabled="params.origin === ''">
+												<!-- <div class="dropdown">
+													<input name="dropdown-toggle" ng-click="destination_search=''" data-ng-model=destination_search placeholder="Ciudad Destino" ng-disabled = "params.origin === ''" class="btn btn-default search-menu-button dropdown-toggle" id="destination" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false" required autocomplete="off">
 													<ul class="dropdown-menu search-menu-items" aria-labelledby="origin">
 														<li><a href class="search-menu-item" data-ng-repeat="destination in destinations | filter:destination_search" data-ng-click="setDestinationData(destination)">{{destination.hasta}}</a></li>
 													</ul>
-												</div>
-												<!-- <select class="search-text form-control" name="destination" id="destination" data-ng-model="params.destination" data-ng-disabled="destinationDisabled" data-ng-options="destination as destination.hasta for destination in destinations" data-ng-change="setDestinationData()" required>
-														<option value="" selected>Destino</option>
-												</select> -->
+												</div> -->
 										</div>
 								</div>
 						</div>
