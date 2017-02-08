@@ -7,12 +7,12 @@ angular.module('app')
 
     $scope.home_news = [];
 
-    var drp = $('#departureDate');
+/*    var drp = $('#departureDate');
 
     $scope.show_departure = function(){
 
     }
-
+*/
     $scope.home_images = [];
 
     wsService.callService(wsdl_url_web, urn, "ImagenesHome", [], true).then(function(imgs){
@@ -23,9 +23,9 @@ angular.module('app')
     	$scope.home_news = news;
     })
 
-    $scope.dropdown_toggle = function(){
+/*    $scope.dropdown_toggle = function(){
         $('#origin').dropdown("toggle");
-    }
+    }*/
 
     sessionStorage.clear();
     //Date picker options
@@ -108,6 +108,7 @@ angular.module('app')
       wsService.callService(wsdl_url, urn, "LocalidadesDesdeWeb",localidadesDesde_parameters, true).then(function(origins){
         hide_modal();
         $scope.origins = origins;
+        console.log(origins);
       }, function(reason){
         if (reason == "timeout"){
           alert("Tiempo de respuesta agotado, verifique su conexión o intente más tarde.");
@@ -123,9 +124,8 @@ angular.module('app')
     if (!($scope.origin_search == undefined)){
       if ($scope.origin_search.length >= 1 ){
         origin = $('#origin');
-        if (origin.attr("aria-expanded") == "false"){
           origin.dropdown('toggle');
-        } 
+        
       }
     }
   });
@@ -134,21 +134,19 @@ angular.module('app')
     if (!($scope.destination_search == undefined)){
       if ($scope.destination_search.length >= 1 ){
         destination = $('#destination');
-        if (destination.attr("aria-expanded") == "false"){
           destination.dropdown('toggle');
-        } 
       }
     }
   })
     //Function that check the availables destinations whenever the trip origin changes.
-    $scope.checkDestinations = function(origin){
-        $scope.params.origin = origin;
-        $scope.origin_search = origin.Localidad;
+    $scope.checkDestinations = function($item, $model, $label){
+        $scope.params.origin = $item;
+        $scope.origin_search = $item.Localidad;
       	//Enable the destination picker if the origin has been set.
       	$scope.destinationDisabled = ($scope.params.origin === '');
       	//Once the origin has been set, reload the possible destinations.
       	if ($scope.params.origin != ''){
-          $scope.params.origin_name = origin.Localidad;
+          $scope.params.origin_name = $item.Localidad;
         	//Call asynchronously the web service, through wsService, when it's ready, update the destinations in the scope.
         	// var id_localidad = $scope.params.origin.ID_Localidad.toString();
           var getDestinations_params = [
@@ -185,11 +183,11 @@ angular.module('app')
         $scope.params.destination_name = 'Ciudad Destino';
     };
 	
-  	$scope.setDestinationData = function(destination){
-      $scope.destination_search = destination.hasta;
-      $scope.params.destination = destination;
+  	$scope.setDestinationData = function($item, $model, $label){
+      $scope.destination_search = $item.hasta;
+      $scope.params.destination = $item;
 	  	if ($scope.params.destination != ''){
-        $scope.params.destination_name = destination.hasta;
+        $scope.params.destination_name = $item.hasta;
 		    tripService.setTripDestinationId($scope.params.destination.id_localidad_destino);
 		    tripService.setTripDestinationName($scope.params.destination.hasta);
 		  } else {

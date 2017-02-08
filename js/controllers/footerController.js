@@ -8,9 +8,13 @@ angular.module('app')
 						  tempMax: response.data.main.temp_max};
 	});*/
 	//FEED
-	feedService.parseFeed('http://www.lavoz.com.ar/rss.xml').then(function(res){
+  $http.get("https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20xml%20where%20url%20%3D%20'http%3A%2F%2Fwww.lavoz.com.ar%2Frss.xml'&format=json&diagnostics=true&callback=").then(function(response){
+    $scope.feeds = response.data.query.results.rss.channel.item;
+  });
+	/*feedService.parseFeed('http://www.lavoz.com.ar/rss.xml').then(function(res){
+    console.log(res);
 		$scope.feeds = res.data.responseData.feed.entries;
-	});
+	});*/
 	//NOTICIAS Y NOVEDADES
 	var wsdl_url ="https://webservices.buseslep.com.ar:443/WebServices/WSLepPaginaWeb.dll/soap/IWSLepPaginaWeb";
 	var urn = 'LepWebServiceIntf-ILepWebService';
