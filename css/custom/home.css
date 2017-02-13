@@ -260,6 +260,7 @@ p.home-news {
 
 .search-container .custom-popup-wrapper {
 	position: absolute;
+	border-radius: 10px;
 	top: 100%;
 	left: 0;
 	z-index: 1000;
@@ -274,13 +275,15 @@ p.home-news {
 }
 
 .search-container .custom-popup-wrapper > .dropdown-menu {
+	overflow: auto;
+	max-height: 300px;
 	position: static;
 	float: none;
 	display: block;
 	min-width: 160px;
 	background-color: transparent;
 	border: none;
-	border-radius: 0;
+	border-radius: 5px;
 	box-shadow: none;
 	padding: 0;
 	margin: 0;
@@ -298,6 +301,17 @@ p.home-news {
 	color:red;
 }
 
+.dropdown-menu>li>a {
+	padding-top: 2.5%;
+    padding-bottom: 2.5%;
+    border-bottom: 1px solid #cccccc;
+    background-color: #f2f2f2;
+}
+
+.dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover{
+	background-color: #f2f2f2;
+	color: #ff0000;
+}
 
 /*
 @media screen and (min-width: 768px) {

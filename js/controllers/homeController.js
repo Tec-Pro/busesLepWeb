@@ -27,6 +27,12 @@ angular.module('app')
         $('#origin').dropdown("toggle");
     }*/
 
+    $scope.dpDateOpen = false;
+
+    $scope.departureClick = function(){
+      $scope.dpDateOpen = true;
+    }
+
     sessionStorage.clear();
     //Date picker options
     $scope.dpOpts = {
@@ -108,7 +114,6 @@ angular.module('app')
       wsService.callService(wsdl_url, urn, "LocalidadesDesdeWeb",localidadesDesde_parameters, true).then(function(origins){
         hide_modal();
         $scope.origins = origins;
-        console.log(origins);
       }, function(reason){
         if (reason == "timeout"){
           alert("Tiempo de respuesta agotado, verifique su conexión o intente más tarde.");
